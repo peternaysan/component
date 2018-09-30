@@ -5,6 +5,7 @@
 --light-gray: #B1B1B1;
 --success: #32BEA6;
 --warning: #FF6262;
+--lightest-gray: #DFDFDF;
 }
 body {
     background: #F4F9FF;
@@ -12,13 +13,16 @@ body {
 body, h1, h2, h3, h4, h5, h6, p {
     font-family: 'Montserrat', sans-serif;
 }
-input[type="email"], input[type="text"], input[type="phone"] {
+input[type="email"], input[type="text"], input[type="phone"], select {
     border: 1px solid #E0E0E0;
     border-radius: 4px;
     padding: 6px 7px;
     width: 100%;
 }
-input[type="email"]:focus, input[type="text"]:focus, input[type="phone"]:focus {
+select {
+    height: 38px;
+}
+input[type="email"]:focus, input[type="text"]:focus, input[type="phone"]:focus, select:focus  {
     border: 1px solid var(--primary);
     outline: none;
     box-shadow: none;
@@ -45,6 +49,56 @@ i.mand {
     background: transparent;
     color: var(--primary);
 }
+.btn-secondary:hover {
+    background:  var(--primary) !important;
+    color: var(--white) !important;
+    border-color: transparent;
+}
 .btn-primary {
     box-shadow: 0 5px 8px rgba(4, 127, 231, 0.50);
+}
+.form-heading {
+    border-bottom: 1px solid var(--lightest-gray);
+    padding-bottom: 12px;
+    margin-bottom: 20px;
+}
+.content-box {
+    padding: 20px;
+    margin: 0 30px 40px;
+    background: var(--white);
+    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+}
+.nodata-message {
+    color: var(--light-gray);
+}
+.dropdown-heading {
+    background: var(--secondary);
+    color: #fff;
+    margin: -20px -20px 20px;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+    line-height: 1;
+}
+.dropdown-heading:after {
+        content: "\62";
+        font-family: "untitled-font-4" !important;
+        font-size: 14px;
+        float: left;
+        margin: 11px 15px 0 0;
+}
+.dropdown-heading.active:after {
+    transform: rotate(180deg);
+    margin-top: 6px;
+}
+.secondar-heading {
+    background: var(--primary);
+    margin-bottom: 20px;
+    padding: 10px;
+    color: var(--white);
+    border-radius: 8px;
+}
+.label-blue {
+    font-style: normal;
+    color: var(--primary);
 }
