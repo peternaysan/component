@@ -38,6 +38,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-tick:before {
+.icon-shape:before {
   content: "\61";
+}
+.icon-arrow-down-sign-to-navigate:before {
+  content: "\62";
 }
