@@ -1,8 +1,14 @@
-<page-header></page-header>
-<!-- <shipment-form></shipment-form> -->
-<!-- <parties-form></parties-form> -->
-<!-- <transportation-form></transportation-form>-->
-<!-- <commodity-form></commodity-form>
- -->
-
- <router-outlet></router-outlet>
+<div class="page">
+  <div class="header-flex">
+    <page-header></page-header>
+  </div>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="button-flex">
+    <div class="buttons-box">
+      <button class="btn btn-secondary">Print View</button>
+      <button class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</div>
