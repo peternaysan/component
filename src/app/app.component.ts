@@ -11,7 +11,9 @@ export class AppComponent {
   title = 'aes-component';
   constructor(route: ActivatedRoute) {
     route.queryParams.subscribe(param => {
-      console.log(param.id);
+      if(param && param.id){
+        console.log(param.id);
+      }
       // load aes object and make cache it in service so it can be accessed from all components
     });
   }
