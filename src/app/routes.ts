@@ -4,7 +4,10 @@ import { CommodityComponent } from "./commodity/commodity.component";
 import { TransportationComponent } from "./transportation/transportation.component";
 
 export const routes = [
-
+    {
+        path: ':id',
+        component: ShipmentComponent,
+    },
     {
         path: 'shipment',
         component: ShipmentComponent,
@@ -27,6 +30,6 @@ export const routes = [
     },
     { path: '', redirectTo: 'shipment', pathMatch: 'full' },
     // Not found
-    { path: '**', redirectTo: 'shipment', pathMatch: 'full' }
+    // { path: '**', redirectTo: 'shipment', pathMatch: 'full' }
 
 ];
