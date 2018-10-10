@@ -12,37 +12,37 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].partyIdType">
     </div>
     <div class="col-md-3">
       <label>Consignee Type<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].partyType">
     </div>
     <div class="col-md-3">
       <label>ID Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].partyName">
     </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>First Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].contactFirstName">
     </div>
     <div class="col-md-3">
       <label>Last Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Address Line 1</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].addressLine1">
     </div>
   </div>
   <div class="row mb-4">
@@ -52,21 +52,21 @@
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].countryCode">
     </div>
     <div class="col-md-3">
       <label>Postal Code<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].postalCode">
     </div>
     <div class="col-md-3">
       <label>City<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].city">
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-md-3">
       <label>State</label>
-      <select></select>
+      <input type="text" [(ngModel)]="aes.shipmentParties[0].stateCode">
     </div>
   </div>
 
@@ -80,19 +80,19 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].partyIdType">
     </div>
     <div class="col-md-3">
       <label>ID Number</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].partyName">
     </div>
     <div class="col-md-3">
       <label>First Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].contactFirstName">
     </div>
 
   </div>
@@ -100,11 +100,11 @@
 
     <div class="col-md-3">
       <label>Last Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Origin State</label>
@@ -112,7 +112,7 @@
     </div>
     <div class="col-md-3">
       <label>Address Line 1<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].addressLine1">
     </div>
   </div>
   <div class="row mb-4">
@@ -123,7 +123,7 @@
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].countryCode">
     </div>
     <div class="col-md-3">
       <label>Import Entry</label>
@@ -131,20 +131,18 @@
     </div>
     <div class="col-md-3">
       <label>Postal Code</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].postalCode">
     </div>
   </div>
   <div class="row mb-3">
 
     <div class="col-md-3">
       <label>City</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].city">
     </div>
     <div class="col-md-3">
       <label>State</label>
-      <select>
-        <option>Some Option</option>
-      </select>
+      <input type="text" [(ngModel)]="aes.shipmentParties[1].stateCode">
     </div>
   </div>
 

@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -10,6 +13,7 @@ import { PartiesComponent } from './parties/parties.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { CommodityComponent } from './commodity/commodity.component';
 
+import {AesService} from '../app/services/aes.service'
 
 import { routes } from './routes';
 
@@ -25,9 +29,11 @@ import { routes } from './routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes,{enableTracing:true}),
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [AesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 <ul>
-    <li><a routerLink="/shipment" routerLinkActive="active"><i class="icon-shape"></i> Shipment</a></li>
-    <li><a routerLink="/parties" routerLinkActive="active"><i class="icon-shape"></i> Parties</a></li>
-    <li><a routerLink="/commodity" routerLinkActive="active"><i class="icon-shape"></i> Commodity</a></li>
-    <li><a routerLink="/transportation" routerLinkActive="active"><i class="icon-shape"></i> Transportation</a></li>
+    <li><a [routerLink]="['/shipment']" queryParamsHandling="preserve"   routerLinkActive="active"><i class="icon-shape"></i> Shipment</a></li>
+    <li><a [routerLink]="['/parties']" queryParamsHandling="preserve"   routerLinkActive="active"><i class="icon-shape"></i> Parties</a></li>
+    <li><a [routerLink]="['/commodity']"  queryParamsHandling="preserve"  routerLinkActive="active"><i class="icon-shape"></i> Commodity</a></li>
+    <li><a [routerLink]="['/transportation']" queryParamsHandling="preserve"  routerLinkActive="active"><i class="icon-shape"></i> Transportation</a></li>
 </ul>

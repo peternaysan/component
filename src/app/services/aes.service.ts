@@ -13,30 +13,38 @@ export class AesService {
     constructor(private http: HttpClient) { }
 
     public getAesById(Id: string): Promise<any> {
-
+        var self = this;
         return new Promise<any>((resolve, reject) => {
             if (this.aesEntry) {
                 resolve(this.aesEntry);
             }
             else {
                 return this.http
-                    .get(this.appendGuidToUrl(environment.apiUrl + "aes/" + Id))
-                    .pipe(
-                        catchError(this.handleError('getAesById', []))).toPromise();
+                    .get(environment.apiUrl + "aes/" + Id).subscribe(res => {
+                        self.aesEntry = res;
+                        resolve(res);
+                    }, error => {
+                        reject(error);
+                    })
             }
 
         });
 
     }
 
-    private handleError<T>(operation = 'operation', result?: T) {
-        return (error: any): Observable<T> => {
+    private extractData(res: Response) {
 
-            console.error(error); // log to console instead
-            // Let the app keep running by returning an empty result.
-            return of(result as T);
-        };
+        //alert(res);       
+        let body = res.json();
+        //alert(body);
+        return body || {};
     }
+
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    }
+
 
     appendGuidToUrl(url: string) {
         if (AppSettings.IsBrowserIE) {

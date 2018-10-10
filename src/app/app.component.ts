@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {AesService} from '../app/services/aes.service'
 import { log } from 'util';
 
 @Component({
@@ -9,12 +10,9 @@ import { log } from 'util';
 })
 export class AppComponent {
   title = 'aes-component';
-  constructor(route: ActivatedRoute) {
-    route.queryParams.subscribe(param => {
-      if(param && param.id){
-        console.log(param.id);
-      }
-      // load aes object and make cache it in service so it can be accessed from all components
-    });
+  public aesId :string;
+  constructor() {
+    var self=this;
+    
   }
 }

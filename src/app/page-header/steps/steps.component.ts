@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'steps-area',
@@ -9,5 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class StepsComponent implements OnInit {
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        
+     }
 }

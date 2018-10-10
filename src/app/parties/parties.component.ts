@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AesService } from '../services/aes.service';
 
 @Component({
     selector: 'parties-form',
@@ -7,7 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class PartiesComponent implements OnInit {
-    constructor() { }
+  public aes:any={};
+    constructor(private route: ActivatedRoute, private aesService: AesService) {
+       
+    }
 
-    ngOnInit() { }
+   ngOnInit() { 
+       this.route.queryParams.subscribe(param => {
+           if(param && param.id){
+             this.aesService.getAesById(param.id).then(res=>{
+              this.aes=res;
+              
+             })
+           }          
+           // load aes object and make cache it in service so it can be accessed from all components
+         });
+   }
 }
