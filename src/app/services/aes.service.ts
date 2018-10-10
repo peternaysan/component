@@ -17,12 +17,7 @@ export class AesService {
                 catchError(this.handleError('getAesById', [])));
     }
 
-    public getAesByBookingId(bookingId: string,instanceCode:string) {
-        return this.http
-            .get(this.appendGuidToUrl(environment.apiUrl + "aes/"+Id))
-            .pipe(
-                catchError(this.handleError('getAesById', [])));
-    }
+
     private handleError<T>(operation = 'operation', result?: T) {
         return (error: any): Observable<T> => {
 
