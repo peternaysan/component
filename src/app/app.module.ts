@@ -29,7 +29,7 @@ import { routes } from './routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes,{enableTracing:true}),
+    RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule
   ],

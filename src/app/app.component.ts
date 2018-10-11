@@ -15,4 +15,8 @@ export class AppComponent {
     var self=this;
     
   }
+
+  onSubmitClick(){
+    console.log("onSubmitClick");
+  }
 }
