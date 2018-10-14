@@ -1,5 +1,5 @@
 <div class="content-box">
-<form>
+<form #transportForm="ngForm">
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Carrier SCAC/IATA</label>
@@ -12,6 +12,7 @@
     <div class="col-md-3 error-box">
       <label>Transporation Reference Number</label>
       <input type="text" required name="refNo" [(ngModel)]="refno">
+      <label *ngIf="transportForm.controls.refNo?.invalid && transportForm.controls.refNo?.touched">this field is required!!</label>
     </div>
     <div class="col-md-3">
       <button class="btn btn-secondary float-right mt-4">Add Equipment Line</button>

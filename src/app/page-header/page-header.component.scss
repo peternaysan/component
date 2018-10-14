@@ -37,7 +37,7 @@
     overflow-x: auto;
     li {
       display: inline-block;
-      min-width: 100px;
+      min-width: 146px;
       a {
         font-size: 10px;
         margin: 0 0 0 10px;
@@ -54,6 +54,9 @@
             margin-right: 6px;
             font-size: 12px;
             line-height: 12px;
+          }
+          img {
+            width: 10px;
           }
           &:last-child {
             margin: 0;
