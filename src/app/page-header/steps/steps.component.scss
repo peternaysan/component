@@ -15,6 +15,7 @@ ul {
         display: flex;
         align-items: center;
         position: relative;
+        
         &:before {
             content: "\63";
             font-family: "untitled-font-4";
@@ -44,6 +45,23 @@ ul {
                     background: var(--primary);
                 }
             }
-        } 
+        }
+        &.error {
+            a {
+                color: var(--warning);
+                i {
+                    background: var(--warning);
+                }
+            }
+            .numb-error {
+                background: var(--warning);
+                color: var(--white);
+                border-radius: 8px;
+                padding: 4px 10px;
+                font-size: 10px;
+                margin-left: 15px;
+                line-height: 10px;
+            }
+        }
     }
 }

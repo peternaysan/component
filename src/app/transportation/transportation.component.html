@@ -1,23 +1,23 @@
 <div class="content-box">
-
+<form>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Carrier SCAC/IATA</label>
-      <input type="text">
+      <input type="text" required>
     </div>
     <div class="col-md-3">
       <label>Conveyance Name/Carrier Name</label>
-      <input type="text">
+      <input type="text" required>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 error-box">
       <label>Transporation Reference Number</label>
-      <input type="text">
+      <input type="text" required name="refNo" [(ngModel)]="refno">
     </div>
     <div class="col-md-3">
       <button class="btn btn-secondary float-right mt-4">Add Equipment Line</button>
     </div>
   </div>
-
+</form>
 
 
 
