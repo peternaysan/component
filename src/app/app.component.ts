@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { ActivatedRoute } from '@angular/router';
+import {AesService} from '../app/services/aes.service'
+import { log } from 'util';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,10 +1,11 @@
-import { ShipmentComponent } from "./shipment/shipment.component";
-import { PartiesComponent } from "./parties/parties.component";
+import { Routes }   from '@angular/router';
+import { ShipmentComponent } from "../app/shipment/shipment.component";
+import { PartiesComponent } from "../app/parties/parties.component";
 import { CommodityComponent } from "./commodity/commodity.component";
 import { TransportationComponent } from "./transportation/transportation.component";
 
-export const routes = [
-
+export const routes:Routes = [
+    
     {
         path: 'shipment',
         component: ShipmentComponent,
@@ -27,6 +28,6 @@ export const routes = [
     },
     { path: '', redirectTo: 'shipment', pathMatch: 'full' },
     // Not found
-    { path: '**', redirectTo: 'shipment', pathMatch: 'full' }
+    // { path: '**', redirectTo: 'shipment', pathMatch: 'full' }
 
 ];

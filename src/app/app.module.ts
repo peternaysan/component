@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
 
 import { AppComponent } from './app.component';
 import { PageHeaderComponent } from './page-header/page-header.component';
@@ -12,6 +14,7 @@ import { TransportationComponent } from './transportation/transportation.compone
 import { CommodityComponent } from './commodity/commodity.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import {AesService} from '../app/services/aes.service'
 
 import { routes } from './routes';
 
@@ -29,9 +32,11 @@ import { routes } from './routes';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    
   ],
-  providers: [],
+  providers: [AesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
