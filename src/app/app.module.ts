@@ -12,9 +12,9 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { PartiesComponent } from './parties/parties.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { CommodityComponent } from './commodity/commodity.component';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 
-import {AesService} from '../app/services/aes.service'
+import { AesService } from '../app/services/aes.service'
 
 import { routes } from './routes';
 
@@ -32,9 +32,9 @@ import { routes } from './routes';
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    NgbModule,
+    NgbModalModule,
     HttpClientModule,
-    
+
   ],
   providers: [AesService],
   bootstrap: [AppComponent]
