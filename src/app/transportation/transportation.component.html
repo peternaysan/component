@@ -31,15 +31,9 @@
         <th>Actions</th>
       </tr>
       <tr *ngFor="let detail of transportation.transportationDetails; let index=index;">
-        <td class="text-center">          
-        </td>
-        <td class="text-center"> 
-          {{detail.equipmentNumber}}         
-        </td>
-        <td class="text-center">                   
-        </td>
-        <td class="text-center">          
-        </td>
+          <td colspan="12" class="text-center">
+              <strong class="nodata-message">No data available in table</strong>
+            </td>
       </tr>
     </table>
   </div>
