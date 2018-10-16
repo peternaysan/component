@@ -102,3 +102,13 @@ i.mand {
     font-style: normal;
     color: var(--primary);
 }
+input.ng-touched.ng-invalid {
+    border: 1px solid var(--warning);      
+}
+.modal-dialog {
+    max-width: 70%;
+}
+button:focus, button:active {
+    box-shadow: none;
+    outline: none;
+} 

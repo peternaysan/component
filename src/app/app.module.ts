@@ -12,6 +12,7 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { PartiesComponent } from './parties/parties.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { CommodityComponent } from './commodity/commodity.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {AesService} from '../app/services/aes.service'
 
@@ -29,9 +30,11 @@ import { routes } from './routes';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(routes),
+    NgbModule,
     HttpClientModule,
-    FormsModule
+    
   ],
   providers: [AesService],
   bootstrap: [AppComponent]

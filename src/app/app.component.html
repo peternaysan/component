@@ -7,8 +7,240 @@
   </div>
   <div class="button-flex">
     <div class="buttons-box">
-      <button class="btn btn-secondary">Print View</button>
-      <button class="btn btn-primary" (click)="onSubmitClick()">Submit</button>
+      <button class="btn btn-secondary" (click)="open(content)">Print View</button>
+      <button class="btn btn-primary">Submit</button>
     </div>
   </div>
 </div>
+
+
+<ng-template #content let-modal>
+    
+    <div class="modal-body">
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        <div class="content-box">
+            <h2 class="form-heading">Ultimate Consignee</h2>
+            <ul class="form-list mb-4">
+              <li>
+                <p>Sold En Route<i class="mand">*</i> </p>
+                <input type="radio" id="route-yes" name="route">
+                <label for="route-yes">Yes</label>
+                <input type="radio" id="route-no" name="route">
+                <label for="route-no">No</label>
+              </li>
+            </ul>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>ID Number Type<i class="mand">*</i></label>
+                <input type="text" value="value1">
+              </div>
+              <div class="col-md-3">
+                <label>Consignee Type<i class="mand">*</i></label>
+                <input type="text" value="value2">
+              </div>
+              <div class="col-md-3">
+                <label>ID Number<i class="mand">*</i></label>
+                <input type="text" value="value3">
+              </div>
+              <div class="col-md-3">
+                <label>Company Name<i class="mand">*</i></label>
+                <input type="text" value="value4">
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>First Name<i class="mand">*</i></label>
+                <input type="text" value="value5">
+              </div>
+              <div class="col-md-3">
+                <label>Last Name<i class="mand">*</i></label>
+                <input type="text" value="value6">
+              </div>
+              <div class="col-md-3">
+                <label>Phone Number<i class="mand">*</i></label>
+                <input type="text" value="value7">
+              </div>
+              <div class="col-md-3">
+                <label>Address Line 1</label>
+                <input type="text" value="value8">
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>Address Line 2<i class="mand">*</i></label>
+                <input type="text" value="value9">
+              </div>
+              <div class="col-md-3">
+                <label>Country<i class="mand">*</i></label>
+                <input type="text" value="value10">
+              </div>
+              <div class="col-md-3">
+                <label>Postal Code<i class="mand">*</i></label>
+                <input type="text" value="value11">
+              </div>
+              <div class="col-md-3">
+                <label>City<i class="mand">*</i></label>
+                <input type="text" value="value12">
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-md-3">
+                <label>State</label>
+                <select></select>
+              </div>
+            </div>
+          
+          
+          
+          </div>
+          
+          <div class="content-box">
+            <h2 class="form-heading">Intermediate Consignee</h2>
+          
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>ID Number Type<i class="mand">*</i></label>
+                <input type="text" value="value13">
+              </div>
+              <div class="col-md-3">
+                <label>ID Number</label>
+                <input type="text" value="value14">
+              </div>
+              <div class="col-md-3">
+                <label>Company Name</label>
+                <input type="text" value="value15">
+              </div>
+              <div class="col-md-3">
+                <label>First Name<i class="mand">*</i></label>
+                <input type="text" value="value16">
+              </div>
+          
+            </div>
+            <div class="row mb-4">
+          
+              <div class="col-md-3">
+                <label>Last Name<i class="mand">*</i></label>
+                <input type="text" value="value17">
+              </div>
+              <div class="col-md-3">
+                <label>Phone Number<i class="mand">*</i></label>
+                <input type="text" value="value18">
+              </div>
+              <div class="col-md-3">
+                <label>Origin State</label>
+                <input type="text" value="value19">
+              </div>
+              <div class="col-md-3">
+                <label>Address Line 1<i class="mand">*</i></label>
+                <input type="text" value="value20">
+              </div>
+            </div>
+            <div class="row mb-4">
+          
+              <div class="col-md-3">
+                <label>Address Line 2<i class="mand">*</i></label>
+                <input type="text" value="value21">
+              </div>
+              <div class="col-md-3">
+                <label>Country<i class="mand">*</i></label>
+                <input type="text" value="value22">
+              </div>
+              <div class="col-md-3">
+                <label>Import Entry</label>
+                <input type="text" value="value23">
+              </div>
+              <div class="col-md-3">
+                <label>Postal Code</label>
+                <input type="text" value="value24">
+              </div>
+            </div>
+            <div class="row mb-3">
+          
+              <div class="col-md-3">
+                <label>City</label>
+                <input type="text" value="value25">
+              </div>
+              <div class="col-md-3">
+                <label>State</label>
+                <select>
+                  <option>Some Option</option>
+                </select>
+              </div>
+            </div>
+          
+          
+          
+          </div>
+          
+          <div class="content-box">
+            <h2 class="form-heading">Freight Forwarder</h2>
+          
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>ID Number Type<i class="mand">*</i></label>
+                <input type="text" value="value26">
+              </div>
+              <div class="col-md-3">
+                <label>ID Number</label>
+                <input type="text" value="value27">
+              </div>
+              <div class="col-md-3">
+                <label>Company Name</label>
+                <input type="text" value="value28">
+              </div>
+              <div class="col-md-3">
+                <label>First Name<i class="mand">*</i></label>
+                <input type="text" value="value29">
+              </div>
+            </div>
+            <div class="row mb-4">
+          
+              <div class="col-md-3">
+                <label>Last Name<i class="mand">*</i></label>
+                <input type="text" value="value30">
+              </div>
+              <div class="col-md-3">
+                <label>Phone Number<i class="mand">*</i></label>
+                <input type="text" value="value31">
+              </div>
+              <div class="col-md-3">
+                <label>Address Line 1</label>
+                <input type="text" value="value32">
+              </div>
+              <div class="col-md-3">
+                <label>Address Line 2</label>
+                <input type="text" value="value33">
+              </div>
+            </div>
+            <div class="row mb-4">
+              <div class="col-md-3">
+                <label>Postal Code</label>
+                <input type="text" value="value34">
+              </div>
+              <div class="col-md-3">
+                <label>Address Line 2<i class="mand">*</i></label>
+                <input type="text" value="value35">
+              </div>
+              <div class="col-md-3">
+                <label>City</label>
+                <input type="text" value="value36">
+              </div>
+              <div class="col-md-3">
+                <label>State</label>
+                <select>
+                  <option>Some Option</option>
+                </select>
+              </div>
+            </div>
+          
+          
+          
+          </div>
+          
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Print</button>
+    </div>
+  </ng-template>
