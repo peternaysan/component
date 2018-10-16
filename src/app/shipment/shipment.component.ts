@@ -13,6 +13,8 @@ import {AesService} from '../../app/services/aes.service';
 export class ShipmentComponent implements OnInit {
     public aes:any={};
     public shipmentHeader ={};
+
+    public shipmentParties ={};
     constructor(private route: ActivatedRoute, private aesService: AesService) {
        
      }
