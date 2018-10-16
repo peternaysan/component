@@ -6,9 +6,11 @@
 }
 .content {
     overflow-y: auto;
+    height: 100%;
 }
 .button-flex {
-    box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.04);
+    background: var(--white);
     position: relative;
 }
 .buttons-box {
