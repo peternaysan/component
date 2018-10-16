@@ -19,6 +19,7 @@ export class TransportationComponent implements OnInit {
        this.route.queryParams.subscribe(param => {
            if(param && param.id){
              this.aesService.getAesById(param.id).then(res=>{
+               console.log(res);
                this.aes=res;
              })
            }          

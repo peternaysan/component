@@ -9,6 +9,7 @@ import { AesService } from '../services/aes.service';
 })
 
 export class CommodityComponent implements OnInit {
+  public aes:any={};
     constructor(private route: ActivatedRoute, private aesService: AesService) {
        
     }
@@ -17,7 +18,7 @@ export class CommodityComponent implements OnInit {
        this.route.queryParams.subscribe(param => {
            if(param && param.id){
              this.aesService.getAesById(param.id).then(res=>{
-               console.log(res);
+              this.aes=res;
              })
            }          
            // load aes object and make cache it in service so it can be accessed from all components
