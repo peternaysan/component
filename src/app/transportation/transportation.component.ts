@@ -3,26 +3,27 @@ import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../services/aes.service';
 
 @Component({
-    selector: 'transportation-form',
-    templateUrl: 'transportation.component.html',
-    styleUrls: ['transportation.component.scss']
+  selector: 'transportation-form',
+  templateUrl: 'transportation.component.html',
+  styleUrls: ['transportation.component.scss']
 })
 
 export class TransportationComponent implements OnInit {
-  public aes:any={};
 
-    constructor(private route: ActivatedRoute, private aesService: AesService) {
-       
-    }
+  public transportation: any = {};
+  constructor(private route: ActivatedRoute, private aesService: AesService) {
 
-   ngOnInit() { 
-       this.route.queryParams.subscribe(param => {
-           if(param && param.id){
-             this.aesService.getAesById(param.id).then(res=>{
-               this.aes=res;
-             })
-           }          
-           // load aes object and make cache it in service so it can be accessed from all components
-         });
-   }
+  }
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(param => {
+      if (param && param.id) {
+        this.aesService.getAesById(param.id).then(res => {
+          var aes = res;
+          this.transportation = res.transportation;
+        })
+      }
+      // load aes object and make cache it in service so it can be accessed from all components
+    });
+  }
 }

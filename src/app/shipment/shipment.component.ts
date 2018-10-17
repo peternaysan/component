@@ -11,10 +11,8 @@ import {AesService} from '../../app/services/aes.service';
 })
 
 export class ShipmentComponent implements OnInit {
-    public aes:any={};
     public shipmentHeader ={};
 
-    public shipmentParties ={};
     constructor(private route: ActivatedRoute, private aesService: AesService) {
        
      }
@@ -23,8 +21,8 @@ export class ShipmentComponent implements OnInit {
         this.route.queryParams.subscribe(param => {
             if(param && param.id){
               this.aesService.getAesById(param.id).then(res=>{
-                this.aes=res;
-                this.shipmentHeader=this.aes.shipmentHeader;
+                var aes = res;
+                this.shipmentHeader=aes.shipmentHeader;                
               })
             }          
             // load aes object and make cache it in service so it can be accessed from all components

@@ -11,14 +11,26 @@ import { log } from 'util';
 })
 export class AppComponent {
   closeResult: string;
+  public aes:any={};
   title = 'aes-component';
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal,private route: ActivatedRoute, private aesService: AesService) {
+
+   }
+
 
   open(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  onSubmitClick(){
+    this.route.queryParams.subscribe(param => {
+      if(param && param.id){
+        this.aesService.submitAes(param.id);
+      }          
+      // load aes object and make cache it in service so it can be accessed from all components
     });
   }
 

@@ -1,31 +1,31 @@
-<div class="content-box" *ngIf="aes.shipmentHeader">
+<div class="content-box" *ngIf="shipmentHeader">
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Email Response Address(es)<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.header.senderEmail">
+      <input type="text">
     </div>
     <div class="col-md-3">
       <label>Shipment Reference Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.shipmentReferenceNumber">
+      <input type="text" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
     </div>
     <div class="col-md-3">
       <label>Filing Option<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.filingTypeIndicator">
+      <input type="text" [(ngModel)]="shipmentHeader.filingTypeIndicator">
     </div>
     <div class="col-md-3">
       <label>Mode of Transport (MOT)<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.shipmentReferenceNumber">
+      <input type="text" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
     </div>
 
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Port Of Export<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.portofExportation">
+      <input type="text" [(ngModel)]="shipmentHeader.portofExportation">
     </div>
     <div class="col-md-3">
       <label>Port of Unlading</label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.portofUnlading">
+      <input type="text" [(ngModel)]="shipmentHeader.portofUnlading">
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
@@ -33,22 +33,22 @@
     </div>
     <div class="col-md-3">
       <label>Origin State<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.originState">
+      <input type="text" [(ngModel)]="shipmentHeader.originState">
     </div>
 
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Country of Destination <i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.ultimateDestinationCountry">
+      <input type="text" [(ngModel)]="shipmentHeader.ultimateDestinationCountry">
     </div>
     <div class="col-md-3">
       <label>Inbond Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.inbondCode">
+      <input type="text" [(ngModel)]="shipmentHeader.inbondCode">
     </div>
     <div class="col-md-3">
       <label>Foreign Trade Zone</label>
-      <input type="text" [(ngModel)]="aes.shipmentHeader.foreignTradeZone">
+      <input type="text" [(ngModel)]="shipmentHeader.foreignTradeZone">
     </div>
     <div class="col-md-3">
       <label>Import Entity</label>

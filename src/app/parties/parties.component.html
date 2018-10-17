@@ -1,4 +1,4 @@
-<div class="content-box" *ngIf="aes.shipmentParty">
+<div class="content-box" *ngIf="shipmentParty">
   <h2 class="form-heading">Ultimate Consignee</h2>
   <ul class="form-list mb-4">
     <li>
@@ -9,64 +9,64 @@
       <label for="route-no">No</label>
     </li>
   </ul>
-  <div class="row mb-4" *ngIf="aes.shipmentParty.length > 0">
+  <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].partyIdType">
+      <input type="text" [(ngModel)]="shipmentParty[0].partyIdType">
     </div>
     <div class="col-md-3">
       <label>Consignee Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].partyType">
+      <input type="text" [(ngModel)]="shipmentParty[0].partyType">
     </div>
     <div class="col-md-3">
       <label>ID Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].partyId">
+      <input type="text" [(ngModel)]="shipmentParty[0].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].partyName">
+      <input type="text" [(ngModel)]="shipmentParty[0].partyName">
     </div>
   </div>
-  <div class="row mb-4" *ngIf="aes.shipmentParty.length > 0">
+  <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>First Name<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].contactFirstName">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactFirstName">
     </div>
     <div class="col-md-3">
       <label>Last Name<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].contactLastName">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].contactPhoneNumber">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Address Line 1</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].addressLine1">
+      <input type="text" [(ngModel)]="shipmentParty[0].addressLine1">
     </div>
   </div>
-  <div class="row mb-4" *ngIf="aes.shipmentParty.length > 0">
+  <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>Address Line 2<i class="mand">*</i></label>
       <input type="text">
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].countryCode">
+      <input type="text" [(ngModel)]="shipmentParty[0].countryCode">
     </div>
     <div class="col-md-3">
       <label>Postal Code<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].postalCode">
+      <input type="text" [(ngModel)]="shipmentParty[0].postalCode">
     </div>
     <div class="col-md-3">
       <label>City<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].city">
+      <input type="text" [(ngModel)]="shipmentParty[0].city">
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-md-3">
       <label>State</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[0].stateCode">
+      <input type="text" [(ngModel)]="shipmentParty[0].stateCode">
     </div>
   </div>
 
@@ -74,25 +74,25 @@
 
 </div>
 
-<div class="content-box" *ngIf="aes.shipmentParty && aes.shipmentParty.length > 1">
+<div class="content-box" *ngIf="shipmentParty && shipmentParty.length > 1">
   <h2 class="form-heading">Intermediate Consignee</h2>
 
   <div class="row mb-4">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].partyIdType">
+      <input type="text" [(ngModel)]="shipmentParty[1].partyIdType">
     </div>
     <div class="col-md-3">
       <label>ID Number</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].partyId">
+      <input type="text" [(ngModel)]="shipmentParty[1].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].partyName">
+      <input type="text" [(ngModel)]="shipmentParty[1].partyName">
     </div>
     <div class="col-md-3">
       <label>First Name<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].contactFirstName">
+      <input type="text" [(ngModel)]="shipmentParty[1].contactFirstName">
     </div>
 
   </div>
@@ -100,11 +100,11 @@
 
     <div class="col-md-3">
       <label>Last Name<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].contactLastName">
+      <input type="text" [(ngModel)]="shipmentParty[1].contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].contactPhoneNumber">
+      <input type="text" [(ngModel)]="shipmentParty[1].contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Origin State</label>
@@ -112,7 +112,7 @@
     </div>
     <div class="col-md-3">
       <label>Address Line 1<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].addressLine1">
+      <input type="text" [(ngModel)]="shipmentParty[1].addressLine1">
     </div>
   </div>
   <div class="row mb-4">
@@ -123,7 +123,7 @@
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].countryCode">
+      <input type="text" [(ngModel)]="shipmentParty[1].countryCode">
     </div>
     <div class="col-md-3">
       <label>Import Entry</label>
@@ -131,18 +131,18 @@
     </div>
     <div class="col-md-3">
       <label>Postal Code</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].postalCode">
+      <input type="text" [(ngModel)]="shipmentParty[1].postalCode">
     </div>
   </div>
   <div class="row mb-3">
 
     <div class="col-md-3">
       <label>City</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].city">
+      <input type="text" [(ngModel)]="shipmentParty[1].city">
     </div>
     <div class="col-md-3">
       <label>State</label>
-      <input type="text" [(ngModel)]="aes.shipmentParty[1].stateCode">
+      <input type="text" [(ngModel)]="shipmentParty[1].stateCode">
     </div>
   </div>
 

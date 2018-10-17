@@ -32,6 +32,13 @@ export class AesService {
 
     }
 
+    public submitAes(Id:string){
+        this.getAesById(Id).then(res=>{  
+            console.log("Submitted AES", res);                    
+               //submit to IX   
+           })
+    }
+
     private extractData(res: Response) {
 
         //alert(res);       
