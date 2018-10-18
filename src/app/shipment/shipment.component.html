@@ -1,12 +1,12 @@
 <div class="content-box" *ngIf="shipmentHeader">
   <div class="row mb-4">
     <div class="col-md-3">
-      <label>Email Response Address(es)<i class="mand">*</i></label>
-      <input type="text">
+      <label>Email Response Address(es)<i class="mand" >*</i></label>
+      <input type="text" [disabled]="true">
     </div>
     <div class="col-md-3">
       <label>Shipment Reference Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
     </div>
     <div class="col-md-3">
       <label>Filing Option<i class="mand">*</i></label>
@@ -14,22 +14,22 @@
     </div>
     <div class="col-md-3">
       <label>Mode of Transport (MOT)<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
     </div>
 
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Port Of Export<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.portofExportation">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.portofExportation">
     </div>
     <div class="col-md-3">
       <label>Port of Unlading</label>
-      <input type="text" [(ngModel)]="shipmentHeader.portofUnlading">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.portofUnlading">
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
-      <input type="text" >
+      <input type="text" [disabled]="true" >
     </div>
     <div class="col-md-3">
       <label>Origin State<i class="mand">*</i></label>

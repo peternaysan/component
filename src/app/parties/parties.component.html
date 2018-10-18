@@ -12,15 +12,15 @@
   <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].partyIdType">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].partyIdType">
     </div>
     <div class="col-md-3">
       <label>Consignee Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].partyType">
+      <input type="text"  [(ngModel)]="shipmentParty[0].partyType">
     </div>
     <div class="col-md-3">
       <label>ID Number<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].partyId">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name<i class="mand">*</i></label>
@@ -42,7 +42,7 @@
     </div>
     <div class="col-md-3">
       <label>Address Line 1</label>
-      <input type="text" [(ngModel)]="shipmentParty[0].addressLine1">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].addressLine1">
     </div>
   </div>
   <div class="row mb-4" *ngIf="shipmentParty.length > 0">
@@ -52,15 +52,15 @@
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].countryCode">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].countryCode">
     </div>
     <div class="col-md-3">
       <label>Postal Code<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].postalCode">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].postalCode">
     </div>
     <div class="col-md-3">
       <label>City<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[0].city">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].city">
     </div>
   </div>
   <div class="row mb-3">
@@ -80,11 +80,11 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[1].partyIdType">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].partyIdType">
     </div>
     <div class="col-md-3">
       <label>ID Number</label>
-      <input type="text" [(ngModel)]="shipmentParty[1].partyId">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name</label>
@@ -112,7 +112,7 @@
     </div>
     <div class="col-md-3">
       <label>Address Line 1<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[1].addressLine1">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].addressLine1">
     </div>
   </div>
   <div class="row mb-4">
@@ -123,7 +123,7 @@
     </div>
     <div class="col-md-3">
       <label>Country<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentParty[1].countryCode">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].countryCode">
     </div>
     <div class="col-md-3">
       <label>Import Entry</label>
@@ -131,14 +131,14 @@
     </div>
     <div class="col-md-3">
       <label>Postal Code</label>
-      <input type="text" [(ngModel)]="shipmentParty[1].postalCode">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].postalCode">
     </div>
   </div>
   <div class="row mb-3">
 
     <div class="col-md-3">
       <label>City</label>
-      <input type="text" [(ngModel)]="shipmentParty[1].city">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].city">
     </div>
     <div class="col-md-3">
       <label>State</label>

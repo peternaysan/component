@@ -7,11 +7,11 @@
     </div>
     <div class="col-md-3">
       <label>Schedule B or HTS Number <i class="label-blue">(Schedule B Search Engine)</i></label>
-      <input type="text" [(ngModel)]="commodity.commodityLineDetails.htsNumber">
+      <input type="text" [disabled]="true" [(ngModel)]="commodity.commodityLineDetails.htsNumber">
     </div>
     <div class="col-md-3">
       <label>Commodity Description<i class="mand">*</i></label>
-      <input type="text"  [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
+      <input type="text" [disabled]="true"  [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
     </div>
     <div class="col-md-3">
       <label>Mode of Transport (MOT)<i class="mand">*</i></label>
@@ -46,7 +46,7 @@
     </div>
     <div class="col-md-3">
       <label>Origin of Goods<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" [disabled]="true">
     </div>
     <div class="col-md-3">
       <label>Value of Goods (whole US Dollars)<i class="mand">*</i></label>
@@ -61,7 +61,7 @@
 
     <div class="col-md-3">
       <label>ECCN</label>
-      <input type="text">
+      <input type="text" [disabled]="true">
     </div>
     <div class="col-md-3">
       <label>Liscense Type Code/LIcense Exemption Code<i class="mand">*</i></label>
