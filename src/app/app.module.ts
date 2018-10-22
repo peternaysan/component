@@ -12,10 +12,13 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { PartiesComponent } from './parties/parties.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { CommodityComponent } from './commodity/commodity.component';
+
+
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgSelectModule } from '@ng-select/ng-select';
 
-import { AesService } from '../app/services/aes.service'
-
+import { AesService } from '../app/services/aes.service';
+import { LookupService } from '../app/services/lookup.service';
 import { routes } from './routes';
 
 @NgModule({
@@ -34,9 +37,10 @@ import { routes } from './routes';
     RouterModule.forRoot(routes),
     NgbModalModule,
     HttpClientModule,
+    NgSelectModule
 
   ],
-  providers: [AesService],
+  providers: [AesService,LookupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

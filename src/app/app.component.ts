@@ -18,7 +18,14 @@ export class AppComponent {
    }
 
 
-  open(content) {
+   openPrintView(content) {
+    this.route.queryParams.subscribe(param => {
+      if(param && param.id){
+        this.aesService.getAesById(param.id).then(res=>{
+          this.aes = res;                     
+        })
+      }          
+    });
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

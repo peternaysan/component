@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../services/aes.service';
+import { LookupService } from '../services/lookup.service';
 
 @Component({
   selector: 'parties-form',
@@ -11,7 +12,9 @@ import { AesService } from '../services/aes.service';
 export class PartiesComponent implements OnInit {
 
   public shipmentParty:any=[];
-  constructor(private route: ActivatedRoute, private aesService: AesService) {
+  public states:any=[];
+  
+  constructor(private route: ActivatedRoute, private aesService: AesService,private lookupService:LookupService) {
 
   }
 
@@ -26,4 +29,14 @@ export class PartiesComponent implements OnInit {
       // load aes object and make cache it in service so it can be accessed from all components
     });
   }
+  ngAfterViewInit() {
+    var country="United States";
+    this.lookupService.states(country)
+    .subscribe((data) => {this.states=data},
+        (err) => { console.log(err); }
+    );
+  }
+
+  
+
 }

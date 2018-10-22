@@ -7,7 +7,7 @@
   </div>
   <div class="button-flex">
     <div class="buttons-box">
-      <button class="btn btn-secondary" (click)="open(modelcontent)">Print View</button>
+      <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-primary" (click)="onSubmitClick()">Submit</button>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
       <span aria-hidden="true">&times;</span>
     </button>
-    <div class="content-box">
+    <div class="content-box" *ngIf="aes.shipmentParty">
       <h2 class="form-heading">Ultimate Consignee</h2>
       <ul class="form-list mb-4">
         <li>
@@ -34,61 +34,61 @@
       <div class="row mb-4">
         <div class="col-md-3">
           <label>ID Number Type<i class="mand">*</i></label>
-          <input type="text" value="value1">
+          <input type="text" value="{{aes.shipmentParty[0].partyIdType}}">
         </div>
         <div class="col-md-3">
           <label>Consignee Type<i class="mand">*</i></label>
-          <input type="text" value="value2">
+          <input type="text" value="{{aes.shipmentParty[0].partyType}}">
         </div>
         <div class="col-md-3">
           <label>ID Number<i class="mand">*</i></label>
-          <input type="text" value="value3">
+          <input type="text" value="{{aes.shipmentParty[0].partyId}}">
         </div>
         <div class="col-md-3">
           <label>Company Name<i class="mand">*</i></label>
-          <input type="text" value="value4">
+          <input type="text" value="{{aes.shipmentParty[0].partyName}}">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>First Name<i class="mand">*</i></label>
-          <input type="text" value="value5">
+          <input type="text" value="{{aes.shipmentParty[0].contactFirstName}}">
         </div>
         <div class="col-md-3">
           <label>Last Name<i class="mand">*</i></label>
-          <input type="text" value="value6">
+          <input type="text" value="{{aes.shipmentParty[0].contactLastName}}">
         </div>
         <div class="col-md-3">
           <label>Phone Number<i class="mand">*</i></label>
-          <input type="text" value="value7">
+          <input type="text" value="{{aes.shipmentParty[0].contactPhoneNumber}}">
         </div>
         <div class="col-md-3">
           <label>Address Line 1</label>
-          <input type="text" value="value8">
+          <input type="text" value="{{aes.shipmentParty[0].addressLine1}}">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>Address Line 2<i class="mand">*</i></label>
-          <input type="text" value="value9">
+          <input type="text" value="{{aes.shipmentParty[0].partyName}}">
         </div>
         <div class="col-md-3">
           <label>Country<i class="mand">*</i></label>
-          <input type="text" value="value10">
+          <input type="text" value="{{aes.shipmentParty[0].countryCode}}">
         </div>
         <div class="col-md-3">
           <label>Postal Code<i class="mand">*</i></label>
-          <input type="text" value="value11">
+          <input type="text" value="{{aes.shipmentParty[0].postalCode}}">
         </div>
         <div class="col-md-3">
           <label>City<i class="mand">*</i></label>
-          <input type="text" value="value12">
+          <input type="text" value="{{aes.shipmentParty[0].city}}">
         </div>
       </div>
       <div class="row mb-3">
         <div class="col-md-3">
           <label>State</label>
-          <select></select>
+          <input type="text" value="{{aes.shipmentParty[0].stateCode}}">
         </div>
       </div>
 
@@ -102,19 +102,19 @@
       <div class="row mb-4">
         <div class="col-md-3">
           <label>ID Number Type<i class="mand">*</i></label>
-          <input type="text" value="value13">
+          <input type="text" value="{{aes.shipmentParty[1].partyIdType}}">
         </div>
         <div class="col-md-3">
           <label>ID Number</label>
-          <input type="text" value="value14">
+          <input type="text" value="{{aes.shipmentParty[1].partyId}}">
         </div>
         <div class="col-md-3">
           <label>Company Name</label>
-          <input type="text" value="value15">
+          <input type="text" value="{{aes.shipmentParty[1].partyName}}">
         </div>
         <div class="col-md-3">
           <label>First Name<i class="mand">*</i></label>
-          <input type="text" value="value16">
+          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
         </div>
 
       </div>
@@ -122,51 +122,49 @@
 
         <div class="col-md-3">
           <label>Last Name<i class="mand">*</i></label>
-          <input type="text" value="value17">
+          <input type="text" value="{{aes.shipmentParty[1].contactLastName}}">
         </div>
         <div class="col-md-3">
           <label>Phone Number<i class="mand">*</i></label>
-          <input type="text" value="value18">
+          <input type="text" value="{{aes.shipmentParty[1].contactPhoneNumber}}">
         </div>
         <div class="col-md-3">
           <label>Origin State</label>
-          <input type="text" value="value19">
+          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
         </div>
         <div class="col-md-3">
           <label>Address Line 1<i class="mand">*</i></label>
-          <input type="text" value="value20">
+          <input type="text" value="{{aes.shipmentParty[1].addressLine1}}">
         </div>
       </div>
       <div class="row mb-4">
 
         <div class="col-md-3">
           <label>Address Line 2<i class="mand">*</i></label>
-          <input type="text" value="value21">
+          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
         </div>
         <div class="col-md-3">
           <label>Country<i class="mand">*</i></label>
-          <input type="text" value="value22">
+          <input type="text" value="{{aes.shipmentParty[1].countryCode}}">
         </div>
         <div class="col-md-3">
           <label>Import Entry</label>
-          <input type="text" value="value23">
+          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
         </div>
         <div class="col-md-3">
           <label>Postal Code</label>
-          <input type="text" value="value24">
+          <input type="text" value="{{aes.shipmentParty[1].postalCode}}">
         </div>
       </div>
       <div class="row mb-3">
 
         <div class="col-md-3">
           <label>City</label>
-          <input type="text" value="value25">
+          <input type="text" value="{{aes.shipmentParty[1].city}}">
         </div>
         <div class="col-md-3">
           <label>State</label>
-          <select>
-            <option>Some Option</option>
-          </select>
+          <input type="text" value="{{aes.shipmentParty[1].stateCode}}">
         </div>
       </div>
 
