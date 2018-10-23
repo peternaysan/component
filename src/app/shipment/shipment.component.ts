@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {AesService} from '../../app/services/aes.service';
+import {MasterData} from '../../app/shared/master-data';
+import { LookupService } from '../services/lookup.service';
+
 
 
 
@@ -12,8 +15,11 @@ import {AesService} from '../../app/services/aes.service';
 
 export class ShipmentComponent implements OnInit {
     public shipmentHeader ={};
+    public inboundList:any=[];
+    public filingTypeList:any=[];
+    public states:any=[];
 
-    constructor(private route: ActivatedRoute, private aesService: AesService) {
+    constructor(private route: ActivatedRoute, private aesService: AesService,private lookupService:LookupService) {
        
      }
 
@@ -27,5 +33,16 @@ export class ShipmentComponent implements OnInit {
             }          
             // load aes object and make cache it in service so it can be accessed from all components
           });
+
+         this.inboundList= MasterData.InbondCodeList;
+         this.filingTypeList=MasterData.filingTypeList;
     }
+
+    ngAfterViewInit() {
+        var country="United States";
+        this.lookupService.states(country)
+        .subscribe((data) => {this.states=data},
+            (err) => { console.log(err); }
+        );
+      }
 }
