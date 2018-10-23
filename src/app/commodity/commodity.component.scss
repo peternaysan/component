@@ -29,3 +29,37 @@
         margin-left: 10px;
     }
 }
+.summary {
+    display: flex;
+    .item {
+        font-size: 12px;
+        margin: 0 0 0 26px;
+        strong {
+            font-size: 16px;
+            display: block;
+            margin: 0 0 6px;
+        }
+    }
+}
+.commodity-line {
+    justify-content: space-between;
+    h2 {
+        padding-left: 30px;
+        margin: 0;
+    }
+}
+.commodity-box {
+    margin-top: -50px;
+    opacity: 0;
+    visibility: none;
+    transition: .3s all ease-in-out;
+}
+.commodity-box.expanded {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -22px;
+}
+.second-box {
+    background: var(--lightest-gray);
+    padding: 15px;
+}
