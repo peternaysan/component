@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -19,7 +20,7 @@ export class AesService {
                 resolve(this.aesEntry);
             }
             else {
-                return this.http
+                this.http
                     .get(environment.apiUrl + "aes/" + Id).subscribe(res => {
                         self.aesEntry = res;
                         resolve(res);
@@ -27,16 +28,18 @@ export class AesService {
                         reject(error);
                     })
             }
-
         });
-
     }
 
-    public submitAes(Id:string){
-        this.getAesById(Id).then(res=>{  
-            console.log("Submitted AES", res);                    
-               //submit to IX   
-           })
+    public savedraft(aesId, aesObject) {
+        return this.http.put(`${environment.apiUrl}aes/${aesId}`, aesObject);
+    }
+
+    public submitAes(aesId, aesObject) {
+        // return this.getAesById(Id).then(res => {
+        console.log("Submitted AES", aesId, aesObject);
+        //submit to IX   
+        // })
     }
 
     private extractData(res: Response) {
