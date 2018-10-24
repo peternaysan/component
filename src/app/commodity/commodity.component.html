@@ -1,10 +1,11 @@
 <div class="buttons-box">
+  <h3>Commodity Details</h3>
   <button class="btn btn-primary">Add New Row</button>
 </div>
 <div class="accordion-box"  *ngFor="let commodity of commodityDetails; let index=index;">
   <div class="commodity-line"  [class.active]="commodity.isExpanded"
    (click)="commodity.isExpanded = !commodity.isExpanded">
-    <h2>Line {{index+1}} Details</h2>
+    <h2>{{index+1}}</h2>
     <div class="summary">
       <div class="item">
         <strong>Description</strong>
