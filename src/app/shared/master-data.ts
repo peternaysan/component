@@ -18,4 +18,25 @@ export class MasterData {
 
         ]
     }
+
+    public static get partyIdTypeList(): any[] {
+        return [
+            { id: "D", name: "D - DUNS" },
+            { id: "S", name: "S - SSN" },
+            { id: "E", name: "E - EIN" },
+            { id: "T", name: "T - Foreign Entity" }
+
+        ]
+    }
+
+    public static get partyTypeList(): any[] {
+        return [
+            { id: "E", name: "E - US Principal Party in Interest" },
+            { id: "F", name: "F - Forwarding Agent" },
+            { id: "C", name: "C - Ultimate Consignee" },
+            { id: "I", name: "I - Intermediate Consignee" }
+
+        ]
+    }
+
 }
