@@ -8,7 +8,7 @@
       <div class="col-md-3">
         <label>Conveyance Name/Carrier Name</label>
         <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName">
-        <label *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
+        <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
           field is required!!</label>
       </div>
     </div>
@@ -17,7 +17,7 @@
 
 <div class="content-box">
   <div class="row mb-4">
-    <table class="table">
+    <table class="table table-striped" >
       <tr>
         <th>Line No.</th>
         <th>Equipment Number</th>
@@ -25,16 +25,17 @@
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
-      <tr *ngIf="transportation.transportationDetails.length == 0">
-        <td colspan="12" class="text-center">
-          <strong class="nodata-message">No data available in table</strong>
-        </td>
-      </tr>
+      
       <tr *ngFor="let item of transportation.transportationDetails; let i=index">
         <td>{{i+1}}</td>
         <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>
         <td>{{item.transportationReferenceNumber}}</td>
       </tr>
+      <tr *ngIf="transportation.transportationDetails.length == 0">
+          <td colspan="12" class="text-center">
+            <strong class="nodata-message">No data available in table</strong>
+          </td>
+        </tr>
     </table>
   </div>
 </div>
