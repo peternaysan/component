@@ -1,6 +1,6 @@
 <div class="buttons-box">
   <h3>Commodity Details</h3>
-  <button class="btn btn-primary">Add New Row</button>
+  <button class="btn btn-primary" type="button" (click)="addnewline()">Add New Row</button>
 </div>
 <div class="accordion-box" *ngFor="let commodity of commodityDetails; let index=index;">
   <div class="commodity-line" [class.active]="commodity.isExpanded" (click)="commodity.isExpanded = !commodity.isExpanded">
@@ -34,9 +34,7 @@
         <strong>Value</strong>
         84546
       </div>
-
     </div>
-
   </div>
   <div class="content-box commodity-box" [class.expanded]="commodity.isExpanded">
     <div class="row mb-4">
@@ -58,10 +56,8 @@
         <label>Mode of Transport (MOT)<i class="mand">*</i></label>
         <input type="text">
       </div>
-
     </div>
     <div class="row mb-4">
-
       <div class="col-md-3">
         <label>Shipping Weight (whole Kilograms)</label>
         <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight">
