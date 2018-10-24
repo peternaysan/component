@@ -11,8 +11,11 @@
 body {
     background: #F4F9FF;
 }
-body, h1, h2, h3, h4, h5, h6, p {
+body, h1, h2, h3, h4, h5, h6, p, .ng-dropdown-panel {
     font-family: 'Montserrat', sans-serif;
+}
+.ng-dropdown-panel {
+    font-size: 14px;
 }
 input[type="email"], input[type="text"], input[type="phone"], select {
     border: 1px solid #E0E0E0;
