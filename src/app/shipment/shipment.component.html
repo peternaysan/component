@@ -2,11 +2,11 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Email Response Address(es)<i class="mand" >*</i></label>
-      <input type="text" [disabled]="true">
+      <input type="text" [disabled]="true" [value]="header.senderEmail">
     </div>
     <div class="col-md-3">
       <label>Shipment Reference Number<i class="mand">*</i></label>
-      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.shipmentReferenceNumber">
+      <input type="text" [disabled]="true" [value]="shipmentHeader.shipmentReferenceNumber">
     </div>
     <div class="col-md-3">
       <label>Filing Option<i class="mand">*</i></label>

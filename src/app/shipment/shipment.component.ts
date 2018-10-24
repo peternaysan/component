@@ -14,10 +14,11 @@ import { LookupService } from '../services/lookup.service';
 })
 
 export class ShipmentComponent implements OnInit {
-    public shipmentHeader ={};
+    public shipmentHeader:any ={};
     public inboundList:any=[];
     public filingTypeList:any=[];
     public states:any=[];
+    public header:any ={}
 
     constructor(private route: ActivatedRoute, private aesService: AesService,private lookupService:LookupService) {
        
@@ -28,7 +29,8 @@ export class ShipmentComponent implements OnInit {
             if(param && param.id){
               this.aesService.getAesById(param.id).then(res=>{
                 var aes = res;
-                this.shipmentHeader=aes.shipmentHeader;                
+                this.shipmentHeader=aes.shipmentHeader;
+                this.header=aes.header;                
               })
             }          
             // load aes object and make cache it in service so it can be accessed from all components
