@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../services/aes.service';
 import { LookupService } from '../services/lookup.service';
+import {MasterData} from '../../app/shared/master-data';
+
 
 @Component({
   selector: 'parties-form',
@@ -13,6 +15,9 @@ export class PartiesComponent implements OnInit {
 
   public shipmentParty:any=[];
   public states:any=[];
+  public partyIdType:any=[];
+  public partyType:any=[];
+
   
   constructor(private route: ActivatedRoute, private aesService: AesService,private lookupService:LookupService) {
 
@@ -35,6 +40,8 @@ export class PartiesComponent implements OnInit {
     .subscribe((data) => {this.states=data},
         (err) => { console.log(err); }
     );
+    this.partyIdType=MasterData.partyIdTypeList;
+    this.partyType=MasterData.partyTypeList;
   }
 
   

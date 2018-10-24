@@ -6,6 +6,7 @@
 --success: #32BEA6;
 --warning: #FF6262;
 --lightest-gray: #DFDFDF;
+--cement-gray:#e9eef4
 }
 body {
     background: #F4F9FF;
@@ -73,22 +74,30 @@ i.mand {
 .nodata-message {
     color: var(--light-gray);
 }
-.dropdown-heading {
-    background: var(--secondary);
-    color: #fff;
-    margin: -20px -20px 20px;
-    border-radius: 10px 10px 0 0;
-    padding: 20px;
+.commodity-line {
+    margin: 0 30px 1px;
+    background: var(--cement-gray);
+    box-shadow: 0 8px 11px rgba(0, 0, 0, 0.13);
+    border-radius: 10px;
+    // color: var(--white);
+    cursor: pointer;
+    display: flex;
+    padding: 12px 20px;
+    font-size: 20px;
     line-height: 1;
+    position: relative;
 }
-.dropdown-heading:after {
+.commodity-line:after {
         content: "\62";
         font-family: "untitled-font-4" !important;
-        font-size: 14px;
-        float: left;
-        margin: 11px 15px 0 0;
+        font-size: 12px;
+        transition: .2s all ease-in-out;
+        position: absolute;
+        left: 20px;
+        top: 17px;
+        margin: 7px 15px 0 0;
 }
-.dropdown-heading.active:after {
+.commodity-line.active:after {
     transform: rotate(180deg);
     margin-top: 6px;
 }
@@ -96,6 +105,7 @@ i.mand {
     background: var(--primary);
     margin-bottom: 20px;
     padding: 10px;
+    font-size: 16px;
     color: var(--white);
     border-radius: 8px;
 }

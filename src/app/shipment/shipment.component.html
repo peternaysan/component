@@ -10,7 +10,8 @@
     </div>
     <div class="col-md-3">
       <label>Filing Option<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.filingTypeIndicator">
+      <ng-select [items]="filingTypeList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator">
+      </ng-select>
     </div>
     <div class="col-md-3">
       <label>Mode of Transport (MOT)<i class="mand">*</i></label>
@@ -29,11 +30,12 @@
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
-      <input type="text" [disabled]="true" >
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.estimatedExportDate" >
     </div>
     <div class="col-md-3">
       <label>Origin State<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.originState">
+      <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState">
+      </ng-select>
     </div>
 
   </div>
@@ -44,7 +46,8 @@
     </div>
     <div class="col-md-3">
       <label>Inbond Type<i class="mand">*</i></label>
-      <input type="text" [(ngModel)]="shipmentHeader.inbondCode">
+      <ng-select [items]="inboundList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode">
+      </ng-select>
     </div>
     <div class="col-md-3">
       <label>Foreign Trade Zone</label>
@@ -66,24 +69,25 @@
   <ul class="form-list">
     <li>
       <p>Is this a Routed Transaction?<i class="mand">*</i> </p>
-      <input type="radio" id="tras-yes" name="trans">
+      <input type="radio" id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
       <label for="tras-yes">Yes</label>
       <input type="radio" id="tras-no" name="trans">
       <label for="tras-no">No</label>
     </li>
     <li>
       <p>Are USPPI and Ultimate Consignee companies related?<i class="mand">*</i> </p>
-      <input type="radio" id="consi-yes" name="consi">
+      <input type="radio" id="consi-yes" name="consi" value="Y" [(ngModel)]="shipmentHeader.relatedParties">
       <label for="consi-yes">Yes</label>
-      <input type="radio" id="consi-no" name="consi">
+      <input type="radio" id="consi-no" name="consi" value="N" [(ngModel)]="shipmentHeader.relatedParties">
       <label for="consi-no">No</label>
     </li>
     <li>
       <p>Does shipment contain hazardous material?<i class="mand">*</i> </p>
-      <input type="radio" id="haz-yes" name="haz">
+      <input type="radio" id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
       <label for="haz-yes">Yes</label>
-      <input type="radio" id="haz-no" name="haz">
+      <input type="radio" id="haz-no" name="haz" value="N" [(ngModel)]="shipmentHeader.hazmatIndicator">
       <label for="haz-no">No</label>
+      
     </li>
   </ul>
 
