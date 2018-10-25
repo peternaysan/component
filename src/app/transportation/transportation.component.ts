@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../services/aes.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'transportation-form',
@@ -10,9 +11,14 @@ import { AesService } from '../services/aes.service';
 
 export class TransportationComponent implements OnInit {
 
+  @ViewChild("transportForm") transportForm : NgForm;
   public transportation: any = {};
   constructor(private route: ActivatedRoute, private aesService: AesService) {
 
+  }
+  test(){
+    console.log(this.transportForm);
+    
   }
 
   ngOnInit() {

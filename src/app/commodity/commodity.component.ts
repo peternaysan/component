@@ -11,7 +11,10 @@ import { AesService } from '../services/aes.service';
 export class CommodityComponent implements OnInit {
   public commodityDetails: any = [];
   constructor(private route: ActivatedRoute, private aesService: AesService) {
+  }
 
+  addnewline(){
+    this.commodityDetails.push({});
   }
 
   ngOnInit() {
@@ -23,7 +26,6 @@ export class CommodityComponent implements OnInit {
           if (this.commodityDetails.length == 0) {
             this.commodityDetails.push({});
           }
-
           this.commodityDetails.forEach(c => {
             if (!c.commodityLineDetails) {
               c.commodityLineDetails = {};

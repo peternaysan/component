@@ -1,24 +1,18 @@
 <div class="content-box">
-<!-- <form #transportForm="ngForm"> -->
-  <div class="row mb-4">
-    <div class="col-md-3">
-      <label>Carrier SCAC/IATA</label>
-      <input type="text" [(ngModel)]="transportation.carrierCode">
+  <form #transportForm="ngForm">
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>Carrier SCAC/IATA</label>
+        <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode">
+      </div>
+      <div class="col-md-3">
+        <label>Conveyance Name/Carrier Name</label>
+        <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName">
+        <label *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
+          field is required!!</label>
+      </div>
     </div>
-    <div class="col-md-3">
-      <label>Conveyance Name/Carrier Name</label>
-      <input type="text" [(ngModel)]="transportation.vesselName">
-    </div>
-    <div class="col-md-3 error-box">
-      <label>Transporation Reference Number</label>
-      <input type="text" required name="refNo" [(ngModel)]="transportation.transportationDetails[0].transportationReferenceNumber">
-      <label *ngIf="transportation.carrierCode?.invalid && transportation.carrierCode?.touched">This field is required!!</label>
-    </div>
-    <div class="col-md-3">
-      <button class="btn btn-secondary float-right mt-4">Add Equipment Line</button>
-    </div>
-  </div>
-<!-- </form> -->
+  </form>
 </div>
 
 <div class="content-box">
@@ -27,13 +21,19 @@
       <tr>
         <th>Line No.</th>
         <th>Equipment Number</th>
-        <th>Seal Number</th>
-        <th>Actions</th>
+        <th>Transportation Reference Number</th>
+        <!-- <th>Seal Number</th> -->
+        <!-- <th>Actions</th> -->
       </tr>
-      <tr>
-          <td colspan="12" class="text-center">
-              <strong class="nodata-message">No data available in table</strong>
-            </td>
+      <tr *ngIf="transportation.transportationDetails.length == 0">
+        <td colspan="12" class="text-center">
+          <strong class="nodata-message">No data available in table</strong>
+        </td>
+      </tr>
+      <tr *ngFor="let item of transportation.transportationDetails; let i=index">
+        <td>{{i+1}}</td>
+        <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>
+        <td>{{item.transportationReferenceNumber}}</td>
       </tr>
     </table>
   </div>

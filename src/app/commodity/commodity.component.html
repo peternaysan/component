@@ -1,10 +1,9 @@
 <div class="buttons-box">
   <h3>Commodity Details</h3>
-  <button class="btn btn-primary">Add New Row</button>
+  <button class="btn btn-primary" type="button" (click)="addnewline()">Add New Row</button>
 </div>
-<div class="accordion-box"  *ngFor="let commodity of commodityDetails; let index=index;">
-  <div class="commodity-line"  [class.active]="commodity.isExpanded"
-   (click)="commodity.isExpanded = !commodity.isExpanded">
+<div class="accordion-box" *ngFor="let commodity of commodityDetails; let index=index;">
+  <div class="commodity-line" [class.active]="commodity.isExpanded" (click)="commodity.isExpanded = !commodity.isExpanded">
     <h2>{{index+1}}</h2>
     <div class="summary">
       <div class="item">
@@ -35,9 +34,7 @@
         <strong>Value</strong>
         84546
       </div>
-
     </div>
-
   </div>
   <div class="content-box commodity-box" [class.expanded]="commodity.isExpanded">
     <div class="row mb-4">
@@ -50,17 +47,21 @@
         <label>Commodity Description<i class="mand">*</i></label>
         <input type="text" [disabled]="true" [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
       </div>
+
+      <div class="col-md-3">
+        <label>Origin of Goods<i class="mand">*</i></label>
+        <input type="text" [disabled]="true">
+      </div>
       <div class="col-md-3">
         <label>Mode of Transport (MOT)<i class="mand">*</i></label>
         <input type="text">
       </div>
+    </div>
+    <div class="row mb-4">
       <div class="col-md-3">
         <label>Shipping Weight (whole Kilograms)</label>
         <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight">
       </div>
-
-    </div>
-    <div class="row mb-4">
       <div class="col-md-3">
         <div class="row  mb-4">
           <div class="col-md-6">
@@ -86,10 +87,6 @@
         </div>
       </div>
       <div class="col-md-3">
-        <label>Origin of Goods<i class="mand">*</i></label>
-        <input type="text" [disabled]="true">
-      </div>
-      <div class="col-md-3">
         <label>Value of Goods (whole US Dollars)<i class="mand">*</i></label>
         <input type="text" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
       </div>
@@ -107,16 +104,17 @@
       </li>
     </ul>
 
-    <div class="second-box">
-      <h5 class="secondar-heading">Department of Commerce License - NLR NO LICENSE REQUIRED, OR ONLY CONTROLLED FOR
-        ANTI-TERRORISM (AT)</h5>
+    <div>
+      <!-- <h5 class="secondar-heading">Department of Commerce License - NLR NO LICENSE REQUIRED, OR ONLY CONTROLLED FOR
+        ANTI-TERRORISM (AT)</h5> -->
+      <h5>License Details</h5>
 
       <div class="row mb-4">
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label>Exemption Code</label>
           <input type="text">
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label>License Value</label>
           <input type="text">
         </div>
@@ -128,16 +126,10 @@
           <label>Liscense Type Code/LIcense Exemption Code<i class="mand">*</i></label>
           <input type="text" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode">
         </div>
-
-      </div>
-      <div class="row">
-
-        <div class="col-md-3">
+        <div class="col-md-2">
           <label>ECCN</label>
           <input type="text" [disabled]="true">
         </div>
-
-
       </div>
     </div>
   </div>

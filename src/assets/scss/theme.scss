@@ -6,6 +6,7 @@
 --success: #32BEA6;
 --warning: #FF6262;
 --lightest-gray: #DFDFDF;
+--cement-gray:#e9eef4
 }
 body {
     background: #F4F9FF;
@@ -74,11 +75,11 @@ i.mand {
     color: var(--light-gray);
 }
 .commodity-line {
-    margin: 0 30px 40px;
-    background: var(--primary);
+    margin: 0 30px 1px;
+    background: var(--cement-gray);
     box-shadow: 0 8px 11px rgba(0, 0, 0, 0.13);
     border-radius: 10px;
-    color: var(--white);
+    // color: var(--white);
     cursor: pointer;
     display: flex;
     padding: 12px 20px;
