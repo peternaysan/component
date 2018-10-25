@@ -11,6 +11,14 @@
         <label *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
           field is required!!</label>
       </div>
+      <div class="col-md-3">
+          <label>Mode of Transport (MOT)<i class="mand">*</i></label>    
+          <ng-select [items]="modeOfTransport"  bindLabel="name" bindValue="id" [(ngModel)]="transportation.modeofTransport">
+              <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                  {{item.id}} - {{item.name}}
+              </ng-template>
+          </ng-select>
+        </div>
     </div>
   </form>
 </div>
@@ -25,7 +33,7 @@
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
-      <tr *ngIf="transportation.transportationDetails.length == 0">
+      <tr *ngIf=" transportation.transportationDetails && transportation.transportationDetails.length == 0">
         <td colspan="12" class="text-center">
           <strong class="nodata-message">No data available in table</strong>
         </td>

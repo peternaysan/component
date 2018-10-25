@@ -14,7 +14,6 @@ export class ShipmentComponent implements OnInit {
     public shipmentHeader:any ={};
     public inboundList:any=[];
     public filingTypeList:any=[];
-    public modeOfTransport:any=[];
     public states:any=[];
     public header:any ={}
 
@@ -38,7 +37,6 @@ export class ShipmentComponent implements OnInit {
 
          this.inboundList= MasterData.InbondCodeList;
          this.filingTypeList=MasterData.filingTypeList;
-         this.modeOfTransport= MasterData.ModeOfTransportList;
     }
 
     ngAfterViewInit() {

@@ -14,9 +14,11 @@
   <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>ID Number Type
-        <i class="mand">*</i>
       </label>
       <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyIdType">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          {{item.id}} - {{item.name}}
+        </ng-template>
       </ng-select>
     </div>
     <div class="col-md-3">
@@ -24,6 +26,9 @@
         <i class="mand">*</i>
       </label>
       <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyType">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          {{item.id}} - {{item.name}}
+        </ng-template>
       </ng-select>
     </div>
     <div class="col-md-3">
@@ -106,10 +111,12 @@
 
   <div class="row mb-4">
     <div class="col-md-3">
-      <label>ID Number Type
-        <i class="mand">*</i>
+      <label>ID Number Type     
       </label>
       <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[1].partyIdType">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          {{item.id}} - {{item.name}}
+        </ng-template>
       </ng-select>
     </div>
     <div class="col-md-3">
@@ -157,7 +164,7 @@
   </div>
   <div class="row mb-4">
 
-    
+
     <div class="col-md-3">
       <label>Country
         <i class="mand">*</i>
@@ -194,22 +201,25 @@
       <label>ID Number Type
         <i class="mand">*</i>
       </label>
-      <ng-select [items]="partyIdType" bindLabel="name" bindValue="id">
+      <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [(ngModel)]="shipmentParty[2].partyIdType">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          {{item.id}} - {{item.name}}
+        </ng-template>
       </ng-select>
     </div>
     <div class="col-md-3">
       <label>ID Number</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].partyName">
     </div>
     <div class="col-md-3">
       <label>First Name
         <i class="mand">*</i>
       </label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].contactFirstName">
     </div>
   </div>
   <div class="row mb-4">
@@ -218,41 +228,41 @@
       <label>Last Name
         <i class="mand">*</i>
       </label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number
         <i class="mand">*</i>
       </label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Address Line 1</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].addressLine1">
     </div>
     <div class="col-md-3">
       <label>Address Line 2</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].addressLine2">
     </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Postal Code</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].postalCode">
     </div>
     <div class="col-md-3">
       <label>Address Line 2
         <i class="mand">*</i>
       </label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].addressLine2">
     </div>
     <div class="col-md-3">
       <label>City</label>
-      <input type="text">
+      <input type="text" [(ngModel)]="shipmentParty[2].city">
     </div>
     <div class="col-md-3">
       <label>State</label>
-      <ng-select [items]="states" bindLabel="displayName" bindValue="code">
+      <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentParty[2].stateCode">
       </ng-select>
     </div>
   </div>
