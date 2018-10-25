@@ -123,3 +123,9 @@ button:focus, button:active {
     box-shadow: none;
     outline: none;
 } 
+.error-label {
+    color: var(--warning);
+  position: absolute;
+   left: 23px;
+       top: 34px;
+}

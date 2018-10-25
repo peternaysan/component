@@ -15,7 +15,7 @@
     <div class="col-md-3">
       <label>ID Number Type
       </label>
-      <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyIdType">
+      <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyIdType" name="partyIdType">
         <ng-template ng-option-tmp ng-label-tmp let-item="item">
           {{item.id}} - {{item.name}}
         </ng-template>
@@ -25,7 +25,7 @@
       <label>Consignee Type
         <i class="mand">*</i>
       </label>
-      <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyType">
+      <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyType" name="partyType">
         <ng-template ng-option-tmp ng-label-tmp let-item="item">
           {{item.id}} - {{item.name}}
         </ng-template>
@@ -35,13 +35,13 @@
       <label>ID Number
         <i class="mand">*</i>
       </label>
-      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].partyId">
+      <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].partyId" name="partyId">
     </div>
     <div class="col-md-3">
       <label>Company Name
         <i class="mand">*</i>
       </label>
-      <input type="text" [(ngModel)]="shipmentParty[0].partyName">
+      <input type="text" [(ngModel)]="shipmentParty[0].partyName" name="partyName">
     </div>
   </div>
   <div class="row mb-4" *ngIf="shipmentParty.length > 0">
@@ -49,19 +49,19 @@
       <label>First Name
         <i class="mand">*</i>
       </label>
-      <input type="text" [(ngModel)]="shipmentParty[0].contactFirstName">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactFirstName" name="contactFirstName">
     </div>
     <div class="col-md-3">
       <label>Last Name
         <i class="mand">*</i>
       </label>
-      <input type="text" [(ngModel)]="shipmentParty[0].contactLastName">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactLastName" name="contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number
         <i class="mand">*</i>
       </label>
-      <input type="text" [(ngModel)]="shipmentParty[0].contactPhoneNumber">
+      <input type="text" [(ngModel)]="shipmentParty[0].contactPhoneNumber" name="contactPhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Address Line 1</label>
