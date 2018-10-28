@@ -55,10 +55,10 @@
         font-size: 24px;
     }
     &.active {
-       background: var(--primary);
-      transition: .2s all ease-in-out;
-      color: var(--white);
-           }
+        background: var(--primary);
+        transition: .2s all ease-in-out;
+        color: var(--white);
+    }
 }
 .commodity-box {
     margin-top: -50px;

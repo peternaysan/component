@@ -21,222 +21,43 @@
       <span aria-hidden="true">&times;</span>
     </button>
     <div class="content-box" *ngIf="aes.shipmentParty">
-      <h2 class="form-heading">Ultimate Consignee</h2>
-      <ul class="form-list mb-4">
-        <li>
-          <p>Sold En Route<i class="mand">*</i> </p>
-          <input type="radio" id="route-yes" name="route">
-          <label for="route-yes">Yes</label>
-          <input type="radio" id="route-no" name="route">
-          <label for="route-no">No</label>
-        </li>
-      </ul>
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>ID Number Type<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].partyIdType}}">
-        </div>
-        <div class="col-md-3">
-          <label>Consignee Type<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].partyType}}">
-        </div>
-        <div class="col-md-3">
-          <label>ID Number<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].partyId}}">
-        </div>
-        <div class="col-md-3">
-          <label>Company Name<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].partyName}}">
-        </div>
+      <h2>Shipment</h2>
+      <div class="featured-fields">
+        <ul>
+          <li>Email Response Adresses: <span>xyz@gac.com</span></li>
+          <li>Shipment Reference Number: <span>USG00041</span></li>
+          <li>Filing Option <span>2 - Predeparture</span></li>
+          <li>Mode of Transport <span>USH00001</span></li>
+          <li>Port of Export <span>5301</span></li>
+          <li>Inbond Type: <span>70-Merchandise NOT shipped inbond</span></li>
+        </ul>
+        <table class="table table-striped table-bordered">
+          <tr>
+            <th>Port of Unlading</th>
+            <th>Departure Date</th>
+            <th>Origin State</th>
+            <th>Country of Destination</th>
+            <th>Foregin Trade Zone</th>
+            <th>Import Entity</th>
+            <th>Original ITN</th>
+          </tr>
+          <tr>
+            <td> </td>
+            <td>22/10/2018</td>
+            <td> </td>
+            <td>KI</td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+          </tr>
+        </table>
       </div>
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>First Name<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].contactFirstName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Last Name<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].contactLastName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Phone Number<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].contactPhoneNumber}}">
-        </div>
-        <div class="col-md-3">
-          <label>Address Line 1</label>
-          <input type="text" value="{{aes.shipmentParty[0].addressLine1}}">
-        </div>
-      </div>
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>Address Line 2<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].partyName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Country<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].countryCode}}">
-        </div>
-        <div class="col-md-3">
-          <label>Postal Code<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].postalCode}}">
-        </div>
-        <div class="col-md-3">
-          <label>City<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[0].city}}">
-        </div>
-      </div>
-      <div class="row mb-3">
-        <div class="col-md-3">
-          <label>State</label>
-          <input type="text" value="{{aes.shipmentParty[0].stateCode}}">
-        </div>
-      </div>
-
 
 
     </div>
 
-    <div class="content-box">
-      <h2 class="form-heading">Intermediate Consignee</h2>
-
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>ID Number Type<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].partyIdType}}">
-        </div>
-        <div class="col-md-3">
-          <label>ID Number</label>
-          <input type="text" value="{{aes.shipmentParty[1].partyId}}">
-        </div>
-        <div class="col-md-3">
-          <label>Company Name</label>
-          <input type="text" value="{{aes.shipmentParty[1].partyName}}">
-        </div>
-        <div class="col-md-3">
-          <label>First Name<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
-        </div>
-
-      </div>
-      <div class="row mb-4">
-
-        <div class="col-md-3">
-          <label>Last Name<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].contactLastName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Phone Number<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].contactPhoneNumber}}">
-        </div>
-        <div class="col-md-3">
-          <label>Origin State</label>
-          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Address Line 1<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].addressLine1}}">
-        </div>
-      </div>
-      <div class="row mb-4">
-
-        <div class="col-md-3">
-          <label>Address Line 2<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Country<i class="mand">*</i></label>
-          <input type="text" value="{{aes.shipmentParty[1].countryCode}}">
-        </div>
-        <div class="col-md-3">
-          <label>Import Entry</label>
-          <input type="text" value="{{aes.shipmentParty[1].contactFirstName}}">
-        </div>
-        <div class="col-md-3">
-          <label>Postal Code</label>
-          <input type="text" value="{{aes.shipmentParty[1].postalCode}}">
-        </div>
-      </div>
-      <div class="row mb-3">
-
-        <div class="col-md-3">
-          <label>City</label>
-          <input type="text" value="{{aes.shipmentParty[1].city}}">
-        </div>
-        <div class="col-md-3">
-          <label>State</label>
-          <input type="text" value="{{aes.shipmentParty[1].stateCode}}">
-        </div>
-      </div>
-
-
-
-    </div>
-
-    <div class="content-box">
-      <h2 class="form-heading">Freight Forwarder</h2>
-
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>ID Number Type<i class="mand">*</i></label>
-          <input type="text" value="value26">
-        </div>
-        <div class="col-md-3">
-          <label>ID Number</label>
-          <input type="text" value="value27">
-        </div>
-        <div class="col-md-3">
-          <label>Company Name</label>
-          <input type="text" value="value28">
-        </div>
-        <div class="col-md-3">
-          <label>First Name<i class="mand">*</i></label>
-          <input type="text" value="value29">
-        </div>
-      </div>
-      <div class="row mb-4">
-
-        <div class="col-md-3">
-          <label>Last Name<i class="mand">*</i></label>
-          <input type="text" value="value30">
-        </div>
-        <div class="col-md-3">
-          <label>Phone Number<i class="mand">*</i></label>
-          <input type="text" value="value31">
-        </div>
-        <div class="col-md-3">
-          <label>Address Line 1</label>
-          <input type="text" value="value32">
-        </div>
-        <div class="col-md-3">
-          <label>Address Line 2</label>
-          <input type="text" value="value33">
-        </div>
-      </div>
-      <div class="row mb-4">
-        <div class="col-md-3">
-          <label>Postal Code</label>
-          <input type="text" value="value34">
-        </div>
-        <div class="col-md-3">
-          <label>Address Line 2<i class="mand">*</i></label>
-          <input type="text" value="value35">
-        </div>
-        <div class="col-md-3">
-          <label>City</label>
-          <input type="text" value="value36">
-        </div>
-        <div class="col-md-3">
-          <label>State</label>
-          <select>
-            <option>Some Option</option>
-          </select>
-        </div>
-      </div>
-
-
-
-    </div>
-
+    
+    
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Print</button>
