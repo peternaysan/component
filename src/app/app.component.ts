@@ -1,4 +1,4 @@
-import { Component, ViewChild} from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AesService } from '../app/services/aes.service';
 import { ShipmentComponent } from '../app/shipment/shipment.component';
@@ -67,7 +67,7 @@ export class AppComponent {
 
   onSubmitClick() {
     console.log(this.shipmentComponent.isValid);
-   if(this.shipmentComponent.isValid)
-    this.aesService.submitAes(this.aesId, this.aes)
+    if (this.shipmentComponent.isValid)
+      this.aesService.submitAes(this.aesId, this.aes)
   }
 }

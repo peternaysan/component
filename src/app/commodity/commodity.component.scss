@@ -59,6 +59,11 @@
         transition: .2s all ease-in-out;
         color: var(--white);
     }
+    // &:hover{
+    //     .btn-danger{
+    //         visibility: visible;
+    //     }
+    // }
 }
 .commodity-box {
     margin-top: -50px;
@@ -77,4 +82,14 @@
 .second-box {
     // background: var(--lightest-gray);
     padding: 15px;
+}
+// .item-danger{
+//     // .btn-danger { display: none}
+//     :hover{
+//     }
+// }
+
+.btn-danger {
+    display: block;
+    background: var(--warning);
 }

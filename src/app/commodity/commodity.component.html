@@ -34,6 +34,9 @@
         <strong>Value</strong>
         {{commodity.commodityLineDetails.valueofGoods}} </div>
     </div>
+    <div class="item" *ngIf="commodity.showDelete">
+      <button type="button" class="btn btn-danger">Delete</button>
+    </div>
   </div>
   <div class="content-box commodity-box" [class.expanded]="commodity.isExpanded">
     <div class="row mb-4">

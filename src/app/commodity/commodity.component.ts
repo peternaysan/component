@@ -12,7 +12,7 @@ export class CommodityComponent implements OnInit {
   }
 
   addnewline() {
-    var commodity = { commodityLineDetails: {}, licenseDetails: {} }
+    var commodity = { commodityLineDetails: {}, licenseDetails: {}, showDelete: true }
     this.commodityDetails.push(commodity);
   }
 
