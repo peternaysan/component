@@ -6,18 +6,28 @@
         <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode">
       </div>
       <div class="col-md-3">
-        <label>Conveyance Name/Carrier Name</label>
+        <label>Conveyance Name/Carrier Name<i class="mand">*</i></label>
         <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName">
         <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
           field is required!!</label>
       </div>
+      <div class="col-md-3">
+          <label>Mode of Transport (MOT)<i class="mand">*</i></label>    
+          <ng-select [items]="modeOfTransport"  bindLabel="name" bindValue="id" [(ngModel)]="transportation.modeofTransport" name="modeofTransport">
+              <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                  {{item.id}} - {{item.name}}
+              </ng-template>
+          </ng-select>
+          <label class="error-label" *ngIf="transportForm.controls.modeofTransport?.invalid && transportForm.controls.modeofTransport?.touched">This
+              field is required!!</label>
+        </div>
     </div>
   </form>
 </div>
 
 <div class="content-box">
   <div class="row mb-4">
-    <table class="table table-striped" >
+    <table class="table table-striped">
       <tr>
         <th>Line No.</th>
         <th>Equipment Number</th>
@@ -25,7 +35,11 @@
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
-      
+      <tr *ngIf=" transportation.transportationDetails && transportation.transportationDetails.length == 0">
+        <td colspan="12" class="text-center">
+          <strong class="nodata-message">No data available in table</strong>
+        </td>
+      </tr>
       <tr *ngFor="let item of transportation.transportationDetails; let i=index">
         <td>{{i+1}}</td>
         <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>

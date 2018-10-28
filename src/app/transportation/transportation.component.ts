@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../services/aes.service';
 import { NgForm } from '@angular/forms';
+import { MasterData } from '../../app/shared/master-data';
+
 
 @Component({
   selector: 'transportation-form',
@@ -13,6 +15,8 @@ export class TransportationComponent implements OnInit {
 
   @ViewChild("transportForm") transportForm : NgForm;
   public transportation: any = {};
+  public modeOfTransport:any=[];
+
   constructor(private route: ActivatedRoute, private aesService: AesService) {
 
   }
@@ -31,5 +35,8 @@ export class TransportationComponent implements OnInit {
       }
       // load aes object and make cache it in service so it can be accessed from all components
     });
+    this.modeOfTransport= MasterData.ModeOfTransportList;
   }
+ 
+
 }
