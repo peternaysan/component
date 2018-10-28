@@ -44,6 +44,11 @@ export class AppComponent {
   }
 
   onSaveDraft() {
+    console.log(this.aes);
+    this.aesService.getAesById(this.aesId).then(res => {
+      console.log("SDSD, ", res);
+    })
+
     this.aesService.savedraft(this.aesId, this.aes).subscribe(data => {
       // show toastr
       console.log(data);

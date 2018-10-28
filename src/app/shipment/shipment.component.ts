@@ -11,32 +11,36 @@ import { LookupService } from '../services/lookup.service';
 })
 
 export class ShipmentComponent implements OnInit {
-    public shipmentHeader:any ={};
-    public inboundList:any=[];
-    public filingTypeList:any=[];
-    public states:any=[];
-    public header:any ={}
+    public shipmentHeader: any = {};
+    public inboundList: any = [];
+    public filingTypeList: any = [];
+    public states: any = [];
+    public header: any = {}
 
-    constructor(private route: ActivatedRoute, 
+    constructor(private route: ActivatedRoute,
         private aesService: AesService,
-        private lookupService:LookupService) {
-       
-     }
+        private lookupService: LookupService) {
+
+    }
+
+    log(){
+        console.log(this.shipmentHeader);
+    }
 
     ngOnInit() {
         this.route.queryParams.subscribe(param => {
-            if(param && param.id){
-              this.aesService.getAesById(param.id).then(res=>{
-                var aes = res;
-                this.shipmentHeader=aes.shipmentHeader;
-                this.header=aes.header;                
-              })
-            }          
+            if (param && param.id) {
+                this.aesService.getAesById(param.id).then(res => {
+                    var aes = res;
+                    this.shipmentHeader = aes.shipmentHeader;
+                    this.header = aes.header;
+                })
+            }
             // load aes object and make cache it in service so it can be accessed from all components
         });
 
-         this.inboundList= MasterData.InbondCodeList;
-         this.filingTypeList=MasterData.filingTypeList;
+        this.inboundList = MasterData.InbondCodeList;
+        this.filingTypeList = MasterData.filingTypeList;
     }
 
     ngAfterViewInit() {

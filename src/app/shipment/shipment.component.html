@@ -1,7 +1,7 @@
 <div class="content-box" *ngIf="shipmentHeader">
   <div class="row mb-4">
     <div class="col-md-3">
-      <label>Email Response Address(es)<i class="mand" >*</i></label>
+      <label (click)="log()">Email Response Address(es)<i class="mand" >*</i></label>
       <input type="text" [disabled]="true" [value]="header.senderEmail">
     </div>
     <div class="col-md-3">

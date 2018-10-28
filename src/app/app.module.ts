@@ -1,3 +1,4 @@
+import { AesPrintViewComponent } from './print-view/print-view.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -29,7 +30,8 @@ import { routes } from './routes';
     ShipmentComponent,
     PartiesComponent,
     TransportationComponent,
-    CommodityComponent
+    CommodityComponent,
+    AesPrintViewComponent
   ],
   imports: [
     BrowserModule,
