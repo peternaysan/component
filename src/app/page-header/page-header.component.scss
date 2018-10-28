@@ -85,3 +85,73 @@
 
 
 }
+
+
+ul.steps {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 15px 20px;
+  list-style: none;
+  background: var(--white);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  justify-content: space-between;
+  bottom: -33px;
+  li {
+      color: var(--light-gray);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      
+      &:before {
+          content: "\63";
+          font-family: "untitled-font-4";
+          position: absolute;
+          left: -231px;
+          top: 0px;
+          font-size: 20px;
+      }
+      i {
+          background: var(--light-gray);
+          color: #fff;
+          height: 14px;
+          float: left;
+          width: 14px;
+          line-height: 17px;
+          text-align: center;
+          margin: 4px 6px 0 0;
+          font-size: 8px;
+          border-radius: 100%;
+      }
+      a {
+          cursor: pointer;
+          color: var(--light-gray);
+          overflow: hidden;
+          &.active {
+              color: var(--primary);
+              i {
+                  background: var(--primary);
+              }
+          }
+      }
+      &.error {
+          a {
+              color: var(--warning);
+              i {
+                  background: var(--warning);
+              }
+          }
+          .numb-error {
+              background: var(--warning);
+              color: var(--white);
+              border-radius: 8px;
+              padding: 4px 10px;
+              font-size: 10px;
+              margin-left: 15px;
+              line-height: 10px;
+          }
+      }
+  }
+}

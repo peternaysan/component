@@ -35,11 +35,6 @@
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
-      <tr *ngIf=" transportation.transportationDetails && transportation.transportationDetails.length == 0">
-        <td colspan="12" class="text-center">
-          <strong class="nodata-message">No data available in table</strong>
-        </td>
-      </tr>
       <tr *ngFor="let item of transportation.transportationDetails; let i=index">
         <td>{{i+1}}</td>
         <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>

@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AesService } from '../services/aes.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'commodity-form',
@@ -9,8 +7,8 @@ import { AesService } from '../services/aes.service';
 })
 
 export class CommodityComponent implements OnInit {
-  public commodityDetails: any = [];
-  constructor(private route: ActivatedRoute, private aesService: AesService) {
+  @Input() commodityDetails: any = [];
+  constructor() {
   }
 
   addnewline(){
@@ -18,23 +16,5 @@ export class CommodityComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(param => {
-      if (param && param.id) {
-        this.aesService.getAesById(param.id).then(res => {
-          var aes = res;
-          this.commodityDetails = aes.commodityDetails;
-          if (this.commodityDetails.length == 0) {
-            this.commodityDetails.push({});
-          }
-          this.commodityDetails.forEach(c => {
-            if (!c.commodityLineDetails) {
-              c.commodityLineDetails = {};
-              c.licenseDetails = {};
-            }
-          });
-        })
-      }
-      // load aes object and make cache it in service so it can be accessed from all components
-    });
   }
 }

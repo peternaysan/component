@@ -10,26 +10,35 @@
       </li>
       <li>
         <a href="#0" class="canceled">
-            <span><i class="icon-small-calendar"></i> John Wick</span>
-            <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
+          <span><i class="icon-small-calendar"></i> John Wick</span>
+          <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-          <a href="#0" class="approved">
-            <span><i class="icon-small-calendar"></i> John Wick</span>
-            <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
-          </a>
-        </li>
+        <a href="#0" class="approved">
+          <span><i class="icon-small-calendar"></i> John Wick</span>
+          <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
+        </a>
+      </li>
       <li>
         <a href="#0" class="canceled">
-            <span><i class="icon-small-calendar"></i> John Wick</span>
-            <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
+          <span><i class="icon-small-calendar"></i> John Wick</span>
+          <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
-     
+
     </ul>
   </div>
   <h2>Amend Export Filling (Filter ID222)</h2>
   <h4>Draft last saved: 08/02/2018</h4>
-  <steps-area></steps-area>
+
+  <ul class="steps">
+    <li *ngFor="let item of menulist">
+      <a [class.active]="item.active" (click)="changeActive(item)"><i class="icon-shape"></i> {{item.name}}</a>
+    </li>
+    <!-- <li><a><i class="icon-shape"></i> Parties</a></li>
+    <li><a><i class="icon-shape"></i> Commodity</a></li>
+    <li><a><i class="icon-shape"></i> Transportation</a></li> -->
+    <!-- <span class="numb-error">4</span> -->
+  </ul>
 </div>

@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input } from '@angular/core';
 import { AesService } from '../../app/services/aes.service';
 import { MasterData } from '../../app/shared/master-data';
 import { LookupService } from '../services/lookup.service';
@@ -11,16 +10,13 @@ import { LookupService } from '../services/lookup.service';
 })
 
 export class ShipmentComponent implements OnInit {
-    public shipmentHeader: any = {};
+    @Input() shipmentHeader;
     public inboundList: any = [];
     public filingTypeList: any = [];
     public states: any = [];
     public header: any = {}
 
-    constructor(private route: ActivatedRoute,
-        private aesService: AesService,
-        private lookupService: LookupService) {
-
+    constructor(private lookupService: LookupService) {
     }
 
     log(){
@@ -28,17 +24,6 @@ export class ShipmentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.route.queryParams.subscribe(param => {
-            if (param && param.id) {
-                this.aesService.getAesById(param.id).then(res => {
-                    var aes = res;
-                    this.shipmentHeader = aes.shipmentHeader;
-                    this.header = aes.header;
-                })
-            }
-            // load aes object and make cache it in service so it can be accessed from all components
-        });
-
         this.inboundList = MasterData.InbondCodeList;
         this.filingTypeList = MasterData.filingTypeList;
     }

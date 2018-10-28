@@ -1,7 +1,7 @@
 import { AesPrintViewComponent } from './print-view/print-view.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+// import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -20,7 +20,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 import { AesService } from '../app/services/aes.service';
 import { LookupService } from '../app/services/lookup.service';
-import { routes } from './routes';
+// import { routes } from './routes';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ import { routes } from './routes';
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     NgbModalModule,
     HttpClientModule,
     NgSelectModule

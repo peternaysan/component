@@ -1,9 +1,12 @@
-<div class="page">
+<div class="page" *ngIf="aes">
   <div class="header-flex">
-    <page-header></page-header>
+    <page-header (activemenuchanged)="onactivemenuchange($event)"></page-header>
   </div>
   <div class="content">
-    <router-outlet></router-outlet>
+    <shipment-form [hidden]="activeMenu != 'Shipment'" [shipmentHeader]="aes.shipmentHeader"></shipment-form>
+    <parties-form [hidden]="activeMenu != 'Parties'" [shipmentParty]="aes.shipmentParty"></parties-form>
+    <commodity-form [hidden]="activeMenu != 'Commodity'" [commodityDetails]="aes.commodityDetails"></commodity-form>
+    <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation"></transportation-form>
   </div>
   <div class="button-flex">
     <div class="buttons-box">
@@ -14,6 +17,8 @@
   </div>
 </div>
 
+<h1 *ngIf="!aes">LOADING ....!</h1>
+
 <ng-template #modelcontent let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">AES Print View</h4>
@@ -22,7 +27,7 @@
     </button>
   </div>
   <div class="modal-body">
-      <aes-print-view [aes]="aes"></aes-print-view>
+    <aes-print-view [aes]="aes"></aes-print-view>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-primary" (click)="modal.close('Save click')">Print</button>
