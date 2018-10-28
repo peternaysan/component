@@ -17,12 +17,12 @@ export class AppComponent {
   aes;
   activeMenu = "shipment";
   private shipmentComponent: ShipmentComponent;
-  @ViewChild(ShipmentComponent) set content(content: ShipmentComponent) {
+  @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
   }
-  private transportComponent: ShipmentComponent;
-  @ViewChild(ShipmentComponent) set content(content: ShipmentComponent) {
-    this.shipmentComponent = content;
+  private transportComponent: TransportationComponent;
+  @ViewChild(TransportationComponent) set transportcontent(content: TransportationComponent) {
+    this.transportComponent = content;
   }
 
   constructor(
