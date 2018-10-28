@@ -54,7 +54,7 @@
         <label>Origin of Goods
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true">
+        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.originOfGoods?true:false" [(ngModel)]="commodity.commodityLineDetails.originOfGoods" >
       </div>
       <div class="col-md-3">
         <label>Mode of Transport (MOT)

@@ -1,5 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AesService } from '../../app/services/aes.service';
 import { MasterData } from '../../app/shared/master-data';
 import { LookupService } from '../services/lookup.service';
@@ -12,46 +11,36 @@ import { NgForm } from '@angular/forms';
 })
 
 export class ShipmentComponent implements OnInit {
-    public shipmentHeader:any ={};
-    public inboundList:any=[];
-    public filingTypeList:any=[];
-    public states:any=[];
-    public country:any=[];
-    public header:any ={}
-    public usppi:any ={}
-    
-  @ViewChild("shipmentHeaderForm") shipmentHeaderForm : NgForm;
-
-
-    constructor(private route: ActivatedRoute, 
-        private aesService: AesService,
-        private lookupService:LookupService) {
-       
-     }
-
-    ngOnInit() {
-        this.route.queryParams.subscribe(param => {
-            if(param && param.id){
-              this.aesService.getAesById(param.id).then(res=>{
-                var aes = res;
-                this.shipmentHeader=aes.shipmentHeader;
-                this.header=aes.header;                
-              })
-            }          
-            // load aes object and make cache it in service so it can be accessed from all components
-        });
-
-         this.inboundList= MasterData.InbondCodeList;
-         this.filingTypeList=MasterData.filingTypeList;
-         this.country=MasterData.countryList;
+    @Input() shipmentHeader: any = {};
+    public inboundList: any = [];
+    public filingTypeList: any = [];
+    public states: any = [];
+    public country: any = [];
+    @Input() header;
+    public usppi: any = {}
+    @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
+    constructor(private lookupService: LookupService) {
     }
 
-    ngAfterViewInit() {
+    log() {
+        console.log(this.shipmentHeader);
+    }
+    ngOnInit() {
         var country = "United States";
         this.lookupService.states(country)
             .subscribe((data) => { this.states = data },
                 (err) => { console.log(err); }
             );
-            console.log(this.shipmentHeaderForm);  
+        this.inboundList = MasterData.InbondCodeList;
+        this.filingTypeList = MasterData.filingTypeList;
+        this.country = MasterData.countryList;
+    }
+
+    ngAfterViewInit() {
+
+    }
+
+    get isValid(){
+      return this.shipmentHeaderForm.valid;
     }
 }

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute } from '@angular/router';
-import { AesService } from '../app/services/aes.service'
-import { log } from 'util';
+import { AesService } from '../app/services/aes.service';
+import { ShipmentComponent } from '../app/shipment/shipment.component';
+import { TransportationComponent } from '../app/transportation/transportation.component';
+
 
 @Component({
   selector: 'app-root',
@@ -14,36 +15,46 @@ export class AppComponent {
   title = 'aes-component';
   aesId;
   aes;
+  activeMenu = "shipment";
+  private shipmentComponent: ShipmentComponent;
+  @ViewChild(ShipmentComponent) set content(content: ShipmentComponent) {
+    this.shipmentComponent = content;
+  }
+  private transportComponent: ShipmentComponent;
+  @ViewChild(ShipmentComponent) set content(content: ShipmentComponent) {
+    this.shipmentComponent = content;
+  }
+
   constructor(
     private modalService: NgbModal,
-    private route: ActivatedRoute,
     private aesService: AesService) {
   }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(param => {
-      if (param && param.id) {
-        this.aesId = param.id;
-        this.aesService.getAesById(param.id).then(res => {
-          this.aes = res;
-        })
-      }
-    });
+    const urlParams = new URLSearchParams(window.location.search);
+    const aesId = urlParams.get('id');
+    if (aesId) {
+      this.aesId = aesId;
+      this.aesService.getAesById(aesId).then(res => {
+        this.aes = res;
+      });
+    }
+  }
+
+  onactivemenuchange(item) {
+    this.activeMenu = item.name;
   }
 
   openPrintView(content) {
-    // this.aesService.getAesById(this.aesId).then(res => {
-    //   this.aes = res;
-    // });
-
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      this.closeResult = `Dismissed`;
     });
   }
 
   onSaveDraft() {
+    console.log(this.aes);
     this.aesService.savedraft(this.aesId, this.aes).subscribe(data => {
       // show toastr
       console.log(data);
@@ -55,16 +66,8 @@ export class AppComponent {
   }
 
   onSubmitClick() {
+    console.log(this.shipmentComponent.isValid);
+   if(this.shipmentComponent.isValid)
     this.aesService.submitAes(this.aesId, this.aes)
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 }

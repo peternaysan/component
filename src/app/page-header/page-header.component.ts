@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'page-header',
@@ -7,10 +7,41 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class PageHeaderComponent implements OnInit {
-   
+
+    @Output() activemenuchanged = new EventEmitter();
+
+    menulist = [
+        {
+            name: "Shipment",
+            active: true,
+        },
+        {
+            name: "Parties",
+            active: false,
+        },
+        {
+            name: "Commodity",
+            active: false,
+        },
+        {
+            name: "Transportation",
+            active: false,
+        },
+    ]
+
     constructor() { }
 
+    changeActive(item) {
+        this.menulist.forEach(menu => {
+            menu.active = false;
+        });
+
+        item.active = true;
+        this.activemenuchanged.emit(item);
+    }
+
     ngOnInit() {
-        
-     }
+        var item = this.menulist.find(x => x.active == true);
+        this.activemenuchanged.emit(item);
+    }
 }

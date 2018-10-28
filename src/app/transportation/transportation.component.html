@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-3">
           <label>Mode of Transport (MOT)<i class="mand">*</i></label>    
-          <ng-select [items]="modeOfTransport"  bindLabel="name" bindValue="id" [(ngModel)]="transportation.modeofTransport" name="modeofTransport">
+          <ng-select [items]="modeOfTransport" required bindLabel="name" bindValue="id" [(ngModel)]="transportation.modeofTransport" name="modeofTransport">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                   {{item.id}} - {{item.name}}
               </ng-template>
@@ -35,16 +35,16 @@
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
-      <tr *ngIf=" transportation.transportationDetails && transportation.transportationDetails.length == 0">
-        <td colspan="12" class="text-center">
-          <strong class="nodata-message">No data available in table</strong>
-        </td>
-      </tr>
       <tr *ngFor="let item of transportation.transportationDetails; let i=index">
         <td>{{i+1}}</td>
         <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>
         <td>{{item.transportationReferenceNumber}}</td>
       </tr>
+      <tr *ngIf="transportation.transportationDetails.length == 0">
+          <td colspan="12" class="text-center">
+            <strong class="nodata-message">No data available in table</strong>
+          </td>
+        </tr>
     </table>
   </div>
 </div>

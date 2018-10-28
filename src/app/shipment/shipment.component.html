@@ -54,7 +54,7 @@
    
     <div class="col-md-3">
       <label>Inbond Type<i class="mand">*</i></label>
-      <ng-select [items]="inboundList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode" id="inbondCode" name="inbondCode" >
+      <ng-select [items]="inboundList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode" id="inbondCode" name="inbondCode" required >
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
               {{item.id}} - {{item.name}}
           </ng-template>

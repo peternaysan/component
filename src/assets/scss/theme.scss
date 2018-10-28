@@ -11,8 +11,11 @@
 body {
     background: #F4F9FF;
 }
-body, h1, h2, h3, h4, h5, h6, p {
+body, h1, h2, h3, h4, h5, h6, p, .ng-dropdown-panel {
     font-family: 'Montserrat', sans-serif;
+}
+.ng-dropdown-panel {
+    font-size: 14px;
 }
 input[type="email"], input[type="text"], input[type="phone"], select {
     border: 1px solid #E0E0E0;
@@ -122,10 +125,13 @@ input.ng-touched.ng-invalid {
 button:focus, button:active {
     box-shadow: none;
     outline: none;
-} 
+}
 .error-label {
     color: var(--warning);
-  position: absolute;
-   left: 23px;
-       top: 34px;
+    position: absolute;
+    left: 23px;
+    top: 34px;
+}
+.ng-select {
+    font-size: 13px;
 }
