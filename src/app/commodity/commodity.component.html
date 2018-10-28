@@ -37,18 +37,17 @@
   </div>
   <div class="content-box commodity-box" [class.expanded]="commodity.isExpanded">
     <div class="row mb-4">
-
       <div class="col-md-3">
         <label>Schedule B or HTS Number
           <i class="label-blue">(Schedule B Search Engine)</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="commodity.commodityLineDetails.htsNumber">
+        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.htsNumber?true:false" [(ngModel)]="commodity.commodityLineDetails.htsNumber">
       </div>
       <div class="col-md-3">
         <label>Commodity Description
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
+        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.commodityDescription?true:false" [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
       </div>
 
       <div class="col-md-3">

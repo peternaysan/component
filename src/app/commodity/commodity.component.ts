@@ -14,7 +14,8 @@ export class CommodityComponent implements OnInit {
   }
 
   addnewline(){
-    this.commodityDetails.push({});
+    var commodity={commodityLineDetails:{},licenseDetails:{}}
+    this.commodityDetails.push(commodity);
   }
 
   ngOnInit() {
@@ -24,7 +25,7 @@ export class CommodityComponent implements OnInit {
           var aes = res;
           this.commodityDetails = aes.commodityDetails;
           if (this.commodityDetails.length == 0) {
-            this.commodityDetails.push({});
+            this.addnewline()
           }
           this.commodityDetails.forEach(c => {
             if (!c.commodityLineDetails) {

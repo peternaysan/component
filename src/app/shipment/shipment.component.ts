@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AesService } from '../../app/services/aes.service';
 import { MasterData } from '../../app/shared/master-data';
 import { LookupService } from '../services/lookup.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'shipment-form',
@@ -15,7 +16,12 @@ export class ShipmentComponent implements OnInit {
     public inboundList:any=[];
     public filingTypeList:any=[];
     public states:any=[];
+    public country:any=[];
     public header:any ={}
+    public usppi:any ={}
+    
+  @ViewChild("shipmentHeaderForm") shipmentHeaderForm : NgForm;
+
 
     constructor(private route: ActivatedRoute, 
         private aesService: AesService,
@@ -37,6 +43,7 @@ export class ShipmentComponent implements OnInit {
 
          this.inboundList= MasterData.InbondCodeList;
          this.filingTypeList=MasterData.filingTypeList;
+         this.country=MasterData.countryList;
     }
 
     ngAfterViewInit() {
@@ -45,5 +52,6 @@ export class ShipmentComponent implements OnInit {
             .subscribe((data) => { this.states = data },
                 (err) => { console.log(err); }
             );
+            console.log(this.shipmentHeaderForm);  
     }
 }

@@ -1,16 +1,17 @@
+<form #shipmentHeaderForm="ngForm">
 <div class="content-box" *ngIf="shipmentHeader">
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Email Response Address(es)<i class="mand" >*</i></label>
-      <input type="text" [disabled]="true" [value]="header.senderEmail">
+      <input type="text" id="senderEmail" name="senderEmail" [disabled]="true" [value]="header.senderEmail">
     </div>
     <div class="col-md-3">
       <label>Shipment Reference Number<i class="mand">*</i></label>
-      <input type="text" [disabled]="true" [value]="shipmentHeader.shipmentReferenceNumber">
+      <input type="text" id="shipmentReferenceNumber" name="shipmentReferenceNumber" [disabled]="true" [value]="shipmentHeader.shipmentReferenceNumber">
     </div>
     <div class="col-md-3">
       <label>Filing Option<i class="mand">*</i></label>
-      <ng-select [items]="filingTypeList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator">
+      <ng-select [items]="filingTypeList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator" id="filingTypeIndicator" name="filingTypeIndicator">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
               {{item.id}} - {{item.name}}
           </ng-template>
@@ -18,7 +19,7 @@
     </div>
     <div class="col-md-3">
         <label>Port Of Export<i class="mand">*</i></label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.portofExportation">
+        <input type="text" id="portofExportation" name="portofExportation" [disabled]="true" [(ngModel)]="shipmentHeader.portofExportation">
       </div>
 
   </div>
@@ -26,27 +27,34 @@
     
     <div class="col-md-3">
       <label>Port of Unlading</label>
-      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.portofUnlading">
+      <input type="text" id="portofUnlading" name="portofUnlading" [disabled]="true" [(ngModel)]="shipmentHeader.portofUnlading">
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
-      <input type="text" [disabled]="true" [(ngModel)]="shipmentHeader.estimatedExportDate" >
+      <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="true" [(ngModel)]="shipmentHeader.estimatedExportDate" >
     </div>
     <div class="col-md-3">
       <label>Origin State<i class="mand">*</i></label>
-      <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState">
+      <ng-select [items]="states" bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.originState" id="originState" name="originState">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+              {{item.code}} - {{item.name}}
+          </ng-template>
       </ng-select>
     </div>
     <div class="col-md-3">
         <label>Country of Destination <i class="mand">*</i></label>
-        <input type="text" [(ngModel)]="shipmentHeader.ultimateDestinationCountry">
+        <ng-select [items]="country" bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.ultimateDestinationCountry" id="ultimateDestCountry" name="ultimateDestCountry">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+              {{item.code}} - {{item.name}}
+          </ng-template>
+      </ng-select>
       </div>
   </div>
   <div class="row mb-4">
    
     <div class="col-md-3">
       <label>Inbond Type<i class="mand">*</i></label>
-      <ng-select [items]="inboundList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode">
+      <ng-select [items]="inboundList" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode" id="inbondCode" name="inbondCode" >
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
               {{item.id}} - {{item.name}}
           </ng-template>
@@ -54,15 +62,15 @@
     </div>
     <div class="col-md-3">
       <label>Foreign Trade Zone</label>
-      <input type="text" [(ngModel)]="shipmentHeader.foreignTradeZone">
+      <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone">
     </div>
     <div class="col-md-3">
       <label>Import Entity</label>
-      <input type="text" >
+      <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity" >
     </div>
     <div class="col-md-3">
         <label>Original ITN</label>
-        <input type="text" >
+        <input type="text" id="originalITN" name="originalITN" [(ngModel)]="shipmentHeader.originalITN">
       </div>  
   </div>
   <div class="row mb-5">
@@ -72,9 +80,9 @@
   <ul class="form-list">
     <li>
       <p>Is this a Routed Transaction?<i class="mand">*</i> </p>
-      <input type="radio" id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
+      <input type="radio" id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
       <label for="tras-yes">Yes</label>
-      <input type="radio" id="tras-no" name="trans">
+      <input type="radio" id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
       <label for="tras-no">No</label>
     </li>
     <li>
@@ -100,55 +108,62 @@
   <div class="row mb-4">
     <div class="col-md-3">
       <label>ID Number Type<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiIdNoType" name="usppiIdNoType" required [(ngModel)]="usppi.IdNumberType">
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.usppiIdNoType?.invalid && shipmentHeaderForm.controls.usppiIdNoType?.touched">This
+          field is required!!</label>
     </div>
     <div class="col-md-3">
       <label>ID Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiIdNo" name="usppiIdNo" [(ngModel)]="usppi.IdNumber">
     </div>
     <div class="col-md-3">
       <label>Company Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.companyNo">
     </div>
     <div class="col-md-3">
       <label>IRS Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.IrsNumber">
     </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>First Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.FirstName">
     </div>
     <div class="col-md-3">
       <label>Last Name<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.LastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.PhoneNumber">
     </div>
     <div class="col-md-3">
       <label>Address Line 1<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1">
     </div>
   </div>
   <div class="row mb-4">
     <div class="col-md-3">
       <label>Address Line 2<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2">
     </div>
     <div class="col-md-3">
       <label>Postal Code<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode">
     </div>
     <div class="col-md-3">
       <label>City<i class="mand">*</i></label>
-      <input type="text">
+      <input type="text" id="usppicity" name="usppicity" [(ngModel)]="usppi.city">
     </div>
     <div class="col-md-3">
-      <label>State<i class="mand">*</i></label>
-      <select></select>
+      <label>State<i class="mand" id="usppistate" name="usppistate">*</i></label>
+      <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.state">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+              {{item.code}} - {{item.name}}
+          </ng-template>
+      </ng-select>
     </div>
   </div>
 </div>
+</form>

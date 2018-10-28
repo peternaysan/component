@@ -53,25 +53,22 @@
     </div>
     <div class="col-md-3">
       <label>Last Name
-        <i class="mand">*</i>
       </label>
       <input type="text" [(ngModel)]="shipmentParty[0].contactLastName" name="contactLastName">
     </div>
     <div class="col-md-3">
       <label>Phone Number
-        <i class="mand">*</i>
       </label>
       <input type="text" [(ngModel)]="shipmentParty[0].contactPhoneNumber" name="contactPhoneNumber">
     </div>
     <div class="col-md-3">
-      <label>Address Line 1</label>
+      <label>Address Line 1 <i class="mand">*</i></label>
       <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].addressLine1">
     </div>
   </div>
   <div class="row mb-4" *ngIf="shipmentParty.length > 0">
     <div class="col-md-3">
       <label>Address Line 2
-        <i class="mand">*</i>
       </label>
       <input type="text">
     </div>
