@@ -47,7 +47,7 @@ export class MasterData {
         ]
     }
 
-    public static get OriginGoods(): any[] {
+    public static get originGoodsList(): any[] {
         return [
             { id: "D", name: "Domestic" },
             { id: "F", name: "Foreign" }

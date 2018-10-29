@@ -2,6 +2,7 @@
   <h3>Commodity Details</h3>
   <button class="btn btn-primary" type="button" (click)="addnewline()">Add New Row</button>
 </div>
+<form #commodityForm="ngForm">
 <div class="accordion-box" *ngFor="let commodity of commodityDetails; let index=index;">
   <div class="commodity-line" [class.active]="commodity.isExpanded" (click)="commodity.isExpanded = !commodity.isExpanded">
     <h2>{{index+1}}</h2>
@@ -16,7 +17,7 @@
       </div>
       <div class="item">
         <strong>Goods Origin</strong>
-       
+        {{commodity.commodityLineDetails.originofGoods}}
       </div>
       <div class="item">
         <strong>Quantity 1</strong>
@@ -41,32 +42,36 @@
         <label>Schedule B or HTS Number
           <i class="label-blue">(Schedule B Search Engine)</i>
         </label>
-        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.htsNumber?true:false" [(ngModel)]="commodity.commodityLineDetails.htsNumber">
+        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.htsNumber?true:false" [(ngModel)]="commodity.commodityLineDetails.htsNumber" id="htsNumber" name="htsNumber">
       </div>
       <div class="col-md-3">
         <label>Commodity Description
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.commodityDescription?true:false" [(ngModel)]="commodity.commodityLineDetails.commodityDescription">
+        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.commodityDescription?true:false" [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="commodityDescription" name="commodityDescription">
       </div>
 
       <div class="col-md-3">
         <label>Origin of Goods
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.originOfGoods?true:false" [(ngModel)]="commodity.commodityLineDetails.originOfGoods" >
+        <ng-select [items]="originGoodsList" bindLabel="name" bindValue="id" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.originofGoods?true:false"  [(ngModel)]="commodity.commodityLineDetails.originofGoods"id="originOfGoods" name="originOfGoods">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.id}} - {{item.name}}
+          </ng-template>
+        </ng-select>
       </div>
       <div class="col-md-3">
         <label>Mode of Transport (MOT)
           <i class="mand">*</i>
         </label>
-        <input type="text">
+        <input type="text" id="mot" name="mot">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Shipping Weight (whole Kilograms)</label>
-        <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight">
+        <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="shippingWeight" name="shippingWeight">
       </div>
       <div class="col-md-3">
         <div class="row  mb-4">
@@ -74,13 +79,13 @@
             <label>1st Quantity
               <i class="mand">*</i>
             </label>
-            <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1">
+            <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="quantity1" name="quantity1">
           </div>
           <div class="col-md-6">
             <label>1st UOM
               <i class="mand">*</i>
             </label>
-            <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom">
+            <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom" id="quantity1Uom" name="quantity1Uom">
           </div>
         </div>
       </div>
@@ -104,7 +109,7 @@
         <label>Value of Goods (whole US Dollars)
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
+        <input type="text" id="valueofGoods" name="valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
       </div>
 
     </div>
@@ -127,32 +132,33 @@
         ANTI-TERRORISM (AT)</h5> -->
       <h5>License Details</h5>
 
-      <div class="row mb-4">
-        <div class="col-md-2">
-          <label>Exemption Code</label>
-          <input type="text">
-        </div>
+      <div class="row mb-4">       
         <div class="col-md-2">
           <label>License Value</label>
-          <input type="text">
+          <input type="text" id="licenseValue" name="licenseValue" [(ngModel)]="commodity.commodityLineDetails.licenseValue">
         </div>
         <div class="col-md-3">
           <label>Export License No.
             <i class="mand">*</i>
           </label>
-          <input type="text" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode">
+          <input type="text" required id="exportLicenseNumber" name="exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+          <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This
+            field is required!!</label>
         </div>
         <div class="col-md-3">
           <label>Liscense Type Code/LIcense Exemption Code
             <i class="mand">*</i>
           </label>
-          <input type="text" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode">
+          <input type="text" required id="licenseExemptionCode" name="licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode">
+          <label class="error-label" *ngIf="commodityForm.controls.licenseExemptionCode?.invalid && commodityForm.controls.licenseExemptionCode?.touched">This
+            field is required!!</label>
         </div>
         <div class="col-md-2">
           <label>ECCN</label>
-          <input type="text" [disabled]="true">
+          <input type="text" [disabled]="true"  id="eccn" name="eccn" [(ngModel)]="commodity.licenseDetails.eccn">
         </div>
       </div>
     </div>
   </div>
 </div>
+</form>

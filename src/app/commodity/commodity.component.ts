@@ -1,4 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { MasterData } from './../shared/master-data';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'commodity-form',
@@ -8,6 +11,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
+  @ViewChild("commodityForm") commodityForm: NgForm;
+  originGoodsList:any=[];
   constructor() {
   }
 
@@ -26,5 +31,11 @@ export class CommodityComponent implements OnInit {
         c.licenseDetails = {};
       }
     });
+
+    this.originGoodsList=MasterData.originGoodsList;
+  }
+
+  get isValid(){
+    return this.commodityForm.valid;
   }
 }
