@@ -97,8 +97,12 @@ ul.steps {
   display: flex;
   position: relative;
   overflow: hidden;
+  width: 97%;
+  bottom: 0;
+  position: absolute;
+  top: 131px;
+  height: 57px;
   justify-content: space-between;
-  bottom: -33px;
   li {
       color: var(--light-gray);
       font-size: 16px;
