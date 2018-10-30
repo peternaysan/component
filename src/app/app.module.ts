@@ -1,5 +1,6 @@
 import { AesPrintViewComponent } from './print-view/print-view.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 // import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,10 +18,12 @@ import { CommodityComponent } from './commodity/commodity.component';
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ToastrModule } from 'ngx-toastr';
 
 import { AesService } from '../app/services/aes.service';
 import { LookupService } from '../app/services/lookup.service';
 // import { routes } from './routes';
+
 
 @NgModule({
   declarations: [
@@ -35,11 +38,13 @@ import { LookupService } from '../app/services/lookup.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     // RouterModule.forRoot(routes),
     NgbModalModule,
     HttpClientModule,
-    NgSelectModule
+    NgSelectModule,
+    ToastrModule.forRoot() // ToastrModule added
 
   ],
   providers: [AesService,LookupService],
