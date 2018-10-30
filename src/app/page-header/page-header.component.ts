@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export class PageHeaderComponent implements OnInit {
 
+    @Input() aes;
     @Output() activemenuchanged = new EventEmitter();
 
     menulist = [

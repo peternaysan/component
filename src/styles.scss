@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("assets/scss/theme.scss");
 @import url("assets/icons/fonts/style.css");
+
+// ng select
 @import "~@ng-select/ng-select/themes/default.theme.css";
+
+// regular style toast 
+@import '~ngx-toastr/toastr.css';
+
 html, body {
     height: 100%;
 }

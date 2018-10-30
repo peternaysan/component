@@ -34,9 +34,9 @@ export class AesService {
         return this.http.put(`${environment.apiUrl}aes/${aesId}`, aesObject);
     }
 
-    public submitAes(aesId, aesObject) {
+    public submitAes(aesObject) {
         // return this.getAesById(Id).then(res => {
-        console.log("Submitted AES", aesId, aesObject);
+        return this.http.post(`${environment.apiUrl}aes/submit`, aesObject);
         //submit to IX   
         // })
     }

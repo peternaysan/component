@@ -3,6 +3,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AesService } from '../app/services/aes.service';
 import { ShipmentComponent } from '../app/shipment/shipment.component';
 import { TransportationComponent } from '../app/transportation/transportation.component';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class AppComponent {
 
   constructor(
     private modalService: NgbModal,
-    private aesService: AesService) {
+    private aesService: AesService,
+    private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -57,10 +59,12 @@ export class AppComponent {
     console.log(this.aes);
     this.aesService.savedraft(this.aesId, this.aes).subscribe(data => {
       // show toastr
+      this.toastr.success('Draft saved successfully !', 'Save Draft');
       console.log(data);
     },
       err => {
         // show toastr
+        this.toastr.success('An error occured while saving draft !', 'Error');
         console.log(err);
       });
 
@@ -69,6 +73,11 @@ export class AppComponent {
   onSubmitClick() {
     console.log(this.shipmentComponent.isValid);
     if (this.shipmentComponent.isValid)
-      this.aesService.submitAes(this.aesId, this.aes)
+      this.aesService.submitAes(this.aes).subscribe(data => {
+        this.toastr.success('AES submitted successfully !', 'AES Submission');
+        console.log("submitted successfully", data);
+      }, err => {
+        this.toastr.success('An error occured while submitting AES !', 'Error');
+      });
   }
 }
