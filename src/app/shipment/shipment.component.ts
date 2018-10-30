@@ -17,7 +17,6 @@ export class ShipmentComponent implements OnInit {
     public states: any = [];
     public country: any = [];
     @Input() header;
-    public usppi: any = {}
     @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
     constructor(private lookupService: LookupService) {
     }
