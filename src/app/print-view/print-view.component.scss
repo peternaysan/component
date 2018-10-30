@@ -1,0 +1,13 @@
+.featured-fields {
+    display: flex;
+    margin: 0 -15px;
+    li {
+        flex-basis: 50%;
+        display: flex;
+        justify-content: space-between;
+        margin: 0 15px 8px;
+        span {
+            font-weight: bold;
+        }
+    }
+}
