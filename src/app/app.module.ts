@@ -22,7 +22,6 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AesService } from '../app/services/aes.service';
 import { LookupService } from '../app/services/lookup.service';
-// import { routes } from './routes';
 
 
 @NgModule({
@@ -40,7 +39,6 @@ import { LookupService } from '../app/services/lookup.service';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    // RouterModule.forRoot(routes),
     NgbModalModule,
     HttpClientModule,
     NgSelectModule,
