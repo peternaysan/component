@@ -32,13 +32,15 @@
       <tr>
         <th>Line No.</th>
         <th>Equipment Number</th>
+        <th>Seal Number</th>
         <th>Transportation Reference Number</th>
         <!-- <th>Seal Number</th> -->
         <!-- <th>Actions</th> -->
       </tr>
       <tr *ngFor="let item of transportation.transportationDetails; let i=index">
         <td>{{i+1}}</td>
-        <td>{{item.equipmentNo ? item.equipmentNo : '-'}}</td>
+        <td>{{item.equipmentNumber ? item.equipmentNumber : '-'}}</td>
+        <td>{{item.sealNumber ? item.sealNumber : '-'}}</td>
         <td>{{item.transportationReferenceNumber}}</td>
       </tr>
       <tr *ngIf="transportation.transportationDetails.length == 0">

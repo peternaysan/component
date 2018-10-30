@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input,ViewChild } from '@angular/core';
 import { LookupService } from '../services/lookup.service';
 import { MasterData } from '../../app/shared/master-data';
+import { NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'parties-form',
@@ -13,6 +15,8 @@ export class PartiesComponent implements OnInit {
   public states: any = [];
   public partyIdType: any = [];
   public partyType: any = [];
+  
+  @ViewChild("partiesForm") partiesForm: NgForm;
 
   constructor(private lookupService: LookupService) {
   }
