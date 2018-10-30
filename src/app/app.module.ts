@@ -1,3 +1,4 @@
+import { AesLoaderComponent } from './shared/aes-loader/aes-loader.component';
 import { AesPrintViewComponent } from './print-view/print-view.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +34,8 @@ import { LookupService } from '../app/services/lookup.service';
     PartiesComponent,
     TransportationComponent,
     CommodityComponent,
-    AesPrintViewComponent
+    AesPrintViewComponent,
+    AesLoaderComponent
   ],
   imports: [
     BrowserModule,
