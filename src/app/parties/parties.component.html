@@ -12,110 +12,111 @@
         <label for="route-no">No</label>
       </li>
     </ul>
-    <div class="row mb-4" *ngIf="shipmentParty.length > 0">
+    <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.partyIdType"
           id="ucPartyIdType" name="ucPartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label"*ngIf="!partiesForm.controls.partyIdType">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Consignee Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[0].partyType"
+        <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.partyType"
           id="ucPartyType" name="ucPartyType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyType">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].partyId" id="ucPartyId" name="ucPartyId">
+        <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId">
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
           <i class="mand">*</i>
         </label>
-        <input type="text" required [(ngModel)]="shipmentParty[0].partyName" id="ucPartyName" name="ucPartyName">
+        <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName">
         <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.invalid && partiesForm.controls.ucPartyName?.touched">This field is required!!</label>
       </div>
     </div>
-    <div class="row mb-4" *ngIf="shipmentParty.length > 0">
+    <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
         <label>First Name
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[0].contactFirstName" name="contactFirstName" id="uccontactFirstName" name="uccontactFirstName">
+        <input type="text" [(ngModel)]="ultimateConsignee.contactFirstName" name="contactFirstName" id="uccontactFirstName" name="uccontactFirstName">
       </div>
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[0].contactLastName" name="contactLastName" id="uccontactLastName" name="uccontactLastName">
+        <input type="text" [(ngModel)]="ultimateConsignee.contactLastName" name="contactLastName" id="uccontactLastName" name="uccontactLastName">
       </div>
       <div class="col-md-3">
         <label>Phone Number
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[0].contactPhoneNumber" name="contactPhoneNumber" id="uccontactPhoneNumber"
+        <input type="text" [(ngModel)]="ultimateConsignee.contactPhoneNumber" name="contactPhoneNumber" id="uccontactPhoneNumber"
           name="uccontactPhoneNumber">
       </div>
       <div class="col-md-3">
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="shipmentParty[0].addressLine1" id="ucaddressLine1" name="ucaddressLine1">
+        <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1">
+        <label class="error-label" *ngIf="!partiesForm.controls.ucaddressLine1">Please fill this in booking screen!!</label>
       </div>
     </div>
-    <div class="row mb-4" *ngIf="shipmentParty.length > 0">
+    <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[0].addressLine1" id="ucaddressLine2" name="ucaddressLine2">
+        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2">
       </div>
       <div class="col-md-3">
         <label>Country
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="shipmentParty[0].countryCode" id="uccountryCode" name="uccountryCode">
+        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.countryCode" id="uccountryCode" name="uccountryCode">
       </div>
       <div class="col-md-3">
         <label>Postal Code
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[0].postalCode" id="ucpostalCode" name="ucpostalCode">
+        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode">
       </div>
       <div class="col-md-3">
         <label>City
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="shipmentParty[0].city" id="uccity" name="uccity">
+        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity">
       </div>
     </div>
     <div class="row mb-3">
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentParty[0].stateCode" id="ucstateCode"
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="ultimateConsignee.stateCode" id="ucstateCode"
           name="ucstateCode">
         </ng-select>
       </div>
     </div>
-
-
-
   </div>
 
-  <div class="content-box" *ngIf="shipmentParty && shipmentParty.length > 1">
+  <div class="content-box" *ngIf="intermediateConsignee">
     <h2 class="form-heading">Intermediate Consignee</h2>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="shipmentParty[1].partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
           id="icpartyIdType" name="icpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -124,17 +125,17 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].partyId" id="icpartyIdType" name="icpartyIdType">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyIdType" name="icpartyIdType">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
-        <input type="text" [(ngModel)]="shipmentParty[1].partyName" id="icpartyName" name="icpartyName">
+        <input type="text" [(ngModel)]="intermediateConsignee.partyName" id="icpartyName" name="icpartyName">
       </div>
       <div class="col-md-3">
         <label>First Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[1].contactFirstName" id="iccontactFirstName" name="iccontactFirstName">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName">
       </div>
     </div>
     <div class="row mb-4">
@@ -143,25 +144,25 @@
         <label>Last Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[1].contactLastName" id="iccontactLastName" name="iccontactLastName">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName">
       </div>
       <div class="col-md-3">
         <label>Phone Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[1].contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber">
       </div>
       <div class="col-md-3">
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].addressLine1" id="icaddressLine1" name="icaddressLine1">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1">
       </div>
       <div class="col-md-3">
         <label>Address Line 2
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[1].addressLine2" id="icaddressLine2" name="icaddressLine2">
+        <input type="text" [(ngModel)]="intermediateConsignee.addressLine2" id="icaddressLine2" name="icaddressLine2">
       </div>
     </div>
     <div class="row mb-4">
@@ -169,7 +170,7 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].countryCode" id="iccountryCode" name="iccountryCode">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.countryCode" id="iccountryCode" name="iccountryCode">
       </div>
       <div class="col-md-3">
         <label>Import Entry</label>
@@ -177,31 +178,31 @@
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].postalCode" id="icpostalCode" name="icpostalCode">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode">
       </div>
       <div class="col-md-3">
         <label>City</label>
-        <input type="text" [disabled]="true" [(ngModel)]="shipmentParty[1].city" id="iccity" name="iccity">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity">
       </div>
     </div>
     <div class="row mb-3">
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentParty[1].stateCode" id="icstateCode"
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="intermediateConsignee.stateCode" id="icstateCode"
           name="icstateCode">
         </ng-select>
       </div>
     </div>
   </div>
 
-  <div class="content-box">
+  <div class="content-box" *ngIf="freightForwarder">
     <h2 class="form-heading">Freight Forwarder</h2>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>ID Number Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [(ngModel)]="shipmentParty[2].partyIdType" id="ffpartyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [(ngModel)]="freightForwarder.partyIdType" id="ffpartyIdType"
           name="ffpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -210,17 +211,17 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [(ngModel)]="shipmentParty[2].partyId" id="ffpartyId" name="ffpartyId">
+        <input type="text" [(ngModel)]="freightForwarder.partyId" id="ffpartyId" name="ffpartyId">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
-        <input type="text" [(ngModel)]="shipmentParty[2].partyName" id="ffpartyName" name="ffpartyName">
+        <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName">
       </div>
       <div class="col-md-3">
         <label>First Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[2].contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName">
+        <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName">
       </div>
     </div>
     <div class="row mb-4">
@@ -228,39 +229,102 @@
         <label>Last Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[2].contactLastName" id="ffcontactLastName" name="ffcontactLastName">
+        <input type="text" [(ngModel)]="freightForwarder.contactLastName" id="ffcontactLastName" name="ffcontactLastName">
       </div>
       <div class="col-md-3">
         <label>Phone Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[2].contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber">
+        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber">
       </div>
       <div class="col-md-3">
         <label>Address Line 1</label>
-        <input type="text" [(ngModel)]="shipmentParty[2].addressLine1" id="ffaddressLine1" name="ffaddressLine1">
+        <input type="text" [(ngModel)]="freightForwarder.addressLine1" id="ffaddressLine1" name="ffaddressLine1">
       </div>
       <div class="col-md-3">
         <label>Address Line 2
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="shipmentParty[2].addressLine2" id="ffaddressLine2" name="ffaddressLine2">
+        <input type="text" [(ngModel)]="freightForwarder.addressLine2" id="ffaddressLine2" name="ffaddressLine2">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" [(ngModel)]="shipmentParty[2].postalCode" id="ffpostalCode" name="ffpostalCode">
+        <input type="text" [(ngModel)]="freightForwarder.postalCode" id="ffpostalCode" name="ffpostalCode">
       </div>
 
       <div class="col-md-3">
         <label>City</label>
-        <input type="text" [(ngModel)]="shipmentParty[2].city" id="ffcity" name="ffcity">
+        <input type="text" [(ngModel)]="freightForwarder.city" id="ffcity" name="ffcity">
       </div>
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentParty[2].stateCode" id="ffstateCode"
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode" id="ffstateCode"
           name="ffstateCode">
+        </ng-select>
+      </div>
+    </div>
+  </div>
+  <div class="content-box">
+    <h2>USPPI</h2>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>ID Number Type<i class="mand">*</i></label>
+        <input type="text" id="usppiIdNoType" name="usppiIdNoType" required [(ngModel)]="usppi.IdNumberType">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNoType?.invalid && partiesForm.controls.usppiIdNoType?.touched">This
+            field is required!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>ID Number<i class="mand">*</i></label>
+        <input type="text" id="usppiIdNo" name="usppiIdNo" [(ngModel)]="usppi.IdNumber">
+      </div>
+      <div class="col-md-3">
+        <label>Company Number<i class="mand">*</i></label>
+        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.companyNo">
+      </div>
+      <div class="col-md-3">
+        <label>IRS Number<i class="mand">*</i></label>
+        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.IrsNumber">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>First Name<i class="mand">*</i></label>
+        <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.FirstName">
+      </div>
+      <div class="col-md-3">
+        <label>Last Name<i class="mand">*</i></label>
+        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.LastName">
+      </div>
+      <div class="col-md-3">
+        <label>Phone Number<i class="mand">*</i></label>
+        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.PhoneNumber">
+      </div>
+      <div class="col-md-3">
+        <label>Address Line 1<i class="mand">*</i></label>
+        <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1">
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>Address Line 2<i class="mand">*</i></label>
+        <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2">
+      </div>
+      <div class="col-md-3">
+        <label>Postal Code<i class="mand">*</i></label>
+        <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode">
+      </div>
+      <div class="col-md-3">
+        <label>City<i class="mand">*</i></label>
+        <input type="text" id="usppicity" name="usppicity" [(ngModel)]="usppi.city">
+      </div>
+      <div class="col-md-3">
+        <label>State<i class="mand" id="usppistate" name="usppistate">*</i></label>
+        <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.state">
+            <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                {{item.code}} - {{item.name}}
+            </ng-template>
         </ng-select>
       </div>
     </div>

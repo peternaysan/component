@@ -1,6 +1,6 @@
 <div class="page"  *ngIf="aes">
   <div class="header-flex">
-    <page-header (activemenuchanged)="onactivemenuchange($event)"></page-header>
+    <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)"></page-header>
   </div>
   <div class="content">
     <shipment-form [hidden]="activeMenu != 'Shipment'" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header"></shipment-form>

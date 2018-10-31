@@ -1,6 +1,6 @@
+import { MasterData } from './../shared/master-data';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { AesService } from '../../app/services/aes.service';
-import { MasterData } from '../../app/shared/master-data';
 import { LookupService } from '../services/lookup.service';
 import { NgForm } from '@angular/forms';
 
@@ -14,10 +14,11 @@ export class ShipmentComponent implements OnInit {
     @Input() shipmentHeader: any = {};
     public inboundList: any = [];
     public filingTypeList: any = [];
+    public portOfExportList: any = [];
+    public portOfUnladingList: any = [];
     public states: any = [];
     public country: any = [];
     @Input() header;
-    public usppi: any = {}
     @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
     constructor(private lookupService: LookupService) {
     }
@@ -34,6 +35,8 @@ export class ShipmentComponent implements OnInit {
         this.inboundList = MasterData.InbondCodeList;
         this.filingTypeList = MasterData.filingTypeList;
         this.country = MasterData.countryList;
+        this.portOfExportList=MasterData.portOfExport;
+        this.portOfUnladingList=MasterData.portOfUnlading;
     }
 
     ngAfterViewInit() {

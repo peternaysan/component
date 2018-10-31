@@ -44,24 +44,23 @@
       <div class="row mb-3">
         <div class="col-md-3">
           <label>Schedule B or HTS Number
-            <i class="label-blue">(Schedule B Search Engine)</i><i class="mand">*</i>
+            <i class="label-blue">(Schedule B Search Engine)</i>
+            <i class="mand">*</i>
           </label>
-          <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.htsNumber?true:false" [(ngModel)]="commodity.commodityLineDetails.htsNumber"
-            id="htsNumber" name="htsNumber">
+          <input type="text" [(ngModel)]="commodity.commodityLineDetails.htsNumber" id="htsNumber" name="htsNumber">
         </div>
         <div class="col-md-3">
           <label>Commodity Description
             <i class="mand">*</i>
           </label>
-          <input type="text" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.commodityDescription?true:false"
-            [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="commodityDescription" name="commodityDescription">
+          <input type="text" [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="commodityDescription" name="commodityDescription">
         </div>
 
         <div class="col-md-3">
-          <label>Origin of Goods           
+          <label>Origin of Goods
           </label>
-          <ng-select [items]="originGoodsList" bindLabel="name" bindValue="id" [disabled]="commodity.commodityLineDetails && commodity.commodityLineDetails.originofGoods?true:false"
-            [(ngModel)]="commodity.commodityLineDetails.originofGoods" id="originOfGoods" name="originOfGoods">
+          <ng-select [items]="originGoodsList" bindLabel="name" bindValue="id" [(ngModel)]="commodity.commodityLineDetails.originofGoods"
+            id="originOfGoods" name="originOfGoods">
             <ng-template ng-option-tmp ng-label-tmp let-item="item">
               {{item.id}} - {{item.name}}
             </ng-template>
@@ -127,7 +126,7 @@
         <!-- <h5 class="secondar-heading">Department of Commerce License - NLR NO LICENSE REQUIRED, OR ONLY CONTROLLED FOR
         ANTI-TERRORISM (AT)</h5> -->
         <h5>License Details</h5>
-        
+
         <div class="row mb-4">
           <div class="col-md-3">
             <label>Liscense Type Code/License Exemption Code
@@ -149,17 +148,17 @@
           </div>
           <div class="col-md-2">
             <label>ECCN</label>
-            <input type="text" [disabled]="true" id="eccn" name="eccn" [(ngModel)]="commodity.licenseDetails.eccn">
+            <input type="text" id="eccn" name="eccn" [(ngModel)]="commodity.licenseDetails.eccn">
           </div>
         </div>
-          <div class="row mb-4">
+        <div class="row mb-4">
           <div class="col-md-3">
-              <label>Export Information Code
-                <i class="mand">*</i>
-              </label>
-              <input type="text" required id="exportLicenseNumber" name="exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
-              <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
-            </div>
+            <label>Export Information Code
+              <i class="mand">*</i>
+            </label>
+            <input type="text" required id="exportLicenseNumber" name="exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+            <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
+          </div>
         </div>
       </div>
     </div>
