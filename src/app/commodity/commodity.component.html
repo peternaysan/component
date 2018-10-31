@@ -138,12 +138,13 @@
             <label>Export License No.
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+        <th>Export License No.</th>
+        <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber">
             <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>License Value</label>
-            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.commodityLineDetails.licenseValue">
+            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue">
           </div>
           <div class="col-md-2">
             <label>ECCN</label>
@@ -155,8 +156,8 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
-            <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
+            <input type="text" required id="exportInformationCode" name="{{index}}-exportInformationCode" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode">
+            <label class="error-label" *ngIf="commodityForm.controls.exportInformationCode?.invalid && commodityForm.controls.exportInformationCode?.touched">This field is required!!</label>
           </div>
         </div>
       </div>

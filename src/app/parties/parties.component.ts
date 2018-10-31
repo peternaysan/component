@@ -44,5 +44,8 @@ export class PartiesComponent implements OnInit {
     this.partyType = MasterData.partyTypeList;
   }
 
+  get isValid(){
+    return this.partiesForm.valid;
+  }
 
 }

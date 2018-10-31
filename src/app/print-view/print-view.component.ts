@@ -9,15 +9,21 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AesPrintViewComponent implements OnInit {
     @Input() aes;
     @Output() closeClick = new EventEmitter();
+    public ultimateConsignee: any;
+    public intermediateConsignee: any;
+    public freightForwarder: any;
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        var self = this;
+     
+     }
 
-    print(){
+    print() {
         window.print()
     }
 
-    close(){
+    close() {
         this.closeClick.emit({});
     }
 }

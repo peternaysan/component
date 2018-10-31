@@ -34,7 +34,7 @@
 
   <ul class="steps">
     <li *ngFor="let item of menulist">
-      <a [class.active]="item.active" (click)="changeActive(item)"><i class="icon-shape"></i> {{item.name}}</a>
+      <a [class.active]="item.name == activeMenu" (click)="changeActive(item)"><i class="icon-shape"></i> {{item.name}}</a>
     </li>
     <!-- <li><a><i class="icon-shape"></i> Parties</a></li>
     <li><a><i class="icon-shape"></i> Commodity</a></li>
