@@ -72,15 +72,15 @@
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [value]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1">
-        <label class="error-label" *ngIf="partiesForm.controls.ucaddressLine1==null || partiesForm.controls.ucaddressLine1==''">Please fill this in booking screen!!</label>
+        <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1">
+        <label class="error-label" *ngIf="!partiesForm.controls.ucaddressLine1">Please fill this in booking screen!!</label>
       </div>
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.addressLine1" id="ucaddressLine2" name="ucaddressLine2">
+        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2">
       </div>
       <div class="col-md-3">
         <label>Country
@@ -108,9 +108,6 @@
         </ng-select>
       </div>
     </div>
-
-
-
   </div>
 
   <div class="content-box" *ngIf="intermediateConsignee">
