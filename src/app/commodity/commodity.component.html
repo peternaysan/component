@@ -138,7 +138,6 @@
             <label>Export License No.
               <i class="mand">*</i>
             </label>
-        <th>Export License No.</th>
         <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber">
             <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
           </div>
