@@ -11,6 +11,7 @@
 html, body {
     height: 100%;
 }
+
 @media print {
     .modal-body {
         input {
@@ -40,3 +41,5 @@ html, body {
         display: none;
     }
 }
+
+@page { size: auto;  margin: 0mm; } // to avoid chromr date and title

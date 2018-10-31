@@ -20,6 +20,5 @@
 <aes-loader *ngIf="!aes"></aes-loader>
 
 <ng-template #modelcontent let-modal>
-    <aes-print-view [aes]="aes"></aes-print-view>
-  
+    <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
