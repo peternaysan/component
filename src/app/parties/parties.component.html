@@ -22,7 +22,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label"*ngIf="!partiesForm.controls.partyIdType">Please fill this in GF booking screen!!</label>
+        <label class="error-label"*ngIf="partiesForm.controls.partyIdType==null && partiesForm.controls.partyIdType==''">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Consignee Type
@@ -34,14 +34,14 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyType">Please fill this in booking screen!!</label>
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyType">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
           <i class="mand">*</i>
         </label>
         <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId">
-        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in booking screen!!</label>
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
