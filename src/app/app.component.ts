@@ -1,3 +1,4 @@
+import { AesPrintViewComponent } from './print-view/print-view.component';
 import { Component, ViewChild } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AesService } from '../app/services/aes.service';
@@ -26,6 +27,8 @@ export class AppComponent {
     this.transportComponent = content;
   }
 
+  @ViewChild(AesPrintViewComponent) printview: AesPrintViewComponent;
+
   constructor(
     private modalService: NgbModal,
     private aesService: AesService,
@@ -42,7 +45,7 @@ export class AppComponent {
       });
     }
   }
-
+  
   onactivemenuchange(item) {
     this.activeMenu = item.name;
   }
