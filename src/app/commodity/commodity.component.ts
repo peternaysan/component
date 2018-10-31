@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
   @ViewChild("commodityForm") commodityForm: NgForm;
-  originGoodsList:any=[];
+  originGoodsList: any = [];
   constructor() {
   }
 
@@ -32,10 +32,19 @@ export class CommodityComponent implements OnInit {
       }
     });
 
-    this.originGoodsList=MasterData.originGoodsList;
+    this.originGoodsList = MasterData.originGoodsList;
   }
 
-  get isValid(){
+  ondeleteclick($event, item) {
+    $event.stopPropagation();
+    console.log(item);
+    var index = this.commodityDetails.indexOf(item);
+    if (index >= 0) {
+      this.commodityDetails.splice(index, 1);
+    }
+  }
+
+  get isValid() {
     return this.commodityForm.valid;
   }
 }

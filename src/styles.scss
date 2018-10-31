@@ -30,9 +30,13 @@ html, body {
     }
     .modal-body {
         margin: 0 auto;
-        width: 80%;
+        width: 100%;
     }
-    .modal-content {
+    .modal-content, .modal-dialog {
+        height: 100%;
         box-shadow: none;
+    }
+    .modal-footer, .close {
+        display: none;
     }
 }
