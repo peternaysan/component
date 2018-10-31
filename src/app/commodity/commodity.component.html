@@ -35,8 +35,9 @@
           <strong>Value</strong>
           {{commodity.commodityLineDetails.valueofGoods}} </div>
       </div>
-      <div class="item" *ngIf="commodity.showDelete">
-        <button type="button" class="btn btn-danger">Delete</button>
+      <div class="item">
+        <button type="button" class="btn btn-danger" 
+                (click)="ondeleteclick($event, commodity)">Delete</button>
       </div>
     </div>
     <div class="content-box commodity-box" [class.expanded]="commodity.isExpanded">
