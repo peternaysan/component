@@ -19,7 +19,11 @@
     </div>
     <div class="col-md-3">
         <label>Port Of Export<i class="mand">*</i></label>
-        <input type="text" id="portofExportation" name="portofExportation" [disabled]="true" [(ngModel)]="shipmentHeader.portofExportation">
+        <ng-select [items]="portOfExportList" bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofExportation" id="portofExportation" name="portofExportation">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+              {{item.code}} - {{item.name}}
+          </ng-template>
+      </ng-select>
       </div>
 
   </div>
@@ -27,7 +31,11 @@
     
     <div class="col-md-3">
       <label>Port of Unlading</label>
-      <input type="text" id="portofUnlading" name="portofUnlading" [disabled]="true" [(ngModel)]="shipmentHeader.portofUnlading">
+      <ng-select [items]="portOfUnladingList" bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofUnlading" id="portofUnlading" name="portofUnlading">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+        </ng-template>
+    </ng-select>
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
@@ -103,5 +111,4 @@
   </ul>
 
 </div>
-
 </form>
