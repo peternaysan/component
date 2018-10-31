@@ -16,29 +16,32 @@
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="ultimateConsignee.partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.partyIdType"
           id="ucPartyIdType" name="ucPartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label"*ngIf="!partiesForm.controls.partyIdType">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Consignee Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="ultimateConsignee.partyType"
+        <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.partyType"
           id="ucPartyType" name="ucPartyType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyType">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId">
+        <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId">
+        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
@@ -69,7 +72,8 @@
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1">
+        <input type="text" [disabled]="true" required [value]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1">
+        <label class="error-label" *ngIf="partiesForm.controls.ucaddressLine1==null || partiesForm.controls.ucaddressLine1==''">Please fill this in booking screen!!</label>
       </div>
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
