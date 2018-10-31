@@ -3,25 +3,25 @@
     <h3>History</h3>
     <ul>
       <li>
-        <a class="approved" (click)="openPrintView()">
+        <a class="approved" (click)="openPrintView(modelcontent)">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a  class="canceled">
+        <a  class="canceled" (click)="openPrintView(modelcontent)">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a  class="approved">
+        <a  class="approved" (click)="openPrintView(modelcontent)">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a class="canceled">
+        <a class="canceled" (click)="openPrintView(modelcontent)">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
@@ -42,3 +42,8 @@
     <!-- <span class="numb-error">4</span> -->
   </ul>
 </div>
+
+<ng-template #modelcontent let-modal>
+  <aes-print-view [aes]="aes"></aes-print-view>
+
+</ng-template>
