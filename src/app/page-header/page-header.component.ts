@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'page-header',
@@ -10,6 +11,7 @@ export class PageHeaderComponent implements OnInit {
 
     @Input() aes;
     @Output() activemenuchanged = new EventEmitter();
+    closeResult: string;
 
     menulist = [
         {
@@ -30,7 +32,7 @@ export class PageHeaderComponent implements OnInit {
         },
     ]
 
-    constructor() { }
+    constructor(private modalService: NgbModal) { }
 
     changeActive(item) {
         this.menulist.forEach(menu => {
@@ -45,4 +47,11 @@ export class PageHeaderComponent implements OnInit {
         var item = this.menulist.find(x => x.active == true);
         this.activemenuchanged.emit(item);
     }
+    openPrintView(content) {
+        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+          this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+          this.closeResult = `Dismissed`;
+        });
+      }
 }
