@@ -30,8 +30,8 @@ export class AesService {
         });
     }
 
-    public savedraft(aesId, aesObject) {
-        return this.http.put(`${environment.apiUrl}aes/${aesId}`, aesObject);
+    public savedraft(aesObject) {
+        return this.http.post(`${environment.apiUrl}aes/savedraft`, aesObject);
     }
 
     public submitAes(aesObject) {
