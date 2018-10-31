@@ -3,25 +3,25 @@
     <h3>History</h3>
     <ul>
       <li>
-        <a href="#0" class="approved">
+        <a class="approved" (click)="openPrintView()">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a href="#0" class="canceled">
+        <a  class="canceled">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a href="#0" class="approved">
+        <a  class="approved">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
       </li>
       <li>
-        <a href="#0" class="canceled">
+        <a class="canceled">
           <span><i class="icon-small-calendar"></i> John Wick</span>
           <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
         </a>
@@ -29,7 +29,7 @@
 
     </ul>
   </div>
-  <h2>Amend Export Filling (Filter ID222)</h2>
+  <h2>Amend Export Filling ({{aes.shipmentHeader.shipmentReferenceNumber}})</h2>
   <h4 *ngIf="aes.draftDate">Draft last saved : {{aes.draftDate}}</h4>
 
   <ul class="steps">

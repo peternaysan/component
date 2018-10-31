@@ -45,4 +45,7 @@ export class PageHeaderComponent implements OnInit {
         var item = this.menulist.find(x => x.active == true);
         this.activemenuchanged.emit(item);
     }
+    openPrintView(){
+        
+    }
 }

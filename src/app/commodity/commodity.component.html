@@ -46,47 +46,46 @@
             <i class="label-blue">(Schedule B Search Engine)</i>
             <i class="mand">*</i>
           </label>
-          <input type="text" [(ngModel)]="commodity.commodityLineDetails.htsNumber" id="htsNumber" name="htsNumber">
+          <input type="text" [(ngModel)]="commodity.commodityLineDetails.htsNumber" id="{{index}}-htsNumber" name="{{index}}-htsNumber">
         </div>
         <div class="col-md-3">
           <label>Commodity Description
             <i class="mand">*</i>
           </label>
-          <input type="text" [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="commodityDescription" name="commodityDescription">
+          <input type="text" [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="{{index}}-commodityDescription" name="{{index}}-commodityDescription">
         </div>
-
         <div class="col-md-3">
           <label>Origin of Goods
           </label>
           <ng-select [items]="originGoodsList" bindLabel="name" bindValue="id" [(ngModel)]="commodity.commodityLineDetails.originofGoods"
-            id="originOfGoods" name="originOfGoods">
+            id="{{index}}-originOfGoods" name="{{index}}-originOfGoods">
             <ng-template ng-option-tmp ng-label-tmp let-item="item">
               {{item.id}} - {{item.name}}
             </ng-template>
           </ng-select>
         </div>
         <div class="col-md-3">
-          <label>Value of Goods (whole US Dollars)
+          <label>Value of Goods (whole US Dollars) 
           </label>
-          <input type="text" id="valueofGoods" name="valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
+          <input type="text" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>Shipping Weight (whole Kilograms)</label>
-          <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="shippingWeight" name="shippingWeight">
+          <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight" name="{{index}}-shippingWeight">
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
               <label>1st Quantity
               </label>
-              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="quantity1" name="quantity1">
+              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1">
             </div>
             <div class="col-md-6">
               <label>1st UOM
               </label>
-              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom" id="quantity1Uom" name="quantity1Uom">
+              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom" id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom">
             </div>
           </div>
         </div>
@@ -114,9 +113,9 @@
           <p>Does this filling require Participating Government agency data?
             <i class="mand">*</i>
           </p>
-          <input type="radio" id="tras-yes" name="trans">
+          <input type="radio" id="{{index}}-tras-yes" name="{{index}}-trans">
           <label for="tras-yes">Yes</label>
-          <input type="radio" id="tras-no" name="trans">
+          <input type="radio" id="{{index}}-tras-no" name="{{index}}-trans">
           <label for="tras-no">No</label>
         </li>
       </ul>
@@ -131,23 +130,23 @@
             <label>Liscense Type Code/License Exemption Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="licenseExemptionCode" name="licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode">
+            <input type="text" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode">
             <label class="error-label" *ngIf="commodityForm.controls.licenseExemptionCode?.invalid && commodityForm.controls.licenseExemptionCode?.touched">This field is required!!</label>
           </div>
           <div class="col-md-3">
             <label>Export License No.
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
             <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>License Value</label>
-            <input type="text" id="licenseValue" name="licenseValue" [(ngModel)]="commodity.commodityLineDetails.licenseValue">
+            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.commodityLineDetails.licenseValue">
           </div>
           <div class="col-md-2">
             <label>ECCN</label>
-            <input type="text" id="eccn" name="eccn" [(ngModel)]="commodity.licenseDetails.eccn">
+            <input type="text" id="eccn" name="{{index}}-eccn" [(ngModel)]="commodity.licenseDetails.eccn">
           </div>
         </div>
         <div class="row mb-4">
@@ -155,7 +154,7 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
             <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
           </div>
         </div>
