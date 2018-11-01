@@ -82,6 +82,7 @@ export class AppComponent {
   }
 
   onSubmitClick() {
+    console.log("aes", this.aes);
     if (!this.shipmentComponent.isValid) {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
