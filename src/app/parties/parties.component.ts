@@ -16,10 +16,11 @@ export class PartiesComponent implements OnInit {
   public states: any = [];
   public partyIdType: any = [];
   public partyType: any = [];
+  public countryList: any = [];
   public ultimateConsignee: any;
   public intermediateConsignee: any;
   public freightForwarder: any;
-  public usppi: any = {}
+  public usppi: any;
   @ViewChild("partiesForm") partiesForm: NgForm;
   constructor(private lookupService: LookupService) {
   }
@@ -29,13 +30,20 @@ export class PartiesComponent implements OnInit {
     this.shipmentParty.forEach(element => {
       if (element.partyType == "C") {
         self.ultimateConsignee = element;
-        self.ultimateConsignee.ToBeSoldenRouteIndicator="N";
+        self.ultimateConsignee.ToBeSoldenRouteIndicator = "N";
       } else if (element.partyType == "I") {
         self.intermediateConsignee = element;
       } else if (element.partyType == "F") {
         self.freightForwarder = element;
+      } else if (element.partyType == "U") {
+        self.usppi = element;
       }
     });
+
+    if (!this.usppi) {
+      this.usppi = { partyType: "U" };
+      this.shipmentParty.push(this.usppi);
+    }
     var country = "United States";
     this.lookupService.states(country)
       .subscribe((data) => { this.states = data },
@@ -43,6 +51,7 @@ export class PartiesComponent implements OnInit {
       );
     this.partyIdType = MasterData.partyIdTypeList;
     this.partyType = MasterData.partyTypeList;
+    this.countryList = MasterData.countryList;
   }
 
   submitted = false;

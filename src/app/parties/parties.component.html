@@ -91,8 +91,12 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.countryCode" id="uccountryCode"
-          name="uccountryCode">
+          <ng-select [items]="countryList" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="ultimateConsignee.countryCode"
+          id="uccountryCode" name="uccountryCode">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+          </ng-template>
+        </ng-select>
       </div>
       <div class="col-md-3">
         <label>Postal Code
@@ -172,7 +176,12 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.countryCode" id="iccountryCode" name="iccountryCode">
+        <ng-select [items]="countryList" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="intermediateConsignee.countryCode"
+        id="iccountryCode" name="iccountryCode">
+        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          {{item.code}} - {{item.name}}
+        </ng-template>
+      </ng-select>
       </div>
       <div class="col-md-3">
         <label>Import Entry</label>
@@ -288,31 +297,31 @@
         <label>ID Number
             <i class="mand">*</i>
           </label>
-        <input type="text" id="usppiIdNo" required name="usppiIdNo" [(ngModel)]="usppi.IdNumber">
+        <input type="text" id="usppiIdNo" required name="usppiIdNo" [(ngModel)]="usppi.partyId">
         <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.invalid && (partiesForm.controls.usppiIdNo?.touched || submitted)">This
           field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
-        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.companyNo">
+        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.partyName">
       </div>
       <div class="col-md-3">
         <label>IRS Number</label>
-        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.IrsNumber">
+        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.UsppiirsNumber">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>First Name</label>
-        <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.FirstName">
+        <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName">
       </div>
       <div class="col-md-3">
         <label>Last Name</label>
-        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.LastName">
+        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName">
       </div>
       <div class="col-md-3">
         <label>Phone Number</label>
-        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.PhoneNumber">
+        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber">
       </div>
       <div class="col-md-3">
         <label>Address Line 1</label>
@@ -334,7 +343,7 @@
       </div>
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.state">
+        <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.stateCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
