@@ -1,129 +1,148 @@
 <form #shipmentHeaderForm="ngForm">
-<div class="content-box" *ngIf="shipmentHeader">
-  <div class="row mb-4">
-    <div class="col-md-3">
-      <label>Email Response Address(es)<i class="mand" >*</i></label>
-      <input type="text" required id="senderEmail" name="senderEmail" [disabled]="true" [ngModel]="header.senderEmail">
-      <label class="error-label"*ngIf="!shipmentHeaderForm.controls.senderEmail">Please fill this in booking screen!!</label>
-    </div>
-    <div class="col-md-3">
-      <label>Shipment Reference Number<i class="mand">*</i></label>
-      <input type="text" id="shipmentReferenceNumber" name="shipmentReferenceNumber" [disabled]="true" [ngModel]="shipmentHeader.shipmentReferenceNumber">
-      <label class="error-label"*ngIf="!shipmentHeaderForm.controls.shipmentReferenceNumber">Please fill this in booking screen!!</label>
-    </div>
-    <div class="col-md-3">
-      <label>Filing Option<i class="mand">*</i></label>
-      <ng-select [items]="filingTypeList" required bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator" id="filingTypeIndicator" name="filingTypeIndicator">
+  <div class="content-box" *ngIf="shipmentHeader">
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>Email Response Address(es)
+          <i class="mand">*</i>
+        </label>
+        <input type="text" required id="senderEmail" name="senderEmail" [disabled]="true" [ngModel]="header.senderEmail">
+        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.senderEmail">Please fill this in booking screen!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Shipment Reference Number
+          <i class="mand">*</i>
+        </label>
+        <input type="text" id="shipmentReferenceNumber" name="shipmentReferenceNumber" [disabled]="true" [ngModel]="shipmentHeader.shipmentReferenceNumber">
+        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.shipmentReferenceNumber">Please fill this in booking screen!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Filing Option
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="filingTypeList" required bindLabel="name" bindValue="id"  [(ngModel)]="shipmentHeader.filingTypeIndicator"
+          id="filingTypeIndicator" name="filingTypeIndicator">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
-              {{item.id}} - {{item.name}}
+            {{item.id}} - {{item.name}}
           </ng-template>
-      </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && shipmentHeaderForm.controls.filingTypeIndicator?.touched">This
-        field is required!!</label>
-    </div>
-    <div class="col-md-3">
-        <label>Port Of Export<i class="mand">*</i></label>
-        <ng-select [items]="portOfExportList" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofExportation" id="portofExportation" name="portofExportation">
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && shipmentHeaderForm.controls.filingTypeIndicator?.touched">This field is required!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Port Of Export
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="portOfExportList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofExportation"
+          id="portofExportation" name="portofExportation">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
-              {{item.code}} - {{item.name}}
+            {{item.code}} - {{item.name}}
           </ng-template>
-      </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && shipmentHeaderForm.controls.portofExportation?.touched">This
-        field is required!!</label>
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && shipmentHeaderForm.controls.portofExportation?.touched">This field is required!!</label>
       </div>
 
-  </div>
-  <div class="row mb-4">
-    
-    <div class="col-md-3">
-      <label>Port of Unlading</label>
-      <ng-select [items]="portOfUnladingList" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofUnlading" id="portofUnlading" name="portofUnlading">
-        <ng-template ng-option-tmp ng-label-tmp let-item="item">
+    </div>
+    <div class="row mb-4">
+
+      <div class="col-md-3">
+        <label>Port of Unlading</label>
+        <ng-select [items]="portOfUnladingList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofUnlading"
+          id="portofUnlading" name="portofUnlading">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
-        </ng-template>
-    </ng-select>
-    <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && shipmentHeaderForm.controls.portofUnlading?.touched">This
-      field is required!!</label>
-    </div>
-    <div class="col-md-3">
-      <label>Departure Date<i class="mand">*</i></label>
-      <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="true" [ngModel]="shipmentHeader.estimatedExportDate" >
-      <label class="error-label"*ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
-    </div>
-    <div class="col-md-3">
-      <label>Origin State<i class="mand">*</i></label>
-      <ng-select [items]="states" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.originState" id="originState" name="originState">
-          <ng-template ng-option-tmp ng-label-tmp let-item="item">
-              {{item.code}} - {{item.name}}
           </ng-template>
-      </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && shipmentHeaderForm.controls.originState?.touched">This
-        field is required!!</label>
-    </div>
-    <div class="col-md-3">
-        <label>Country of Destination <i class="mand">*</i></label>
-        <ng-select [items]="country" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.ultimateDestinationCountry" id="ultimateDestCountry" name="ultimateDestCountry">
-          <ng-template ng-option-tmp ng-label-tmp let-item="item">
-              {{item.code}} - {{item.name}}
-          </ng-template>
-      </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && shipmentHeaderForm.controls.ultimateDestCountry?.touched">This
-        field is required!!</label>
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && shipmentHeaderForm.controls.portofUnlading?.touched">This field is required!!</label>
       </div>
-  </div>
-  <div class="row mb-4">
-   
-    <div class="col-md-3">
-      <label>Inbond Type<i class="mand">*</i></label>
-      <ng-select [items]="inboundList" required bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode" id="inbondCode" name="inbondCode" required >
+      <div class="col-md-3">
+        <label>Departure Date
+          <i class="mand">*</i>
+        </label>
+        <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="true" [ngModel]="shipmentHeader.estimatedExportDate">
+        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Origin State
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="states" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.originState" id="originState"
+          name="originState">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
-              {{item.id}} - {{item.name}}
+            {{item.code}} - {{item.name}}
           </ng-template>
-      </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && shipmentHeaderForm.controls.inbondCode?.touched">This
-        field is required!!</label>
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && shipmentHeaderForm.controls.originState?.touched">This field is required!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Country of Destination
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="country" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
+          id="ultimateDestCountry" name="ultimateDestCountry">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+          </ng-template>
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && shipmentHeaderForm.controls.ultimateDestCountry?.touched">This field is required!!</label>
+      </div>
     </div>
-    <div class="col-md-3">
-      <label>Foreign Trade Zone</label>
-      <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone">
-    </div>
-    <div class="col-md-3">
-      <label>Import Entity</label>
-      <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity" >
-    </div>
-    <div class="col-md-3">
+    <div class="row mb-4">
+      <div class="col-md-3">
+        <label>Inbond Type
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="inboundList" required bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.inbondCode" id="inbondCode"
+          name="inbondCode" required>
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.id}} - {{item.name}}
+          </ng-template>
+        </ng-select>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && shipmentHeaderForm.controls.inbondCode?.touched">This field is required!!</label>
+      </div>
+      <div class="col-md-3">
+        <label>Foreign Trade Zone</label>
+        <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone">
+      </div>
+      <div class="col-md-3">
+        <label>Import Entity</label>
+        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.entryNumber">
+      </div>
+      <div class="col-md-3">
         <label>Original ITN</label>
         <input type="text" id="originalITN" name="originalITN" [(ngModel)]="shipmentHeader.originalITN">
-      </div>  
-  </div>
-  <div class="row mb-5">
-     
-  </div>
+      </div>
+    </div>
+    <div class="row mb-5">
 
-  <ul class="form-list">
-    <li>
-      <p>Is this a Routed Transaction? </p>
-      <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
-      <label for="tras-yes">Yes</label>
-      <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
-      <label for="tras-no">No</label>    
-    </li>
-    <li>
-      <p>Are USPPI and Ultimate Consignee companies related?<i class="mand">*</i> </p>
-      <input type="radio" required id="consi-yes" name="consi" value="Y" [(ngModel)]="shipmentHeader.relatedParties">
-      <label for="consi-yes">Yes</label>
-      <input type="radio" required id="consi-no" name="consi" value="N" [(ngModel)]="shipmentHeader.relatedParties">
-      <label for="consi-no">No</label>
-    </li>
-    <li>
-      <p>Does shipment contain hazardous material?<i class="mand">*</i> </p>
-      <input type="radio" id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
-      <label for="haz-yes">Yes</label>
-      <input type="radio" id="haz-no" name="haz" value="N" [(ngModel)]="shipmentHeader.hazmatIndicator">
-      <label for="haz-no">No</label>
-      
-    </li>
-  </ul> 
-</div>
-<!-- <button type="submit"></button> -->
+    </div>
+
+    <ul class="form-list">
+      <li>
+        <p>Is this a Routed Transaction? </p>
+        <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
+        <label for="tras-yes">Yes</label>
+        <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
+        <label for="tras-no">No</label>
+      </li>
+      <li>
+        <p>Are USPPI and Ultimate Consignee companies related?
+          <i class="mand">*</i>
+        </p>
+        <input type="radio" required id="consi-yes" name="consi" value="Y" [(ngModel)]="shipmentHeader.relatedParties">
+        <label for="consi-yes">Yes</label>
+        <input type="radio" required id="consi-no" name="consi" value="N" [(ngModel)]="shipmentHeader.relatedParties">
+        <label for="consi-no">No</label>
+      </li>
+      <li>
+        <p>Does shipment contain hazardous material?
+          <i class="mand">*</i>
+        </p>
+        <input type="radio" id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
+        <label for="haz-yes">Yes</label>
+        <input type="radio" id="haz-no" name="haz" value="N" [(ngModel)]="shipmentHeader.hazmatIndicator">
+        <label for="haz-no">No</label>
+
+      </li>
+    </ul>
+  </div>
+  <!-- <button type="submit"></button> -->
 </form>

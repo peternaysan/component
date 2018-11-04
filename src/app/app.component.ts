@@ -87,20 +87,20 @@ export class AppComponent {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
       return;
-    }
-    if (!this.transportComponent.isValid) {
-      this.activeMenu = "Transportation";
-      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
-      return;
-    }
+    }  
     if (!this.partyComponent.isValid) {
       this.activeMenu = "Parties";
-      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      this.toastr.warning('Please fix validation errors in Parties tab !', 'Validation');
       return;
     }
     if (!this.commodityComponent.isValid) {
       this.activeMenu = "Commodity";
-      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      this.toastr.warning('Please fix validation errors in Commodity tab !', 'Validation');
+      return;
+    }
+    if (!this.transportComponent.isValid) {
+      this.activeMenu = "Transportation";
+      this.toastr.warning('Please fix validation errors in Transportation tab !', 'Validation');
       return;
     }
 

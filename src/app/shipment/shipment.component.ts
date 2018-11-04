@@ -43,7 +43,22 @@ export class ShipmentComponent implements OnInit {
 
     }
 
-    get isValid() {          
+    get isValid() {
         return this.shipmentHeaderForm.valid;
+    }
+    searchByIdAndName(term: string, item: any) {
+        var name = item.name.toLowerCase();
+        var term = term.toLowerCase();     
+        if (item.id) {
+            var id = item.id.toLowerCase();
+            return name.indexOf(term) > -1 || id.indexOf(term) > -1;
+        }
+        else if (item.code) {
+            var code = item.code.toLowerCase();
+            return name.indexOf(term) > -1 || code.indexOf(term) > -1;
+        }
+        else {
+            return name.indexOf(term) > -1;
+        }
     }
 }

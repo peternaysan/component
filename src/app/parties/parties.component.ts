@@ -29,6 +29,7 @@ export class PartiesComponent implements OnInit {
     this.shipmentParty.forEach(element => {
       if (element.partyType == "C") {
         self.ultimateConsignee = element;
+        self.ultimateConsignee.ToBeSoldenRouteIndicator="N";
       } else if (element.partyType == "I") {
         self.intermediateConsignee = element;
       } else if (element.partyType == "F") {

@@ -1361,7 +1361,7 @@ export class MasterData {
             {
                 "code": "715",
                 "name": "TROUT RIVER",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "901",
@@ -1371,22 +1371,22 @@ export class MasterData {
             {
                 "code": "903",
                 "name": "ROCHESTER",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "904",
                 "name": "OSWEGO",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "905",
                 "name": "SODUS POINT",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "906",
                 "name": "SYRACUSE",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "907",
@@ -1396,17 +1396,17 @@ export class MasterData {
             {
                 "code": "971",
                 "name": "TNT SKYPAK",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "972",
                 "name": "SWIFT SURE COURIER SERVICE",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "981",
                 "name": "BINGHAMTON REGIONAL AIRPORT",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "1001",
@@ -3421,57 +3421,57 @@ export class MasterData {
             {
                 "code": "5402",
                 "name": "ALEXANDRIA",
-                "shortname": " VA"
+                "shortname": "VA"
             },
             {
                 "code": "5501",
                 "name": "DALLAS/FT. WORTH",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5502",
                 "name": "AMARILLO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5503",
                 "name": "LUBBOCK",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5504",
                 "name": "OKLAHOMA CITY",
-                "shortname": " OK"
+                "shortname": "OK"
             },
             {
                 "code": "5505",
                 "name": "TULSA",
-                "shortname": " OK"
+                "shortname": "OK"
             },
             {
                 "code": "5506",
                 "name": "AUSTIN",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5507",
                 "name": "SAN ANTONIO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5582",
                 "name": "MIDLAND INTER AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5583",
                 "name": "FORTH WORTH ALLIANCE AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5584",
                 "name": "ADDISON AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5588",
@@ -3482,10 +3482,7 @@ export class MasterData {
                 "code": "8000",
                 "name": "U.S. MAIL EXPORTS",
                 "shortname": ""
-            },
-            {
-                "code": ""
-            }
+            }            
         ]
     }
 
@@ -12900,10 +12897,7 @@ export class MasterData {
                 "code": "99950",
                 "name": "HIGH SEAS",
                 "country": " UNITED STATES"
-            },
-            {
-                "code": ""
-            }
+            }           
         ]
     }
 
