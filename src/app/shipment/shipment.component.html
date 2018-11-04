@@ -75,7 +75,7 @@
         <label>Country of Destination
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="country" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
+        <ng-select [items]="country" required bindLabel="name" bindValue="code"  [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
           id="ultimateDestCountry" name="ultimateDestCountry">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}

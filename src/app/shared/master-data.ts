@@ -56,1137 +56,1077 @@ export class MasterData {
 
     public static get countryList(): any[] {
         return [
-                {
-                    "name": "Afghanistan",
-                    "code": "AF"
-                },
-                {
-                    "name": "Albania",
-                    "code": "AL"
-                },
-                {
-                    "name": "Algeria",
-                    "code": "DZ"
-                },
-                {
-                    "name": "American Samoa",
-                    "code": "AS"
-                },
-                {
-                    "name": "Andorra",
-                    "code": "AD"
-                },
-                {
-                    "name": "Angola",
-                    "code": "AO"
-                },
-                {
-                    "name": "Anguilla",
-                    "code": "AI"
-                },
-                {
-                    "name": "Antigua and Barbuda",
-                    "code": "AG"
-                },
-                {
-                    "name": "Argentina",
-                    "code": "AR"
-                },
-                {
-                    "name": "Armenia",
-                    "code": "AM"
-                },
-                {
-                    "name": "Aruba",
-                    "code": "AW"
-                },
-                {
-                    "name": "Australia",
-                    "code": "AU"
-                },
-                {
-                    "name": "Austria",
-                    "code": "AT"
-                },
-                {
-                    "name": "Azerbaijan",
-                    "code": "AZ"
-                },
-                {
-                    "name": "Azores",
-                    "code": "PT"
-                },
-                {
-                    "name": "Bahamas",
-                    "code": "BS"
-                },
-                {
-                    "name": "Bahrain",
-                    "code": "BH"
-                },
-                {
-                    "name": "Bangladesh",
-                    "code": "BD"
-                },
-                {
-                    "name": "Barbados",
-                    "code": "BB"
-                },
-                {
-                    "name": "Belgium",
-                    "code": "BE"
-                },
-                {
-                    "name": "Belize",
-                    "code": "BZ"
-                },
-                {
-                    "name": "Benin",
-                    "code": "BJ"
-                },
-                {
-                    "name": "Bermuda",
-                    "code": "BM"
-                },
-                {
-                    "name": "Bhutan",
-                    "code": "BT"
-                },
-                {
-                    "name": "Bolivia",
-                    "code": "BO"
-                },
-                {
-                    "name": "Bosnia-Hercegovina",
-                    "code": "BA"
-                },
-                {
-                    "name": "Botswana",
-                    "code": "BW"
-                },
-                {
-                    "name": "Brazil",
-                    "code": "BR"
-                },
-                {
-                    "name": "British Indian Ocean Territory",
-                    "code": "IO"
-                },
-                {
-                    "name": "British Virgin Islands",
-                    "code": "VG"
-                },
-                {
-                    "name": "Brunei Darussalam",
-                    "code": "BN"
-                },
-                {
-                    "name": "Bulgaria",
-                    "code": "BG"
-                },
-                {
-                    "name": "Burkina",
-                    "code": "BF"
-                },
-                {
-                    "name": "Burma (Myanmar)",
-                    "code": "BU"
-                },
-                {
-                    "name": "Burundi",
-                    "code": "BI"
-                },
-                {
-                    "name": "Byelarus",
-                    "code": "BY"
-                },
-                {
-                    "name": "Cambodia",
-                    "code": "KH"
-                },
-                {
-                    "name": "Cameroon",
-                    "code": "CM"
-                },
-                {
-                    "name": "Canada",
-                    "code": "CA"
-                },
-                {
-                    "name": "Canary Island",
-                    "code": "ES"
-                },
-                {
-                    "name": "Canton and Enderbury Islands",
-                    "code": "KI"
-                },
-                {
-                    "name": "Cape Verde",
-                    "code": "CV"
-                },
-                {
-                    "name": "Cayman Island",
-                    "code": "KY"
-                },
-                {
-                    "name": "Central African Republic",
-                    "code": "CF"
-                },
-                {
-                    "name": "Chad",
-                    "code": "TD"
-                },
-                {
-                    "name": "Chile",
-                    "code": "CL"
-                },
-                {
-                    "name": "China",
-                    "code": "CN"
-                },
-                {
-                    "name": "Christmas Islands",
-                    "code": "CX"
-                },
-                {
-                    "name": "Cocos (Keeling) Island",
-                    "code": "CC"
-                },
-                {
-                    "name": "Colombia",
-                    "code": "CO"
-                },
-                {
-                    "name": "Comoros",
-                    "code": "KM"
-                },
-                {
-                    "name": "Congo (Brazzaville)",
-                    "code": "CG"
-                },
-                {
-                    "name": "Cook Islands",
-                    "code": "CK"
-                },
-                {
-                    "name": "Costa Rica",
-                    "code": "CR"
-                },
-                {
-                    "name": "Croatia",
-                    "code": "HR"
-                },
-                {
-                    "name": "Cuba",
-                    "code": "CU"
-                },
-                {
-                    "name": "Curacao",
-                    "code": "CW"
-                },
-                {
-                    "name": "Cyprus",
-                    "code": "CY"
-                },
-                {
-                    "name": "Czech Republic",
-                    "code": " The"
-                },
-                {
-                    "name": "Democratic Republic of Congo (Kinshasa)",
-                    "code": "CD"
-                },
-                {
-                    "name": "Denmark",
-                    "code": "DK"
-                },
-                {
-                    "name": "Djibouti",
-                    "code": "DJ"
-                },
-                {
-                    "name": "Dominica",
-                    "code": "DM"
-                },
-                {
-                    "name": "Dominican Republic",
-                    "code": "DO"
-                },
-                {
-                    "name": "Ecuador",
-                    "code": "EC"
-                },
-                {
-                    "name": "Egypt",
-                    "code": "EG"
-                },
-                {
-                    "name": "El Salvador",
-                    "code": "SV"
-                },
-                {
-                    "name": "Equatorial Guinea",
-                    "code": "GQ"
-                },
-                {
-                    "name": "Eritrea",
-                    "code": "ER"
-                },
-                {
-                    "name": "Estonia",
-                    "code": "EE"
-                },
-                {
-                    "name": "Ethiopia",
-                    "code": "ET"
-                },
-                {
-                    "name": "Falkland Islands (Malvinas)",
-                    "code": "FK"
-                },
-                {
-                    "name": "Faroe Islands",
-                    "code": "FO"
-                },
-                {
-                    "name": "Fiji",
-                    "code": "FJ"
-                },
-                {
-                    "name": "Finland",
-                    "code": "FI"
-                },
-                {
-                    "name": "France",
-                    "code": "FR"
-                },
-                {
-                    "name": "French Guiana",
-                    "code": "GF"
-                },
-                {
-                    "name": "French Polynesia",
-                    "code": "PF"
-                },
-                {
-                    "name": "French Southern and Antartic Lands",
-                    "code": "TF"
-                },
-                {
-                    "name": "Gabon",
-                    "code": "GA"
-                },
-                {
-                    "name": "Gambia",
-                    "code": " The"
-                },
-                {
-                    "name": "Gaza Strip",
-                    "code": "GZ"
-                },
-                {
-                    "name": "Georgia",
-                    "code": "GE"
-                },
-                {
-                    "name": "Germany",
-                    "code": " Federal Republic of"
-                },
-                {
-                    "name": "Ghana",
-                    "code": "GH"
-                },
-                {
-                    "name": "Gibraltar",
-                    "code": "GI"
-                },
-                {
-                    "name": "Greece",
-                    "code": "GR"
-                },
-                {
-                    "name": "Greenland",
-                    "code": "GL"
-                },
-                {
-                    "name": "Grenada",
-                    "code": "GD"
-                },
-                {
-                    "name": "Guadeloupe",
-                    "code": "GP"
-                },
-                {
-                    "name": "Guam",
-                    "code": "GU"
-                },
-                {
-                    "name": "Guatemala",
-                    "code": "GT"
-                },
-                {
-                    "name": "Guinea",
-                    "code": "GN"
-                },
-                {
-                    "name": "Guinea-Bissau",
-                    "code": "GW"
-                },
-                {
-                    "name": "Guyana",
-                    "code": "GY"
-                },
-                {
-                    "name": "Haiti",
-                    "code": "HT"
-                },
-                {
-                    "name": "Heard Island and Mcdonald Islands",
-                    "code": "HM"
-                },
-                {
-                    "name": "Honduras",
-                    "code": "HN"
-                },
-                {
-                    "name": "Hong Kong",
-                    "code": "HK"
-                },
-                {
-                    "name": "Hungary",
-                    "code": "HU"
-                },
-                {
-                    "name": "Iceland",
-                    "code": "IS"
-                },
-                {
-                    "name": "India",
-                    "code": "IN"
-                },
-                {
-                    "name": "Indonesia",
-                    "code": "ID"
-                },
-                {
-                    "name": "Iran",
-                    "code": "IR"
-                },
-                {
-                    "name": "Iraq",
-                    "code": "IQ"
-                },
-                {
-                    "name": "Ireland",
-                    "code": "IE"
-                },
-                {
-                    "name": "Israel",
-                    "code": "IL"
-                },
-                {
-                    "name": "Italy",
-                    "code": "IT"
-                },
-                {
-                    "name": "Ivory Coast",
-                    "code": "CI"
-                },
-                {
-                    "name": "Jamaica",
-                    "code": "JM"
-                },
-                {
-                    "name": "Japan",
-                    "code": "JP"
-                },
-                {
-                    "name": "Johnston Atoll",
-                    "code": "UM"
-                },
-                {
-                    "name": "Jordan",
-                    "code": "JO"
-                },
-                {
-                    "name": "Kampuchea",
-                    "code": " Democratic"
-                },
-                {
-                    "name": "Kazakhstan",
-                    "code": "KZ"
-                },
-                {
-                    "name": "Kenya",
-                    "code": "KE"
-                },
-                {
-                    "name": "Kiribati",
-                    "code": "KI"
-                },
-                {
-                    "name": "Korea",
-                    "code": " Democratic Peoples Republic of"
-                },
-                {
-                    "name": "Korea",
-                    "code": " North"
-                },
-                {
-                    "name": "Korea",
-                    "code": " Republic of"
-                },
-                {
-                    "name": "Korea",
-                    "code": " South"
-                },
-                {
-                    "name": "Kosovo",
-                    "code": "KV"
-                },
-                {
-                    "name": "Kuwait",
-                    "code": "KW"
-                },
-                {
-                    "name": "Kyrgyzstan",
-                    "code": "KG"
-                },
-                {
-                    "name": "Lao Peoples’ Democratic Republic",
-                    "code": "LA"
-                },
-                {
-                    "name": "Latvia",
-                    "code": "LV"
-                },
-                {
-                    "name": "Lebanon",
-                    "code": "LB"
-                },
-                {
-                    "name": "Lesotho",
-                    "code": "LS"
-                },
-                {
-                    "name": "Liberia",
-                    "code": "LR"
-                },
-                {
-                    "name": "Libya",
-                    "code": "LY"
-                },
-                {
-                    "name": "Liechtenstein",
-                    "code": "LI"
-                },
-                {
-                    "name": "Lithuania",
-                    "code": "LT"
-                },
-                {
-                    "name": "Luxembourg",
-                    "code": "LU"
-                },
-                {
-                    "name": "Macau",
-                    "code": "MO"
-                },
-                {
-                    "name": "Macedonia (Skopje)",
-                    "code": "MK"
-                },
-                {
-                    "name": "Madagascar",
-                    "code": "MG"
-                },
-                {
-                    "name": "Madeira Island",
-                    "code": "PT"
-                },
-                {
-                    "name": "Malawi",
-                    "code": "MW"
-                },
-                {
-                    "name": "Malaysia",
-                    "code": "MY"
-                },
-                {
-                    "name": "Maldives",
-                    "code": "MV"
-                },
-                {
-                    "name": "Mali",
-                    "code": "ML"
-                },
-                {
-                    "name": "Malta",
-                    "code": "MT"
-                },
-                {
-                    "name": "Marshall Islands",
-                    "code": "MH"
-                },
-                {
-                    "name": "Martinique",
-                    "code": "MQ"
-                },
-                {
-                    "name": "Mauritania",
-                    "code": "MR"
-                },
-                {
-                    "name": "Mauritius",
-                    "code": "MU"
-                },
-                {
-                    "name": "Mayotte",
-                    "code": "YT"
-                },
-                {
-                    "name": "Mexico",
-                    "code": "MX"
-                },
-                {
-                    "name": "Micronesia",
-                    "code": " Federal States of"
-                },
-                {
-                    "name": "Midway Islands",
-                    "code": "UM"
-                },
-                {
-                    "name": "Moldova",
-                    "code": "MD"
-                },
-                {
-                    "name": "Monaco",
-                    "code": "MC"
-                },
-                {
-                    "name": "Mongolia",
-                    "code": "MN"
-                },
-                {
-                    "name": "Montenegro",
-                    "code": "ME"
-                },
-                {
-                    "name": "Montserat",
-                    "code": "MS"
-                },
-                {
-                    "name": "Morocco",
-                    "code": "MA"
-                },
-                {
-                    "name": "Mozambique",
-                    "code": "MZ"
-                },
-                {
-                    "name": "Myanmar (see Burma)",
-                    "code": ""
-                },
-                {
-                    "name": "Namibia",
-                    "code": "NA"
-                },
-                {
-                    "name": "Nauru",
-                    "code": "NR"
-                },
-                {
-                    "name": "Nepal",
-                    "code": "NP"
-                },
-                {
-                    "name": "Netherlands",
-                    "code": "NL"
-                },
-                {
-                    "name": "New Caledonia",
-                    "code": "NC"
-                },
-                {
-                    "name": "New Zealand",
-                    "code": "NZ"
-                },
-                {
-                    "name": "Nicaragua",
-                    "code": "NI"
-                },
-                {
-                    "name": "Niger",
-                    "code": "NE"
-                },
-                {
-                    "name": "Nigeria",
-                    "code": "NG"
-                },
-                {
-                    "name": "Niue",
-                    "code": "NU"
-                },
-                {
-                    "name": "Norfolk Island",
-                    "code": "NF"
-                },
-                {
-                    "name": "North Korea",
-                    "code": "KP"
-                },
-                {
-                    "name": "Northern Mariana Island",
-                    "code": "MP"
-                },
-                {
-                    "name": "Norway",
-                    "code": "NO"
-                },
-                {
-                    "name": "Oman",
-                    "code": "OM"
-                },
-                {
-                    "name": "Pakistan",
-                    "code": "PK"
-                },
-                {
-                    "name": "Palau",
-                    "code": "PW"
-                },
-                {
-                    "name": "Panama",
-                    "code": "PA"
-                },
-                {
-                    "name": "Papua New Guinea",
-                    "code": "PG"
-                },
-                {
-                    "name": "Paraguay",
-                    "code": "PY"
-                },
-                {
-                    "name": "Peru",
-                    "code": "PE"
-                },
-                {
-                    "name": "Philippines",
-                    "code": "PH"
-                },
-                {
-                    "name": "Pitcairn Island",
-                    "code": "PN"
-                },
-                {
-                    "name": "Poland",
-                    "code": "PL"
-                },
-                {
-                    "name": "Portugal",
-                    "code": "PT"
-                },
-                {
-                    "name": "Puerto Rico",
-                    "code": "PR"
-                },
-                {
-                    "name": "Qatar",
-                    "code": "QA"
-                },
-                {
-                    "name": "Reunion",
-                    "code": "RE"
-                },
-                {
-                    "name": "Romania",
-                    "code": "RO"
-                },
-                {
-                    "name": "Russia",
-                    "code": "RU"
-                },
-                {
-                    "name": "Rwanda",
-                    "code": "RW"
-                },
-                {
-                    "name": "St. Christopher",
-                    "code": "KN"
-                },
-                {
-                    "name": "St. Helena",
-                    "code": "SH"
-                },
-                {
-                    "name": "St. Kitts and Nevis",
-                    "code": "KN"
-                },
-                {
-                    "name": "Saint Lucia",
-                    "code": "LC"
-                },
-                {
-                    "name": "St. Pierre and Miquelon",
-                    "code": "PM"
-                },
-                {
-                    "name": "Saint Vincent and the Grenadines",
-                    "code": "VC"
-                },
-                {
-                    "name": "Samoa",
-                    "code": "WS"
-                },
-                {
-                    "name": "San Marino",
-                    "code": "SM"
-                },
-                {
-                    "name": "Sao Tome and Principe",
-                    "code": "ST"
-                },
-                {
-                    "name": "Saudi Arabia",
-                    "code": "SA"
-                },
-                {
-                    "name": "Senegal",
-                    "code": "SN"
-                },
-                {
-                    "name": "Serbia",
-                    "code": "RS"
-                },
-                {
-                    "name": "Seychelles",
-                    "code": "SC"
-                },
-                {
-                    "name": "Sierra Leone",
-                    "code": "SL"
-                },
-                {
-                    "name": "Singapore",
-                    "code": "SG"
-                },
-                {
-                    "name": "Sint Maarten",
-                    "code": "SX"
-                },
-                {
-                    "name": "Slovakia",
-                    "code": "SK"
-                },
-                {
-                    "name": "Slovenia",
-                    "code": "SI"
-                },
-                {
-                    "name": "Solomon Islands",
-                    "code": "SB"
-                },
-                {
-                    "name": "Somalia",
-                    "code": "SO"
-                },
-                {
-                    "name": "South Africa",
-                    "code": "ZA"
-                },
-                {
-                    "name": "South Korea",
-                    "code": "KR"
-                },
-                {
-                    "name": "South Sudan",
-                    "code": "SS"
-                },
-                {
-                    "name": "Spain",
-                    "code": "ES"
-                },
-                {
-                    "name": "Spanish Africa",
-                    "code": "ES"
-                },
-                {
-                    "name": "Sri Lanka",
-                    "code": "LK"
-                },
-                {
-                    "name": "Sudan",
-                    "code": "SD"
-                },
-                {
-                    "name": "Suriname",
-                    "code": "SR"
-                },
-                {
-                    "name": "Svalvard and Jan Mayen Islands",
-                    "code": "SJ"
-                },
-                {
-                    "name": "Swaziland",
-                    "code": "SZ"
-                },
-                {
-                    "name": "Sweden",
-                    "code": "SE"
-                },
-                {
-                    "name": "Switzerland",
-                    "code": "CH"
-                },
-                {
-                    "name": "Syrian Arab Republic",
-                    "code": "SY"
-                },
-                {
-                    "name": "Taiwan",
-                    "code": "TW"
-                },
-                {
-                    "name": "Tajikistan",
-                    "code": "TJ"
-                },
-                {
-                    "name": "Tanzania",
-                    "code": " United Republic of"
-                },
-                {
-                    "name": "Thailand",
-                    "code": "TH"
-                },
-                {
-                    "name": "Timor-Leste",
-                    "code": "TL"
-                },
-                {
-                    "name": "Togo",
-                    "code": "TG"
-                },
-                {
-                    "name": "Tokelau",
-                    "code": "TK"
-                },
-                {
-                    "name": "Tonga",
-                    "code": "TO"
-                },
-                {
-                    "name": "Trinidad and Tobago",
-                    "code": "TT"
-                },
-                {
-                    "name": "Tunisia",
-                    "code": "TN"
-                },
-                {
-                    "name": "Turkey",
-                    "code": "TR"
-                },
-                {
-                    "name": "Turkmenistan",
-                    "code": "TM"
-                },
-                {
-                    "name": "Turks and Caicos Island",
-                    "code": "TC"
-                },
-                {
-                    "name": "Tuvalu",
-                    "code": "TV"
-                },
-                {
-                    "name": "Uganda",
-                    "code": "UG"
-                },
-                {
-                    "name": "Ukraine",
-                    "code": "UA"
-                },
-                {
-                    "name": "United Arab Emirates",
-                    "code": "AE"
-                },
-                {
-                    "name": "United Kingdom",
-                    "code": "GB"
-                },
-                {
-                    "name": "United States",
-                    "code": "US",                   
-                },
-                {
-                    "name": "United States Minor Outlying Islands",
-                    "code": "UM"
-                },
-                {
-                    "name": "Uruguay",
-                    "code": "UY"
-                },
-                {
-                    "name": "Uzbekistan",
-                    "code": "UZ"
-                },
-                {
-                    "name": "Vanuatu",
-                    "code": "VU"
-                },
-                {
-                    "name": "Vatican City",
-                    "code": "VA"
-                },
-                {
-                    "name": "Venezuela",
-                    "code": "VE"
-                },
-                {
-                    "name": "Viet Nam",
-                    "code": "VN"
-                },
-                {
-                    "name": "Virgin Islands of the United States",
-                    "code": "VI"
-                },
-                {
-                    "name": "Wake Island",
-                    "code": "UM"
-                },
-                {
-                    "name": "Wallis and Futuna Islands",
-                    "code": "WF"
-                },
-                {
-                    "name": "West Bank",
-                    "code": "WE"
-                },
-                {
-                    "name": "Western Sahara",
-                    "code": "EH"
-                },
-                {
-                    "name": "Western Samoa",
-                    "code": "WS"
-                },
-                {
-                    "name": "Yemen",
-                    "code": " Republic of"
-                },
-                {
-                    "name": "Zambia",
-                    "code": "ZM"
-                },
-                {
-                    "name": "Zimbabwe",
-                    "code": "ZW"
-                }]                    
+            {
+                "name": "Andorra",
+                "code": "AD"
+            },
+            {
+                "name": "United Arab Emirates",
+                "code": "AE"
+            },
+            {
+                "name": "Afghanistan",
+                "code": "AF"
+            },
+            {
+                "name": "Antigua and Barbuda",
+                "code": "AG"
+            },
+            {
+                "name": "Anguilla",
+                "code": "AI"
+            },
+            {
+                "name": "Albania",
+                "code": "AL"
+            },
+            {
+                "name": "Armenia",
+                "code": "AM"
+            },
+            {
+                "name": "Angola",
+                "code": "AO"
+            },
+            {
+                "name": "Argentina",
+                "code": "AR"
+            },
+            {
+                "name": "American Samoa",
+                "code": "AS"
+            },
+            {
+                "name": "Austria",
+                "code": "AT"
+            },
+            {
+                "name": "Australia",
+                "code": "AU"
+            },
+            {
+                "name": "Aruba",
+                "code": "AW"
+            },
+            {
+                "name": "Azerbaijan",
+                "code": "AZ"
+            },
+            {
+                "name": "Bosnia-Hercegovina",
+                "code": "BA"
+            },
+            {
+                "name": "Barbados",
+                "code": "BB"
+            },
+            {
+                "name": "Bangladesh",
+                "code": "BD"
+            },
+            {
+                "name": "Belgium",
+                "code": "BE"
+            },
+            {
+                "name": "Burkina",
+                "code": "BF"
+            },
+            {
+                "name": "Bulgaria",
+                "code": "BG"
+            },
+            {
+                "name": "Bahrain",
+                "code": "BH"
+            },
+            {
+                "name": "Burundi",
+                "code": "BI"
+            },
+            {
+                "name": "Benin",
+                "code": "BJ"
+            },
+            {
+                "name": "Bermuda",
+                "code": "BM"
+            },
+            {
+                "name": "Brunei Darussalam",
+                "code": "BN"
+            },
+            {
+                "name": "Bolivia",
+                "code": "BO"
+            },
+            {
+                "name": "Brazil",
+                "code": "BR"
+            },
+            {
+                "name": "Bahamas",
+                "code": "BS"
+            },
+            {
+                "name": "Bhutan",
+                "code": "BT"
+            },
+            {
+                "name": "Burma (Myanmar)",
+                "code": "BU"
+            },
+            {
+                "name": "Botswana",
+                "code": "BW"
+            },
+            {
+                "name": "Byelarus",
+                "code": "BY"
+            },
+            {
+                "name": "Belize",
+                "code": "BZ"
+            },
+            {
+                "name": "Canada",
+                "code": "CA"
+            },
+            {
+                "name": "Cocos (Keeling) Island",
+                "code": "CC"
+            },
+            {
+                "name": "Democratic Republic of Congo (Kinshasa)",
+                "code": "CD"
+            },
+            {
+                "name": "Central African Republic",
+                "code": "CF"
+            },
+            {
+                "name": "Congo (Brazzaville)",
+                "code": "CG"
+            },
+            {
+                "name": "Switzerland",
+                "code": "CH"
+            },
+            {
+                "name": "Ivory Coast",
+                "code": "CI"
+            },
+            {
+                "name": "Cook Islands",
+                "code": "CK"
+            },
+            {
+                "name": "Chile",
+                "code": "CL"
+            },
+            {
+                "name": "Cameroon",
+                "code": "CM"
+            },
+            {
+                "name": "China",
+                "code": "CN"
+            },
+            {
+                "name": "Colombia",
+                "code": "CO"
+            },
+            {
+                "name": "Costa Rica",
+                "code": "CR"
+            },
+            {
+                "name": "Cuba",
+                "code": "CU"
+            },
+            {
+                "name": "Cape Verde",
+                "code": "CV"
+            },
+            {
+                "name": "Curacao",
+                "code": "CW"
+            },
+            {
+                "name": "Christmas Islands",
+                "code": "CX"
+            },
+            {
+                "name": "Cyprus",
+                "code": "CY"
+            },
+            {
+                "name": "Czech Republic",
+                "code": " The"
+            },
+            {
+                "name": "Germany",
+                "code": " Federal Republic of"
+            },
+            {
+                "name": "Djibouti",
+                "code": "DJ"
+            },
+            {
+                "name": "Denmark",
+                "code": "DK"
+            },
+            {
+                "name": "Dominica",
+                "code": "DM"
+            },
+            {
+                "name": "Dominican Republic",
+                "code": "DO"
+            },
+            {
+                "name": "Algeria",
+                "code": "DZ"
+            },
+            {
+                "name": "Ecuador",
+                "code": "EC"
+            },
+            {
+                "name": "Estonia",
+                "code": "EE"
+            },
+            {
+                "name": "Egypt",
+                "code": "EG"
+            },
+            {
+                "name": "Western Sahara",
+                "code": "EH"
+            },
+            {
+                "name": "Eritrea",
+                "code": "ER"
+            },
+            {
+                "name": "Spain",
+                "code": "ES"
+            },
+            {
+                "name": "Ethiopia",
+                "code": "ET"
+            },
+            {
+                "name": "Finland",
+                "code": "FI"
+            },
+            {
+                "name": "Fiji",
+                "code": "FJ"
+            },
+            {
+                "name": "Falkland Islands (Malvinas)",
+                "code": "FK"
+            },
+            {
+                "name": "Micronesia",
+                "code": " Federal States of"
+            },
+            {
+                "name": "Faroe Islands",
+                "code": "FO"
+            },
+            {
+                "name": "France",
+                "code": "FR"
+            },
+            {
+                "name": "Gabon",
+                "code": "GA"
+            },
+            {
+                "name": "United Kingdom",
+                "code": "GB"
+            },
+            {
+                "name": "Grenada",
+                "code": "GD"
+            },
+            {
+                "name": "Georgia",
+                "code": "GE"
+            },
+            {
+                "name": "French Guiana",
+                "code": "GF"
+            },
+            {
+                "name": "Ghana",
+                "code": "GH"
+            },
+            {
+                "name": "Gibraltar",
+                "code": "GI"
+            },
+            {
+                "name": "Greenland",
+                "code": "GL"
+            },
+            {
+                "name": "Gambia",
+                "code": " The"
+            },
+            {
+                "name": "Guinea",
+                "code": "GN"
+            },
+            {
+                "name": "Guadeloupe",
+                "code": "GP"
+            },
+            {
+                "name": "Equatorial Guinea",
+                "code": "GQ"
+            },
+            {
+                "name": "Greece",
+                "code": "GR"
+            },
+            {
+                "name": "Guatemala",
+                "code": "GT"
+            },
+            {
+                "name": "Guam",
+                "code": "GU"
+            },
+            {
+                "name": "Guinea-Bissau",
+                "code": "GW"
+            },
+            {
+                "name": "Guyana",
+                "code": "GY"
+            },
+            {
+                "name": "Gaza Strip",
+                "code": "GZ"
+            },
+            {
+                "name": "Hong Kong",
+                "code": "HK"
+            },
+            {
+                "name": "Heard Island and Mcdonald Islands",
+                "code": "HM"
+            },
+            {
+                "name": "Honduras",
+                "code": "HN"
+            },
+            {
+                "name": "Croatia",
+                "code": "HR"
+            },
+            {
+                "name": "Haiti",
+                "code": "HT"
+            },
+            {
+                "name": "Hungary",
+                "code": "HU"
+            },
+            {
+                "name": "Indonesia",
+                "code": "ID"
+            },
+            {
+                "name": "Ireland",
+                "code": "IE"
+            },
+            {
+                "name": "Israel",
+                "code": "IL"
+            },
+            {
+                "name": "India",
+                "code": "IN"
+            },
+            {
+                "name": "British Indian Ocean Territory",
+                "code": "IO"
+            },
+            {
+                "name": "Iraq",
+                "code": "IQ"
+            },
+            {
+                "name": "Iran",
+                "code": "IR"
+            },
+            {
+                "name": "Iceland",
+                "code": "IS"
+            },
+            {
+                "name": "Italy",
+                "code": "IT"
+            },
+            {
+                "name": "Jamaica",
+                "code": "JM"
+            },
+            {
+                "name": "Jordan",
+                "code": "JO"
+            },
+            {
+                "name": "Japan",
+                "code": "JP"
+            },
+            {
+                "name": "Kenya",
+                "code": "KE"
+            },
+            {
+                "name": "Kyrgyzstan",
+                "code": "KG"
+            },
+            {
+                "name": "Cambodia",
+                "code": "KH"
+            },
+            {
+                "name": "Kiribati",
+                "code": "KI"
+            },
+            {
+                "name": "Comoros",
+                "code": "KM"
+            },
+            {
+                "name": "St. Kitts and Nevis",
+                "code": "KN"
+            },
+            {
+                "name": "Korea",
+                "code": " North"
+            },
+            {
+                "name": "Korea",
+                "code": " South"
+            },
+            {
+                "name": "Kosovo",
+                "code": "KV"
+            },
+            {
+                "name": "Kuwait",
+                "code": "KW"
+            },
+            {
+                "name": "Cayman Island",
+                "code": "KY"
+            },
+            {
+                "name": "Kazakhstan",
+                "code": "KZ"
+            },
+            {
+                "name": "Lao Peoples’ Democratic Republic",
+                "code": "LA"
+            },
+            {
+                "name": "Lebanon",
+                "code": "LB"
+            },
+            {
+                "name": "Saint Lucia",
+                "code": "LC"
+            },
+            {
+                "name": "Liechtenstein",
+                "code": "LI"
+            },
+            {
+                "name": "Sri Lanka",
+                "code": "LK"
+            },
+            {
+                "name": "Liberia",
+                "code": "LR"
+            },
+            {
+                "name": "Lesotho",
+                "code": "LS"
+            },
+            {
+                "name": "Lithuania",
+                "code": "LT"
+            },
+            {
+                "name": "Luxembourg",
+                "code": "LU"
+            },
+            {
+                "name": "Latvia",
+                "code": "LV"
+            },
+            {
+                "name": "Libya",
+                "code": "LY"
+            },
+            {
+                "name": "Morocco",
+                "code": "MA"
+            },
+            {
+                "name": "Monaco",
+                "code": "MC"
+            },
+            {
+                "name": "Moldova",
+                "code": "MD"
+            },
+            {
+                "name": "Montenegro",
+                "code": "ME"
+            },
+            {
+                "name": "Madagascar",
+                "code": "MG"
+            },
+            {
+                "name": "Marshall Islands",
+                "code": "MH"
+            },
+            {
+                "name": "Macedonia (Skopje)",
+                "code": "MK"
+            },
+            {
+                "name": "Mali",
+                "code": "ML"
+            },
+            {
+                "name": "Myanmar (see Burma)",
+                "code": "MM"
+            },
+            {
+                "name": "Mongolia",
+                "code": "MN"
+            },
+            {
+                "name": "Macau",
+                "code": "MO"
+            },
+            {
+                "name": "Northern Mariana Island",
+                "code": "MP"
+            },
+            {
+                "name": "Martinique",
+                "code": "MQ"
+            },
+            {
+                "name": "Mauritania",
+                "code": "MR"
+            },
+            {
+                "name": "Montserat",
+                "code": "MS"
+            },
+            {
+                "name": "Malta",
+                "code": "MT"
+            },
+            {
+                "name": "Mauritius",
+                "code": "MU"
+            },
+            {
+                "name": "Maldives",
+                "code": "MV"
+            },
+            {
+                "name": "Malawi",
+                "code": "MW"
+            },
+            {
+                "name": "Mexico",
+                "code": "MX"
+            },
+            {
+                "name": "Malaysia",
+                "code": "MY"
+            },
+            {
+                "name": "Mozambique",
+                "code": "MZ"
+            },
+            {
+                "name": "Namibia",
+                "code": "NA"
+            },
+            {
+                "name": "New Caledonia",
+                "code": "NC"
+            },
+            {
+                "name": "Niger",
+                "code": "NE"
+            },
+            {
+                "name": "Norfolk Island",
+                "code": "NF"
+            },
+            {
+                "name": "Nigeria",
+                "code": "NG"
+            },
+            {
+                "name": "Nicaragua",
+                "code": "NI"
+            },
+            {
+                "name": "Netherlands",
+                "code": "NL"
+            },
+            {
+                "name": "Norway",
+                "code": "NO"
+            },
+            {
+                "name": "Nepal",
+                "code": "NP"
+            },
+            {
+                "name": "Nauru",
+                "code": "NR"
+            },
+            {
+                "name": "Niue",
+                "code": "NU"
+            },
+            {
+                "name": "New Zealand",
+                "code": "NZ"
+            },
+            {
+                "name": "Oman",
+                "code": "OM"
+            },
+            {
+                "name": "Panama",
+                "code": "PA"
+            },
+            {
+                "name": "Peru",
+                "code": "PE"
+            },
+            {
+                "name": "French Polynesia",
+                "code": "PF"
+            },
+            {
+                "name": "Papua New Guinea",
+                "code": "PG"
+            },
+            {
+                "name": "Philippines",
+                "code": "PH"
+            },
+            {
+                "name": "Pakistan",
+                "code": "PK"
+            },
+            {
+                "name": "Poland",
+                "code": "PL"
+            },
+            {
+                "name": "St. Pierre and Miquelon",
+                "code": "PM"
+            },
+            {
+                "name": "Pitcairn Island",
+                "code": "PN"
+            },
+            {
+                "name": "Puerto Rico",
+                "code": "PR"
+            },      
+            {
+                "name": "Portugal",
+                "code": "PT"
+            },
+            {
+                "name": "Palau",
+                "code": "PW"
+            },
+            {
+                "name": "Paraguay",
+                "code": "PY"
+            },
+            {
+                "name": "Qatar",
+                "code": "QA"
+            },
+            {
+                "name": "Reunion",
+                "code": "RE"
+            },
+            {
+                "name": "Romania",
+                "code": "RO"
+            },
+            {
+                "name": "Serbia",
+                "code": "RS"
+            },
+            {
+                "name": "Russia",
+                "code": "RU"
+            },
+            {
+                "name": "Rwanda",
+                "code": "RW"
+            },
+            {
+                "name": "Saudi Arabia",
+                "code": "SA"
+            },
+            {
+                "name": "Solomon Islands",
+                "code": "SB"
+            },
+            {
+                "name": "Seychelles",
+                "code": "SC"
+            },
+            {
+                "name": "Sudan",
+                "code": "SD"
+            },
+            {
+                "name": "Sweden",
+                "code": "SE"
+            },
+            {
+                "name": "Singapore",
+                "code": "SG"
+            },
+            {
+                "name": "St. Helena",
+                "code": "SH"
+            },
+            {
+                "name": "Slovenia",
+                "code": "SI"
+            },
+            {
+                "name": "Svalvard and Jan Mayen Islands",
+                "code": "SJ"
+            },
+            {
+                "name": "Slovakia",
+                "code": "SK"
+            },
+            {
+                "name": "Sierra Leone",
+                "code": "SL"
+            },
+            {
+                "name": "San Marino",
+                "code": "SM"
+            },
+            {
+                "name": "Senegal",
+                "code": "SN"
+            },
+            {
+                "name": "Somalia",
+                "code": "SO"
+            },
+            {
+                "name": "Suriname",
+                "code": "SR"
+            },
+            {
+                "name": "South Sudan",
+                "code": "SS"
+            },
+            {
+                "name": "Sao Tome and Principe",
+                "code": "ST"
+            },
+            {
+                "name": "El Salvador",
+                "code": "SV"
+            },
+            {
+                "name": "Sint Maarten",
+                "code": "SX"
+            },
+            {
+                "name": "Syrian Arab Republic",
+                "code": "SY"
+            },
+            {
+                "name": "Swaziland",
+                "code": "SZ"
+            },
+            {
+                "name": "Turks and Caicos Island",
+                "code": "TC"
+            },
+            {
+                "name": "Chad",
+                "code": "TD"
+            },
+            {
+                "name": "French Southern and Antartic Lands",
+                "code": "TF"
+            },
+            {
+                "name": "Togo",
+                "code": "TG"
+            },
+            {
+                "name": "Thailand",
+                "code": "TH"
+            },
+            {
+                "name": "Tajikistan",
+                "code": "TJ"
+            },
+            {
+                "name": "Tokelau",
+                "code": "TK"
+            },
+            {
+                "name": "Timor-Leste",
+                "code": "TL"
+            },
+            {
+                "name": "Turkmenistan",
+                "code": "TM"
+            },
+            {
+                "name": "Tunisia",
+                "code": "TN"
+            },
+            {
+                "name": "Tonga",
+                "code": "TO"
+            },
+            {
+                "name": "Turkey",
+                "code": "TR"
+            },
+            {
+                "name": "Trinidad and Tobago",
+                "code": "TT"
+            },
+            {
+                "name": "Tuvalu",
+                "code": "TV"
+            },
+            {
+                "name": "Taiwan",
+                "code": "TW"
+            },
+            {
+                "name": "Tanzania",
+                "code": " United Republic of"
+            },
+            {
+                "name": "Ukraine",
+                "code": "UA"
+            },
+            {
+                "name": "Uganda",
+                "code": "UG"
+            },
+            {
+                "name": "United States Minor Outlying Islands",
+                "code": "UM"
+            },
+            {
+                "name": "United States",
+                "code": "US"
+            },
+            {
+                "name": "Uruguay",
+                "code": "UY"
+            },
+            {
+                "name": "Uzbekistan",
+                "code": "UZ"
+            },
+            {
+                "name": "Vatican City",
+                "code": "VA"
+            },
+            {
+                "name": "Saint Vincent and the Grenadines",
+                "code": "VC"
+            },
+            {
+                "name": "Venezuela",
+                "code": "VE"
+            },
+            {
+                "name": "British Virgin Islands",
+                "code": "VG"
+            },
+            {
+                "name": "Virgin Islands of the United States",
+                "code": "VI"
+            },
+            {
+                "name": "Viet Nam",
+                "code": "VN"
+            },
+            {
+                "name": "Vanuatu",
+                "code": "VU"
+            },
+            {
+                "name": "West Bank",
+                "code": "WE"
+            },
+            {
+                "name": "Wallis and Futuna Islands",
+                "code": "WF"
+            },
+            {
+                "name": "Samoa",
+                "code": "WS"
+            },
+            {
+                "name": "Yemen",
+                "code": " Republic of"
+            },
+            {
+                "name": "Mayotte",
+                "code": "YT"
+            },
+            {
+                "name": "South Africa",
+                "code": "ZA"
+            },
+            {
+                "name": "Zambia",
+                "code": "ZM"
+            },
+            {
+                "name": "Zimbabwe",
+                "code": "ZW"
+            }]
     }
 
-    public static get portOfExport():any[]{
-       return [
+    public static get portOfExport(): any[] {
+        return [
             {
                 "code": "101",
                 "name": "PORTLAND",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "102",
                 "name": "BANGOR",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "103",
                 "name": "EASTPORT",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "104",
                 "name": "JACKMAN",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "105",
                 "name": "VANCEBORO",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "106",
                 "name": "HOULTON",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "107",
                 "name": "FORT FAIRFIELD",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "108",
                 "name": "VAN BUREN",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "109",
                 "name": "MADAWASKA",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "110",
                 "name": "FORT KENT",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "111",
                 "name": "BATH",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "112",
                 "name": "BAR HARBOR",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "115",
                 "name": "CALAIS",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "118",
                 "name": "LIMESTONE",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "121",
                 "name": "ROCKLAND",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "122",
                 "name": "JONESPORT",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "127",
                 "name": "BRIDGEWATER",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "131",
                 "name": "PORTSMOUTH",
-                "shortname": " NH"
+                "shortname": "NH"
             },
             {
                 "code": "132",
                 "name": "BELFAST",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "152",
                 "name": "SEARSPORT",
-                "shortname": " ME"
+                "shortname": "ME"
             },
             {
                 "code": "181",
@@ -1196,37 +1136,37 @@ export class MasterData {
             {
                 "code": "182",
                 "name": "MANCHESTER USER FEE AIRPORT",
-                "shortname": " NH"
+                "shortname": "NH"
             },
             {
                 "code": "201",
                 "name": "ST. ALBANS",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "203",
                 "name": "RICHFORD",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "206",
                 "name": "BEECHER FALLS",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "207",
                 "name": "BURLINGTON",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "209",
                 "name": "DERBY LINE",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "211",
                 "name": "NORTON",
-                "shortname": " VT"
+                "shortname": "VT"
             },
             {
                 "code": "212",
@@ -1236,117 +1176,117 @@ export class MasterData {
             {
                 "code": "401",
                 "name": "BOSTON",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "402",
                 "name": "SPRINGFIELD",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "403",
                 "name": "WORCESTER",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "404",
                 "name": "GLOUCESTER",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "405",
                 "name": "NEW BEDFORD",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "406",
                 "name": "PLYMOUTH",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "407",
                 "name": "FALL RIVER",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "408",
                 "name": "SALEM",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "409",
                 "name": "PROVINCETOWN",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "410",
                 "name": "BRIDGEPORT",
-                "shortname": " CT"
+                "shortname": "CT"
             },
             {
                 "code": "411",
                 "name": "HARTFORD",
-                "shortname": " CT"
+                "shortname": "CT"
             },
             {
                 "code": "412",
                 "name": "NEW HAVEN",
-                "shortname": " CT"
+                "shortname": "CT"
             },
             {
                 "code": "413",
                 "name": "NEW LONDON",
-                "shortname": " CT"
+                "shortname": "CT"
             },
             {
                 "code": "416",
                 "name": "LAWRENCE",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "417",
                 "name": "LOGAN AIRPORT",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "481",
                 "name": "L.G. HANSCOM FIELD",
-                "shortname": " MA"
+                "shortname": "MA"
             },
             {
                 "code": "501",
                 "name": "NEWPORT",
-                "shortname": " RI"
+                "shortname": "RI"
             },
             {
                 "code": "502",
                 "name": "PROVIDENCE",
-                "shortname": " RI"
+                "shortname": "RI"
             },
             {
                 "code": "503",
                 "name": "MELLVILLE",
-                "shortname": " RI"
+                "shortname": "RI"
             },
             {
                 "code": "701",
                 "name": "OGDENSBURG",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "704",
                 "name": "MASSENA",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "706",
                 "name": "CAPE VINCENT",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "708",
                 "name": "ALEXANDRIA BAY",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "712",
@@ -1356,7 +1296,7 @@ export class MasterData {
             {
                 "code": "714",
                 "name": "CLAYTON",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "715",
@@ -1391,7 +1331,7 @@ export class MasterData {
             {
                 "code": "907",
                 "name": "UTICA",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "971",
@@ -1411,37 +1351,37 @@ export class MasterData {
             {
                 "code": "1001",
                 "name": "NEW YORK",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "1002",
                 "name": "ALBANY",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "1101",
                 "name": "PHILADELPHIA",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1102",
                 "name": "CHESTER",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1103",
                 "name": "WILMINGTON",
-                "shortname": " DE"
+                "shortname": "DE"
             },
             {
                 "code": "1104",
                 "name": "PITTSBURGH",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1105",
                 "name": "PAULSBORO",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "1106",
@@ -1451,27 +1391,27 @@ export class MasterData {
             {
                 "code": "1107",
                 "name": "CAMDEN",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "1108",
                 "name": "PHILA. INTL. AIRPORT",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1109",
                 "name": "HARRISBURG",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1113",
                 "name": "GLOUCESTER CITY",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "1119",
                 "name": "ALLENTOWN",
-                "shortname": " PA "
+                "shortname": "PA "
             },
             {
                 "code": "1181",
@@ -1481,37 +1421,37 @@ export class MasterData {
             {
                 "code": "1182",
                 "name": "ATLANTIC CITY REGIONAL AIRPORT",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "1183",
                 "name": "TRENTON/MERCER COUNTY AIRPORT",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "1195",
                 "name": "UPS",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "1301",
                 "name": "ANNAPOLIS",
-                "shortname": " MD"
+                "shortname": "MD"
             },
             {
                 "code": "1302",
                 "name": "CAMBRIDGE",
-                "shortname": " MD"
+                "shortname": "MD"
             },
             {
                 "code": "1303",
                 "name": "BALTIMORE",
-                "shortname": " MD"
+                "shortname": "MD"
             },
             {
                 "code": "1304",
                 "name": "CRISFIELD",
-                "shortname": " MD"
+                "shortname": "MD"
             },
             {
                 "code": "1305",
@@ -1536,22 +1476,22 @@ export class MasterData {
             {
                 "code": "1409",
                 "name": "CHARLESTON",
-                "shortname": " WV"
+                "shortname": "WV"
             },
             {
                 "code": "1410",
                 "name": "FRONT ROYAL",
-                "shortname": " VA"
+                "shortname": "VA"
             },
             {
                 "code": "1412",
                 "name": "NEW RIVER VALLEY AIRPORT",
-                "shortname": " VA"
+                "shortname": "VA"
             },
             {
                 "code": "1501",
                 "name": "WILMINGTON",
-                "shortname": " NC"
+                "shortname": "NC"
             },
             {
                 "code": "1502",
@@ -1561,7 +1501,7 @@ export class MasterData {
             {
                 "code": "1503",
                 "name": "DURHAM",
-                "shortname": " NC"
+                "shortname": "NC"
             },
             {
                 "code": "1511",
@@ -1571,17 +1511,17 @@ export class MasterData {
             {
                 "code": "1512",
                 "name": "CHARLOTTE",
-                "shortname": " NC"
+                "shortname": "NC"
             },
             {
                 "code": "1601",
                 "name": "CHARLESTON",
-                "shortname": " SC"
+                "shortname": "SC"
             },
             {
                 "code": "1602",
                 "name": "GEORGETOWN",
-                "shortname": " SC"
+                "shortname": "SC"
             },
             {
                 "code": "1603",
@@ -1591,52 +1531,52 @@ export class MasterData {
             {
                 "code": "1604",
                 "name": "COLUMBIA",
-                "shortname": " SC"
+                "shortname": "SC"
             },
             {
                 "code": "1681",
                 "name": "MYRTLE BEACH INT’L AIRPORT",
-                "shortname": " SC"
+                "shortname": "SC"
             },
             {
                 "code": "1701",
                 "name": "BRUNSWICK",
-                "shortname": " GA"
+                "shortname": "GA"
             },
             {
                 "code": "1703",
                 "name": "SAVANNAH",
-                "shortname": " GA"
+                "shortname": "GA"
             },
             {
                 "code": "1704",
                 "name": "ATLANTA",
-                "shortname": " GA"
+                "shortname": "GA"
             },
             {
                 "code": "1801",
                 "name": "TAMPA",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1803",
                 "name": "JACKSONVILLE",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1805",
                 "name": "FERNANDINA BEACH",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1807",
                 "name": "BOCA GRANDE",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1808",
                 "name": "ORLANDO",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1809",
@@ -1646,27 +1586,27 @@ export class MasterData {
             {
                 "code": "1814",
                 "name": "ST. PETERSBURG",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1816",
                 "name": "PORT CANAVERAL",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1818",
                 "name": "PANAMA CITY",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1819",
                 "name": "PENSACOLA",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1821",
                 "name": "PORT MANATEE",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1822",
@@ -1691,137 +1631,137 @@ export class MasterData {
             {
                 "code": "1885",
                 "name": "MELBOURNE REGIONAL AIRPORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1886",
                 "name": "OCALA REGIONAL AIRPORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1887",
                 "name": "LEESBURG REGIONAL AIRPORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1888",
                 "name": "ORLANDO EXECUTIVE AIRPORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1889",
                 "name": "ST. AUGUSTINE AIPRORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "1901",
                 "name": "MOBILE",
-                "shortname": " AL"
+                "shortname": "AL"
             },
             {
                 "code": "1902",
                 "name": "GULFPORT",
-                "shortname": " MS"
+                "shortname": "MS"
             },
             {
                 "code": "1903",
                 "name": "PASCAGOULA",
-                "shortname": " MS"
+                "shortname": "MS"
             },
             {
                 "code": "1904",
                 "name": "BIRMINGHAM",
-                "shortname": " AL"
+                "shortname": "AL"
             },
             {
                 "code": "1910",
                 "name": "HUNTSVILLE",
-                "shortname": " AL"
+                "shortname": "AL"
             },
             {
                 "code": "2001",
                 "name": "MORGAN CITY",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2002",
                 "name": "NEW ORLEANS",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2003",
                 "name": "LITTLE ROCK",
-                "shortname": " AR"
+                "shortname": "AR"
             },
             {
                 "code": "2004",
                 "name": "BATON ROUGE",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2005",
                 "name": "PORT SULPHUR",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2006",
                 "name": "MEMPHIS",
-                "shortname": " TN"
+                "shortname": "TN"
             },
             {
                 "code": "2007",
                 "name": "NASHVILLE",
-                "shortname": " TN"
+                "shortname": "TN"
             },
             {
                 "code": "2008",
                 "name": "CHATTANOOGA",
-                "shortname": " TN"
+                "shortname": "TN"
             },
             {
                 "code": "2009",
                 "name": "DESTREHAN",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2010",
                 "name": "GRAMERCY",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2011",
                 "name": "GREENVILLE",
-                "shortname": " MS"
+                "shortname": "MS"
             },
             {
                 "code": "2012",
                 "name": "AVONDALE",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2013",
                 "name": "ST. ROSE",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2014",
                 "name": "GOOD HOPE",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2015",
                 "name": "VICKSBURG",
-                "shortname": " MS"
+                "shortname": "MS"
             },
             {
                 "code": "2016",
                 "name": "KNOXVILLE",
-                "shortname": " TN"
+                "shortname": "TN"
             },
             {
                 "code": "2017",
                 "name": "LAKE CHARLES",
-                "shortname": " LA"
+                "shortname": "LA"
             },
             {
                 "code": "2018",
@@ -1836,52 +1776,52 @@ export class MasterData {
             {
                 "code": "2083",
                 "name": "AKRANSAS AEROPLEX",
-                "shortname": " AR"
+                "shortname": "AR"
             },
             {
                 "code": "2095",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " TN"
+                "shortname": "TN"
             },
             {
                 "code": "2101",
                 "name": "PORT ARTHUR",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2102",
                 "name": "SABINE",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2103",
                 "name": "ORANGE",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2104",
                 "name": "BEAUMONT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2301",
                 "name": "BROWNSVILLE",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2302",
                 "name": "DEL RIO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2303",
                 "name": "EAGLE PASS",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2304",
                 "name": "LAREDO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2305",
@@ -1891,92 +1831,92 @@ export class MasterData {
             {
                 "code": "2307",
                 "name": "RIO GRANDE CITY",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2309",
                 "name": "PROGRESO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2310",
                 "name": "ROMA",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2381",
                 "name": "EDINBERG USER FEE AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2383",
                 "name": "VALLEY INT’L. AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2402",
                 "name": "EL PASO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2403",
                 "name": "PRESIDIO",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2404",
                 "name": "FABENS",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "2406",
                 "name": "COLUMBUS",
-                "shortname": " NM"
+                "shortname": "NM"
             },
             {
                 "code": "2407",
                 "name": "ALBUQUERQUE",
-                "shortname": " NM"
+                "shortname": "NM"
             },
             {
                 "code": "2408",
                 "name": "SANTA TERESA",
-                "shortname": " NM"
+                "shortname": "NM"
             },
             {
                 "code": "2481",
                 "name": "SANTA TERESA AIRPORT",
-                "shortname": " NM"
+                "shortname": "NM"
             },
             {
                 "code": "2501",
                 "name": "SAN DIEGO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2502",
                 "name": "ANDRADE",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2503",
                 "name": "CALEXICO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2504",
                 "name": "SAN YSIDRO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2505",
                 "name": "TECATE",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2506",
                 "name": "OTAY MESA",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2507",
@@ -1986,97 +1926,97 @@ export class MasterData {
             {
                 "code": "2601",
                 "name": "DOUGLAS",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2602",
                 "name": "LUKEVILLE",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2603",
                 "name": "NACO",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2604",
                 "name": "NOGALES",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2605",
                 "name": "PHOENIX",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2606",
                 "name": "SASABE",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2608",
                 "name": "SAN LUIS",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2609",
                 "name": "TUCSON",
-                "shortname": " AZ"
+                "shortname": "AZ"
             },
             {
                 "code": "2704",
                 "name": "LOS ANGELES",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2709",
                 "name": "LONG BEACH",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2711",
                 "name": "SEGUNDO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2712",
                 "name": "VENTURA",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2713",
                 "name": "PORT HUENEME",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2715",
                 "name": "CAPITAN",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2719",
                 "name": "MORRO BAY",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2720",
                 "name": "LOS ANGELES INT ARPT",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2721",
                 "name": "ONTARIO INTL AIRPORT",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2722",
                 "name": "LAS VEGAS",
-                "shortname": " NV"
+                "shortname": "NV"
             },
             {
                 "code": "2770",
                 "name": "DHL",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2772",
@@ -2096,7 +2036,7 @@ export class MasterData {
             {
                 "code": "2775",
                 "name": "TNT EXPRESS",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2776",
@@ -2106,7 +2046,7 @@ export class MasterData {
             {
                 "code": "2781",
                 "name": "PALM SPRINGS USER FEE",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2782",
@@ -2116,7 +2056,7 @@ export class MasterData {
             {
                 "code": "2786",
                 "name": "MEADOWS FIELD AIRPORT",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2791",
@@ -2131,7 +2071,7 @@ export class MasterData {
             {
                 "code": "2795",
                 "name": "UPS",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2801",
@@ -2141,32 +2081,32 @@ export class MasterData {
             {
                 "code": "2802",
                 "name": "EUREKA",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2803",
                 "name": "FRESNO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2805",
                 "name": "MONTEREY",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2809",
                 "name": "SAN FRANCISCO",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2810",
                 "name": "STOCKTON",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2811",
                 "name": "OAKLAND",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2812",
@@ -2216,7 +2156,7 @@ export class MasterData {
             {
                 "code": "2833",
                 "name": "RENO",
-                "shortname": " NV"
+                "shortname": "NV"
             },
             {
                 "code": "2834",
@@ -2231,7 +2171,7 @@ export class MasterData {
             {
                 "code": "2870",
                 "name": "DHL",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2871",
@@ -2246,167 +2186,167 @@ export class MasterData {
             {
                 "code": "2873",
                 "name": "IBC PACIFIC",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2895",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " CA"
+                "shortname": "CA"
             },
             {
                 "code": "2901",
                 "name": "ASTORIA",
-                "shortname": " OR"
+                "shortname": "OR"
             },
             {
                 "code": "2902",
                 "name": "NEWPORT",
-                "shortname": " OR"
+                "shortname": "OR"
             },
             {
                 "code": "2903",
                 "name": "COOS BAY",
-                "shortname": " OR"
+                "shortname": "OR"
             },
             {
                 "code": "2904",
                 "name": "PORTLAND",
-                "shortname": " OR"
+                "shortname": "OR"
             },
             {
                 "code": "2905",
                 "name": "LONGVIEW",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "2907",
                 "name": "BOISE",
-                "shortname": " IDAHO"
+                "shortname": "IDAHO"
             },
             {
                 "code": "2908",
                 "name": "VANCOUVER",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "2909",
                 "name": "KALAMA",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "2910",
                 "name": "PORTLAND INTL AIRPORT",
-                "shortname": " OR"
+                "shortname": "OR"
             },
             {
                 "code": "3001",
                 "name": "SEATTLE",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3002",
                 "name": "TACOMA",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3003",
                 "name": "ABERDEEN",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3004",
                 "name": "BLAINE",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3005",
                 "name": "BELLINGHAM",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3006",
                 "name": "EVERETT",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3007",
                 "name": "PORT ANGELES",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3008",
                 "name": "PORT TOWNSEND",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3009",
                 "name": "SUMAS",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3010",
                 "name": "ANACORTES",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3011",
                 "name": "NIGHTHAWK",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3012",
                 "name": "DANVILLE",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3013",
                 "name": "FERRY",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3014",
                 "name": "FRIDAY HARBOR",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3015",
                 "name": "BOUNDARY",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3016",
                 "name": "LAURIER",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3017",
                 "name": "POINT ROBERTS",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3018",
                 "name": "KENMORE AIR HARBOR",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3019",
                 "name": "OROVILLE",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3020",
                 "name": "FRONTIER",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3022",
                 "name": "SPOKANE",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3023",
                 "name": "LYNDEN",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3025",
@@ -2416,12 +2356,12 @@ export class MasterData {
             {
                 "code": "3026",
                 "name": "OLYMPIA",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3027",
                 "name": "NEAH BAY",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3029",
@@ -2431,7 +2371,7 @@ export class MasterData {
             {
                 "code": "3071",
                 "name": "UPS",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3072",
@@ -2441,7 +2381,7 @@ export class MasterData {
             {
                 "code": "3073",
                 "name": "DHL",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3074",
@@ -2451,97 +2391,97 @@ export class MasterData {
             {
                 "code": "3081",
                 "name": "YAKIMA AIR TERMINAL",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3082",
                 "name": "GRANT COUNTY AIRPORT",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3095",
                 "name": "UPS",
-                "shortname": " WA"
+                "shortname": "WA"
             },
             {
                 "code": "3101",
                 "name": "JUNEAU",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3102",
                 "name": "KETCHIKAN",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3103",
                 "name": "SKAGWAY",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3104",
                 "name": "ALCAN",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3105",
                 "name": "WRANGELL",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3106",
                 "name": "DALTON CACHE",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3107",
                 "name": "VALDEZ",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3111",
                 "name": "FAIRBANKS",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3112",
                 "name": "PETERSBURG",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3115",
                 "name": "SITKA",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3126",
                 "name": "ANCHORAGE",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3195",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3196",
                 "name": "UPS",
-                "shortname": " AK"
+                "shortname": "AK"
             },
             {
                 "code": "3201",
                 "name": "HONOLULU",
-                "shortname": " HI"
+                "shortname": "HI"
             },
             {
                 "code": "3202",
                 "name": "HIL0",
-                "shortname": " HI"
+                "shortname": "HI"
             },
             {
                 "code": "3203",
                 "name": "KAHULUI",
-                "shortname": " HI"
+                "shortname": "HI"
             },
             {
                 "code": "3204",
@@ -2551,7 +2491,7 @@ export class MasterData {
             {
                 "code": "3205",
                 "name": "HONOLULU INTL AIRPRT",
-                "shortname": " HI"
+                "shortname": "HI"
             },
             {
                 "code": "3206",
@@ -2561,112 +2501,112 @@ export class MasterData {
             {
                 "code": "3295",
                 "name": "UPS",
-                "shortname": " HI"
+                "shortname": "HI"
             },
             {
                 "code": "3301",
                 "name": "RAYMOND",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3302",
                 "name": "EASTPORT",
-                "shortname": " ID"
+                "shortname": "ID"
             },
             {
                 "code": "3303",
                 "name": "SALT LAKE CITY",
-                "shortname": " UT"
+                "shortname": "UT"
             },
             {
                 "code": "3304",
                 "name": "GREAT FALLS",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3305",
                 "name": "BUTTE",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3306",
                 "name": "TURNER",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3307",
                 "name": "DENVER",
-                "shortname": " CO"
+                "shortname": "CO"
             },
             {
                 "code": "3308",
                 "name": "PORTHILL",
-                "shortname": " ID"
+                "shortname": "ID"
             },
             {
                 "code": "3309",
                 "name": "SCOBY",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3310",
                 "name": "SWEETGRASS",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3316",
                 "name": "PIEGAN",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3317",
                 "name": "OPHEIM",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3318",
                 "name": "ROOSVILLE",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3319",
                 "name": "MORGAN",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3321",
                 "name": "WHITLASH",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3322",
                 "name": "DEL BONITA",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3323",
                 "name": "WILDHORSE",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3324",
                 "name": "KALISPELL AIRPORT",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3325",
                 "name": "WILLOW CREEK",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3332",
                 "name": "CASPER",
-                "shortname": " WY"
+                "shortname": "WY"
             },
             {
                 "code": "3384",
                 "name": "ARAPAHOE COUNTY PUBLIC AIRPORT",
-                "shortname": " CO"
+                "shortname": "CO"
             },
             {
                 "code": "3385",
@@ -2676,142 +2616,142 @@ export class MasterData {
             {
                 "code": "3386",
                 "name": "BOZEMAN YELLOWSTONE USER FEE AIRPORT",
-                "shortname": " MT"
+                "shortname": "MT"
             },
             {
                 "code": "3401",
                 "name": "PEMBINA",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3403",
                 "name": "PORTAL",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3404",
                 "name": "NECHE",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3405",
                 "name": "ST JOHN",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3406",
                 "name": "NORTHGATE",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3407",
                 "name": "WALHALLA",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3408",
                 "name": "HANNAH",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3409",
                 "name": "SARLES",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3410",
                 "name": "AMBROSE",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3411",
                 "name": "FARGO",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3413",
                 "name": "ANTLER",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3414",
                 "name": "SHERWOOD",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3415",
                 "name": "HANSBORO",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3416",
                 "name": "MAIDA",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3417",
                 "name": "FORTUNA",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3419",
                 "name": "WESTHOPE",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3420",
                 "name": "NOONAN",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3421",
                 "name": "CARBURY",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3422",
                 "name": "DUNSEITH",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3423",
                 "name": "WARROAD",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3424",
                 "name": "BAUDETTE",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3425",
                 "name": "PINECREEK",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3426",
                 "name": "ROSEAU",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3427",
                 "name": "GRAND FORKS",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3430",
                 "name": "LANCASTER",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3433",
                 "name": "WILLISTON AIRPORT",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3434",
                 "name": "MINOT AIRPORT",
-                "shortname": " ND"
+                "shortname": "ND"
             },
             {
                 "code": "3501",
@@ -2821,102 +2761,102 @@ export class MasterData {
             {
                 "code": "3502",
                 "name": "SOUIX FALLS",
-                "shortname": " SD"
+                "shortname": "SD"
             },
             {
                 "code": "3510",
                 "name": "DULUTH",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3511",
                 "name": "ASHLAND",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3512",
                 "name": "OMAHA",
-                "shortname": " NE"
+                "shortname": "NE"
             },
             {
                 "code": "3513",
                 "name": "DES MOINES",
-                "shortname": " IA"
+                "shortname": "IA"
             },
             {
                 "code": "3581",
                 "name": "USER FEE AIRPORT",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3604",
                 "name": "INTERNATIONAL FALLS",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3613",
                 "name": "GRAND PORTAGE",
-                "shortname": " MN"
+                "shortname": "MN"
             },
             {
                 "code": "3701",
                 "name": "MILWAUKEE",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3702",
                 "name": "MARINETTE",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3703",
                 "name": "GREEN BAY",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3706",
                 "name": "MANITOWOC",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3707",
                 "name": "SHEBOYGAN",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3708",
                 "name": "RACINE",
-                "shortname": " WI"
+                "shortname": "WI"
             },
             {
                 "code": "3801",
                 "name": "DETROIT",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3802",
                 "name": "PORT HURON",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3803",
                 "name": "SAULT STE. MARIE",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3804",
                 "name": "SAGINAW/BAY CITY",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3805",
                 "name": "BATTLE CREEK",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3806",
                 "name": "GRAND RAPIDS",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3807",
@@ -2926,87 +2866,87 @@ export class MasterData {
             {
                 "code": "3808",
                 "name": "ESCANABA",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3809",
                 "name": "MARQUETTE",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3814",
                 "name": "ALGONAC",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3815",
                 "name": "MUSKEGON",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3816",
                 "name": "GRAND HAVEN",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3818",
                 "name": "ROGERS CITY",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3819",
                 "name": "DETOUR",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3820",
                 "name": "MACKINAC ISLE",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3842",
                 "name": "PRESQUE ISLE",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3843",
                 "name": "ALPENA",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3844",
                 "name": "FERRYSBURG",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3881",
                 "name": "OAKLAND/PONTIAC AIRPORT",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3882",
                 "name": "WILLOW RUN AIRPORT",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3883",
                 "name": "CAPITAL REGION I.A",
-                "shortname": " MI"
+                "shortname": "MI"
             },
             {
                 "code": "3901",
                 "name": "CHICAGO",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "3902",
                 "name": "PEORIA",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "3905",
                 "name": "GARY",
-                "shortname": " IN"
+                "shortname": "IN"
             },
             {
                 "code": "3908",
@@ -3016,17 +2956,17 @@ export class MasterData {
             {
                 "code": "3909",
                 "name": "GREATER ROCKFORD AIRPORT",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "3971",
                 "name": "TNT EXPRESS CONSIGNMENT",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "3981",
                 "name": "WAUKEGAN AIRPORT",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "3983",
@@ -3036,92 +2976,92 @@ export class MasterData {
             {
                 "code": "3985",
                 "name": "DECATUR USER FEE AIRPORT",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "4101",
                 "name": "CLEVELAND",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4102",
                 "name": "CINCINNATI",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4103",
                 "name": "COLUMBUS",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4104",
                 "name": "DAYTON",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4105",
                 "name": "TOLEDO",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4106",
                 "name": "ERIE",
-                "shortname": " PA"
+                "shortname": "PA"
             },
             {
                 "code": "4110",
                 "name": "INDIANAPOLIS",
-                "shortname": " IN"
+                "shortname": "IN"
             },
             {
                 "code": "4112",
                 "name": "AKRON",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4115",
                 "name": "LOUISVILLE",
-                "shortname": " KY"
+                "shortname": "KY"
             },
             {
                 "code": "4116",
                 "name": "OWENSBORO",
-                "shortname": " KY"
+                "shortname": "KY"
             },
             {
                 "code": "4117",
                 "name": "HURON",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4121",
                 "name": "LORAIN",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4122",
                 "name": "ASHTABULA/CONNEAUT",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4183",
                 "name": "FORT WAYNE AIRPORT",
-                "shortname": " IN"
+                "shortname": "IN"
             },
             {
                 "code": "4184",
                 "name": "BLUE GRASS AIRPORT",
-                "shortname": " KY"
+                "shortname": "KY"
             },
             {
                 "code": "4185",
                 "name": "HULMAN REGIONAL AIRPORT",
-                "shortname": " IN"
+                "shortname": "IN"
             },
             {
                 "code": "4192",
                 "name": "BURLINGTON AIR EXPRESS",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4195",
@@ -3131,42 +3071,42 @@ export class MasterData {
             {
                 "code": "4196",
                 "name": "UPS",
-                "shortname": " KY"
+                "shortname": "KY"
             },
             {
                 "code": "4197",
                 "name": "DHL CINCINNATI",
-                "shortname": " OH"
+                "shortname": "OH"
             },
             {
                 "code": "4198",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " IN"
+                "shortname": "IN"
             },
             {
                 "code": "4501",
                 "name": "KANSAS CITY",
-                "shortname": " MO"
+                "shortname": "MO"
             },
             {
                 "code": "4502",
                 "name": "ST JOSEPH",
-                "shortname": " MO"
+                "shortname": "MO"
             },
             {
                 "code": "4503",
                 "name": "ST LOUIS",
-                "shortname": " MO"
+                "shortname": "MO"
             },
             {
                 "code": "4504",
                 "name": "WICHITA",
-                "shortname": " KS"
+                "shortname": "KS"
             },
             {
                 "code": "4505",
                 "name": "SPRINGFIELD",
-                "shortname": " MO"
+                "shortname": "MO"
             },
             {
                 "code": "4506",
@@ -3176,37 +3116,37 @@ export class MasterData {
             {
                 "code": "4581",
                 "name": "MIDAMERICAN AIRPORT",
-                "shortname": " IL"
+                "shortname": "IL"
             },
             {
                 "code": "4601",
                 "name": "NEWARK",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "4602",
                 "name": "PERTH AMBOY",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "4670",
                 "name": "UPS",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "4671",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "4681",
                 "name": "MORRISTOWN AIRPORT",
-                "shortname": " NJ"
+                "shortname": "NJ"
             },
             {
                 "code": "4701",
                 "name": "JOHN F KENNEDY AIRPORT",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "4771",
@@ -3216,122 +3156,122 @@ export class MasterData {
             {
                 "code": "4772",
                 "name": "DHL",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "4773",
                 "name": "MICOM",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "4774",
                 "name": "AIR FRANCE (MACH PLUS)",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "4778",
                 "name": "TNT SKYPAK",
-                "shortname": " NY"
+                "shortname": "NY"
             },
             {
                 "code": "4901",
                 "name": "AGUADILLA",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4904",
                 "name": "FAJARDO",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4906",
                 "name": "HUMACAO",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4907",
                 "name": "MAYAGUEZ",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4908",
                 "name": "PONCE",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4909",
                 "name": "SAN JUAN",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4911",
                 "name": "JOBOS",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4912",
                 "name": "GUAYANILLA",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "4913",
                 "name": "INTL AIRPORT",
-                "shortname": " PR"
+                "shortname": "PR"
             },
             {
                 "code": "5101",
                 "name": "CHARLOTTE AMALIE",
-                "shortname": " VI"
+                "shortname": "VI"
             },
             {
                 "code": "5102",
                 "name": "CRUZ BAY",
-                "shortname": " VI"
+                "shortname": "VI"
             },
             {
                 "code": "5103",
                 "name": "CORAL BAY",
-                "shortname": " VI"
+                "shortname": "VI"
             },
             {
                 "code": "5104",
                 "name": "CHRISTIANSTED",
-                "shortname": " VI"
+                "shortname": "VI"
             },
             {
                 "code": "5105",
                 "name": "FREDERIKSTED",
-                "shortname": " VI"
+                "shortname": "VI"
             },
             {
                 "code": "5201",
                 "name": "MIAMI",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5202",
                 "name": "KEY WEST",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5203",
                 "name": "PORT EVERGLADES",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5204",
                 "name": "WEST PALM BEACH",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5205",
                 "name": "FORT PIERCE",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5206",
                 "name": "MIAMI INTL AIRPORT",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5210",
@@ -3341,82 +3281,82 @@ export class MasterData {
             {
                 "code": "5270",
                 "name": "INT. COURIER ASS.",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5272",
                 "name": "MIA/CFS EXP CONSIG FACIL",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5273",
                 "name": "UPS",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5295",
                 "name": "UPS",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5296",
                 "name": "DHL WORLDWIDE EXPRESS",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5297",
                 "name": "FEDERAL EXPRESS",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5298",
                 "name": "IBC COURIER HUB",
-                "shortname": " FL"
+                "shortname": "FL"
             },
             {
                 "code": "5301",
                 "name": "HOUSTON",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5306",
                 "name": "TEXAS CITY",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5309",
                 "name": "HOUSTON INTERCONTL",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5310",
                 "name": "GALVESTON",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5311",
                 "name": "FREEPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5312",
                 "name": "CORPUS CHRISTI",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5313",
                 "name": "PORT LAVACA",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5381",
                 "name": "SUGAR LAND REGIONAL AIRPORT",
-                "shortname": " TX"
+                "shortname": "TX"
             },
             {
                 "code": "5401",
                 "name": "WASHINGTON",
-                "shortname": " DC"
+                "shortname": "DC"
             },
             {
                 "code": "5402",
@@ -3482,11 +3422,11 @@ export class MasterData {
                 "code": "8000",
                 "name": "U.S. MAIL EXPORTS",
                 "shortname": ""
-            }            
+            }
         ]
     }
 
-    public static get portOfUnlading():any[]{
+    public static get portOfUnlading(): any[] {
         return [
             {
                 "code": "1520",
@@ -3546,7 +3486,7 @@ export class MasterData {
             {
                 "code": "1697",
                 "name": "ROCKY POINT",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "1700",
@@ -3581,7 +3521,7 @@ export class MasterData {
             {
                 "code": "1832",
                 "name": "LEVIS",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "2566",
@@ -3786,7 +3726,7 @@ export class MasterData {
             {
                 "code": "9671",
                 "name": "WHITBY",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "10100",
@@ -3896,7 +3836,7 @@ export class MasterData {
             {
                 "code": "12219",
                 "name": "SECHELT",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "12229",
@@ -4191,7 +4131,7 @@ export class MasterData {
             {
                 "code": "13475",
                 "name": "DEER ISLAND",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "13476",
@@ -4361,7 +4301,7 @@ export class MasterData {
             {
                 "code": "14090",
                 "name": "ST. ROMAULD",
-                "country": " CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "14092",
@@ -5566,7 +5506,7 @@ export class MasterData {
             {
                 "code": "27210",
                 "name": "OISTINO",
-                "country": " BARBADOS"
+                "country": "BARBADOS"
             },
             {
                 "code": "27213",
@@ -6711,7 +6651,7 @@ export class MasterData {
             {
                 "code": "40150",
                 "name": "LANDSKRONA",
-                "country": " SWEDEN"
+                "country": "SWEDEN"
             },
             {
                 "code": "40153",
@@ -6996,22 +6936,22 @@ export class MasterData {
             {
                 "code": "40500",
                 "name": "ALL OTHER FINLAND PORTS",
-                "country": " FINLAND"
+                "country": "FINLAND"
             },
             {
                 "code": "40504",
                 "name": "LAPPOHJA",
-                "country": " FINLAND"
+                "country": "FINLAND"
             },
             {
                 "code": "40520",
                 "name": "HAMINA",
-                "country": " FINLAND"
+                "country": "FINLAND"
             },
             {
                 "code": "40523",
                 "name": "HANGO",
-                "country": " FINLAND"
+                "country": "FINLAND"
             },
             {
                 "code": "40525",
@@ -12166,17 +12106,17 @@ export class MasterData {
             {
                 "code": "73800",
                 "name": "ALL OTHER EQUATORIAL GUINEA PORTS",
-                "country": " EQUATORIAL GUINEA"
+                "country": "EQUATORIAL GUINEA"
             },
             {
                 "code": "73801",
                 "name": "MALABO",
-                "country": " EQUATORIAL GUINEA"
+                "country": "EQUATORIAL GUINEA"
             },
             {
                 "code": "73802",
                 "name": "ZAFIRA",
-                "country": " EQUATORIAL GUINEA"
+                "country": "EQUATORIAL GUINEA"
             },
             {
                 "code": "74100",
@@ -12836,12 +12776,12 @@ export class MasterData {
             {
                 "code": "92018",
                 "name": "MILITARY MINA QABOOS",
-                "country": " OMAN"
+                "country": "OMAN"
             },
             {
                 "code": "92019",
                 "name": "MILITARY MUSCAT",
-                "country": " OMAN"
+                "country": "OMAN"
             },
             {
                 "code": "93501",
@@ -12866,38 +12806,38 @@ export class MasterData {
             {
                 "code": "98000",
                 "name": "ALL UNITED STATES OUTLYING ISLANDS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99900",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99910",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99920",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99930",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99940",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
+                "country": "UNITED STATES"
             },
             {
                 "code": "99950",
                 "name": "HIGH SEAS",
-                "country": " UNITED STATES"
-            }           
+                "country": "UNITED STATES"
+            }
         ]
     }
 
