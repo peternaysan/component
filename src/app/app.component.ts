@@ -1,3 +1,5 @@
+import { PartiesComponent } from './parties/parties.component';
+import { CommodityComponent } from './commodity/commodity.component';
 import { AesPrintViewComponent } from './print-view/print-view.component';
 import { Component, ViewChild } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -17,7 +19,7 @@ export class AppComponent {
   title = 'aes-component';
   aesId;
   aes;
-  activeMenu = "shipment";
+  activeMenu = "Shipment";
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -26,9 +28,15 @@ export class AppComponent {
   @ViewChild(TransportationComponent) set transportcontent(content: TransportationComponent) {
     this.transportComponent = content;
   }
-
+  private partyComponent: PartiesComponent;
+  @ViewChild(PartiesComponent) set partycontent(content: PartiesComponent) {
+    this.partyComponent = content;
+  }
+  private commodityComponent: CommodityComponent;
+  @ViewChild(CommodityComponent) set commoditycontent(content: CommodityComponent) {
+    this.commodityComponent = content;
+  }
   @ViewChild(AesPrintViewComponent) printview: AesPrintViewComponent;
-
   constructor(
     private modalService: NgbModal,
     private aesService: AesService,
@@ -45,7 +53,7 @@ export class AppComponent {
       });
     }
   }
-  
+
   onactivemenuchange(item) {
     this.activeMenu = item.name;
   }
@@ -74,13 +82,33 @@ export class AppComponent {
   }
 
   onSubmitClick() {
-    console.log(this.shipmentComponent.isValid);
-    if (this.shipmentComponent.isValid)
-      this.aesService.submitAes(this.aes).subscribe(data => {
-        this.toastr.success('AES submitted successfully !', 'AES Submission');
-        console.log("submitted successfully", data);
-      }, err => {
-        this.toastr.success('An error occured while submitting AES !', 'Error');
-      });
+    console.log("aes", this.aes);
+    if (!this.shipmentComponent.isValid) {
+      this.activeMenu = "Shipment";
+      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      return;
+    }
+    if (!this.transportComponent.isValid) {
+      this.activeMenu = "Transportation";
+      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      return;
+    }
+    if (!this.partyComponent.isValid) {
+      this.activeMenu = "Parties";
+      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      return;
+    }
+    if (!this.commodityComponent.isValid) {
+      this.activeMenu = "Commodity";
+      this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
+      return;
+    }
+
+    this.aesService.submitAes(this.aes).subscribe(data => {
+      this.toastr.success('AES submitted successfully !', 'AES Submission');
+      console.log("submitted successfully", data);
+    }, err => {
+      this.toastr.error('An error occured while submitting AES !', 'Error');
+    });
   }
 }

@@ -1,68 +1,128 @@
 <div class="modal-header approved">
-  <h4 class="modal-title" id="modal-basic-title">USHOU8413060299</h4>
+  <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>
   <div class="status">
-    <span><i class="icon-small-calendar"></i> John Wick</span>
-    <span><i class="icon-user"></i> 20 Nov 2016, 12:00PM</span>
+    <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.displayName:aes.pic.displayName}}</span>
+    <span><i class="icon-small-calendar"></i> 20 Nov 2016, 12:00PM</span>
   </div>
   <button type="button" class="close" aria-label="Close" (click)="close()">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <div class="content-box" *ngIf="aes.shipmentParty">
+  <div class="content-box">
     <div class="featured-fields">
-      <ul>
-        <li>Email Response Adresses: <span>xyz@gac.com</span></li>
-        <li>Shipment Reference Number: <span>USG00041</span></li>
-        <li>Filing Option <span>2 - Predeparture</span></li>
-        <li>Mode of Transport <span>USH00001</span></li>
-        <li>Port of Export <span>5301</span></li>
-        <li>Inbond Type: <span>70-Merchandise NOT shipped inbond</span></li>
-      </ul>
-
-    </div>
     <h2>Shipment</h2>
-    <div class="featured-fields">
       <ul>
-        <li>Email Response Adresses: <span>xyz@gac.com</span></li>
-        <li>Shipment Reference Number: <span>USG00041</span></li>
-        <li>Filing Option <span>2 - Predeparture</span></li>
-        <li>Mode of Transport <span>USH00001</span></li>
-        <li>Port of Export <span>5301</span></li>
-        <li>Inbond Type: <span>70-Merchandise NOT shipped inbond</span></li>
+        <li>Email: <span>{{aes.header.senderEmail}}</span></li>
+        <li>Shipment Reference Number: <span>{{aes.shipmentHeader.shipmentReferenceNumber}}</span></li>
+        <li>Filing Option <span>{{aes.shipmentHeader.filingTypeIndicator}}</span></li>
+        <li>Port of Unlading <span>{{aes.shipmentHeader.portofUnlading}}</span></li>
+        <li>Port of Export <span>{{aes.shipmentHeader.portofExportation}}</span></li>
+        <li>Inbond Type: <span>{{aes.shipmentHeader.inbondCode}}</span></li>
+        <li>Origin State: <span>{{aes.shipmentHeader.originState}}</span></li>
+        <li>Foreign Trade Zone: <span>{{aes.shipmentHeader.foreignTradeZone}}</span></li>
+        <li>Import Entity: <span>{{aes.shipmentHeader.importEntity}}</span></li>
+        <li>Original ITN: <span>{{aes.shipmentHeader.originalITN}}</span></li>
+
+        
       </ul>
-
     </div>
-
+    <h2>Parties</h2>
     <table class="table table-striped table-bordered">
       <tr>
-        <th>Port of Unlading</th>
-        <th>Departure Date</th>
-        <th>Origin State</th>
-        <th>Country of Destination</th>
-        <th>Foregin Trade Zone</th>
-        <th>Import Entity</th>
-        <th>Original ITN</th>
+        <th>ID Number Type</th>
+        <th>Consignee Type</th>
+        <th>ID Number</th>
+        <th>Company Name</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Address Line 1</th>
+        <th>Country</th>
+        <th>Postal Code</th>
+        <th>City</th>
+        <th>State</th>
       </tr>
-      <tr>
-        <td> </td>
-        <td>22/10/2018</td>
-        <td> </td>
-        <td>KI</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-      </tr>
-      <tr>
-        <td> </td>
-        <td>22/10/2018</td>
-        <td> </td>
-        <td>KI</td>
-        <td> </td>
-        <td> </td>
-        <td> </td>
-      </tr>
+      <tr *ngFor="let party of aes.shipmentParty">
+        <td>{{party.partyIdType}}</td>
+        <td>{{party.partyType}}</td>
+        <td>{{party.partyId}}</td>
+        <td>{{party.partyName}}</td>
+        <td>{{party.contactFirstName}}</td>
+        <td>{{party.contactLastName}}</td>
+        <td>{{party.contactPhoneNumber}}</td>
+        <td>{{party.addressLine1}}</td>
+        <td>{{party.countryCode}}</td>
+        <td>{{party.postalCode}}</td>
+        <td>{{party.city}}</td>
+        <td>{{party.stateCode}}</td>        
+      </tr>     
     </table>
+
+    <h2>Commodities</h2>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>Description</th>
+        <th>HTS/Schedule B</th>
+        <th>Goods Origin</th>
+        <th>Value of Goods</th>
+        <th>Shipping Weight</th>
+        <th>Quantity 1</th>
+        <th>Quantity 2</th>
+       
+      </tr>
+      <tr *ngFor="let commodity of aes.commodityDetails">
+        <td>{{commodity.commodityLineDetails.commodityDescription}}</td>
+        <td>{{commodity.commodityLineDetails.htsNumber}}</td>
+        <td>{{commodity.commodityLineDetails.originofGoods}}</td>
+        <td>{{commodity.commodityLineDetails.valueofGoods}}</td>
+        <td>{{commodity.commodityLineDetails.shippingWeight}}</td>
+        <td>{{commodity.commodityLineDetails.quantity1}}</td>
+        <td>{{commodity.commodityLineDetails.quantity2}}</td>
+      </tr>     
+    </table>
+    <h2>License Details</h2>
+    <table class="table table-striped table-bordered">
+      <tr>
+        <th>License Exemption Code</th>
+        <th>Export License No.</th>
+        <th>License Value</th>
+        <th>ECCN</th>
+        <th>Export Information Code</th>
+      
+       
+      </tr>
+      <tr *ngFor="let commodity of aes.commodityDetails">
+        <td>{{commodity.licenseDetails.licenseExemptionCode}}</td>
+        <td>{{commodity.licenseDetails.exportLicenseNumber}}</td>
+        <td>{{commodity.licenseDetails.licenseValue}}</td>
+        <td>{{commodity.licenseDetails.eccn}}</td>
+        <td>{{commodity.commodityLineDetails.exportInformationCode}}</td>
+      </tr>     
+    </table>
+    <div class="content-box">
+        <div class="featured-fields">
+    <h2>Transportation Details</h2>
+    <ul>
+        <li>Carrier SCAC/IATA: <span>{{aes.transportation.carrierCode}}</span></li>
+        <li>Mode of Transport (MOT): <span>{{aes.transportation.modeofTransport}}</span></li>
+        <li>Conveyance Name/Carrier Name<span>{{aes.transportation.vesselName}}</span></li></ul>
+    <table class="table table-striped table-bordered">
+      <tr>
+          <th>Line No.</th>
+          <th>Equipment Number</th>
+          <th>Seal Number</th>
+          <th>Transportation Reference Number</th>
+      </tr>
+      <tr *ngFor="let item of aes.transportation.transportationDetails; let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.equipmentNumber ? item.equipmentNumber : '-'}}</td>
+          <td>{{item.sealNumber ? item.sealNumber : '-'}}</td>
+          <td>{{item.transportationReferenceNumber}}</td>
+        </tr>    
+    </table>
+    </div>
+  </div>
   </div>
 </div>
 <div class="modal-footer">

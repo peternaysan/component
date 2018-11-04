@@ -8,7 +8,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class PageHeaderComponent implements OnInit {
-
+    @Input() activeMenu;
     @Input() aes;
     @Output() activemenuchanged = new EventEmitter();
     closeResult: string;
@@ -49,9 +49,9 @@ export class PageHeaderComponent implements OnInit {
     }
     openPrintView(content) {
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-          this.closeResult = `Closed with: ${result}`;
+            this.closeResult = `Closed with: ${result}`;
         }, (reason) => {
-          this.closeResult = `Dismissed`;
+            this.closeResult = `Dismissed`;
         });
-      }
+    }
 }

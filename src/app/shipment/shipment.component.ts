@@ -19,7 +19,7 @@ export class ShipmentComponent implements OnInit {
     public states: any = [];
     public country: any = [];
     @Input() header;
-    @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
+    @ViewChild("shipmentHeaderForm") shipmentHeaderForm;
     constructor(private lookupService: LookupService) {
     }
 
@@ -35,15 +35,15 @@ export class ShipmentComponent implements OnInit {
         this.inboundList = MasterData.InbondCodeList;
         this.filingTypeList = MasterData.filingTypeList;
         this.country = MasterData.countryList;
-        this.portOfExportList=MasterData.portOfExport;
-        this.portOfUnladingList=MasterData.portOfUnlading;
+        this.portOfExportList = MasterData.portOfExport;
+        this.portOfUnladingList = MasterData.portOfUnlading;
     }
 
     ngAfterViewInit() {
 
     }
 
-    get isValid(){
-      return this.shipmentHeaderForm.valid;
+    get isValid() {          
+        return this.shipmentHeaderForm.valid;
     }
 }

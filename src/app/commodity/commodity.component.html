@@ -68,20 +68,20 @@
         <div class="col-md-3">
           <label>Value of Goods (whole US Dollars) 
           </label>
-          <input type="text" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
+          <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>Shipping Weight (whole Kilograms)</label>
-          <input type="text" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight" name="{{index}}-shippingWeight">
+          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight" name="{{index}}-shippingWeight">
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
               <label>1st Quantity
               </label>
-              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1">
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1">
             </div>
             <div class="col-md-6">
               <label>1st UOM
@@ -95,12 +95,12 @@
             <div class="col-md-6">
               <label>2nd Quantity
               </label>
-              <input type="text">
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2" id="{{index}}-quantity2" name="{{index}}-quantity2">
             </div>
             <div class="col-md-6">
               <label>2nd UOM
               </label>
-              <input type="text">
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2Uom" id="{{index}}-quantity2Uom" name="{{index}}-quantity2Uom">
             </div>
           </div>
         </div>
@@ -138,12 +138,12 @@
             <label>Export License No.
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
+        <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber">
             <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>License Value</label>
-            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.commodityLineDetails.licenseValue">
+            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue">
           </div>
           <div class="col-md-2">
             <label>ECCN</label>
@@ -155,8 +155,8 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.commodityLineDetails.exportLicenseNumber">
-            <label class="error-label" *ngIf="commodityForm.controls.exportLicenseNumber?.invalid && commodityForm.controls.exportLicenseNumber?.touched">This field is required!!</label>
+            <input type="text" required id="exportInformationCode" name="{{index}}-exportInformationCode" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode">
+            <label class="error-label" *ngIf="commodityForm.controls.exportInformationCode?.invalid && commodityForm.controls.exportInformationCode?.touched">This field is required!!</label>
           </div>
         </div>
       </div>
