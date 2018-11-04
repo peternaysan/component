@@ -91,7 +91,7 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-          <ng-select [items]="countryList" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="ultimateConsignee.countryCode"
+          <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="ultimateConsignee.countryCode"
           id="uccountryCode" name="uccountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
@@ -126,7 +126,7 @@
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
+        <ng-select [items]="partyIdType"  bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
           id="icpartyIdType" name="icpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -176,7 +176,7 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="countryList" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="intermediateConsignee.countryCode"
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="intermediateConsignee.countryCode"
         id="iccountryCode" name="iccountryCode">
         <ng-template ng-option-tmp ng-label-tmp let-item="item">
           {{item.code}} - {{item.name}}
@@ -307,7 +307,7 @@
       </div>
       <div class="col-md-3">
         <label>IRS Number</label>
-        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.UsppiirsNumber">
+        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.usppiirsNumber">
       </div>
     </div>
     <div class="row mb-4">

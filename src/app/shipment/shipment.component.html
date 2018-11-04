@@ -63,11 +63,8 @@
         <label>Origin State
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="states" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.originState" id="originState"
-          name="originState">
-          <ng-template ng-option-tmp ng-label-tmp let-item="item">
-            {{item.code}} - {{item.name}}
-          </ng-template>
+        <ng-select [items]="states" required bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState"
+          id="originState" name="originState">         
         </ng-select>
         <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && (shipmentHeaderForm.controls.originState?.touched || submitted)">This field is required!!</label>
       </div>
@@ -75,7 +72,7 @@
         <label>Country of Destination
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="country" required bindLabel="name" bindValue="code"  [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
+        <ng-select [items]="country" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
           id="ultimateDestCountry" name="ultimateDestCountry">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
@@ -85,7 +82,6 @@
       </div>
     </div>
     <div class="row mb-4">
-
       <div class="col-md-3">
         <label>Inbond Type
           <i class="mand">*</i>
@@ -112,7 +108,6 @@
       </div>
     </div>
     <div class="row mb-5">
-
     </div>
     <ul class="form-list">
       <li>
@@ -139,9 +134,7 @@
         <label for="haz-yes">Yes</label>
         <input type="radio" id="haz-no" name="haz" value="N" [(ngModel)]="shipmentHeader.hazmatIndicator">
         <label for="haz-no">No</label>
-
       </li>
     </ul>
   </div>
-  <!-- <button type="submit"></button> -->
 </form>
