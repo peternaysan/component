@@ -43,8 +43,9 @@ export class CommodityComponent implements OnInit {
       this.commodityDetails.splice(index, 1);
     }
   }
-
+  submitted = false;
   get isValid() {
+    this.submitted = true;
     return this.commodityForm.valid;
   }
 }

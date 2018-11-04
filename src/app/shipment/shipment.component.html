@@ -18,7 +18,7 @@
               {{item.id}} - {{item.name}}
           </ng-template>
       </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && shipmentHeaderForm.controls.filingTypeIndicator?.touched">This
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && (shipmentHeaderForm.controls.filingTypeIndicator?.touched || submitted)">This
         field is required!!</label>
     </div>
     <div class="col-md-3">
@@ -28,7 +28,7 @@
               {{item.code}} - {{item.name}}
           </ng-template>
       </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && shipmentHeaderForm.controls.portofExportation?.touched">This
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && (shipmentHeaderForm.controls.portofExportation?.touched || submitted)">This
         field is required!!</label>
       </div>
 
@@ -42,12 +42,12 @@
             {{item.code}} - {{item.name}}
         </ng-template>
     </ng-select>
-    <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && shipmentHeaderForm.controls.portofUnlading?.touched">This
+    <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && (shipmentHeaderForm.controls.portofUnlading?.touched || submitted)">This
       field is required!!</label>
     </div>
     <div class="col-md-3">
       <label>Departure Date<i class="mand">*</i></label>
-      <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="true" [ngModel]="shipmentHeader.estimatedExportDate" >
+      <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate" >
       <label class="error-label"*ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
     </div>
     <div class="col-md-3">
@@ -57,7 +57,7 @@
               {{item.code}} - {{item.name}}
           </ng-template>
       </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && shipmentHeaderForm.controls.originState?.touched">This
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && (shipmentHeaderForm.controls.originState?.touched || submitted)">This
         field is required!!</label>
     </div>
     <div class="col-md-3">
@@ -67,7 +67,7 @@
               {{item.code}} - {{item.name}}
           </ng-template>
       </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && shipmentHeaderForm.controls.ultimateDestCountry?.touched">This
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && (shipmentHeaderForm.controls.ultimateDestCountry?.touched || submitted)">This
         field is required!!</label>
       </div>
   </div>
@@ -80,7 +80,7 @@
               {{item.id}} - {{item.name}}
           </ng-template>
       </ng-select>
-      <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && shipmentHeaderForm.controls.inbondCode?.touched">This
+      <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This
         field is required!!</label>
     </div>
     <div class="col-md-3">

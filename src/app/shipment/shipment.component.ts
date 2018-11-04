@@ -19,7 +19,7 @@ export class ShipmentComponent implements OnInit {
     public states: any = [];
     public country: any = [];
     @Input() header;
-    @ViewChild("shipmentHeaderForm") shipmentHeaderForm;
+    @ViewChild("shipmentHeaderForm") shipmentHeaderForm : NgForm;
     constructor(private lookupService: LookupService) {
     }
 
@@ -43,7 +43,12 @@ export class ShipmentComponent implements OnInit {
 
     }
 
-    get isValid() {          
+    submitted = false;
+
+    get isValid() {         
+        console.log(this.shipmentHeaderForm);
+            
+        this.submitted = true;
         return this.shipmentHeaderForm.valid;
     }
 }
