@@ -45,7 +45,9 @@ export class PartiesComponent implements OnInit {
     this.partyType = MasterData.partyTypeList;
   }
 
-  get isValid(){
+  submitted = false;
+  get isValid() {
+    this.submitted = true;
     return this.partiesForm.valid;
   }
 

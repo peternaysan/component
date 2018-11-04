@@ -8,7 +8,7 @@
       <div class="col-md-3">
         <label>Conveyance Name/Carrier Name<i class="mand">*</i></label>
         <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName">
-        <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && transportForm.controls.vesselName?.touched">This
+        <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && (transportForm.controls.vesselName?.touched || submitted)">This
           field is required!!</label>
       </div>
       <div class="col-md-3">
@@ -19,7 +19,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="transportForm.controls.modeofTransport?.invalid && transportForm.controls.modeofTransport?.touched">This
+        <label class="error-label" *ngIf="transportForm.controls.modeofTransport?.invalid && (transportForm.controls.modeofTransport?.touched || submitted)">This
           field is required!!</label>
       </div>
     </div>

@@ -19,27 +19,26 @@
         <label>Filing Option
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="filingTypeList" required bindLabel="name" bindValue="id"  [(ngModel)]="shipmentHeader.filingTypeIndicator"
+        <ng-select [items]="filingTypeList" required bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator"
           id="filingTypeIndicator" name="filingTypeIndicator">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && shipmentHeaderForm.controls.filingTypeIndicator?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && (shipmentHeaderForm.controls.filingTypeIndicator?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Port Of Export
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="portOfExportList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofExportation"
+        <ng-select [items]="portOfExportList" [searchFn]="searchByIdAndName" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofExportation"
           id="portofExportation" name="portofExportation">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && shipmentHeaderForm.controls.portofExportation?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && (shipmentHeaderForm.controls.portofExportation?.touched || submitted)">This field is required!!</label>
       </div>
-
     </div>
     <div class="row mb-4">
 
@@ -51,41 +50,42 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && shipmentHeaderForm.controls.portofUnlading?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && (shipmentHeaderForm.controls.portofUnlading?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Departure Date
           <i class="mand">*</i>
         </label>
-        <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="true" [ngModel]="shipmentHeader.estimatedExportDate">
+        <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Origin State
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="states" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.originState" id="originState"
+        <ng-select [items]="states" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.originState" id="originState"
           name="originState">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && shipmentHeaderForm.controls.originState?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && (shipmentHeaderForm.controls.originState?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Country of Destination
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="country" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
+        <ng-select [items]="country" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.ultimateDestinationCountry"
           id="ultimateDestCountry" name="ultimateDestCountry">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && shipmentHeaderForm.controls.ultimateDestCountry?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && (shipmentHeaderForm.controls.ultimateDestCountry?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4">
+
       <div class="col-md-3">
         <label>Inbond Type
           <i class="mand">*</i>
@@ -96,7 +96,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && shipmentHeaderForm.controls.inbondCode?.touched">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Foreign Trade Zone</label>
@@ -104,7 +104,7 @@
       </div>
       <div class="col-md-3">
         <label>Import Entity</label>
-        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.entryNumber">
+        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity">
       </div>
       <div class="col-md-3">
         <label>Original ITN</label>
@@ -114,7 +114,6 @@
     <div class="row mb-5">
 
     </div>
-
     <ul class="form-list">
       <li>
         <p>Is this a Routed Transaction? </p>

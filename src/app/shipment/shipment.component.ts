@@ -19,7 +19,7 @@ export class ShipmentComponent implements OnInit {
     public states: any = [];
     public country: any = [];
     @Input() header;
-    @ViewChild("shipmentHeaderForm") shipmentHeaderForm;
+    @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
     constructor(private lookupService: LookupService) {
     }
 
@@ -43,12 +43,15 @@ export class ShipmentComponent implements OnInit {
 
     }
 
+    submitted = false;
+
     get isValid() {
+        this.submitted = true;
         return this.shipmentHeaderForm.valid;
     }
     searchByIdAndName(term: string, item: any) {
         var name = item.name.toLowerCase();
-        var term = term.toLowerCase();     
+        var term = term.toLowerCase();
         if (item.id) {
             var id = item.id.toLowerCase();
             return name.indexOf(term) > -1 || id.indexOf(term) > -1;

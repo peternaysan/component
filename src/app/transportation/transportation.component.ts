@@ -30,7 +30,9 @@ export class TransportationComponent implements OnInit {
     }
   }
 
-  get isValid(){
+  submitted = false;
+  get isValid() {
+    this.submitted = true;
     return this.transportForm.valid;
   }
 }
