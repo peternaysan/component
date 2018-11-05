@@ -8,7 +8,10 @@
     <commodity-form [hidden]="activeMenu != 'Commodity'" [commodityDetails]="aes.commodityDetails"></commodity-form>
     <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation"></transportation-form>
   </div>
-  <div class="button-flex">
+  <div class="button-flex d-flex justify-content-between align-center">
+    <div class="aes-message d-flex align-items-center">
+      <p class="success">Some message!</p>
+    </div>
     <div class="buttons-box">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()">Save Draft</button>
