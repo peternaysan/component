@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { PartiesComponent } from './parties/parties.component';
 import { CommodityComponent } from './commodity/commodity.component';
 import { AesPrintViewComponent } from './print-view/print-view.component';
@@ -7,7 +8,7 @@ import { AesService } from '../app/services/aes.service';
 import { ShipmentComponent } from '../app/shipment/shipment.component';
 import { TransportationComponent } from '../app/transportation/transportation.component';
 import { ToastrService } from 'ngx-toastr';
-
+import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
 @Component({
   selector: 'app-root',
@@ -43,6 +44,7 @@ export class AppComponent {
     private toastr: ToastrService) {
   }
 
+  private hubConnection: HubConnection;
   ngOnInit() {
     const urlParams = new URLSearchParams(window.location.search);
     const aesId = urlParams.get('id');
@@ -52,6 +54,23 @@ export class AppComponent {
         this.aes = res;
       });
     }
+
+    let builder = new HubConnectionBuilder();
+    // as per setup in the startup.cs
+    this.hubConnection = builder.withUrl(`${environment.apiBase}aesHub`).build();
+    // message coming from the server
+    this.hubConnection.on("getscallback", (message) => {
+      console.log(message);
+      this.toastr.success(message)
+    });
+
+    this.hubConnection.on("customscallback", (message) => {
+      console.log(message);
+      this.toastr.success(message)
+    });
+
+    // starting the connection
+    this.hubConnection.start();
   }
 
   onactivemenuchange(item) {
@@ -86,7 +105,7 @@ export class AppComponent {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
       return;
-    }  
+    }
     if (!this.partyComponent.isValid) {
       this.activeMenu = "Parties";
       this.toastr.warning('Please fix validation errors in Parties tab !', 'Validation');
