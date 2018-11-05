@@ -3,11 +3,11 @@
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Carrier SCAC/IATA</label>
-        <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode">
+        <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode" maxlength="4">
       </div>
       <div class="col-md-3">
         <label>Conveyance Name/Carrier Name<i class="mand">*</i></label>
-        <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName">
+        <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName" maxlength="23">
         <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && (transportForm.controls.vesselName?.touched || submitted)">This
           field is required!!</label>
       </div>

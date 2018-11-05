@@ -41,14 +41,14 @@
         <label>ID Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId">
+        <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11">
         <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
           <i class="mand">*</i>
         </label>
-        <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName">
+        <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName" maxlength="30">
         <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.invalid && (partiesForm.controls.ucPartyName?.touched || submitted)">This
           field is required!!</label>
       </div>
@@ -58,26 +58,26 @@
         <label>First Name
         </label>
         <input type="text" [(ngModel)]="ultimateConsignee.contactFirstName" name="contactFirstName" id="uccontactFirstName"
-          name="uccontactFirstName">
+          name="uccontactFirstName" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Last Name
         </label>
         <input type="text" [(ngModel)]="ultimateConsignee.contactLastName" name="contactLastName" id="uccontactLastName"
-          name="uccontactLastName">
+          name="uccontactLastName" maxlength="20">
       </div>
       <div class="col-md-3">
         <label>Phone Number
         </label>
         <input type="text" [(ngModel)]="ultimateConsignee.contactPhoneNumber" name="contactPhoneNumber" id="uccontactPhoneNumber"
-          name="uccontactPhoneNumber">
+          name="uccontactPhoneNumber" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
         <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1"
-          name="ucaddressLine1">
+          name="ucaddressLine1" maxlength="32">
         <label class="error-label" *ngIf="!partiesForm.controls.ucaddressLine1">Please fill this in booking screen!!</label>
       </div>
     </div>
@@ -85,7 +85,7 @@
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2">
+        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2" maxlength="32">
       </div>
       <div class="col-md-3">
         <label>Country
@@ -101,13 +101,13 @@
       <div class="col-md-3">
         <label>Postal Code
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode">
+        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode" maxlength="9">
       </div>
       <div class="col-md-3">
         <label>City
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity">
+        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25">
       </div>
     </div>
     <div class="row mb-3">

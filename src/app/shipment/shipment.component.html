@@ -5,14 +5,14 @@
         <label>Email Response Address(es)
           <i class="mand">*</i>
         </label>
-        <input type="text" required id="senderEmail" name="senderEmail" [disabled]="true" [ngModel]="header.senderEmail">
+        <input type="text" required id="senderEmail" name="senderEmail" [disabled]="true" [ngModel]="header.senderEmail" maxlength="100">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.senderEmail">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Shipment Reference Number
           <i class="mand">*</i>
         </label>
-        <input type="text" id="shipmentReferenceNumber" name="shipmentReferenceNumber" [disabled]="true" [ngModel]="shipmentHeader.shipmentReferenceNumber">
+        <input type="text" id="shipmentReferenceNumber" name="shipmentReferenceNumber" [disabled]="true" [ngModel]="shipmentHeader.shipmentReferenceNumber" maxlength="17">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.shipmentReferenceNumber">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
@@ -56,7 +56,7 @@
         <label>Departure Date
           <i class="mand">*</i>
         </label>
-        <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate">
+        <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate" maxlength="8">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
@@ -96,11 +96,11 @@
       </div>
       <div class="col-md-3">
         <label>Foreign Trade Zone</label>
-        <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone">
+        <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone" maxlength="7">
       </div>
       <div class="col-md-3">
         <label>Import Entity</label>
-        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity">
+        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity" maxlength="15">
       </div>
       <div class="col-md-3">
         <label>Original ITN</label>
@@ -112,7 +112,7 @@
     <ul class="form-list">
       <li>
         <p>Is this a Routed Transaction? </p>
-        <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
+        <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
         <label for="tras-yes">Yes</label>
         <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
         <label for="tras-no">No</label>
