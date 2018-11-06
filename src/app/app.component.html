@@ -10,7 +10,8 @@
   </div>
   <div class="button-flex d-flex justify-content-between align-center">
     <div class="aes-message d-flex align-items-center">
-      <p class="success">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+      <p class="success" *ngIf="aes.submissionStatus !='GETS REJECTED' && aes.submissionStatus !='CUSTOMS REJECTED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+      <p class="error" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
     </div>
     <div class="buttons-box">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
