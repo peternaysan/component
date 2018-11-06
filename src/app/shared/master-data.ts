@@ -755,7 +755,7 @@ export class MasterData {
             {
                 "name": "Puerto Rico",
                 "code": "PR"
-            },      
+            },
             {
                 "name": "Portugal",
                 "code": "PT"
@@ -12841,5 +12841,150 @@ export class MasterData {
         ]
     }
 
+    public static get exportInformationCode(): any[] {
+        return [
+            {
+                "code": "CH",
+                "name": "GOODS DONATED FOR RELIEF OR CHARITY--REPORT AS FOL"
+            },
+            {
+                "code": "CI",
+                "name": "GOODS DONATED FOR RELIEF OR CHARITY--IMPELLED"
+            },
+            {
+                "code": "CR",
+                "name": "GOODS MOVING UNDER A CARNET (INTERNATIONAL LICENSE-NOT ENTERED)"
+            },
+            {
+                "code": "DD",
+                "name": "OTHER EXEMPTIONS"
+            },
+            {
+                "code": "FI",
+                "name": "FOREIGN MILITARY SALES PROGRAM-IMPELLED"
+            },
+            {
+                "code": "FS",
+                "name": "FOREIGN MILITARY SALES PROGRAM CONDUCTED ON THE BA"
+            },
+            {
+                "code": "GP",
+                "name": "SHIPMENTS UNDER U.S. GOVERNMENT CONTRACT FOR THE C"
+            },
+            {
+                "code": "GS",
+                "name": "SHIPMENTS TO US GOVERNMENT AGENCIES AND THEIR EMPL"
+            },
+            {
+                "code": "HH",
+                "name": "PERSONAL AND HOUSEHOLD EFFECTS AND TOOLS OF TRADE"
+            },
+            {
+                "code": "HV",
+                "name": "PERSONALLY OWNED VEHICLES BEING EXPORTED AS HOUSEH"
+            },
+            {
+                "code": "IP",
+                "name": "SHIPMENTS OF GOODS ORIGINALLY IMPORTED TEMPORARILY"
+            },
+            {
+                "code": "IR",
+                "name": "SHIPMENTS OF GOODS ORIGINALLY IMPORTED TEMPORARILY"
+            },
+            {
+                "code": "IS",
+                "name": "SHIPMENTS OF GOODS ORIGINALLY IMPORTED TEMPORARILY"
+            },
+            {
+                "code": "IW",
+                "name": "INTERNATIONAL WATERS"
+            },
+            {
+                "code": "MS",
+                "name": "ALL COMMODITIES CONSIGNED TO THE US ARMED FORCES F"
+            },
+            {
+                "code": "OI",
+                "name": "ALL OTHER EXPORTS-IMPELLED"
+            },
+            {
+                "code": "OS",
+                "name": "ALL OTHER EXPORTS"
+            },
+            {
+                "code": "TE",
+                "name": "TEMPORARY EXPORTATIONS WHICH ARE NOT SOLD OR OFFER"
+            },
+            {
+                "code": "TL",
+                "name": "MERCHANDISE EXPORTED UNDER LEASE WHERE THE LEASING"
+            },
+            {
+                "code": "TP",
+                "name": "TEMPORARY EXPORTATIONS OF DOMESTIC MERCHANDISE"
+            },
+            {
+                "code": "UG",
+                "name": "SINGLE GIFT PARCELS COVERED BY BUREAU OF EXPORT AD"
+            },
+            {
+                "code": "ZD",
+                "name": "FTZ EXPORT SHIPMENT TO NAFTA CTRY-DUTY DEFERRED"
+            }
+        ]
+    }
 
+    public static get uomList(): any[] {
+        return [{ "code": "AGG", "name": "Silver Content Grams" },
+        { "code": "AUG", "name": "Gold Content Grams" },
+        { "code": "BBL", "name": "Barrels" },
+        { "code": "CAR", "name": "Carats" },
+        { "code": "CBM", "name": "Cubic Meters" },
+        { "code": "CGM", "name": "Content Gram" },
+        { "code": "CKG", "name": "Content Kilogram" },
+        { "code": "CTN", "name": "Content Tons" },
+        { "code": "CUR", "name": "Curie" },
+        { "code": "CYK", "name": "Clean Yield Kilogram" },
+        { "code": "DOZ", "name": "Dozen" },
+        { "code": "DPC", "name": "Dozen Pieces" },
+        { "code": "DPR", "name": "Dozen Pairs<" },
+        { "code": "FBM", "name": "Fiber Meters" },
+        { "code": "GBQ", "name": "Gigabecquerels" },
+        { "code": "GCN", "name": "Gross Containers" },
+        { "code": "GRL", "name": "Gross Lines" },
+        { "code": "GRS", "name": "Gross" },
+        { "code": "HUN", "name": "Hundred" },
+        { "code": "IRG", "name": "Iridium Content Grams" },
+        { "code": "JWL", "name": "Jewels" },
+        { "code": "KTS", "name": "Kilograms Total Sugar" },
+        { "code": "LTR", "name": "Liters" },
+        { "code": "MBQ", "name": "Megabecquerels" },
+        { "code": "MTR", "name": "Meters" },
+        { "code": "MWH", "name": "Kilowatt Hours" },
+        { "code": "ODE", "name": "Ozone Depletion Equivalent" },
+        { "code": "OSG", "name": "Osmium Content Grams" },
+        { "code": "PCS", "name": "Pieces" },
+        { "code": "PDG", "name": "Palladium Content Gram" },
+        { "code": "PFL", "name": "Proof Liters" },
+        { "code": "PKS", "name": "Packs" },
+        { "code": "PRS", "name": "Pairs" },
+        { "code": "PTG", "name": "Plutonium Content Grams" },
+        { "code": "RBA", "name": "Running Bales" },
+        { "code": "RHG", "name": "Rhodium Content Grams" },
+        { "code": "RUG", "name": "Ruthemium Content Grams" },
+        { "code": "SCM", "name": "Square Centimeters" },
+        { "code": "SQM", "name": "Square Meters" },
+        { "code": "TCM", "name": "Thousand Cubic Meters" },
+        { "code": "THM", "name": "Thousand Meters" },
+        { "code": "THS", "name": "Thousand" },
+        { "code": "TNV", "name": "Ton Raw Value" },
+        { "code": "TON", "name": "Ton" },
+        { "code": "X-X", "name": "No Unit Required" },
+        { "code": "DS", "name": "Dose" },
+        { "code": "SQ", "name": "Square" },
+        { "code": "NO", "name": "Number" },
+        { "code": "KG", "name": "Kilograms" },
+        { "code": "GM", "name": "Grams" },
+        { "code": "MC", "name": "Millicuries" }]
+    }
 }

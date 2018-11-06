@@ -1,6 +1,9 @@
 import { MasterData } from './../shared/master-data';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Subject, Observable, of, concat } from 'rxjs';
+import { debounceTime, distinctUntilChanged, tap, switchMap, catchError } from 'rxjs/operators';
+import { LookupService } from '../services/lookup.service';
 
 
 @Component({
@@ -13,7 +16,12 @@ export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
   @ViewChild("commodityForm") commodityForm: NgForm;
   originGoodsList: any = [];
-  constructor() {
+  exportInformationCode: any = [];
+  uomList: any = [];
+  hts: Observable<any>;
+  htsLoading = false;
+  htsinput = new Subject<string>();
+  constructor(private lookupService: LookupService) {
   }
 
   addnewline() {
@@ -33,6 +41,9 @@ export class CommodityComponent implements OnInit {
     });
 
     this.originGoodsList = MasterData.originGoodsList;
+    this.exportInformationCode = MasterData.exportInformationCode;
+    this.uomList = MasterData.uomList;
+    this.loadHtsCodes();
   }
 
   ondeleteclick($event, item) {
@@ -47,5 +58,36 @@ export class CommodityComponent implements OnInit {
   get isValid() {
     this.submitted = true;
     return this.commodityForm.valid;
+  }
+
+  searchByIdAndName(term: string, item: any) {
+    var name = item.name.toLowerCase();
+    var term = term.toLowerCase();
+    if (item.id) {
+      var id = item.id.toLowerCase();
+      return name.indexOf(term) > -1 || id.indexOf(term) > -1;
+    }
+    else if (item.code) {
+      var code = item.code.toLowerCase();
+      return name.indexOf(term) > -1 || code.indexOf(term) > -1;
+    }
+    else {
+      return name.indexOf(term) > -1;
+    }
+  }
+
+  private loadHtsCodes() {
+    this.hts = concat(
+      of([]),
+      this.htsinput.pipe(
+        debounceTime(200),
+        distinctUntilChanged(),
+        tap(() => this.htsLoading = true),
+        switchMap(term => this.lookupService.htsCodes(term).pipe(
+          catchError(() => of([])),
+          tap(() => this.htsLoading = false)
+        ))
+      )
+    );
   }
 }

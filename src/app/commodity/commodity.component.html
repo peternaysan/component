@@ -46,10 +46,13 @@
             <i class="label-blue">(Schedule B Search Engine)</i>
             <i class="mand">*</i>
           </label>
-          <input type="text" required [(ngModel)]="commodity.commodityLineDetails.htsNumber" id="{{index}}-htsNumber" name="{{index}}-htsNumber" maxlength="10">
-          <label class="error-label"
-          *ngIf="commodityForm.controls[index + '-htsNumber']?.invalid && (commodityForm.controls[index + '-htsNumber']?.touched || submitted)">This
-           field is required!!</label>
+          <ng-select [items]="hts | async" bindLabel="name" bindValue="code" [(ngModel)]="commodity.commodityLineDetails.htsNumber"
+            id="{{index}}-htsNumber" name="{{index}}-htsNumber" [loading]="htsLoading" [typeahead]="htsinput" [(ngModel)]="selectedPersons">   
+            <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                {{item.code}} - {{item.name}}
+              </ng-template>        
+          </ng-select>
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-htsNumber']?.invalid && (commodityForm.controls[index + '-htsNumber']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
           <label>Commodity Description
@@ -57,9 +60,7 @@
           </label>
           <input type="text" required [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="{{index}}-commodityDescription"
             name="{{index}}-commodityDescription" maxlength="45">
-            <label class="error-label"
-            *ngIf="commodityForm.controls[index + '-commodityDescription']?.invalid && (commodityForm.controls[index + '-commodityDescription']?.touched || submitted)">This
-             field is required!!</label>
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-commodityDescription']?.invalid && (commodityForm.controls[index + '-commodityDescription']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
           <label>Origin of Goods
@@ -74,27 +75,33 @@
         <div class="col-md-3">
           <label>Value of Goods (whole US Dollars)
           </label>
-          <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods" maxlength="10">
+          <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
+            maxlength="10">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>Shipping Weight (whole Kilograms)</label>
-          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight"
-            name="{{index}}-shippingWeight" maxlength="10">
+          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight" name="{{index}}-shippingWeight"
+            maxlength="10">
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
               <label>1st Quantity
               </label>
-              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1" maxlength="10">
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1"
+                maxlength="10">
             </div>
             <div class="col-md-6">
               <label>1st UOM
               </label>
-              <input type="text" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom" id="{{index}}-quantity1Uom"
-                name="{{index}}-quantity1Uom" maxlength="3">
+              <ng-select [items]="uomList" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom"
+                id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom">
+                <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                  {{item.code}} - {{item.name}}
+                </ng-template>
+              </ng-select>
             </div>
           </div>
         </div>
@@ -103,13 +110,18 @@
             <div class="col-md-6">
               <label>2nd Quantity
               </label>
-              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2" id="{{index}}-quantity2" name="{{index}}-quantity2" maxlength="13">
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2" id="{{index}}-quantity2" name="{{index}}-quantity2"
+                maxlength="13">
             </div>
             <div class="col-md-6">
               <label>2nd UOM
               </label>
-              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2Uom" id="{{index}}-quantity2Uom"
-                name="{{index}}-quantity2Uom" maxlength="3">
+              <ng-select [items]="uomList" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity2Uom"
+                id="{{index}}-quantity2Uom" name="{{index}}-quantity2Uom">
+                <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                  {{item.code}} - {{item.name}}
+                </ng-template>
+              </ng-select>
             </div>
           </div>
         </div>
@@ -119,9 +131,9 @@
           <p>Does this filling require Participating Government agency data?
             <i class="mand">*</i>
           </p>
-          <input type="radio" id="{{index}}-tras-yes" name="{{index}}-trans">
+          <input type="radio" id="{{index}}-tras-yes" value="Y" name="{{index}}-trans" [(ngModel)]="pgaLicenseRequiredIndicator">
           <label for="tras-yes">Yes</label>
-          <input type="radio" id="{{index}}-tras-no" name="{{index}}-trans">
+          <input type="radio" id="{{index}}-tras-no" value="N" name="{{index}}-trans" [(ngModel)]="pgaLicenseRequiredIndicator">
           <label for="tras-no">No</label>
         </li>
       </ul>
@@ -135,20 +147,17 @@
             <label>Liscense Type Code/License Exemption Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode"
-              [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" maxlength="12">
-              <label class="error-label"
-              *ngIf="commodityForm.controls[index + '-licenseExemptionCode']?.invalid && (commodityForm.controls[index + '-licenseExemptionCode']?.touched || submitted)">This
-               field is required!!</label>
+            <input type="text" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode"
+              maxlength="12">
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-licenseExemptionCode']?.invalid && (commodityForm.controls[index + '-licenseExemptionCode']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-3">
             <label>Export License No.
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber" maxlength="12">
-            <label class="error-label"
-             *ngIf="commodityForm.controls[index + '-exportLicenseNumber']?.invalid && (commodityForm.controls[index + '-exportLicenseNumber']?.touched || submitted)">This
-              field is required!!</label>
+            <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber"
+              maxlength="12">
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportLicenseNumber']?.invalid && (commodityForm.controls[index + '-exportLicenseNumber']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>License Value</label>
@@ -162,10 +171,13 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <input type="text" required id="exportInformationCode" name="{{index}}-exportInformationCode" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode" maxlength="2">
-            <label class="error-label"
-             *ngIf="commodityForm.controls[index + '-exportInformationCode']?.invalid && (commodityForm.controls[index + '-exportInformationCode']?.touched || submitted)">This
-              field is required!!</label>
+            <ng-select [items]="exportInformationCode" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode"
+              id="{{index}}-exportInformationCode" name="{{index}}-exportInformationCode">
+              <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                {{item.code}} - {{item.name}}
+              </ng-template>
+            </ng-select>
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportInformationCode']?.invalid && (commodityForm.controls[index + '-exportInformationCode']?.touched || submitted)">This field is required!!</label>
           </div>
         </div>
       </div>

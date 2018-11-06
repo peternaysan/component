@@ -1,6 +1,5 @@
 import { MasterData } from './../shared/master-data';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { AesService } from '../../app/services/aes.service';
 import { LookupService } from '../services/lookup.service';
 import { NgForm } from '@angular/forms';
 
