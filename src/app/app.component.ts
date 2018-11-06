@@ -59,9 +59,21 @@ export class AppComponent {
     // as per setup in the startup.cs
     this.hubConnection = builder.withUrl(`${environment.apiBase}aesHub`).build();
     // message coming from the server
-    this.hubConnection.on("getscallback", (message) => {
-      console.log(message);
-      this.toastr.success(message)
+    this.hubConnection.on("getscallback", (data) => {
+      if (data.ack.shipmentReferenceNumber == this.aes.shipmentHeader.shipmentReferenceNumber) {
+        if (data.ack.status == "SUCCESS") {
+          this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+          this.aes.submissionStatus = "GETS APPROVED";
+          this.aes.submissionStatusDescription = data.ack.statusDescription;
+        }
+        else if(data.ack.status == "FAIL"){
+          this.aes.submissionStatus = "GETS REJECTED";
+          if (data.error)
+            this.aes.submissionStatusDescription = data.error.errorDescription;
+            
+          this.toastr.error("GETS rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+        }
+      }
     });
 
     this.hubConnection.on("customscallback", (message) => {
@@ -126,7 +138,7 @@ export class AppComponent {
       this.toastr.success('AES submitted successfully !', 'AES Submission');
       console.log("submitted successfully", data);
     }, err => {
-      this.toastr.error('An error occured while submitting AES !', 'Error');
+      this.toastr.error(err.Error, 'Error');
     });
   }
 }
