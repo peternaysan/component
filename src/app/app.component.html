@@ -10,12 +10,12 @@
   </div>
   <div class="button-flex d-flex justify-content-between align-center">
     <div class="aes-message d-flex align-items-center">
-      <p class="success">Some message!</p>
+      <p class="success">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
     </div>
     <div class="buttons-box">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
-      <button class="btn btn-secondary" (click)="onSaveDraft()">Save Draft</button>
-      <button class="btn btn-primary" (click)="onSubmitClick()">Submit</button>
+      <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Save Draft</button>
+      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Submit</button>
     </div>
   </div>
 </div>
