@@ -1,7 +1,7 @@
 <div class="modal-header approved">
   <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>
   <div class="status">
-    <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.displayName:aes.pic.displayName}}</span>
+    <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.firstName:aes.pic.firstName}}</span>
     <span><i class="icon-small-calendar"></i> 20 Nov 2016, 12:00PM</span>
   </div>
   <button type="button" class="close" aria-label="Close" (click)="close()">
