@@ -135,7 +135,7 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyIdType" name="icpartyIdType" maxlength="11">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
@@ -144,7 +144,7 @@
       <div class="col-md-3">
         <label>First Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName" maxlength="13">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName" maxlength="13" pattern="[\sa-zA-Z]+">
       </div>
     </div>
     <div class="row mb-4">
@@ -152,12 +152,12 @@
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName" maxlength="20">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName" maxlength="20" pattern="[\sa-zA-Z]+">
       </div>
       <div class="col-md-3">
         <label>Phone Number
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber" maxlength="13">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber" maxlength="13" pattern="[a-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Address Line 1

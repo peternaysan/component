@@ -21,6 +21,9 @@ export class CommodityComponent implements OnInit {
   hts: Observable<any>;
   htsLoading = false;
   htsinput = new Subject<string>();
+  licExemptionCode: Observable<any>;
+  licExemptionCodeLoading = false;
+  licExemptionCodeinput = new Subject<string>();
   constructor(private lookupService: LookupService) {
   }
 
@@ -44,6 +47,7 @@ export class CommodityComponent implements OnInit {
     this.exportInformationCode = MasterData.exportInformationCode;
     this.uomList = MasterData.uomList;
     this.loadHtsCodes();
+    this.loadLicExemptionCode();
   }
 
   ondeleteclick($event, item) {
@@ -86,6 +90,22 @@ export class CommodityComponent implements OnInit {
         switchMap(term => this.lookupService.htsCodes(term).pipe(
           catchError(() => of([])),
           tap(() => this.htsLoading = false)
+        ))
+      )
+    );
+  }
+
+  private loadLicExemptionCode() {
+    this.licExemptionCode = concat(
+      of([]),
+      this.licExemptionCodeinput.pipe(
+        debounceTime(200),
+        distinctUntilChanged(),
+        tap(() => this.licExemptionCodeLoading = true),
+        switchMap(term => this.lookupService.licExemptionCodes(term).pipe(
+          catchError(() => of([])),
+          tap(() => this.licExemptionCodeLoading =
+           false)
         ))
       )
     );

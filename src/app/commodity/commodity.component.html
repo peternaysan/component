@@ -47,10 +47,10 @@
             <i class="mand">*</i>
           </label>
           <ng-select [items]="hts | async" bindLabel="name" bindValue="code" required [(ngModel)]="commodity.commodityLineDetails.htsNumber"
-            id="{{index}}-htsNumber" name="{{index}}-htsNumber" [loading]="htsLoading" [typeahead]="htsinput" [(ngModel)]="selectedPersons">   
+            id="{{index}}-htsNumber" name="{{index}}-htsNumber" [loading]="htsLoading" [typeahead]="htsinput" [(ngModel)]="selectedPersons">
             <ng-template ng-option-tmp ng-label-tmp let-item="item">
-                {{item.code}} - {{item.name}}
-              </ng-template>        
+              {{item.code}} - {{item.name}}
+            </ng-template>
           </ng-select>
           <label class="error-label" *ngIf="commodityForm.controls[index + '-htsNumber']?.invalid && (commodityForm.controls[index + '-htsNumber']?.touched || submitted)">This field is required!!</label>
         </div>
@@ -146,9 +146,13 @@
           <div class="col-md-3">
             <label>Liscense Type Code/License Exemption Code
               <i class="mand">*</i>
-            </label>
-            <input type="text" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode"
-              maxlength="12">
+            </label>           
+            <ng-select [items]="licExemptionCode | async" bindLabel="name" bindValue="code" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode"
+              [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [loading]="licExemptionCodeLoading" [typeahead]="licExemptionCodeinput" [(ngModel)]="selectedPersons">
+              <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                {{item.code}} - {{item.name}}
+              </ng-template>
+            </ng-select>
             <label class="error-label" *ngIf="commodityForm.controls[index + '-licenseExemptionCode']?.invalid && (commodityForm.controls[index + '-licenseExemptionCode']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-3">
