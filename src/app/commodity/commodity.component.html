@@ -46,7 +46,7 @@
             <i class="label-blue">(Schedule B Search Engine)</i>
             <i class="mand">*</i>
           </label>
-          <ng-select [items]="hts | async" bindLabel="name" bindValue="code" [(ngModel)]="commodity.commodityLineDetails.htsNumber"
+          <ng-select [items]="hts | async" bindLabel="name" bindValue="code" required [(ngModel)]="commodity.commodityLineDetails.htsNumber"
             id="{{index}}-htsNumber" name="{{index}}-htsNumber" [loading]="htsLoading" [typeahead]="htsinput" [(ngModel)]="selectedPersons">   
             <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
@@ -171,7 +171,7 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <ng-select [items]="exportInformationCode" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode"
+            <ng-select [items]="exportInformationCode" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode"
               id="{{index}}-exportInformationCode" name="{{index}}-exportInformationCode">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
