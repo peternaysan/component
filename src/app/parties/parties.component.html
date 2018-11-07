@@ -135,16 +135,16 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyIdType" name="icpartyIdType">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyIdType" name="icpartyIdType" maxlength="11">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
-        <input type="text" [(ngModel)]="intermediateConsignee.partyName" id="icpartyName" name="icpartyName">
+        <input type="text" [(ngModel)]="intermediateConsignee.partyName" id="icpartyName" name="icpartyName" maxlength="30">
       </div>
       <div class="col-md-3">
         <label>First Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName" maxlength="13">
       </div>
     </div>
     <div class="row mb-4">
@@ -152,23 +152,23 @@
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName" maxlength="20">
       </div>
       <div class="col-md-3">
         <label>Phone Number
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1" maxlength="32">
       </div>
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.addressLine2" id="icaddressLine2" name="icaddressLine2">
+        <input type="text" [(ngModel)]="intermediateConsignee.addressLine2" id="icaddressLine2" name="icaddressLine2" maxlength="32">
       </div>
     </div>
     <div class="row mb-4">
@@ -189,11 +189,11 @@
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode" maxlength="9">
       </div>
       <div class="col-md-3">
         <label>City</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25">
       </div>
     </div>
     <div class="row mb-3">
@@ -222,17 +222,17 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [(ngModel)]="freightForwarder.partyId" id="ffpartyId" name="ffpartyId">
+        <input type="text" [(ngModel)]="freightForwarder.partyId" id="ffpartyId" name="ffpartyId" maxlength="11">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
-        <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName">
+        <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30">
       </div>
       <div class="col-md-3">
         <label>First Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName">
+        <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName" maxlength="13">
       </div>
     </div>
     <div class="row mb-4">
@@ -240,33 +240,33 @@
         <label>Last Name
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactLastName" id="ffcontactLastName" name="ffcontactLastName">
+        <input type="text" [(ngModel)]="freightForwarder.contactLastName" id="ffcontactLastName" name="ffcontactLastName" maxlength="20">
       </div>
       <div class="col-md-3">
         <label>Phone Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber">
+        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Address Line 1</label>
-        <input type="text" [(ngModel)]="freightForwarder.addressLine1" id="ffaddressLine1" name="ffaddressLine1">
+        <input type="text" [(ngModel)]="freightForwarder.addressLine1" id="ffaddressLine1" name="ffaddressLine1" maxlength="32">
       </div>
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.addressLine2" id="ffaddressLine2" name="ffaddressLine2">
+        <input type="text" [(ngModel)]="freightForwarder.addressLine2" id="ffaddressLine2" name="ffaddressLine2" maxlength="32">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" [(ngModel)]="freightForwarder.postalCode" id="ffpostalCode" name="ffpostalCode">
+        <input type="text" [(ngModel)]="freightForwarder.postalCode" id="ffpostalCode" name="ffpostalCode" maxlength="9">
       </div>
 
       <div class="col-md-3">
         <label>City</label>
-        <input type="text" [(ngModel)]="freightForwarder.city" id="ffcity" name="ffcity">
+        <input type="text" [(ngModel)]="freightForwarder.city" id="ffcity" name="ffcity" maxlength="25">
       </div>
       <div class="col-md-3">
         <label>State</label>
