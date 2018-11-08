@@ -16,7 +16,7 @@
     <div class="buttons-box">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Save Draft</button>
-      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Submit</button>
+      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'"><span>Submit</span></button>
     </div>
   </div>
 </div>

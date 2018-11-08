@@ -33,7 +33,7 @@ export class CommodityComponent implements OnInit {
   }
 
   ngOnInit() {
-    if (this.commodityDetails.length == 0) {
+    if (this.commodityDetails && this.commodityDetails.length == 0) {
       this.addnewline()
     }
     this.commodityDetails.forEach(c => {

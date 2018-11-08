@@ -60,13 +60,13 @@ export class AppComponent {
     this.hubConnection = builder.withUrl(`${environment.apiBase}aesHub`).build();
     // message coming from the server
     this.hubConnection.on("getscallback", (data) => {
-      if (data.ack.shipmentReferenceNumber == this.aes.shipmentHeader.shipmentReferenceNumber) {
-        if (data.ack.status == "SUCCESS") {
+      if (data.ack.aes.shipmentReferenceNumber == this.aes.shipmentHeader.shipmentReferenceNumber) {
+        if (data.ack.aes.status == "SUCCESS") {
           this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
           this.aes.submissionStatus = "GETS APPROVED";
-          this.aes.submissionStatusDescription = data.ack.statusDescription;
+          this.aes.submissionStatusDescription = data.ack.aes.statusDescription;
         }
-        else if(data.ack.status == "FAIL"){
+        else if(data.ack.aes.status == "FAIL"){
           this.aes.submissionStatus = "GETS REJECTED";
           if (data.error)
             this.aes.submissionStatusDescription = data.error.errorDescription;
