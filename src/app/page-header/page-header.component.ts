@@ -1,4 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AesPrintViewComponent } from './../print-view/print-view.component';
+import { AesService } from './../services/aes.service';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -12,6 +14,9 @@ export class PageHeaderComponent implements OnInit {
     @Input() aes;
     @Output() activemenuchanged = new EventEmitter();
     closeResult: string;
+    transactions;
+
+    @ViewChild(AesPrintViewComponent) aepv: AesPrintViewComponent;
 
     menulist = [
         {
@@ -32,7 +37,7 @@ export class PageHeaderComponent implements OnInit {
         },
     ]
 
-    constructor(private modalService: NgbModal) { }
+    constructor(private modalService: NgbModal, private aesService: AesService) { }
 
     changeActive(item) {
         this.menulist.forEach(menu => {
@@ -46,8 +51,15 @@ export class PageHeaderComponent implements OnInit {
     ngOnInit() {
         var item = this.menulist.find(x => x.active == true);
         this.activemenuchanged.emit(item);
+
+        if (this.aes) {
+            this.aesService.getalltransactions(this.aes.id).subscribe(items => {
+                this.transactions = items;
+            });
+        }
     }
-    openPrintView(content) {
+    openPrintView(content, aes) {
+        this.aepv.aes = aes;
         this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
             this.closeResult = `Closed with: ${result}`;
         }, (reason) => {

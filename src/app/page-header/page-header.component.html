@@ -1,14 +1,14 @@
 <div class="page-header">
-  <div class="history">
+  <div class="history" *ngIf="transactions && transactions.length > 0">
     <h3>History</h3>
     <ul>
-      <li>
-        <a class="approved" (click)="openPrintView(modelcontent)">
+      <li *ngFor="let item of transactions">
+        <a [class.approved]="item.status == 'SUCCESS'" [class.canceled]="item.status == 'FAIL'" (click)="openPrintView(modelcontent, item)">
           <span><i class="icon-user"></i> {{aes.submittedUser?aes.submittedUser.displayName:aes.pic.displayName}}</span>
           <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a  class="canceled" (click)="openPrintView(modelcontent)">
           <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.displayName:aes.pic.displayName}}</span>
           <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
@@ -25,8 +25,7 @@
           <span><i class="icon-user"></i> {{aes.submittedUser?aes.submittedUser.displayName:aes.pic.displayName}} </span>
           <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
         </a>
-      </li>
-
+      </li> -->
     </ul>
   </div>
   <h2>AES - {{aes.shipmentHeader.shipmentReferenceNumber}}</h2>
@@ -44,6 +43,5 @@
 </div>
 
 <ng-template #modelcontent let-modal>
-  <aes-print-view [aes]="aes"  (closeClick)="modal.close()"></aes-print-view>
-
+  <aes-print-view (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
