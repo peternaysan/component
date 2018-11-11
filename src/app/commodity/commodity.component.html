@@ -46,9 +46,9 @@
             <i class="label-blue">(Schedule B Search Engine)</i>
             <i class="mand">*</i>
           </label>
-          <ng-select [items]="hts | async" bindLabel="name" bindValue="code" required [(ngModel)]="commodity.commodityLineDetails.htsNumber"
-            id="{{index}}-htsNumber" name="{{index}}-htsNumber" [loading]="htsLoading" [typeahead]="htsinput" [(ngModel)]="selectedPersons">
-            <ng-template ng-option-tmp ng-label-tmp let-item="item">
+          <ng-select [items]="hts | async" bindLabel="code" bindValue="code" required [(ngModel)]="commodity.commodityLineDetails.htsNumber"
+            id="{{index}}-htsNumber" name="{{index}}-htsNumber"  [typeahead]="htsinput">
+            <ng-template ng-option-tmp let-item="item">
               {{item.code}} - {{item.name}}
             </ng-template>
           </ng-select>
@@ -76,7 +76,7 @@
           <label>Value of Goods (whole US Dollars)
           </label>
           <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
-            maxlength="10">
+            maxlength="10" pattern="^[-+]?\d*$">
         </div>
       </div>
       <div class="row mb-4">
@@ -147,9 +147,9 @@
             <label>Liscense Type Code/License Exemption Code
               <i class="mand">*</i>
             </label>           
-            <ng-select [items]="licExemptionCode | async" bindLabel="name" bindValue="code" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode"
-              [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [loading]="licExemptionCodeLoading" [typeahead]="licExemptionCodeinput" [(ngModel)]="selectedPersons">
-              <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            <ng-select [items]="licExemptionCode | async" bindLabel="code" bindValue="code" required id="{{index}}-licenseExemptionCode" name="{{index}}-licenseExemptionCode"
+              [(ngModel)]="commodity.licenseDetails.licenseExemptionCode"  [typeahead]="licExemptionCodeinput" [(ngModel)]="selectedPersons">
+              <ng-template ng-option-tmp  let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
             </ng-select>

@@ -1,4 +1,4 @@
-<div class="modal-header approved">
+<div class="modal-header" *ngIf="aes" [class.approved]="aes.submissionStatus?.status == 'SUCCESS'" [class.canceled]="aes.submissionStatus?.status == 'FAIL'">
   <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>
   <div class="status">
     <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.firstName:aes.pic.firstName}}</span>

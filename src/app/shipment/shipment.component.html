@@ -100,7 +100,7 @@
       </div>
       <div class="col-md-3">
         <label>Import Entity</label>
-        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.importEntity" maxlength="15" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.entryNumber" maxlength="15" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Original ITN</label>
@@ -111,7 +111,7 @@
     </div>
     <ul class="form-list">
       <li>
-        <p>Is this a Routed Transaction? </p>
+        <p>Is this a Routed Transaction?   <i class="mand">*</i></p>
         <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
         <label for="tras-yes">Yes</label>
         <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">

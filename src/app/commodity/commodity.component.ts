@@ -81,6 +81,7 @@ export class CommodityComponent implements OnInit {
   }
 
   private loadHtsCodes() {
+    var self=this;
     this.hts = concat(
       of([]),
       this.htsinput.pipe(
@@ -93,6 +94,16 @@ export class CommodityComponent implements OnInit {
         ))
       )
     );
+    // setTimeout(() => {
+    
+    //   if (self.commodityDetails[0].commodityLineDetails.htsNumber) {
+    //     self.htsinput.next(self.commodityDetails[0].commodityLineDetails.htsNumber);
+    //   }
+    //   if (self.commodityDetails[1].commodityLineDetails.htsNumber) {
+    //     self.htsinput.next(self.commodityDetails[1].commodityLineDetails.htsNumber);
+    //   }
+    // }, 2000);
+
   }
 
   private loadLicExemptionCode() {
@@ -105,7 +116,7 @@ export class CommodityComponent implements OnInit {
         switchMap(term => this.lookupService.licExemptionCodes(term).pipe(
           catchError(() => of([])),
           tap(() => this.licExemptionCodeLoading =
-           false)
+            false)
         ))
       )
     );

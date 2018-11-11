@@ -30,6 +30,11 @@ export class AesService {
         });
     }
 
+    
+    public getalltransactions(id) {
+        return this.http.get(`${environment.apiUrl}aestransactions?id=${id}`);
+    }
+
     public savedraft(aesObject) {
         return this.http.post(`${environment.apiUrl}aes/savedraft`, aesObject);
     }
