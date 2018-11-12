@@ -22,8 +22,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="partiesForm.controls.partyIdType==null && partiesForm.controls.partyIdType==''">Please
-          fill this in GF booking screen!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.partyIdType==null && partiesForm.controls.partyIdType==''">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Consignee Type
@@ -49,22 +48,21 @@
           <i class="mand">*</i>
         </label>
         <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName" maxlength="30">
-        <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.invalid && (partiesForm.controls.ucPartyName?.touched || submitted)">This
-          field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.invalid && (partiesForm.controls.ucPartyName?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
         <label>First Name
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.contactFirstName" name="contactFirstName" id="uccontactFirstName"
-          name="uccontactFirstName" maxlength="13">
+        <input type="text" [(ngModel)]="ultimateConsignee.contactFirstName" name="contactFirstName" id="uccontactFirstName" name="uccontactFirstName"
+          maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.contactLastName" name="contactLastName" id="uccontactLastName"
-          name="uccontactLastName" maxlength="20">
+        <input type="text" [(ngModel)]="ultimateConsignee.contactLastName" name="contactLastName" id="uccontactLastName" name="uccontactLastName"
+          maxlength="20">
       </div>
       <div class="col-md-3">
         <label>Phone Number
@@ -76,8 +74,8 @@
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1"
-          name="ucaddressLine1" maxlength="32">
+        <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1"
+          maxlength="32">
         <label class="error-label" *ngIf="!partiesForm.controls.ucaddressLine1">Please fill this in booking screen!!</label>
       </div>
     </div>
@@ -91,8 +89,8 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-          <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="ultimateConsignee.countryCode"
-          id="uccountryCode" name="uccountryCode">
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code"
+          [(ngModel)]="ultimateConsignee.countryCode" id="uccountryCode" name="uccountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
@@ -113,8 +111,8 @@
     <div class="row mb-3">
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="ultimateConsignee.stateCode"
-          id="ucstateCode" name="ucstateCode">
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="ultimateConsignee.stateCode" id="ucstateCode"
+          name="ucstateCode">
         </ng-select>
       </div>
     </div>
@@ -126,7 +124,7 @@
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType"  bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
           id="icpartyIdType" name="icpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -135,7 +133,8 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11"
+          pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
@@ -144,7 +143,8 @@
       <div class="col-md-3">
         <label>First Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName" maxlength="13" pattern="[\sa-zA-Z]+">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactFirstName" id="iccontactFirstName" name="iccontactFirstName"
+          maxlength="13" pattern="[\sa-zA-Z]+">
       </div>
     </div>
     <div class="row mb-4">
@@ -152,18 +152,21 @@
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName" maxlength="20" pattern="[\sa-zA-Z]+">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactLastName" id="iccontactLastName" name="iccontactLastName" maxlength="20"
+          pattern="[\sa-zA-Z]+">
       </div>
       <div class="col-md-3">
         <label>Phone Number
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber" maxlength="13" pattern="[a-zA-Z0-9]+">
+        <input type="text" [(ngModel)]="intermediateConsignee.contactPhoneNumber" id="iccontactPhoneNumber" name="iccontactPhoneNumber"
+          maxlength="13" pattern="[a-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1" maxlength="32">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1"
+          maxlength="32">
       </div>
       <div class="col-md-3">
         <label>Address Line 2
@@ -176,31 +179,27 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code" [(ngModel)]="intermediateConsignee.countryCode"
-        id="iccountryCode" name="iccountryCode">
-        <ng-template ng-option-tmp ng-label-tmp let-item="item">
-          {{item.code}} - {{item.name}}
-        </ng-template>
-      </ng-select>
-      </div>
-      <div class="col-md-3">
-        <label>Import Entry</label>
-        <input type="text">
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" required bindLabel="name" bindValue="code"
+          [(ngModel)]="intermediateConsignee.countryCode" id="iccountryCode" name="iccountryCode">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+          </ng-template>
+        </ng-select>
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode" maxlength="9">
+        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode"
+          maxlength="9">
       </div>
       <div class="col-md-3">
         <label>City</label>
         <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25">
       </div>
-    </div>
-    <div class="row mb-3">
+
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="intermediateConsignee.stateCode"
-          id="icstateCode" name="icstateCode">
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="intermediateConsignee.stateCode" id="icstateCode"
+          name="icstateCode">
         </ng-select>
       </div>
     </div>
@@ -245,7 +244,8 @@
         <label>Phone Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber" maxlength="13">
+        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber"
+          maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Address Line 1</label>
@@ -259,6 +259,17 @@
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
+        <label>Country
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" required bindLabel="name" bindValue="code" [(ngModel)]="freightForwarder.countryCode"
+          id="ffcountryCode" name="ffcountryCode">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+          </ng-template>
+        </ng-select>
+      </div>
+      <div class="col-md-3">
         <label>Postal Code</label>
         <input type="text" [(ngModel)]="freightForwarder.postalCode" id="ffpostalCode" name="ffpostalCode" maxlength="9">
       </div>
@@ -269,8 +280,8 @@
       </div>
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode"
-          id="ffstateCode" name="ffstateCode">
+        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode" id="ffstateCode"
+          name="ffstateCode">
         </ng-select>
       </div>
     </div>
@@ -278,7 +289,6 @@
   <div class="content-box">
     <h2>USPPI</h2>
     <div class="row mb-4">
-
       <div class="col-md-3">
         <label>ID Number Type
           <i class="mand">*</i>
@@ -289,19 +299,17 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNoType?.invalid && (partiesForm.controls.usppiIdNoType?.touched || submitted)">This
-          field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNoType?.invalid && (partiesForm.controls.usppiIdNoType?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
-            <i class="mand">*</i>
-          </label>
-        <input type="text" id="usppiIdNo" required name="usppiIdNo" [(ngModel)]="usppi.partyId">
-        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.invalid && (partiesForm.controls.usppiIdNo?.touched || submitted)">This
-          field is required!!</label>
+          <i class="mand">*</i>
+        </label>
+        <input type="text" id="usppiIdNo" required name="usppiIdNo" [(ngModel)]="usppi.partyId"  maxlength="11">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.invalid && (partiesForm.controls.usppiIdNo?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Company Name</label>
+        <label>Company Name <i class="mand">*</i></label>
         <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.partyName">
       </div>
       <div class="col-md-3">
@@ -315,15 +323,15 @@
         <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName">
       </div>
       <div class="col-md-3">
-        <label>Last Name</label>
+        <label>Last Name<i class="mand">*</i></label>
         <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName">
       </div>
       <div class="col-md-3">
-        <label>Phone Number</label>
+        <label>Phone Number<i class="mand">*</i></label>
         <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber">
       </div>
       <div class="col-md-3">
-        <label>Address Line 1</label>
+        <label>Address Line 1 <i class="mand">*</i></label>
         <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1">
       </div>
     </div>
@@ -333,13 +341,26 @@
         <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2">
       </div>
       <div class="col-md-3">
-        <label>Postal Code</label>
+        <label>Country
+          <i class="mand">*</i>
+        </label>
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName"  bindLabel="name" bindValue="code" [(ngModel)]="freightForwarder.countryCode"
+          id="ffcountryCode" name="ffcountryCode">
+          <ng-template ng-option-tmp ng-label-tmp let-item="item">
+            {{item.code}} - {{item.name}}
+          </ng-template>
+        </ng-select>
+      </div>
+      <div class="col-md-3">
+        <label>Postal Code <i class="mand">*</i></label>
         <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode">
       </div>
       <div class="col-md-3">
-        <label>City</label>
+        <label>City<i class="mand">*</i></label>
         <input type="text" id="usppicity" name="usppicity" [(ngModel)]="usppi.city">
       </div>
+    </div>
+    <div class="row mb-3">
       <div class="col-md-3">
         <label>State</label>
         <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.stateCode">

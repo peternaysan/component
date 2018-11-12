@@ -509,12 +509,12 @@ export class MasterData {
                 "code": "KN"
             },
             {
-                "name": "Korea",
+                "name": "North Korea",
                 "code": " North"
             },
             {
-                "name": "Korea",
-                "code": " South"
+                "name": "South Korea",
+                "code": "KR"
             },
             {
                 "name": "Kosovo",
