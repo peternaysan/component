@@ -28,7 +28,7 @@ export class CommodityComponent implements OnInit {
   }
 
   addnewline() {
-    var commodity = { commodityLineDetails: {}, licenseDetails: {}, showDelete: true }
+    var commodity = { commodityLineDetails: {commodityAction:'A'}, licenseDetails: {}, showDelete: true }
     this.commodityDetails.push(commodity);
   }
 
@@ -41,6 +41,8 @@ export class CommodityComponent implements OnInit {
         c.commodityLineDetails = {};
         c.licenseDetails = {};
       }
+
+      c.commodityLineDetails.commodityAction="A";
     });
 
     this.originGoodsList = MasterData.originGoodsList;
