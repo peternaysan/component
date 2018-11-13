@@ -1,4 +1,5 @@
-<div class="page"  *ngIf="aes">
+<dashboard></dashboard>
+<!-- <div class="page"  *ngIf="aes">
   <div class="header-flex">
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" [activeMenu]="activeMenu"></page-header>
   </div>
@@ -19,6 +20,7 @@
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'"><span>Submit</span></button>
     </div>
   </div>
+  
 </div>
 
 <aes-loader *ngIf="!aes"></aes-loader>
@@ -26,3 +28,4 @@
 <ng-template #modelcontent let-modal>
     <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
+ -->
