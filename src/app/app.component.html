@@ -8,12 +8,12 @@
     <commodity-form [hidden]="activeMenu != 'Commodity'" [commodityDetails]="aes.commodityDetails"></commodity-form>
     <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation"></transportation-form>
   </div>
-  <div class="button-flex d-flex justify-content-between align-center">
-    <div class="aes-message d-flex align-items-center">
-      <p class="success" *ngIf="aes.submissionStatus !='GETS REJECTED' && aes.submissionStatus !='CUSTOMS REJECTED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
-      <p class="error" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+  <div class="button-flex">
+    <div class="aes-message float-left">
+      <p class="success ribbon" *ngIf="aes.submissionStatus !='GETS REJECTED' && aes.submissionStatus !='CUSTOMS REJECTED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+      <p class="error ribbon" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
     </div>
-    <div class="buttons-box">
+    <div class="buttons-box float-right">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Save Draft</button>
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'"><span>Submit</span></button>

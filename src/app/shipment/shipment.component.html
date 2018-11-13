@@ -111,7 +111,10 @@
     </div>
     <ul class="form-list">
       <li>
-        <p>Is this a Routed Transaction?   <i class="mand">*</i></p>
+        <p [class.invalidradio]="shipmentHeaderForm.controls.trans?.invalid && submitted">
+          Is this a Routed Transaction?   
+          <i class="mand">*</i>
+        </p>
         <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
         <label for="tras-yes">Yes</label>
         <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
