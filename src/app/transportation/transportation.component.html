@@ -3,14 +3,14 @@
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Carrier SCAC/IATA</label>
-        <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode" maxlength="4">
+        <input type="text" name="carrierCode" [(ngModel)]="transportation.carrierCode" maxlength="4" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
         <label>Conveyance Name/Carrier Name<i class="mand">*</i></label>
-        <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName" maxlength="23">
-        <label class="error-label" *ngIf="transportForm.controls.vesselName?.invalid && (transportForm.controls.vesselName?.touched || submitted)">This
+        <input type="text" name="vesselName" required [(ngModel)]="transportation.vesselName" maxlength="23" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="transportForm.controls.vesselName?.errors?.required && (transportForm.controls.vesselName?.touched || submitted)">This
           field is required!!</label>
-      </div>
+      </div>  
       <div class="col-md-3">
         <label>Mode of Transport (MOT)<i class="mand">*</i></label>
         <ng-select [items]="modeOfTransport" required bindLabel="name" bindValue="id" [(ngModel)]="transportation.modeofTransport"
@@ -19,7 +19,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="transportForm.controls.modeofTransport?.invalid && (transportForm.controls.modeofTransport?.touched || submitted)">This
+        <label class="error-label" *ngIf="transportForm.controls.modeofTransport?.errors?.required && (transportForm.controls.modeofTransport?.touched || submitted)">This
           field is required!!</label>
       </div>
     </div>

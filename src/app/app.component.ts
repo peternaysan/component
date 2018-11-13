@@ -113,6 +113,7 @@ export class AppComponent {
   }
 
   onSubmitClick() {
+    
     if (!this.shipmentComponent.isValid) {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
@@ -133,11 +134,17 @@ export class AppComponent {
       this.toastr.warning('Please fix validation errors in Transportation tab !', 'Validation');
       return;
     }
+    if(!(this.aes.commodityDetails && this.aes.commodityDetails.length>0)){
+      this.activeMenu = "Commodity";
+      this.toastr.warning('Please add atleast one commodity line!', 'Validation');
+      return;
+    }
 
     this.aesService.submitAes(this.aes).subscribe(data => {
       this.toastr.success('AES submitted successfully !', 'AES Submission');
       console.log("submitted successfully", data);
     }, err => {
+      console.log("submitted successfully", err);
       this.toastr.error(err.Error, 'Error');
     });
   }
