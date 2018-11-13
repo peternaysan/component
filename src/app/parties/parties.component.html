@@ -22,7 +22,6 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="partiesForm.controls.partyIdType==null && partiesForm.controls.partyIdType==''">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Consignee Type
@@ -34,21 +33,19 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyType">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
           <i class="mand">*</i>
         </label>
         <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
-        <label class="error-label" *ngIf="!partiesForm.controls.ucPartyId">Please fill this in GF booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
           <i class="mand">*</i>
         </label>
         <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
-        <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.invalid && (partiesForm.controls.ucPartyName?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.errors?.required && (partiesForm.controls.ucPartyName?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
@@ -76,7 +73,6 @@
         </label>
         <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1"
           maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
-        <label class="error-label" *ngIf="!partiesForm.controls.ucaddressLine1">Please fill this in booking screen!!</label>
       </div>
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
@@ -268,7 +264,7 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="partiesForm.controls.ffcountryCode?.invalid && (partiesForm.controls.ffcountryCode?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.ffcountryCode?.errors?.required && (partiesForm.controls.ffcountryCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
@@ -300,14 +296,14 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNoType?.invalid && (partiesForm.controls.usppiIdNoType?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNoType?.errors?.required && (partiesForm.controls.usppiIdNoType?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
           <i class="mand">*</i>
         </label>
         <input type="text" id="usppiIdNo" required name="usppiIdNo" [(ngModel)]="usppi.partyId" maxlength="11">
-        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.invalid && (partiesForm.controls.usppiIdNo?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.errors?.required && (partiesForm.controls.usppiIdNo?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name </label>

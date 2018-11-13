@@ -25,7 +25,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.invalid && (shipmentHeaderForm.controls.filingTypeIndicator?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.errors?.required && (shipmentHeaderForm.controls.filingTypeIndicator?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Port Of Export
@@ -37,7 +37,7 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.invalid && (shipmentHeaderForm.controls.portofExportation?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofExportation?.errors?.required && (shipmentHeaderForm.controls.portofExportation?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4">
@@ -50,7 +50,7 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.invalid && (shipmentHeaderForm.controls.portofUnlading?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.portofUnlading?.errors?.required && (shipmentHeaderForm.controls.portofUnlading?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Departure Date
@@ -66,7 +66,7 @@
         <ng-select [items]="states" required bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState"
           id="originState" name="originState">         
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.invalid && (shipmentHeaderForm.controls.originState?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.errors?.required && (shipmentHeaderForm.controls.originState?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Country of Destination
@@ -78,7 +78,7 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.invalid && (shipmentHeaderForm.controls.ultimateDestCountry?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.ultimateDestCountry?.errors?.required && (shipmentHeaderForm.controls.ultimateDestCountry?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4">
@@ -92,7 +92,7 @@
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
-        <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.invalid && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This field is required!!</label>
+        <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.errors?.required && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Foreign Trade Zone</label>
@@ -111,7 +111,7 @@
     </div>
     <ul class="form-list">
       <li>
-        <p [class.invalidradio]="shipmentHeaderForm.controls.trans?.invalid && submitted">
+        <p [class.invalidradio]="shipmentHeaderForm.controls.trans?.errors?.required && submitted">
           Is this a Routed Transaction?   
           <i class="mand">*</i>
         </p>
@@ -121,9 +121,9 @@
         <label for="tras-no">No</label>
       </li>
       <li>
-        <p>Are USPPI and Ultimate Consignee companies related?
+        <p [class.invalidradio]="shipmentHeaderForm.controls.consi?.errors?.required && submitted">Are USPPI and Ultimate Consignee companies related?
           <i class="mand">*</i>
-        </p>
+        </p >
         <input type="radio" required id="consi-yes" name="consi" value="Y" [(ngModel)]="shipmentHeader.relatedParties">
         <label for="consi-yes">Yes</label>
         <input type="radio" required id="consi-no" name="consi" value="N" [(ngModel)]="shipmentHeader.relatedParties">
