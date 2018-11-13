@@ -21,6 +21,7 @@ export class AppComponent {
   aesId;
   aes;
   activeMenu = "Shipment";
+  submitBtnText="Submit";
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -68,17 +69,23 @@ export class AppComponent {
         }
         else if(data.ack.aes.status == "FAIL"){
           this.aes.submissionStatus = "GETS REJECTED";
-          if (data.error)
-            this.aes.submissionStatusDescription = data.error.errorDescription;
-            
+          if (data.ack.aes.error && data.ack.aes.error.length > 0){
+            this.aes.submissionStatusDescription = data.ack.aes.error[0].errorDescription;
+          }
           this.toastr.error("GETS rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
         }
       }
     });
 
-    this.hubConnection.on("customscallback", (message) => {
-      console.log(message);
-      this.toastr.success(message)
+    this.hubConnection.on("customscallback", (data) => {
+      if(data.submissionStatus == 'CUSTOMS APPROVED'){
+        this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+      }
+      else if (data.submissionStatus == 'CUSTOMS REJECTED'){
+        this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+      }
+      
+      this.aes.submissionStatusDescription = data.SubmissionStatusDescription;
     });
 
     // starting the connection
@@ -112,8 +119,7 @@ export class AppComponent {
 
   }
 
-  onSubmitClick() {
-    
+  onSubmitClick() {  
     if (!this.shipmentComponent.isValid) {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
@@ -139,13 +145,16 @@ export class AppComponent {
       this.toastr.warning('Please add atleast one commodity line!', 'Validation');
       return;
     }
-
+    this.submitBtnText="Submitting";
     this.aesService.submitAes(this.aes).subscribe(data => {
+      var currentAes :any =data;
       this.toastr.success('AES submitted successfully !', 'AES Submission');
-      console.log("submitted successfully", data);
-    }, err => {
-      console.log("submitted successfully", err);
-      this.toastr.error(err.Error, 'Error');
+      this.aes.submissionStatus=currentAes.submissionStatus;
+      this.aes.submissionStatusDescription=currentAes.submissionStatusDescription;
+      this.submitBtnText="Submit";
+    }, err => {    
+      this.toastr.error(err.error, 'Error');
+      this.submitBtnText="Submit";
     });
   }
 }

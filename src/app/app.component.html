@@ -1,4 +1,4 @@
-<div class="page"  *ngIf="aes">
+<div class="page" *ngIf="aes">
   <div class="header-flex">
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" [activeMenu]="activeMenu"></page-header>
   </div>
@@ -16,7 +16,9 @@
     <div class="buttons-box float-right">
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Save Draft</button>
-      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED'"><span>Submit</span></button>
+      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'">
+        <span>{{submitBtnText}}</span>
+      </button>
     </div>
   </div>
 </div>
@@ -24,5 +26,5 @@
 <aes-loader *ngIf="!aes"></aes-loader>
 
 <ng-template #modelcontent let-modal>
-    <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
+  <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
