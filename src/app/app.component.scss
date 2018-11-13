@@ -11,12 +11,14 @@
 .button-flex {
     box-shadow: 0 -5px 6px rgba(0, 0, 0, 0.04);
     background: var(--white);
+    overflow: hidden;
+    padding: 15px 0;
     position: relative;
 }
+
 .buttons-box {
     margin: 0 15px;
     text-align: right;
-    padding-top: 15px;
     padding-bottom: 20px;
     button {
         margin-left: 10px;
@@ -61,11 +63,70 @@
     padding: 0 15px;
     p {
         margin: 0;
+        padding: 5px 15px;
+        color: var(--white);
         &.success {
-            color: var(--success);
+            background: var(--success);
         }
         &.error {
-            color: var(--warning);
+            background: var(--warning);
         }
     }
 }
+.ribbon {
+    font-weight: 100;
+    color: #666;
+    background: var(--success);
+    padding: 0 20px;
+    font-size: 20px;
+    line-height: 32px;
+    max-width: 90vw;
+    width: max-content;
+    position: relative;
+    text-align: center;
+    height: 40px;
+    margin: 3em auto 0 auto;
+    filter: drop-shadow(0 6px 3px rgba(0, 0, 0, 0.1));
+    
+  }
+  .success {
+      &.ribbon {
+        border-right: 2px solid var(--success);
+        border-left: 2px solid var(--success);
+      }
+  }
+  .error {
+      &.ribbon {
+        border-right: 2px solid var(--warning);
+        border-left: 2px solid var(--warning);
+      }
+  }
+  
+  .success.ribbon:after{
+        border: 20px solid var(--success);
+  }
+  .error.ribbon:after{
+        border: 20px solid var(--warning);
+    }
+  .ribbon:after{
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: 0;
+    border: 20px solid;
+  }
+  
+  .success.ribbon:after {
+    right: -32px;
+    border-left-width: 10px;
+    border-right-color: transparent;
+    filter: drop-shadow(6px 6px 3px rgba(0, 0, 0, 0.04));
+  }
+  .error.ribbon:after {
+    right: -32px;
+    border-left-width: 10px;
+    border-right-color: transparent;
+    filter: drop-shadow(6px 6px 3px rgba(0, 0, 0, 0.04));
+  }
+  
+  
