@@ -59,7 +59,7 @@
             <i class="mand">*</i>
           </label>
           <input type="text" required [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="{{index}}-commodityDescription"
-            name="{{index}}-commodityDescription" maxlength="45">
+            name="{{index}}-commodityDescription" maxlength="45" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
           <label class="error-label" *ngIf="commodityForm.controls[index + '-commodityDescription']?.errors?.required && (commodityForm.controls[index + '-commodityDescription']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
@@ -76,14 +76,14 @@
           <label>Value of Goods (whole US Dollars)
           </label>
           <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
-            maxlength="10" pattern="^[-+]?\d*$">
+            maxlength="10" pattern="^\d+$">
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
           <label>Shipping Weight (whole Kilograms)</label>
           <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight" name="{{index}}-shippingWeight"
-            maxlength="10">
+            maxlength="10" pattern="^\d+$">
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
@@ -91,7 +91,7 @@
               <label>1st Quantity
               </label>
               <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1"
-                maxlength="10">
+                maxlength="10" pattern="^\d+$">
             </div>
             <div class="col-md-6">
               <label>1st UOM
@@ -111,7 +111,7 @@
               <label>2nd Quantity
               </label>
               <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2" id="{{index}}-quantity2" name="{{index}}-quantity2"
-                maxlength="13">
+                maxlength="13" pattern="^\d+$">
             </div>
             <div class="col-md-6">
               <label>2nd UOM
@@ -160,16 +160,16 @@
               <i class="mand">*</i>
             </label>
             <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber"
-              maxlength="12">
+              maxlength="12" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
             <label class="error-label" *ngIf="commodityForm.controls[index + '-exportLicenseNumber']?.errors?.required && (commodityForm.controls[index + '-exportLicenseNumber']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>License Value</label>
-            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue" maxlength="10">
+            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue" maxlength="10" pattern="^\d+$">
           </div>
           <div class="col-md-2">
             <label>ECCN</label>
-            <input type="text" id="eccn" name="{{index}}-eccn" [(ngModel)]="commodity.licenseDetails.eccn" maxlength="5">
+            <input type="text" id="eccn" name="{{index}}-eccn" [(ngModel)]="commodity.licenseDetails.eccn" maxlength="5" pattern="[\sa-zA-Z0-9]+">
           </div>
           <div class="col-md-2">
             <label>Export Information Code
