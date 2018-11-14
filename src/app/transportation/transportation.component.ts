@@ -32,7 +32,6 @@ export class TransportationComponent implements OnInit {
 
   submitted = false;
   get isValid() {
-    console.log(this.transportForm);    
     this.submitted = true;
     return this.transportForm.valid;
   }
