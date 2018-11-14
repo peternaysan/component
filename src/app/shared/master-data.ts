@@ -1029,322 +1029,322 @@ export class MasterData {
     public static get portOfExport(): any[] {
         return [
             {
-                "code": "101",
+                "code": "0101",
                 "name": "PORTLAND",
                 "shortname": "ME"
             },
             {
-                "code": "102",
+                "code": "0102",
                 "name": "BANGOR",
                 "shortname": "ME"
             },
             {
-                "code": "103",
+                "code": "0103",
                 "name": "EASTPORT",
                 "shortname": "ME"
             },
             {
-                "code": "104",
+                "code": "0104",
                 "name": "JACKMAN",
                 "shortname": "ME"
             },
             {
-                "code": "105",
+                "code": "0105",
                 "name": "VANCEBORO",
                 "shortname": "ME"
             },
             {
-                "code": "106",
+                "code": "0106",
                 "name": "HOULTON",
                 "shortname": "ME"
             },
             {
-                "code": "107",
+                "code": "0107",
                 "name": "FORT FAIRFIELD",
                 "shortname": "ME"
             },
             {
-                "code": "108",
+                "code": "0108",
                 "name": "VAN BUREN",
                 "shortname": "ME"
             },
             {
-                "code": "109",
+                "code": "0109",
                 "name": "MADAWASKA",
                 "shortname": "ME"
             },
             {
-                "code": "110",
+                "code": "0110",
                 "name": "FORT KENT",
                 "shortname": "ME"
             },
             {
-                "code": "111",
+                "code": "0111",
                 "name": "BATH",
                 "shortname": "ME"
             },
             {
-                "code": "112",
+                "code": "0112",
                 "name": "BAR HARBOR",
                 "shortname": "ME"
             },
             {
-                "code": "115",
+                "code": "0115",
                 "name": "CALAIS",
                 "shortname": "ME"
             },
             {
-                "code": "118",
+                "code": "0118",
                 "name": "LIMESTONE",
                 "shortname": "ME"
             },
             {
-                "code": "121",
+                "code": "0121",
                 "name": "ROCKLAND",
                 "shortname": "ME"
             },
             {
-                "code": "122",
+                "code": "0122",
                 "name": "JONESPORT",
                 "shortname": "ME"
             },
             {
-                "code": "127",
+                "code": "0127",
                 "name": "BRIDGEWATER",
                 "shortname": "ME"
             },
             {
-                "code": "131",
+                "code": "0131",
                 "name": "PORTSMOUTH",
                 "shortname": "NH"
             },
             {
-                "code": "132",
+                "code": "0132",
                 "name": "BELFAST",
                 "shortname": "ME"
             },
             {
-                "code": "152",
+                "code": "0152",
                 "name": "SEARSPORT",
                 "shortname": "ME"
             },
             {
-                "code": "181",
+                "code": "0181",
                 "name": "LEBANON AIRPORT",
                 "shortname": ""
             },
             {
-                "code": "182",
+                "code": "0182",
                 "name": "MANCHESTER USER FEE AIRPORT",
                 "shortname": "NH"
             },
             {
-                "code": "201",
+                "code": "0201",
                 "name": "ST. ALBANS",
                 "shortname": "VT"
             },
             {
-                "code": "203",
+                "code": "0203",
                 "name": "RICHFORD",
                 "shortname": "VT"
             },
             {
-                "code": "206",
+                "code": "0206",
                 "name": "BEECHER FALLS",
                 "shortname": "VT"
             },
             {
-                "code": "207",
+                "code": "0207",
                 "name": "BURLINGTON",
                 "shortname": "VT"
             },
             {
-                "code": "209",
+                "code": "0209",
                 "name": "DERBY LINE",
                 "shortname": "VT"
             },
             {
-                "code": "211",
+                "code": "0211",
                 "name": "NORTON",
                 "shortname": "VT"
             },
             {
-                "code": "212",
+                "code": "0212",
                 "name": "HIGHGATE SPRINGS/ALBURG",
                 "shortname": ""
             },
             {
-                "code": "401",
+                "code": "0401",
                 "name": "BOSTON",
                 "shortname": "MA"
             },
             {
-                "code": "402",
+                "code": "0402",
                 "name": "SPRINGFIELD",
                 "shortname": "MA"
             },
             {
-                "code": "403",
+                "code": "0403",
                 "name": "WORCESTER",
                 "shortname": "MA"
             },
             {
-                "code": "404",
+                "code": "0404",
                 "name": "GLOUCESTER",
                 "shortname": "MA"
             },
             {
-                "code": "405",
+                "code": "0405",
                 "name": "NEW BEDFORD",
                 "shortname": "MA"
             },
             {
-                "code": "406",
+                "code": "0406",
                 "name": "PLYMOUTH",
                 "shortname": "MA"
             },
             {
-                "code": "407",
+                "code": "0407",
                 "name": "FALL RIVER",
                 "shortname": "MA"
             },
             {
-                "code": "408",
+                "code": "0408",
                 "name": "SALEM",
                 "shortname": "MA"
             },
             {
-                "code": "409",
+                "code": "0409",
                 "name": "PROVINCETOWN",
                 "shortname": "MA"
             },
             {
-                "code": "410",
+                "code": "0410",
                 "name": "BRIDGEPORT",
                 "shortname": "CT"
             },
             {
-                "code": "411",
+                "code": "0411",
                 "name": "HARTFORD",
                 "shortname": "CT"
             },
             {
-                "code": "412",
+                "code": "0412",
                 "name": "NEW HAVEN",
                 "shortname": "CT"
             },
             {
-                "code": "413",
+                "code": "0413",
                 "name": "NEW LONDON",
                 "shortname": "CT"
             },
             {
-                "code": "416",
+                "code": "0416",
                 "name": "LAWRENCE",
                 "shortname": "MA"
             },
             {
-                "code": "417",
+                "code": "0417",
                 "name": "LOGAN AIRPORT",
                 "shortname": "MA"
             },
             {
-                "code": "481",
+                "code": "0481",
                 "name": "L.G. HANSCOM FIELD",
                 "shortname": "MA"
             },
             {
-                "code": "501",
+                "code": "0501",
                 "name": "NEWPORT",
                 "shortname": "RI"
             },
             {
-                "code": "502",
+                "code": "0502",
                 "name": "PROVIDENCE",
                 "shortname": "RI"
             },
             {
-                "code": "503",
+                "code": "0503",
                 "name": "MELLVILLE",
                 "shortname": "RI"
             },
             {
-                "code": "701",
+                "code": "0701",
                 "name": "OGDENSBURG",
                 "shortname": "NY"
             },
             {
-                "code": "704",
+                "code": "0704",
                 "name": "MASSENA",
                 "shortname": "NY"
             },
             {
-                "code": "706",
+                "code": "0706",
                 "name": "CAPE VINCENT",
                 "shortname": "NY"
             },
             {
-                "code": "708",
+                "code": "0708",
                 "name": "ALEXANDRIA BAY",
                 "shortname": "NY"
             },
             {
-                "code": "712",
+                "code": "0712",
                 "name": "CHAMPLAIN",
                 "shortname": ""
             },
             {
-                "code": "714",
+                "code": "0714",
                 "name": "CLAYTON",
                 "shortname": "NY"
             },
             {
-                "code": "715",
+                "code": "0715",
                 "name": "TROUT RIVER",
                 "shortname": "NY"
             },
             {
-                "code": "901",
+                "code": "0901",
                 "name": "BUFFALO",
                 "shortname": ""
             },
             {
-                "code": "903",
+                "code": "0903",
                 "name": "ROCHESTER",
                 "shortname": "NY"
             },
             {
-                "code": "904",
+                "code": "0904",
                 "name": "OSWEGO",
                 "shortname": "NY"
             },
             {
-                "code": "905",
+                "code": "0905",
                 "name": "SODUS POINT",
                 "shortname": "NY"
             },
             {
-                "code": "906",
+                "code": "0906",
                 "name": "SYRACUSE",
                 "shortname": "NY"
             },
             {
-                "code": "907",
+                "code": "0907",
                 "name": "UTICA",
                 "shortname": "NY"
             },
             {
-                "code": "971",
+                "code": "0971",
                 "name": "TNT SKYPAK",
                 "shortname": "NY"
             },
             {
-                "code": "972",
+                "code": "0972",
                 "name": "SWIFT SURE COURIER SERVICE",
                 "shortname": "NY"
             },
             {
-                "code": "981",
+                "code": "0981",
                 "name": "BINGHAMTON REGIONAL AIRPORT",
                 "shortname": "NY"
             },
@@ -3429,304 +3429,304 @@ export class MasterData {
     public static get portOfUnlading(): any[] {
         return [
             {
-                "code": "1520",
+                "code": "01520",
                 "name": "HAMILTON",
                 "country": "CANADA"
             },
             {
-                "code": "1527",
+                "code": "01527",
                 "name": "CLARKSON",
                 "country": "CANADA"
             },
             {
-                "code": "1528",
+                "code": "01528",
                 "name": "BRITT",
                 "country": "CANADA"
             },
             {
-                "code": "1530",
+                "code": "01530",
                 "name": "PORT CREDIT",
                 "country": "CANADA"
             },
             {
-                "code": "1535",
+                "code": "01535",
                 "name": "TORONTO",
                 "country": "CANADA"
             },
             {
-                "code": "1652",
+                "code": "01652",
                 "name": "PICTON",
                 "country": "CANADA"
             },
             {
-                "code": "1653",
+                "code": "01653",
                 "name": "BATH",
                 "country": "CANADA"
             },
             {
-                "code": "1670",
+                "code": "01670",
                 "name": "KINGSTON",
                 "country": "CANADA"
             },
             {
-                "code": "1690",
+                "code": "01690",
                 "name": "ST. CATHARINES",
                 "country": "CANADA"
             },
             {
-                "code": "1694",
+                "code": "01694",
                 "name": "BROCKVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "1696",
+                "code": "01696",
                 "name": "MORRISBURG",
                 "country": "CANADA"
             },
             {
-                "code": "1697",
+                "code": "01697",
                 "name": "ROCKY POINT",
                 "country": "CANADA"
             },
             {
-                "code": "1700",
+                "code": "01700",
                 "name": "PRESCOTT",
                 "country": "CANADA"
             },
             {
-                "code": "1705",
+                "code": "01705",
                 "name": "CARDINAL",
                 "country": "CANADA"
             },
             {
-                "code": "1784",
+                "code": "01784",
                 "name": "CORNWALL",
                 "country": "CANADA"
             },
             {
-                "code": "1806",
+                "code": "01806",
                 "name": "BEAUHARNOI",
                 "country": "CANADA"
             },
             {
-                "code": "1807",
+                "code": "01807",
                 "name": "TRACY",
                 "country": "CANADA"
             },
             {
-                "code": "1822",
+                "code": "01822",
                 "name": "MONTREAL",
                 "country": "CANADA"
             },
             {
-                "code": "1832",
+                "code": "01832",
                 "name": "LEVIS",
                 "country": "CANADA"
             },
             {
-                "code": "2566",
+                "code": "02566",
                 "name": "PORT STANLEY",
                 "country": "CANADA"
             },
             {
-                "code": "2641",
+                "code": "02641",
                 "name": "PORT COLBORNE",
                 "country": "CANADA"
             },
             {
-                "code": "2643",
+                "code": "02643",
                 "name": "ROCKPORT",
                 "country": "CANADA"
             },
             {
-                "code": "2645",
+                "code": "02645",
                 "name": "DUNNVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "2649",
+                "code": "02649",
                 "name": "THOROLD",
                 "country": "CANADA"
             },
             {
-                "code": "3504",
+                "code": "03504",
                 "name": "AMHERSTBURG",
                 "country": "CANADA"
             },
             {
-                "code": "3506",
+                "code": "03506",
                 "name": "KINGSVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "3507",
+                "code": "03507",
                 "name": "SCUDDER",
                 "country": "CANADA"
             },
             {
-                "code": "3508",
+                "code": "03508",
                 "name": "LEAMINGTON",
                 "country": "CANADA"
             },
             {
-                "code": "3510",
+                "code": "03510",
                 "name": "OJIBWAY",
                 "country": "CANADA"
             },
             {
-                "code": "3512",
+                "code": "03512",
                 "name": "WINDSOR",
                 "country": "CANADA"
             },
             {
-                "code": "5512",
+                "code": "05512",
                 "name": "SOMBRA",
                 "country": "CANADA"
             },
             {
-                "code": "5515",
+                "code": "05515",
                 "name": "COURTRIGHT",
                 "country": "CANADA"
             },
             {
-                "code": "5517",
+                "code": "05517",
                 "name": "CORUNNA",
                 "country": "CANADA"
             },
             {
-                "code": "5520",
+                "code": "05520",
                 "name": "SARNIA",
                 "country": "CANADA"
             },
             {
-                "code": "6533",
+                "code": "06533",
                 "name": "GODERICH",
                 "country": "CANADA"
             },
             {
-                "code": "6645",
+                "code": "06645",
                 "name": "NANTICOKE",
                 "country": "CANADA"
             },
             {
-                "code": "6682",
+                "code": "06682",
                 "name": "VICTORIA HARBOR",
                 "country": "CANADA"
             },
             {
-                "code": "6695",
+                "code": "06695",
                 "name": "DEPOT HARBOR",
                 "country": "CANADA"
             },
             {
-                "code": "6697",
+                "code": "06697",
                 "name": "PARRY SOUND",
                 "country": "CANADA"
             },
             {
-                "code": "6748",
+                "code": "06748",
                 "name": "LITTLE CURRENT",
                 "country": "CANADA"
             },
             {
-                "code": "6766",
+                "code": "06766",
                 "name": "MELDRUM BAY",
                 "country": "CANADA"
             },
             {
-                "code": "6767",
+                "code": "06767",
                 "name": "SPRAGGE",
                 "country": "CANADA"
             },
             {
-                "code": "6768",
+                "code": "06768",
                 "name": "OWEN SOUND",
                 "country": "CANADA"
             },
             {
-                "code": "6770",
+                "code": "06770",
                 "name": "OAKVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "7238",
+                "code": "07238",
                 "name": "OTTAWA",
                 "country": "CANADA"
             },
             {
-                "code": "8525",
+                "code": "08525",
                 "name": "ALGOMA",
                 "country": "CANADA"
             },
             {
-                "code": "8526",
+                "code": "08526",
                 "name": "BRUCE MINES",
                 "country": "CANADA"
             },
             {
-                "code": "8527",
+                "code": "08527",
                 "name": "THESSALON",
                 "country": "CANADA"
             },
             {
-                "code": "8528",
+                "code": "08528",
                 "name": "FISHER HARBOUR",
                 "country": "CANADA"
             },
             {
-                "code": "9000",
+                "code": "09000",
                 "name": "ALL OTHER CANADA GREAT LAKES REGION PORTS",
                 "country": "CANADA"
             },
             {
-                "code": "9555",
+                "code": "09555",
                 "name": "MICHIPICOTEN HARBOR",
                 "country": "CANADA"
             },
             {
-                "code": "9601",
+                "code": "09601",
                 "name": "MARATHON",
                 "country": "CANADA"
             },
             {
-                "code": "9605",
+                "code": "09605",
                 "name": "WALKERVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "9662",
+                "code": "09662",
                 "name": "THUNDER BAY",
                 "country": "CANADA"
             },
             {
-                "code": "9663",
+                "code": "09663",
                 "name": "PORT WELLER",
                 "country": "CANADA"
             },
             {
-                "code": "9665",
+                "code": "09665",
                 "name": "BOWMANVILLE",
                 "country": "CANADA"
             },
             {
-                "code": "9667",
+                "code": "09667",
                 "name": "WHITEFISH RIVER",
                 "country": "CANADA"
             },
             {
-                "code": "9669",
+                "code": "09669",
                 "name": "HERON BAY",
                 "country": "CANADA"
             },
             {
-                "code": "9670",
+                "code": "09670",
                 "name": "OSHAWA",
-                "country": "CANADA"
+                "country":"CANADA"
             },
             {
-                "code": "9671",
+                "code": "09671",
                 "name": "WHITBY",
-                "country": "CANADA"
+                "country":"CANADA"
             },
             {
                 "code": "10100",
