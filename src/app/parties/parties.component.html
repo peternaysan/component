@@ -38,7 +38,7 @@
         <label>ID Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" [ngModel]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Company Name
@@ -130,7 +130,7 @@
       </div>
       <div class="col-md-3">
         <label>ID Number</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11"
+        <input type="text"  [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11"
           pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
