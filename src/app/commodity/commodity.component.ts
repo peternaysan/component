@@ -28,7 +28,7 @@ export class CommodityComponent implements OnInit {
   }
 
   addnewline() {
-    var commodity = { commodityLineDetails: {commodityAction:'A'}, licenseDetails: {}, showDelete: true }
+    var commodity = { commodityLineDetails: { commodityAction: 'A' }, licenseDetails: {}, showDelete: true }
     this.commodityDetails.push(commodity);
   }
 
@@ -42,7 +42,7 @@ export class CommodityComponent implements OnInit {
         c.licenseDetails = {};
       }
 
-      c.commodityLineDetails.commodityAction="A";
+      c.commodityLineDetails.commodityAction = "A";
     });
 
     this.originGoodsList = MasterData.originGoodsList;
@@ -83,7 +83,7 @@ export class CommodityComponent implements OnInit {
   }
 
   private loadHtsCodes() {
-    var self=this;
+    var self = this;
     this.hts = concat(
       of([]),
       this.htsinput.pipe(
@@ -97,7 +97,7 @@ export class CommodityComponent implements OnInit {
       )
     );
     // setTimeout(() => {
-    
+
     //   if (self.commodityDetails[0].commodityLineDetails.htsNumber) {
     //     self.htsinput.next(self.commodityDetails[0].commodityLineDetails.htsNumber);
     //   }

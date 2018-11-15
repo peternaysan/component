@@ -277,7 +277,7 @@
       </div>
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode" id="ffstateCode"
+        <ng-select [items]="states" maxlength="2" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode" id="ffstateCode"
           name="ffstateCode">
         </ng-select>
       </div>
