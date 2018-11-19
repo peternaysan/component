@@ -5,7 +5,11 @@ import { CommodityComponent } from "./commodity/commodity.component";
 import { TransportationComponent } from "./transportation/transportation.component";
 
 export const routes:Routes = [
-    
+    {
+        path: 'dashboard',
+        // component: dash,
+
+    },
     {
         path: 'shipment',
         component: ShipmentComponent,
