@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="header-bar">
+      <span class="logo">AES Dashboard</span>
+    </div>
+  </div>
+</div>
+<div class="container margin-top" *ngIf="list">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of list" (click)="onitemclick(item)">
+      <div class="dashboard-card active">
+        <img src="./assets/icons/{{item.icon}}.svg" alt="">
+        <h2>{{item.count}}</h2>
+        <h5>{{item.name}}</h5>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="aesdatalist">
+    <div class="dasboard-box">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Shipment Reference No</th>
+            <th>Departure Date</th>
+            <th>ITN</th>
+            <th>Submission Status</th>
+            <th>Status Description</th>
+          </tr>
+        </thead>
+        <tr *ngFor="let item of aesdatalist">
+          <td> <a href="/?id={{item.id}}">{{item.shipmentReferenceNumber}}</a></td>
+          <td>{{item.estimatedExportDate}}</td>
+          <td>{{item.originalItn}}</td>
+          <td>{{item.submissionStatus}}</td>
+          <td>{{item.submissionStatusDescription}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

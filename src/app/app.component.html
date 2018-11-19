@@ -1,3 +1,5 @@
+<dashboard *ngIf="!loading && !aes"></dashboard>
+
 <div class="page" *ngIf="aes">
   <div class="header-flex">
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" [activeMenu]="activeMenu"></page-header>
@@ -23,8 +25,9 @@
   </div>
 </div>
 
-<aes-loader *ngIf="!aes"></aes-loader>
+<aes-loader *ngIf="loading"></aes-loader>
 
 <ng-template #modelcontent let-modal>
   <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
+

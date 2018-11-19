@@ -15,6 +15,7 @@ import { ShipmentComponent } from './shipment/shipment.component';
 import { PartiesComponent } from './parties/parties.component';
 import { TransportationComponent } from './transportation/transportation.component';
 import { CommodityComponent } from './commodity/commodity.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
@@ -35,7 +36,8 @@ import { LookupService } from '../app/services/lookup.service';
     TransportationComponent,
     CommodityComponent,
     AesPrintViewComponent,
-    AesLoaderComponent
+    AesLoaderComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
