@@ -43,7 +43,7 @@
     <div class="row mb-4">
 
       <div class="col-md-3">
-        <label>Port of Unlading</label>
+        <label>Port of Unlading<i class="mand">*</i></label>
         <ng-select [items]="portOfUnladingList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofUnlading"
           id="portofUnlading" name="portofUnlading">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
