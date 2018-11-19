@@ -1,3 +1,4 @@
+import { AesService } from './../services/aes.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DashboardComponent implements OnInit {
-    constructor() { }
+    list;
+    aesdatalist
+    constructor(private aesService: AesService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        this.aesService.getdashboardsummary().subscribe(result => {
+            this.list = result;
+        });
+    }
+
+    onitemclick(item){
+        this.aesdatalist  = [];
+        this.aesService.getallbystatus(item.name).subscribe(result => {
+            this.aesdatalist = result;
+            console.log(result);
+            
+        });
+    }
 }

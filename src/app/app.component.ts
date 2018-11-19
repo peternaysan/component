@@ -21,7 +21,7 @@ export class AppComponent {
   aesId;
   aes;
   activeMenu = "Shipment";
-  submitBtnText="Submit";
+  submitBtnText = "Submit";
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -46,6 +46,7 @@ export class AppComponent {
   }
 
   private hubConnection: HubConnection;
+  loading = true;
   ngOnInit() {
     const urlParams = new URLSearchParams(window.location.search);
     const aesId = urlParams.get('id');
@@ -53,7 +54,15 @@ export class AppComponent {
       this.aesId = aesId;
       this.aesService.getAesById(aesId).then(res => {
         this.aes = res;
-      });
+        this.loading = false;
+      },
+        err => {
+          this.toastr.error("An error occured loading aes data");
+          this.loading = false;
+        });
+    }
+    else{
+      this.loading = false;
     }
 
     let builder = new HubConnectionBuilder();
@@ -67,9 +76,9 @@ export class AppComponent {
           this.aes.submissionStatus = "GETS APPROVED";
           this.aes.submissionStatusDescription = data.ack.aes.statusDescription;
         }
-        else if(data.ack.aes.status == "FAIL"){
+        else if (data.ack.aes.status == "FAIL") {
           this.aes.submissionStatus = "GETS REJECTED";
-          if (data.ack.aes.error && data.ack.aes.error.length > 0){
+          if (data.ack.aes.error && data.ack.aes.error.length > 0) {
             this.aes.submissionStatusDescription = data.ack.aes.error[0].errorDescription;
           }
           this.toastr.error("GETS rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
@@ -78,13 +87,13 @@ export class AppComponent {
     });
 
     this.hubConnection.on("customscallback", (data) => {
-      if(data.submissionStatus == 'CUSTOMS APPROVED'){
+      if (data.submissionStatus == 'CUSTOMS APPROVED') {
         this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
       }
-      else if (data.submissionStatus == 'CUSTOMS REJECTED'){
+      else if (data.submissionStatus == 'CUSTOMS REJECTED') {
         this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
       }
-      
+
       this.aes.submissionStatusDescription = data.SubmissionStatusDescription;
     });
 
@@ -119,7 +128,7 @@ export class AppComponent {
 
   }
 
-  onSubmitClick() {  
+  onSubmitClick() {
     if (!this.shipmentComponent.isValid) {
       this.activeMenu = "Shipment";
       this.toastr.warning('Please fix validation errors in Shipment tab !', 'Validation');
@@ -140,21 +149,21 @@ export class AppComponent {
       this.toastr.warning('Please fix validation errors in Transportation tab !', 'Validation');
       return;
     }
-    if(!(this.aes.commodityDetails && this.aes.commodityDetails.length>0)){
+    if (!(this.aes.commodityDetails && this.aes.commodityDetails.length > 0)) {
       this.activeMenu = "Commodity";
       this.toastr.warning('Please add atleast one commodity line!', 'Validation');
       return;
     }
-    this.submitBtnText="Submitting";
+    this.submitBtnText = "Submitting";
     this.aesService.submitAes(this.aes).subscribe(data => {
-      var currentAes :any =data;
+      var currentAes: any = data;
       this.toastr.success('AES submitted successfully !', 'AES Submission');
-      this.aes.submissionStatus=currentAes.submissionStatus;
-      this.aes.submissionStatusDescription=currentAes.submissionStatusDescription;
-      this.submitBtnText="Submit";
-    }, err => {    
+      this.aes.submissionStatus = currentAes.submissionStatus;
+      this.aes.submissionStatusDescription = currentAes.submissionStatusDescription;
+      this.submitBtnText = "Submit";
+    }, err => {
       this.toastr.error(err.error, 'Error');
-      this.submitBtnText="Submit";
+      this.submitBtnText = "Submit";
     });
   }
 }

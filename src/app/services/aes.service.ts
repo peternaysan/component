@@ -31,6 +31,14 @@ export class AesService {
     }
 
     
+    public getdashboardsummary() {
+        return this.http.get(`${environment.apiUrl}dashboard/getsummary`);
+    }
+
+    public getallbystatus(status) {
+        return this.http.get(`${environment.apiUrl}dashboard/getallbystatus?status=${status}`);
+    }
+
     public getalltransactions(id) {
         return this.http.get(`${environment.apiUrl}aestransactions?id=${id}`);
     }

@@ -5,58 +5,34 @@
     </div>
   </div>
 </div>
-<div class="container margin-top">
+<div class="container margin-top" *ngIf="list">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4" *ngFor="let item of list" (click)="onitemclick(item)">
       <div class="dashboard-card active">
-        <img src="./assets/icons/checked.svg" alt="">
-        <h2>199</h2>
-        <h5>Total Success Jobs</h5>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="dashboard-card">
-        <img src="./assets/icons/loading.svg" alt="">
-        <h2>199</h2>
-        <h5>Total Pending Jobs</h5>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="dashboard-card">
-        <img src="./assets/icons/cancel.svg" alt="">
-        <h2>199</h2>
-        <h5>Total Rejected Jobs</h5>
+        <img src="./assets/icons/{{item.icon}}.svg" alt="">
+        <h2>{{item.count}}</h2>
+        <h5>{{item.name}}</h5>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row" *ngIf="aesdatalist">
     <div class="dasboard-box">
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th>Head 1</th>
-            <th>Head 2</th>
-            <th>Head 3</th>
-            <th>Head 4</th>
+            <th>Shipment Reference No</th>
+            <th>Departure Date</th>
+            <th>ITN</th>
+            <th>Submission Status</th>
+            <th>Status Description</th>
           </tr>
         </thead>
-        <tr>
-          <td>Some content 1</td>
-          <td>Some content 2</td>
-          <td>Some content 3</td>
-          <td>Some content 4</td>
-        </tr>
-        <tr>
-          <td>Some content 1</td>
-          <td>Some content 2</td>
-          <td>Some content 3</td>
-          <td>Some content 4</td>
-        </tr>
-        <tr>
-          <td>Some content 1</td>
-          <td>Some content 2</td>
-          <td>Some content 3</td>
-          <td>Some content 4</td>
+        <tr *ngFor="let item of aesdatalist">
+          <td> <a href="/?id={{item.id}}">{{item.shipmentReferenceNumber}}</a></td>
+          <td>{{item.estimatedExportDate}}</td>
+          <td>{{item.originalItn}}</td>
+          <td>{{item.submissionStatus}}</td>
+          <td>{{item.submissionStatusDescription}}</td>
         </tr>
       </table>
     </div>
