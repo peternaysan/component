@@ -306,35 +306,35 @@
       </div>
       <div class="col-md-3">
         <label>Company Name </label>
-        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.partyName">
+        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.partyName" maxlength="30">
       </div>
       <div class="col-md-3">
         <label>IRS Number</label>
-        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.usppiirsNumber">
+        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.usppiirsNumber" maxlength="9">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>First Name</label>
-        <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName" pattern="[\sa-zA-Z]+">
+        <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName" pattern="[\sa-zA-Z]+" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Last Name</label>
-        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName" pattern="[\sa-zA-Z]+">
+        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName" pattern="[\sa-zA-Z]+" maxlength="20">
       </div>
       <div class="col-md-3">
         <label>Phone Number</label>
-        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber" pattern="[a-zA-Z0-9]+">
+        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber" pattern="[a-zA-Z0-9]+" maxlength="13">
       </div>
       <div class="col-md-3">
         <label>Address Line 1 </label>
-        <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1">
+        <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1" maxlength="32">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Address Line 2</label>
-        <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2">
+        <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2" maxlength="32">
       </div>
       <div class="col-md-3">
         <label>Country</label>
@@ -347,7 +347,7 @@
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
-        <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode" pattern="[\sa-zA-Z0-9]+" maxlength="9">
       </div>
       <div class="col-md-3">
         <label>City</label>

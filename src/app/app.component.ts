@@ -112,6 +112,13 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
+  openErrorModal(content){
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed`;
+    });
+  }
 
   onSaveDraft() {
     console.log(this.aes);

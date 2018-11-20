@@ -1,5 +1,6 @@
 import { AesLoaderComponent } from './shared/aes-loader/aes-loader.component';
 import { AesPrintViewComponent } from './print-view/print-view.component';
+import { ErrorDetailComponent } from './error-detail/error-detail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
@@ -36,6 +37,7 @@ import { LookupService } from '../app/services/lookup.service';
     TransportationComponent,
     CommodityComponent,
     AesPrintViewComponent,
+    ErrorDetailComponent,
     AesLoaderComponent,
     DashboardComponent
   ],

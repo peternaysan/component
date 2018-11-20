@@ -60,6 +60,16 @@ i.mand {
     color: var(--white) !important;
     border-color: transparent;
 }
+.btn-error {
+    border-color: var(--warning);
+    background: transparent;
+    color: var(--warning);
+}
+.btn-error:hover {
+    background:  var(--warning) !important;
+    color: var(--white) !important;
+    border-color: transparent;
+}
 .btn-primary {
     box-shadow: 0 5px 8px rgba(4, 127, 231, 0.50);
 }
