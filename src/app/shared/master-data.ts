@@ -47,6 +47,16 @@ export class MasterData {
         ]
     }
 
+    public static get ultimateConsigneeType():any{
+        return [
+            { id: "D", name: "Direct Consumer" },
+            { id: "G", name: "Government Entity" },
+            { id: "O", name: "Other/Unknown" },
+            { id: "R", name: "Reseller" }
+
+        ]
+    }
+
     public static get originGoodsList(): any[] {
         return [
             { id: "D", name: "Domestic" },

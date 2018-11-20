@@ -28,7 +28,8 @@ export class CommodityComponent implements OnInit {
   }
 
   addnewline() {
-    var commodity = { commodityLineDetails: { commodityAction: 'A' }, licenseDetails: {}, showDelete: true }
+    var commodity = { commodityLineDetails: {}, licenseDetails: {}, showDelete: true }
+    commodity.commodityLineDetails["commodityAction"]='A';
     this.commodityDetails.push(commodity);
   }
 

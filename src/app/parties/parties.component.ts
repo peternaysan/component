@@ -16,6 +16,7 @@ export class PartiesComponent implements OnInit {
   public states: any = [];
   public partyIdType: any = [];
   public partyType: any = [];
+  public ultimateConsigneeType: any = [];
   public countryList: any = [];
   public ultimateConsignee: any;
   public intermediateConsignee: any;
@@ -52,6 +53,7 @@ export class PartiesComponent implements OnInit {
     this.partyIdType = MasterData.partyIdTypeList;
     this.partyType = MasterData.partyTypeList;
     this.countryList = MasterData.countryList;
+    this.ultimateConsigneeType = MasterData.ultimateConsigneeType;
   }
 
   submitted = false;
@@ -63,16 +65,16 @@ export class PartiesComponent implements OnInit {
     var name = item.name.toLowerCase();
     var term = term.toLowerCase();
     if (item.id) {
-        var id = item.id.toLowerCase();
-        return name.indexOf(term) > -1 || id.indexOf(term) > -1;
+      var id = item.id.toLowerCase();
+      return name.indexOf(term) > -1 || id.indexOf(term) > -1;
     }
     else if (item.code) {
-        var code = item.code.toLowerCase();
-        return name.indexOf(term) > -1 || code.indexOf(term) > -1;
+      var code = item.code.toLowerCase();
+      return name.indexOf(term) > -1 || code.indexOf(term) > -1;
     }
     else {
-        return name.indexOf(term) > -1;
+      return name.indexOf(term) > -1;
     }
-}
+  }
 
 }

@@ -27,7 +27,7 @@
         <label>Consignee Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="partyType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.partyType"
+        <ng-select [items]="ultimateConsigneeType" bindLabel="name" bindValue="id" [disabled]="true" [ngModel]="ultimateConsignee.ultimateConsigneeType"
           id="ucPartyType" name="ucPartyType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -224,8 +224,7 @@
         <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30">
       </div>
       <div class="col-md-3">
-        <label>First Name
-          <i class="mand">*</i>
+        <label>First Name        
         </label>
         <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName" maxlength="13" pattern="[\sa-zA-Z]+">
       </div>
