@@ -121,11 +121,9 @@ export class AppComponent {
   }
 
   onSaveDraft() {
-    console.log(this.aes);
     this.aesService.savedraft(this.aes).subscribe(data => {
       // show toastr
-      this.toastr.success('Draft saved successfully !', 'Save Draft');
-      console.log(data);
+      this.toastr.success('Draft saved successfully !', 'Save Draft');      
     },
       err => {
         // show toastr

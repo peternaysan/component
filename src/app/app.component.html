@@ -18,8 +18,8 @@
     <div class="buttons-box float-right">
       <!-- <button class="btn btn-error" (click)="openErrorModal(errModelContent)">Error Details</button> -->
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
-      <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED'">Save Draft</button>
-      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'">
+      <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED' || aes.submissionStatus == 'GETS APPROVED'">Save Draft</button>
+      <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'|| aes.submissionStatus == 'GETS APPROVED'">
         <span>{{submitBtnText}}</span>
       </button>
     </div>
