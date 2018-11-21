@@ -36,13 +36,13 @@ export class PartiesComponent implements OnInit {
         self.intermediateConsignee = element;
       } else if (element.partyType == "F") {
         self.freightForwarder = element;
-      } else if (element.partyType == "U") {
+      } else if (element.partyType == "E") {
         self.usppi = element;
       }
     });
 
     if (!this.usppi) {
-      this.usppi = { partyType: "U" };
+      this.usppi = { partyType: "E" };
       this.shipmentParty.push(this.usppi);
     }
     var country = "United States";
