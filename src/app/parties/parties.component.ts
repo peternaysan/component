@@ -39,6 +39,10 @@ export class PartiesComponent implements OnInit {
       } else if (element.partyType == "E") {
         self.usppi = element;
       }
+      else if (element.partyType == "U") {
+        element.partyType ="E";
+       self.usppi= element;
+      }
     });
 
     if (!this.usppi) {
