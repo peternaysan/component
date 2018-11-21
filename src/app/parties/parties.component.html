@@ -338,7 +338,7 @@
       </div>
       <div class="col-md-3">
         <label>Country</label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" bindLabel="name" bindValue="code" [(ngModel)]="freightForwarder.countryCode"
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" bindLabel="name" bindValue="code" [(ngModel)]="usppi.countryCode"
           id="ffcountryCode" name="ffcountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
