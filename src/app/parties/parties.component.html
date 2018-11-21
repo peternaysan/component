@@ -3,7 +3,7 @@
     <h2 class="form-heading">Ultimate Consignee</h2>
     <ul class="form-list mb-4">
       <li>
-        <p>Sold En Route         
+        <p>Sold En Route
         </p>
         <input type="radio" id="route-yes" value="Y" name="route" [ngModel]="ultimateConsignee.toBeSoldenRouteIndicator">
         <label for="route-yes">Yes</label>
@@ -26,7 +26,7 @@
         <label>Consignee Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="ultimateConsigneeType" required bindLabel="name" bindValue="id"  [ngModel]="ultimateConsignee.ultimateConsigneeType"
+        <ng-select [items]="ultimateConsigneeType" required bindLabel="name" bindValue="id" [ngModel]="ultimateConsignee.ultimateConsigneeType"
           id="ucPartyType" name="ucPartyType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -38,13 +38,15 @@
         <label>ID Number
           <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" required [(ngModel)]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <label class="error-label" *ngIf="partiesForm.controls.ucPartyId?.errors?.required && (partiesForm.controls.ucPartyId?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name
           <i class="mand">*</i>
         </label>
-        <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" required [(ngModel)]="ultimateConsignee.partyName" id="ucPartyName" name="ucPartyName" maxlength="30"
+          pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
         <label class="error-label" *ngIf="partiesForm.controls.ucPartyName?.errors?.required && (partiesForm.controls.ucPartyName?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
@@ -79,7 +81,8 @@
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" [(ngModel)]="ultimateConsignee.addressLine2" id="ucaddressLine2" name="ucaddressLine2" maxlength="32"
+          pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
         <label>Country
@@ -91,18 +94,20 @@
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
-      
+
       </div>
       <div class="col-md-3">
         <label>Postal Code
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode" maxlength="9" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" [disabled]="true" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode" maxlength="9"
+          pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>City
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25" pattern="[\sa-zA-Z]+">
+        <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25"
+          pattern="[\sa-zA-Z]+">
       </div>
     </div>
     <div class="row mb-3">
@@ -129,9 +134,11 @@
         </ng-select>
       </div>
       <div class="col-md-3">
-        <label>ID Number</label>
-        <input type="text"  [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11"
-          pattern="[\sa-zA-Z0-9]+">
+        <label>ID Number
+          <i class="mand">*</i>
+        </label>
+        <input type="text" required [(ngModel)]="intermediateConsignee.partyId" id="icpartyId" name="icpartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <label class="error-label" *ngIf="partiesForm.controls.icpartyId?.errors?.required && (partiesForm.controls.icpartyId?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
@@ -145,7 +152,6 @@
       </div>
     </div>
     <div class="row mb-4">
-
       <div class="col-md-3">
         <label>Last Name
         </label>
@@ -168,7 +174,8 @@
       <div class="col-md-3">
         <label>Address Line 2
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.addressLine2" id="icaddressLine2" name="icaddressLine2" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" [(ngModel)]="intermediateConsignee.addressLine2" id="icaddressLine2" name="icaddressLine2" maxlength="32"
+          pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
     </div>
     <div class="row mb-4">
@@ -181,7 +188,7 @@
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
-        </ng-select>        
+        </ng-select>
       </div>
       <div class="col-md-3">
         <label>Postal Code</label>
@@ -216,24 +223,29 @@
         </ng-select>
       </div>
       <div class="col-md-3">
-        <label>ID Number</label>
-        <input type="text" [(ngModel)]="freightForwarder.partyId" id="ffpartyId" name="ffpartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <label>ID Number
+          <i class="mand">*</i>
+        </label>
+        <input type="text" [(ngModel)]="freightForwarder.partyId" required id="ffpartyId" name="ffpartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
+        <label class="error-label" *ngIf="partiesForm.controls.ffpartyId?.errors?.required && (partiesForm.controls.ffpartyId?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Company Name</label>
         <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
-        <label>First Name        
+        <label>First Name
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName" maxlength="13" pattern="[\sa-zA-Z]+">
+        <input type="text" [(ngModel)]="freightForwarder.contactFirstName" id="ffcontactFirstName" name="ffcontactFirstName" maxlength="13"
+          pattern="[\sa-zA-Z]+">
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Last Name
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactLastName" id="ffcontactLastName" name="ffcontactLastName" maxlength="20" pattern="[\sa-zA-Z]+">
+        <input type="text" [(ngModel)]="freightForwarder.contactLastName" id="ffcontactLastName" name="ffcontactLastName" maxlength="20"
+          pattern="[\sa-zA-Z]+">
       </div>
       <div class="col-md-3">
         <label>Phone Number
@@ -276,8 +288,8 @@
       </div>
       <div class="col-md-3">
         <label>State</label>
-        <ng-select [items]="states" maxlength="2" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode" id="ffstateCode"
-          name="ffstateCode">
+        <ng-select [items]="states" maxlength="2" bindLabel="displayName" bindValue="code" [(ngModel)]="freightForwarder.stateCode"
+          id="ffstateCode" name="ffstateCode">
         </ng-select>
       </div>
     </div>
@@ -315,6 +327,10 @@
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
+        <label>IRS ID Type</label>
+        <input type="text" id="usppiirsidType" name="usppiirsidType" [(ngModel)]="usppi.usppiirsidType" maxlength="9" pattern="[\sa-zA-Z0-9]+">
+      </div>
+      <div class="col-md-3">
         <label>First Name</label>
         <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName" pattern="[\sa-zA-Z]+" maxlength="13">
       </div>
@@ -326,12 +342,13 @@
         <label>Phone Number</label>
         <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber" pattern="[a-zA-Z0-9]+" maxlength="13">
       </div>
+
+    </div>
+    <div class="row mb-4">
       <div class="col-md-3">
         <label>Address Line 1 </label>
         <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
-    </div>
-    <div class="row mb-4">
       <div class="col-md-3">
         <label>Address Line 2</label>
         <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
@@ -339,7 +356,7 @@
       <div class="col-md-3">
         <label>Country</label>
         <ng-select [items]="countryList" [searchFn]="searchByIdAndName" bindLabel="name" bindValue="code" [(ngModel)]="usppi.countryCode"
-          id="ffcountryCode" name="ffcountryCode">
+          id="usppicountryCode" name="usppicountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
@@ -349,12 +366,13 @@
         <label>Postal Code</label>
         <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode" pattern="[\sa-zA-Z0-9]+" maxlength="9">
       </div>
+
+    </div>
+    <div class="row mb-3">
       <div class="col-md-3">
         <label>City</label>
         <input type="text" id="usppicity" name="usppicity" [(ngModel)]="usppi.city">
       </div>
-    </div>
-    <div class="row mb-3">
       <div class="col-md-3">
         <label>State</label>
         <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.stateCode">
