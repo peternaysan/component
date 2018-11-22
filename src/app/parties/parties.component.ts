@@ -1,3 +1,4 @@
+import { MasterData } from './../shared/master-data';
 import { element } from 'protractor';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { LookupService } from '../services/lookup.service';
@@ -15,6 +16,7 @@ export class PartiesComponent implements OnInit {
   @Input() shipmentParty;
   public states: any = [];
   public partyIdType: any = [];
+  public usppiPartyIdTypeList: any=[];
   public partyType: any = [];
   public ultimateConsigneeType: any = [];
   public countryList: any = [];
@@ -54,6 +56,7 @@ export class PartiesComponent implements OnInit {
     this.partyType = MasterData.partyTypeList;
     this.countryList = MasterData.countryList;
     this.ultimateConsigneeType = MasterData.ultimateConsigneeType;
+   this.usppiPartyIdTypeList= MasterData.usppiPartyIdTypeList;
   }
 
   submitted = false;

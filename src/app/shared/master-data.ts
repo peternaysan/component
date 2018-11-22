@@ -36,7 +36,14 @@ export class MasterData {
 
         ]
     }
+    public static get usppiPartyIdTypeList(): any[] {
+        return [          
+            { id: "S", name: "SSN" },
+            { id: "E", name: "EIN" },
+          
 
+        ]
+    }
     public static get partyTypeList(): any[] {
         return [
             { id: "E", name: "US Principal Party in Interest" },
