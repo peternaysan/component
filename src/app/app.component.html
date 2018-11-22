@@ -7,7 +7,7 @@
   <div class="content">
     <shipment-form [hidden]="activeMenu != 'Shipment'" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header"></shipment-form>
     <parties-form [hidden]="activeMenu != 'Parties'" [shipmentParty]="aes.shipmentParty"></parties-form>
-    <commodity-form [hidden]="activeMenu != 'Commodity'" [commodityDetails]="aes.commodityDetails"></commodity-form>
+    <commodity-form [hidden]="activeMenu != 'Commodity'" [aes]="aes" [commodityDetails]="aes.commodityDetails"></commodity-form>
     <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation"></transportation-form>
   </div>
   <div class="button-flex">

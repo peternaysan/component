@@ -2,7 +2,6 @@ import { MasterData } from './../shared/master-data';
 import { element } from 'protractor';
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { LookupService } from '../services/lookup.service';
-import { MasterData } from '../../app/shared/master-data';
 import { NgForm } from '@angular/forms';
 
 

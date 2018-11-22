@@ -14,6 +14,8 @@ import { LookupService } from '../services/lookup.service';
 
 export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
+
+  @Input() aes;
   @ViewChild("commodityForm") commodityForm: NgForm;
   originGoodsList: any = [];
   exportInformationCode: any = [];
@@ -29,15 +31,16 @@ export class CommodityComponent implements OnInit {
 
   addnewline() {
     var commodity = { commodityLineDetails: {}, licenseDetails: {}, showDelete: true }
-    commodity.commodityLineDetails["commodityAction"]='A';
-    this.commodityDetails=[];
+    commodity.commodityLineDetails["commodityAction"]='A';    
     this.commodityDetails.push(commodity);
   }
 
   ngOnInit() {
-    if (this.commodityDetails== null) {
+    if(this.aes.commodityDetails==null){
+      this.commodityDetails=[];
+      this.aes.commodityDetails=this.commodityDetails
       this.addnewline()
-    }
+    }    
     this.commodityDetails.forEach(c => {
       if (!c.commodityLineDetails) {
         c.commodityLineDetails = {};
