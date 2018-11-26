@@ -73,7 +73,7 @@
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" required [ngModel]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1"
+        <input type="text" required [(ngModel)]="ultimateConsignee.addressLine1" id="ucaddressLine1" name="ucaddressLine1"
           maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
     </div>
@@ -168,7 +168,7 @@
         <label>Address Line 1
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1"
+        <input type="text" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1"
           maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
@@ -328,12 +328,13 @@
     <div class="row mb-4">
       <div class="col-md-3">
         <label>IRS ID Type</label>       
-        <ng-select [items]="usppiPartyIdTypeList" required bindLabel="name" bindValue="id" [(ngModel)]="usppi.usppiirsidType" id="usppiirsidType"
+        <ng-select [items]="usppiPartyIdTypeList" [required]="usppi.partyIdType=='E' || usppi.partyIdType=='D'" bindLabel="name" bindValue="id" [(ngModel)]="usppi.usppiirsidType" id="usppiirsidType"
           name="usppiirsidType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="partiesForm.controls.usppiirsidType?.errors?.required && (partiesForm.controls.usppiirsidType?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>First Name</label>

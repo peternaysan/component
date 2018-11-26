@@ -5,5 +5,16 @@
     </button>
 </div>
 <div class="modal-body">
-    <div class="content-box"></div>
+    <div class="content-box">
+        <table class="table table-striped table-bordered">
+            <tr>                
+                <th>Error Code</th>
+                <th>Description</th>
+            </tr>
+            <tr *ngFor="let error of errorList">
+                <td>{{error.errorCode}}</td>
+                <td>{{error.errorDescription}}</td>
+            </tr>
+        </table>
+    </div>
 </div>

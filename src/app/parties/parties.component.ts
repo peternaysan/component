@@ -60,7 +60,7 @@ export class PartiesComponent implements OnInit {
 
   submitted = false;
   get isValid() {
-    this.submitted = true;
+    this.submitted = true;       
     return this.partiesForm.valid;
   }
   searchByIdAndName(term: string, item: any) {
