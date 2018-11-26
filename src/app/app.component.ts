@@ -174,7 +174,11 @@ export class AppComponent {
       this.aes.submissionStatusDescription = currentAes.submissionStatusDescription;
       this.submitBtnText = "Submit";
     }, err => {
-      this.toastr.error(err.error, 'Error');
+      this.toastr.error(err.error, 'Error', {
+        timeOut: 0,
+        closeButton:true,
+        positionClass :'toast-top-full-width'
+      });
       this.submitBtnText = "Submit";
     });
   }
