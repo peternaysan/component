@@ -22,6 +22,8 @@ export class AppComponent {
   aes;
   activeMenu = "Shipment";
   submitBtnText = "Submit";
+
+  aesPrintView;
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -54,6 +56,7 @@ export class AppComponent {
       this.aesId = aesId;
       this.aesService.getAesById(aesId).then(res => {
         this.aes = res;
+        this.aesPrintView = this.aes;
         this.loading = false;
       },
         err => {
@@ -61,7 +64,7 @@ export class AppComponent {
           this.loading = false;
         });
     }
-    else{
+    else {
       this.loading = false;
     }
 
@@ -104,6 +107,10 @@ export class AppComponent {
   onactivemenuchange(item) {
     this.activeMenu = item.name;
   }
+  onSetPrintView(item, content) {
+    this.aesPrintView = item.aesDetailEntity;
+    this.openPrintView(content);
+  }
 
   openPrintView(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -112,7 +119,7 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
-  openErrorModal(content){
+  openErrorModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -123,7 +130,7 @@ export class AppComponent {
   onSaveDraft() {
     this.aesService.savedraft(this.aes).subscribe(data => {
       // show toastr
-      this.toastr.success('Draft saved successfully !', 'Save Draft');      
+      this.toastr.success('Draft saved successfully !', 'Save Draft');
     },
       err => {
         // show toastr

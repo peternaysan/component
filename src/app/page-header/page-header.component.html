@@ -3,29 +3,11 @@
     <h3>History</h3>
     <ul>
       <li *ngFor="let item of transactions">
-        <a [class.approved]="item.status == 'SUCCESS'" [class.canceled]="item.status == 'FAIL'" (click)="openPrintView(modelcontent, item)">
-          <span><i class="icon-user"></i> {{aes.submittedUser?aes.submittedUser.FirstName:aes.pic.FirstName}}</span>
-          <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
+        <a [class.approved]="item.status == 'CUSTOMS APPROVED'" [class.canceled]="item.status == 'CUSTOMS REJECTED'" (click)="openPrintView(modelcontent, item)">
+          <span><i class="icon-user"></i> {{item.aesDetailEntity.submittedUser?item.aesDetailEntity.submittedUser.FirstName:item.aesDetailEntity.pic.FirstName}}</span>
+          <span><i class="icon-small-calendar"></i> {{item.createdOn |date :'medium'}}</span>
         </a>
-      </li>
-      <!-- <li>
-        <a  class="canceled" (click)="openPrintView(modelcontent)">
-          <span><i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.FirstName:aes.pic.FirstName}}</span>
-          <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
-        </a>
-      </li>
-      <li>
-        <a  class="approved" (click)="openPrintView(modelcontent)">
-          <span><i class="icon-user"></i> {{aes.submittedUser?aes.submittedUser.FirstName:aes.pic.FirstName}}</span>
-          <span><i class="icon-small-calendar"></i>  31 Oct 2018, 6:15PM</span>
-        </a>
-      </li>
-      <li>
-        <a class="canceled" (click)="openPrintView(modelcontent)">
-          <span><i class="icon-user"></i> {{aes.submittedUser?aes.submittedUser.FirstName:aes.pic.FirstName}} </span>
-          <span><i class="icon-small-calendar"></i> 31 Oct 2018, 6:15PM</span>
-        </a>
-      </li> -->
+      </li>      
     </ul>
   </div>
   <h2>AES - {{aes.shipmentHeader.shipmentReferenceNumber}}</h2>

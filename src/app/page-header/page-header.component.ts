@@ -13,10 +13,11 @@ export class PageHeaderComponent implements OnInit {
     @Input() activeMenu;
     @Input() aes;
     @Output() activemenuchanged = new EventEmitter();
+
+    @Output() setPrintView = new EventEmitter();
     closeResult: string;
     transactions;
-
-    @ViewChild(AesPrintViewComponent) aepv: AesPrintViewComponent;
+   
 
     menulist = [
         {
@@ -58,12 +59,8 @@ export class PageHeaderComponent implements OnInit {
             });
         }
     }
-    openPrintView(content, aes) {
-        this.aepv.aes = aes;
-        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
-            this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            this.closeResult = `Dismissed`;
-        });
+    openPrintView(content, item) {
+        this.setPrintView .emit(item);
+      
     }
 }
