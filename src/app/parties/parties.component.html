@@ -26,7 +26,7 @@
         <label>Consignee Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="ultimateConsigneeType" required bindLabel="name" bindValue="id" [ngModel]="ultimateConsignee.ultimateConsigneeType"
+        <ng-select [items]="ultimateConsigneeType" required bindLabel="name" bindValue="id" [(ngModel)]="ultimateConsignee.ultimateConsigneeType"
           id="ucPartyType" name="ucPartyType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
