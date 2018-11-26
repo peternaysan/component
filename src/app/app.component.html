@@ -16,7 +16,7 @@
       <p class="error ribbon" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
     </div>
     <div class="buttons-box float-right">
-      <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED'" (click)="openErrorModal(errModelContent)">Error Details</button>
+      <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED'" (click)="openErrorModal(errModelContent)">Response Details</button>
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED' || aes.submissionStatus == 'GETS APPROVED'">Save Draft</button>
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'|| aes.submissionStatus == 'GETS APPROVED'">
