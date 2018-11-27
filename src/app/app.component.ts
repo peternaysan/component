@@ -83,7 +83,7 @@ export class AppComponent {
           this.aes.submissionStatus = "GETS REJECTED";
           if (data.ack.aes.error && data.ack.aes.error.length > 0) {
             this.aes.submissionStatusDescription = data.ack.aes.error[0].errorDescription;
-            this.aes.data.getsResponse = data;
+            this.aes.getsResponse = data;
           }
           this.toastr.error("GETS rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
         }
