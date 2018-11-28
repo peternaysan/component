@@ -1,23 +1,23 @@
 <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{headerText}}</h4>
+    <h4 class="modal-title" id="modal-basic-title">{{aes.submissionStatus=='GETS REJECTED'?'Error details':'Customs Response details'}}</h4>
     <button type="button" class="close" aria-label="Close" (click)="close()">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 <div class="modal-body">
-    <div class="content-box" *ngIf="aes.submissionStatus=='GETS REJECTED'">
+    <div class="content-box" *ngIf="aes.submissionStatus=='GETS REJECTED' && aes.getsResponse?.ack?.aes?.error">
         <table class="table table-striped table-bordered">
             <tr>                
                 <th>Error Code</th>
                 <th>Description</th>
             </tr>
-            <tr *ngFor="let error of errorList">
+            <tr *ngFor="let error of aes.getsResponse.ack.aes.error">
                 <td>{{error.errorCode}}</td>
                 <td>{{error.errorDescription}}</td>
             </tr>
         </table>
     </div>
-    <div class="content-box" *ngIf="aes.submissionStatus=='CUSTOMS REJECTED'">
+    <div class="content-box" *ngIf="(aes.submissionStatus=='CUSTOMS REJECTED'|| aes.submissionStatus=='CUSTOMS APPROVED') && aes.submissionResponse?.customsResponseList">
             <table class="table table-striped table-bordered">
                 <tr>                
                     <th>Response Code</th>
@@ -26,7 +26,7 @@
                     <th>Reason Code</th>
                     <th>Final Destination Indicator</th>
                 </tr>
-                <tr *ngFor="let response of customsResponseList">
+                <tr *ngFor="let response of aes.submissionResponse.customsResponseList">
                     <td>{{response.responseCode}}</td>
                     <td>{{response.severityIndicator}}</td>
                     <td>{{response.narrativeText}}</td>

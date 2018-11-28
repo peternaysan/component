@@ -78,6 +78,7 @@ export class AppComponent {
           this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
           this.aes.submissionStatus = "GETS APPROVED";
           this.aes.submissionStatusDescription = data.ack.aes.statusDescription;
+          this.aes.getsResponse = {};
         }
         else if (data.ack.aes.status == "FAIL") {
           this.aes.submissionStatus = "GETS REJECTED";
@@ -99,6 +100,7 @@ export class AppComponent {
       }
 
       this.aes.submissionStatusDescription = data.SubmissionStatusDescription;
+      this.aes.submissionResponse.customsResponseList=data.submissionResponse.customsResponseList;
     });
 
     // starting the connection
