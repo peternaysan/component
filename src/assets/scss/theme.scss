@@ -151,3 +151,13 @@ button:focus, button:active {
     display: inline-block;
     margin: 0 15px 0 0px;
 }
+label button {
+    margin-left: 5px;
+    border: none;
+    padding: 0;
+    background: none;
+
+}
+label button  img {
+    width: 12px;
+}

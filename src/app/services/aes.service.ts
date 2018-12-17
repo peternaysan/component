@@ -40,7 +40,7 @@ export class AesService {
     }
 
     public getalltransactions(id) {
-        return this.http.get(`${environment.apiUrl}aestransactions?id=${id}`);
+        return this.http.get(`${environment.apiUrl}aestransactions/${id}`);
     }
 
     public savedraft(aesObject) {

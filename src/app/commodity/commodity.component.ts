@@ -101,6 +101,7 @@ export class CommodityComponent implements OnInit {
         ))
       )
     );
+
     // setTimeout(() => {
 
     //   if (self.commodityDetails[0].commodityLineDetails.htsNumber) {
@@ -113,6 +114,10 @@ export class CommodityComponent implements OnInit {
 
   }
 
+  onHtsChange(item,commodity){
+    item?commodity.commodityLineDetails.commodityDescription= item.name:'';
+     
+  }
   private loadLicExemptionCode() {
     this.licExemptionCode = concat(
       of([]),

@@ -22,6 +22,8 @@ export class AppComponent {
   aes;
   activeMenu = "Shipment";
   submitBtnText = "Submit";
+
+  aesPrintView;
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -54,6 +56,7 @@ export class AppComponent {
       this.aesId = aesId;
       this.aesService.getAesById(aesId).then(res => {
         this.aes = res;
+        this.aesPrintView = this.aes;
         this.loading = false;
       },
         err => {
@@ -61,7 +64,7 @@ export class AppComponent {
           this.loading = false;
         });
     }
-    else{
+    else {
       this.loading = false;
     }
 
@@ -75,11 +78,13 @@ export class AppComponent {
           this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
           this.aes.submissionStatus = "GETS APPROVED";
           this.aes.submissionStatusDescription = data.ack.aes.statusDescription;
+          this.aes.getsResponse = {};
         }
         else if (data.ack.aes.status == "FAIL") {
           this.aes.submissionStatus = "GETS REJECTED";
           if (data.ack.aes.error && data.ack.aes.error.length > 0) {
             this.aes.submissionStatusDescription = data.ack.aes.error[0].errorDescription;
+            this.aes.getsResponse = data;
           }
           this.toastr.error("GETS rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
         }
@@ -95,6 +100,7 @@ export class AppComponent {
       }
 
       this.aes.submissionStatusDescription = data.SubmissionStatusDescription;
+      this.aes.submissionResponse.customsResponseList=data.submissionResponse.customsResponseList;
     });
 
     // starting the connection
@@ -104,6 +110,10 @@ export class AppComponent {
   onactivemenuchange(item) {
     this.activeMenu = item.name;
   }
+  onSetPrintView(item, content) {
+    this.aesPrintView = item.aesDetailEntity;
+    this.openPrintView(content);
+  }
 
   openPrintView(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -112,7 +122,7 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
-  openErrorModal(content){
+  openErrorModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -123,7 +133,7 @@ export class AppComponent {
   onSaveDraft() {
     this.aesService.savedraft(this.aes).subscribe(data => {
       // show toastr
-      this.toastr.success('Draft saved successfully !', 'Save Draft');      
+      this.toastr.success('Draft saved successfully !', 'Save Draft');
     },
       err => {
         // show toastr
@@ -167,7 +177,11 @@ export class AppComponent {
       this.aes.submissionStatusDescription = currentAes.submissionStatusDescription;
       this.submitBtnText = "Submit";
     }, err => {
-      this.toastr.error(err.error, 'Error');
+      this.toastr.error(err.error, 'Error', {
+        timeOut: 0,
+        closeButton:true,
+        positionClass :'toast-top-full-width'
+      });
       this.submitBtnText = "Submit";
     });
   }

@@ -2,7 +2,8 @@
 
 <div class="page" *ngIf="aes">
   <div class="header-flex">
-    <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" [activeMenu]="activeMenu"></page-header>
+    <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" (setPrintView)="onSetPrintView($event,modelcontent)"
+      [activeMenu]="activeMenu"></page-header>
   </div>
   <div class="content">
     <shipment-form [hidden]="activeMenu != 'Shipment'" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header"></shipment-form>
@@ -16,7 +17,8 @@
       <p class="error ribbon" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
     </div>
     <div class="buttons-box float-right">
-      <!-- <button class="btn btn-error" (click)="openErrorModal(errModelContent)">Error Details</button> -->
+      <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED' || aes.submissionStatus == 'CUSTOMS APPROVED'"
+        (click)="openErrorModal(errModelContent)">Response Details</button>
       <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED' || aes.submissionStatus == 'GETS APPROVED'">Save Draft</button>
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'|| aes.submissionStatus == 'GETS APPROVED'">
@@ -29,9 +31,9 @@
 <aes-loader *ngIf="loading"></aes-loader>
 
 <ng-template #modelcontent let-modal>
-  <aes-print-view [aes]="aes" (closeClick)="modal.close()"></aes-print-view>
+  <aes-print-view [aes]="aesPrintView" (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
 
 <ng-template #errModelContent let-modal>
-  <error-detail (closeClick)="modal.close()"></error-detail>
+  <aes-error-detail [aes]="aes" (closeClick)="modal.close()"></aes-error-detail>
 </ng-template>
