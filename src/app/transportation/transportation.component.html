@@ -2,7 +2,7 @@
   <form #transportForm="ngForm">
     <div class="row mb-4">
       <div class="col-md-3">
-        <label>Carrier SCAC/IATA<i class="mand">*</i> <button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 4" data-balloon-pos="down"><img src="../../assets/icons/info.svg"></button></label>
+        <label>Carrier SCAC/IATA<i class="mand">*</i> <button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 4" data-balloon-pos="right"><img src="../../assets/icons/info.svg"></button></label>
         <input type="text" name="carrierCode" required [(ngModel)]="transportation.carrierCode" maxlength="4" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
         <label class="error-label" *ngIf="transportForm.controls.carrierCode?.errors?.required && (transportForm.controls.carrierCode?.touched || submitted)">This
             field is required!!</label>
