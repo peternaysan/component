@@ -36,13 +36,11 @@
       </div>
       <div class="col-md-3">
         <label>ID Number
-          <i class="mand">*</i>
           <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed. Maxlength is 11" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" required [(ngModel)]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
-        <label class="error-label" *ngIf="partiesForm.controls.ucPartyId?.errors?.required && (partiesForm.controls.ucPartyId?.touched || submitted)">This field is required!!</label>
+        <input type="text" [(ngModel)]="ultimateConsignee.partyId" id="ucPartyId" name="ucPartyId" maxlength="11" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>Company Name
@@ -58,7 +56,8 @@
     </div>
     <div class="row mb-4" *ngIf="ultimateConsignee">
       <div class="col-md-3">
-        <label>First Name<button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="left">
+        <label>First Name
+          <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="right">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -157,15 +156,15 @@
       </div>
       <div class="col-md-3">
         <label>Company Name
-          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30"
-            data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
         <input type="text" [(ngModel)]="intermediateConsignee.partyName" id="icpartyName" name="icpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
-        <label>First Name<button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
+        <label>First Name
+          <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -235,6 +234,12 @@
       </div>
     </div>
   </div>
+  <div class="content-box" *ngIf="!intermediateConsignee">
+    <h2 class="form-heading">Intermediate Consignee</h2>
+    <div class="row mb-4">
+      <label class="warning-message">Warning : This submission doesn't have intermediate Consignee. Kindly add the same in GF in case it is required.</label>
+    </div>
+  </div>
 
 
   <div class="content-box" *ngIf="freightForwarder">
@@ -244,12 +249,13 @@
         <label>ID Number Type
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [(ngModel)]="freightForwarder.partyIdType" id="ffpartyIdType"
+        <ng-select [items]="partyIdType" required bindLabel="name" bindValue="id" [(ngModel)]="freightForwarder.partyIdType" id="ffpartyIdType"
           name="ffpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="partiesForm.controls.ffpartyIdType?.errors?.required && (partiesForm.controls.ffpartyIdType?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>ID Number
@@ -263,15 +269,15 @@
       </div>
       <div class="col-md-3">
         <label>Company Name
-          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30"
-            data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
         <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
-        <label>First Name<button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
+        <label>First Name
+          <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -367,8 +373,7 @@
       </div>
       <div class="col-md-3">
         <label>Company Name
-          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30"
-            data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -391,9 +396,11 @@
         <label class="error-label" *ngIf="partiesForm.controls.usppiirsidType?.errors?.required && (partiesForm.controls.usppiirsidType?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>First Name<button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
+        <label>First Name
+          <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 13" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
-          </button></label>
+          </button>
+        </label>
         <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName" pattern="[\sa-zA-Z]+" maxlength="13">
       </div>
       <div class="col-md-3">

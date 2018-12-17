@@ -39,7 +39,7 @@ export class PartiesComponent implements OnInit {
         self.freightForwarder = element;
       } else if (element.partyType == "E") {
         self.usppi = element;
-      }    
+      }       
     });
 
     if (!this.usppi) {
@@ -55,7 +55,7 @@ export class PartiesComponent implements OnInit {
     this.partyType = MasterData.partyTypeList;
     this.countryList = MasterData.countryList;
     this.ultimateConsigneeType = MasterData.ultimateConsigneeType;
-   this.usppiPartyIdTypeList= MasterData.usppiPartyIdTypeList;
+    this.usppiPartyIdTypeList= MasterData.usppiPartyIdTypeList;
   }
 
   submitted = false;
