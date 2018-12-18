@@ -12951,6 +12951,7 @@ export class MasterData {
         ]
     }
 
+
     public static get uomList(): any[] {
         return [{ "code": "AGG", "name": "Silver Content Grams" },
         { "code": "AUG", "name": "Gold Content Grams" },
@@ -12992,16 +12993,18 @@ export class MasterData {
         { "code": "SCM", "name": "Square Centimeters" },
         { "code": "SQM", "name": "Square Meters" },
         { "code": "TCM", "name": "Thousand Cubic Meters" },
+        { "code": "KM3", "name": "KM3" },
         { "code": "THM", "name": "Thousand Meters" },
         { "code": "THS", "name": "Thousand" },
         { "code": "TNV", "name": "Ton Raw Value" },
         { "code": "TON", "name": "Ton" },
-        { "code": "X-X", "name": "No Unit Required" },
+        { "code":  "X", "name": "No Unit Required" },
         { "code": "DS", "name": "Dose" },
         { "code": "SQ", "name": "Square" },
         { "code": "NO", "name": "Number" },
         { "code": "KG", "name": "Kilograms" },
         { "code": "GM", "name": "Grams" },
+        { "code": "G", "name": "G" },
         { "code": "MC", "name": "Millicuries" }]
     }
 }
