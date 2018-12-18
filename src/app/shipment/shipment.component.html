@@ -28,7 +28,7 @@
         <label class="error-label" *ngIf="shipmentHeaderForm.controls.filingTypeIndicator?.errors?.required && (shipmentHeaderForm.controls.filingTypeIndicator?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Port Of Export
+        <label>Sea/Air Port Of Export
           <i class="mand">*</i>
         </label>
         <ng-select [items]="portOfExportList" [searchFn]="searchByIdAndName" required bindLabel="name" bindValue="code" [(ngModel)]="shipmentHeader.portofExportation"
