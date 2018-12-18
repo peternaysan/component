@@ -31,16 +31,16 @@ export class CommodityComponent implements OnInit {
 
   addnewline() {
     var commodity = { commodityLineDetails: {}, licenseDetails: {}, showDelete: true }
-    commodity.commodityLineDetails["commodityAction"]='A';    
+    commodity.commodityLineDetails["commodityAction"] = 'A';
     this.commodityDetails.push(commodity);
   }
 
   ngOnInit() {
-    if(this.aes.commodityDetails==null){
-      this.commodityDetails=[];
-      this.aes.commodityDetails=this.commodityDetails
+    if (this.aes.commodityDetails == null) {
+      this.commodityDetails = [];
+      this.aes.commodityDetails = this.commodityDetails
       this.addnewline()
-    }    
+    }
     this.commodityDetails.forEach(c => {
       if (!c.commodityLineDetails) {
         c.commodityLineDetails = {};
@@ -114,10 +114,16 @@ export class CommodityComponent implements OnInit {
 
   }
 
-  onHtsChange(item,commodity){
-    item?commodity.commodityLineDetails.commodityDescription= item.name:'';
-     
+  onHtsChange(item, commodity) {
+    if (item){
+      commodity.commodityLineDetails.commodityDescription = item.name.substring(0, 45);
+      commodity.commodityLineDetails.quantity1Uom = item.uom;
+    }
+    else{
+      commodity.commodityLineDetails.commodityDescription = '';
+    }
   }
+
   private loadLicExemptionCode() {
     this.licExemptionCode = concat(
       of([]),
