@@ -3,7 +3,7 @@
     <h2 class="form-heading">Ultimate Consignee</h2>
     <ul class="form-list mb-4">
       <li>
-        <p>Sold En Route
+        <p [class.invalidradio]="partiesForm.controls.route?.errors?.required && submitted">Sold En Route  <i class="mand">*</i>
         </p>
         <input type="radio" id="route-yes" value="Y" name="route" [ngModel]="ultimateConsignee.toBeSoldenRouteIndicator">
         <label for="route-yes">Yes</label>
@@ -72,7 +72,7 @@
       </div>
       <div class="col-md-3">
         <label>Phone Number
-          <button data-balloon="No symbols (+,-,#) are allowed. Maxlength is 13." data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz) and Numerals (0-9) are allowed. Maxlength is 13." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -108,7 +108,7 @@
       </div>
       <div class="col-md-3">
         <label>Postal Code
-          <button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed. Maxlength is 9." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -121,6 +121,7 @@
         </label>
         <input type="text" [disabled]="true" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25"
           pattern="[\sa-zA-Z]+">
+        <label class="error-label" *ngIf="partiesForm.controls.uccity?.errors?.required && (partiesForm.controls.uccity?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-3">
@@ -156,11 +157,14 @@
       </div>
       <div class="col-md-3">
         <label>Company Name
+          <i class="mand">*</i>
           <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.partyName" id="icpartyName" name="icpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" [(ngModel)]="intermediateConsignee.partyName" required id="icpartyName" name="icpartyName" maxlength="30"
+          pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.icpartyName?.errors?.required && (partiesForm.controls.icpartyName?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>First Name
@@ -181,7 +185,7 @@
       </div>
       <div class="col-md-3">
         <label>Phone Number
-          <button data-balloon="No symbols (+,-,#) are allowed. Maxlength is 13." data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz) and Numerals (0-9) are allowed. Maxlength is 13." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -190,9 +194,11 @@
       </div>
       <div class="col-md-3">
         <label>Address Line 1
+          <i class="mand">*</i>
         </label>
-        <input type="text" [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1" maxlength="32"
+        <input type="text" required [(ngModel)]="intermediateConsignee.addressLine1" id="icaddressLine1" name="icaddressLine1" maxlength="32"
           pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.icaddressLine1?.errors?.required && (partiesForm.controls.icaddressLine1?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Address Line 2
@@ -204,17 +210,19 @@
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Country
+          <i class="mand">*</i>
         </label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="true" bindLabel="name" bindValue="code" [(ngModel)]="intermediateConsignee.countryCode"
-          id="iccountryCode" name="iccountryCode">
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" required [disabled]="true" bindLabel="name" bindValue="code"
+          [(ngModel)]="intermediateConsignee.countryCode" id="iccountryCode" name="iccountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="partiesForm.controls.iccountryCode?.errors?.required && (partiesForm.controls.iccountryCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Postal Code
-          <button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed. Maxlength is 9." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -222,8 +230,12 @@
           maxlength="9" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
-        <label>City</label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25" pattern="[\sa-zA-Z]+">
+        <label>City
+          <i class="mand">*</i>
+        </label>
+        <input type="text" required [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25"
+          pattern="[\sa-zA-Z]+">
+        <label class="error-label" *ngIf="partiesForm.controls.iccity?.errors?.required && (partiesForm.controls.iccitys?.touched || submitted)">This field is required!!</label>
       </div>
 
       <div class="col-md-3">
@@ -269,11 +281,13 @@
       </div>
       <div class="col-md-3">
         <label>Company Name
+          <i class="mand">*</i>
           <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" required [(ngModel)]="freightForwarder.partyName" id="ffpartyName" name="ffpartyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.ffpartyName?.errors?.required && (partiesForm.controls.ffpartyName?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>First Name
@@ -295,16 +309,20 @@
       <div class="col-md-3">
         <label>Phone Number
           <i class="mand">*</i>
-          <button data-balloon="No symbols (+,-,#) are allowed. Maxlength is 13." data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz) and Numerals (0-9) are allowed. Maxlength is 13." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber"
+        <input type="text" required [(ngModel)]="freightForwarder.contactPhoneNumber" id="ffcontactPhoneNumber" name="ffcontactPhoneNumber"
           maxlength="13" pattern="[a-zA-Z0-9]+">
+          <label class="error-label" *ngIf="partiesForm.controls.ffcontactPhoneNumber?.errors?.required && (partiesForm.controls.ffcontactPhoneNumber?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Address Line 1</label>
-        <input type="text" [(ngModel)]="freightForwarder.addressLine1" id="ffaddressLine1" name="ffaddressLine1" maxlength="32">
+        <label>Address Line 1
+          <i class="mand">*</i>
+        </label>
+        <input type="text" required [(ngModel)]="freightForwarder.addressLine1" id="ffaddressLine1" name="ffaddressLine1" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.ffaddressLine1?.errors?.required && (partiesForm.controls.ffaddressLine1?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Address Line 2
@@ -327,7 +345,7 @@
       </div>
       <div class="col-md-3">
         <label>Postal Code
-          <button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up">
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed. Maxlength is 9." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
@@ -335,8 +353,9 @@
       </div>
 
       <div class="col-md-3">
-        <label>City</label>
-        <input type="text" [(ngModel)]="freightForwarder.city" id="ffcity" name="ffcity" maxlength="25" pattern="[\sa-zA-Z]+">
+        <label>City <i class="mand">*</i></label>
+        <input type="text" required [(ngModel)]="freightForwarder.city" id="ffcity" name="ffcity" maxlength="25" pattern="[\sa-zA-Z]+">
+        <label class="error-label" *ngIf="partiesForm.controls.ffcity?.errors?.required && (partiesForm.controls.ffcity?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>State</label>
@@ -372,12 +391,13 @@
         <label class="error-label" *ngIf="partiesForm.controls.usppiIdNo?.errors?.required && (partiesForm.controls.usppiIdNo?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Company Name
+        <label>Company Name <i class="mand">*</i>
           <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and symbols are allowed. Maxlength is 30" data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" id="usppicompanyNo" name="usppicompanyNo" [(ngModel)]="usppi.partyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" id="usppicompanyNo" name="usppicompanyNo" required [(ngModel)]="usppi.partyName" maxlength="30" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.usppicompanyNo?.errors?.required && (partiesForm.controls.usppicompanyNo?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>IRS Number</label>
@@ -404,59 +424,70 @@
         <input type="text" id="usppifirstName" name="usppifirstName" [(ngModel)]="usppi.contactFirstName" pattern="[\sa-zA-Z]+" maxlength="13">
       </div>
       <div class="col-md-3">
-        <label>Last Name</label>
-        <input type="text" id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName" pattern="[\sa-zA-Z]+" maxlength="20">
+        <label>Last Name <i class="mand">*</i> <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 20" data-balloon-pos="up">
+            <img src="../../assets/icons/info.svg">
+          </button></label>
+        <input type="text" required id="usppiLastName" name="usppiLastName" [(ngModel)]="usppi.contactLastName" pattern="[\sa-zA-Z]+" maxlength="20">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiLastName?.errors?.required && (partiesForm.controls.usppiLastName?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Phone Number
-          <button data-balloon="No symbols (+,-,#) are allowed. Maxlength is 13." data-balloon-pos="up">
+        <label>Phone Number<i class="mand">*</i>
+          <button data-balloon="Characters (Aa-Zz) and Numerals (0-9) are allowed. Maxlength is 13." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" id="usppiPhNo" name="usppiPhNo" [(ngModel)]="usppi.contactPhoneNumber" pattern="[a-zA-Z0-9]+" maxlength="13">
+        <input type="text" id="usppiPhNo" name="usppiPhNo" required [(ngModel)]="usppi.contactPhoneNumber" pattern="[a-zA-Z0-9]+" maxlength="13">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiPhNo?.errors?.required && (partiesForm.controls.usppiPhNo?.touched || submitted)">This field is required!!</label>
       </div>
 
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
-        <label>Address Line 1 </label>
-        <input type="text" id="usppiAddline1" name="usppiAddline1" [(ngModel)]="usppi.addressLine1" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label>Address Line 1  <i class="mand">*</i> </label>
+        <input type="text" id="usppiAddline1" name="usppiAddline1" required [(ngModel)]="usppi.addressLine1" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiAddline1?.errors?.required && (partiesForm.controls.usppiAddline1?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
         <label>Address Line 2</label>
         <input type="text" id="usppiAddline2" name="usppiAddline2" [(ngModel)]="usppi.addressLine2" maxlength="32" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
       </div>
       <div class="col-md-3">
-        <label>Country</label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" bindLabel="name" bindValue="code" [(ngModel)]="usppi.countryCode"
+        <label>Country <i class="mand">*</i></label>
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" required bindLabel="name" bindValue="code" [(ngModel)]="usppi.countryCode"
           id="usppicountryCode" name="usppicountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="partiesForm.controls.usppicountryCode?.errors?.required && (partiesForm.controls.usppicountryCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Postal Code
-          <button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up">
+        <label>Postal Code <i class="mand">*</i>
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed. Maxlength is 9." data-balloon-pos="up">
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" id="usppipostalCode" name="usppipostalCode" [(ngModel)]="usppi.postalCode" pattern="[\sa-zA-Z0-9]+" maxlength="9">
+        <input type="text" id="usppipostalCode" name="usppipostalCode" required  [(ngModel)]="usppi.postalCode" pattern="[\sa-zA-Z0-9]+" maxlength="9">
+        <label class="error-label" *ngIf="partiesForm.controls.usppipostalCode?.errors?.required && (partiesForm.controls.usppipostalCode?.touched || submitted)">This field is required!!</label>
       </div>
 
     </div>
     <div class="row mb-3">
       <div class="col-md-3">
-        <label>City</label>
-        <input type="text" id="usppicity" name="usppicity" [(ngModel)]="usppi.city">
+        <label>City <i class="mand">*</i> <button data-balloon="Characters (Aa-Zz) and whitespaces are allowed. Maxlength is 25" data-balloon-pos="right">
+            <img src="../../assets/icons/info.svg">
+          </button></label>
+        <input type="text" required id="usppicity" name="usppicity" [(ngModel)]="usppi.city" maxlength="25" pattern="[\sa-zA-Z]+">
+        <label class="error-label" *ngIf="partiesForm.controls.usppicity?.errors?.required && (partiesForm.controls.usppicity?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>State</label>
-        <ng-select [items]="states" bindLabel="name" bindValue="code" id="originState" name="originState" [(ngModel)]="usppi.stateCode">
+        <label>State <i class="mand">*</i></label>
+        <ng-select [items]="states" required bindLabel="name" bindValue="code" id="usppioriginState" name="usppioriginState" [(ngModel)]="usppi.stateCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
         </ng-select>
+        <label class="error-label" *ngIf="partiesForm.controls.usppioriginState?.errors?.required && (partiesForm.controls.usppioriginState?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
   </div>

@@ -95,21 +95,24 @@
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
-              <label>1st Quantity<button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
+              <label>1st Quantity<button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
                   data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
               </label>
-              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1"
+              <input type="number"  [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1"
                 maxlength="10" pattern="^\d+$">
+               
             </div>
             <div class="col-md-6">
-              <label>1st UOM
+              <label>1st UOM<i class="mand">*</i>
               </label>
-              <ng-select [items]="uomList" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom"
+              <ng-select [items]="uomList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom"
                 id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom">
                 <ng-template ng-option-tmp ng-label-tmp let-item="item">
                   {{item.code}} - {{item.name}}
                 </ng-template>
               </ng-select>
+              <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity1Uom']?.errors?.required && (commodityForm.controls[index + '-quantity1Uom']?.touched || submitted)">This
+                  field is required!!</label>
             </div>
           </div>
         </div>
