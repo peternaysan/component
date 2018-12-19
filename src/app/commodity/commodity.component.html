@@ -198,7 +198,7 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <ng-select [items]="exportInformationCode" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName"
+            <ng-select [items]="exportInformationCode" required [disabled]="true" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName"
               [(ngModel)]="commodity.commodityLineDetails.exportInformationCode" id="{{index}}-exportInformationCode"
               name="{{index}}-exportInformationCode">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">

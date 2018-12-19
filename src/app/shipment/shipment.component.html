@@ -19,7 +19,7 @@
         <label>Filing Option
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="filingTypeList" required bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator"
+        <ng-select [items]="filingTypeList" required [disabled]="true" bindLabel="name" bindValue="id" [(ngModel)]="shipmentHeader.filingTypeIndicator"
           id="filingTypeIndicator" name="filingTypeIndicator">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
