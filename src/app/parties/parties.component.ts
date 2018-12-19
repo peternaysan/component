@@ -12,7 +12,7 @@ import { NgForm } from '@angular/forms';
 })
 export class PartiesComponent implements OnInit {
 
-  @Input() shipmentParty;
+  @Input() shipmentParty;  
   public states: any = [];
   public partyIdType: any = [];
   public usppiPartyIdTypeList: any=[];
