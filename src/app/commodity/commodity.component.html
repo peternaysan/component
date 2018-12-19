@@ -87,10 +87,12 @@
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
-          <label>Shipping Weight (whole Kilograms)<button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
+          <label>Shipping Weight (whole Kilograms)<i class="mand">*</i><button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
               data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
-          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" id="{{index}}-shippingWeight"
+          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" required id="{{index}}-shippingWeight"
             name="{{index}}-shippingWeight" maxlength="10" pattern="^\d+$">
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-shippingWeight']?.errors?.required && (commodityForm.controls[index + '-shippingWeight']?.touched || submitted)">This
+                field is required!!</label>
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
