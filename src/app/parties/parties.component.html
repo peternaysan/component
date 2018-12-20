@@ -401,13 +401,14 @@
       </div>
       <div class="col-md-3">
         <label>IRS Number</label>
-        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [(ngModel)]="usppi.usppiirsNumber" maxlength="9" pattern="[\sa-zA-Z0-9]+">
+        <input type="text" id="usppiIrsNumber" name="usppiIrsNumber" [required]="usppi.partyIdType=='D'" [(ngModel)]="usppi.usppiirsNumber" maxlength="9" pattern="[\sa-zA-Z0-9]+">
+        <label class="error-label" *ngIf="partiesForm.controls.usppiIrsNumber?.errors?.required && (partiesForm.controls.usppiIrsNumber?.touched || submitted)">This field is required!!</label>
       </div>
     </div>
     <div class="row mb-4">
       <div class="col-md-3">
         <label>IRS ID Type</label>
-        <ng-select [items]="usppiPartyIdTypeList" [required]="usppi.partyIdType=='E' || usppi.partyIdType=='D'" bindLabel="name"
+        <ng-select [items]="usppiPartyIdTypeList" [required]="usppi.partyIdType=='D'" bindLabel="name"
           bindValue="id" [(ngModel)]="usppi.usppiirsidType" id="usppiirsidType" name="usppiirsidType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}

@@ -95,11 +95,11 @@
         <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.errors?.required && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Foreign Trade Zone <button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
+        <label>Foreign Trade Zone <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
         <input type="text" id="ftz" name="ftz"  [(ngModel)]="shipmentHeader.foreignTradeZone" maxlength="7" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
-        <label>Import Entity<button data-balloon="allowed (characters Aa through Zz) and (numerals 0 through 9) and whitespaces" data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
+        <label>Import Entity<button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
         <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.entryNumber" maxlength="15" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
