@@ -130,9 +130,10 @@
         <label for="consi-no">No</label>
       </li>
       <li>
-        <p>Does shipment contain hazardous material?
+        <p [class.invalidradio]="shipmentHeaderForm.controls.haz?.errors?.required && submitted">Does shipment contain hazardous material?
+            <i class="mand">*</i>
         </p>
-        <input type="radio" id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
+        <input type="radio" required id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
         <label for="haz-yes">Yes</label>
         <input type="radio" id="haz-no" name="haz" value="N" [(ngModel)]="shipmentHeader.hazmatIndicator">
         <label for="haz-no">No</label>
