@@ -78,11 +78,13 @@
           </ng-select>
         </div>
         <div class="col-md-3">
-          <label>Value of Goods (whole US Dollars)<button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
+          <label>Value of Goods (whole US Dollars)<i class="mand">*</i><button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
               data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
           </label>
-          <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
+          <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" required [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
             maxlength="10" pattern="^\d+$">
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-valueofGoods']?.errors?.required && (commodityForm.controls[index + '-valueofGoods']?.touched || submitted)">This
+                field is required!!</label>
         </div>
       </div>
       <div class="row mb-4">
@@ -97,12 +99,13 @@
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
-              <label>1st Quantity<button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
+              <label>1st Quantity<i class="mand">*</i><button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
                   data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
               </label>
-              <input type="number"  [(ngModel)]="commodity.commodityLineDetails.quantity1" id="{{index}}-quantity1" name="{{index}}-quantity1"
+              <input type="number"  [(ngModel)]="commodity.commodityLineDetails.quantity1" required id="{{index}}-quantity1" name="{{index}}-quantity1"
                 maxlength="10" pattern="^\d+$">
-               
+                <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity1']?.errors?.required && (commodityForm.controls[index + '-quantity1']?.touched || submitted)">This
+                    field is required!!</label>
             </div>
             <div class="col-md-6">
               <label>1st UOM<i class="mand">*</i>
