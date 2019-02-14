@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 
 export class ShipmentComponent implements OnInit {
     @Input() shipmentHeader: any = {};
+    @Input() aes;
     public inboundList: any = [];
     public filingTypeList: any = [];
     public portOfExportList: any = [];
@@ -21,10 +22,7 @@ export class ShipmentComponent implements OnInit {
     @ViewChild("shipmentHeaderForm") shipmentHeaderForm: NgForm;
     constructor(private lookupService: LookupService) {
     }
-
-    log() {
-        console.log(this.shipmentHeader);
-    }
+    
     ngOnInit() {
         var country = "United States";
         this.lookupService.states(country)

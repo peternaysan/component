@@ -177,6 +177,7 @@ export class AppComponent {
       this.aes.submissionStatusDescription = currentAes.submissionStatusDescription;
       this.submitBtnText = "Submit";
     }, err => {
+      console.log(err);
       this.toastr.error(err.error, 'Error', {
         timeOut: 0,
         closeButton:true,

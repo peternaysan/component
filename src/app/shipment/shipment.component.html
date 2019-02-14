@@ -12,7 +12,8 @@
         <label>Shipment Reference Number
           <i class="mand">*</i>
         </label>
-        <input type="text" id="shipmentReferenceNumber" pattern="[\sa-zA-Z0-9]+" name="shipmentReferenceNumber" [disabled]="true" [ngModel]="shipmentHeader.shipmentReferenceNumber" maxlength="17">
+        <input type="text" id="shipmentReferenceNumber" pattern="[\sa-zA-Z0-9]+" name="shipmentReferenceNumber" [disabled]="true"
+          [ngModel]="shipmentHeader.shipmentReferenceNumber" maxlength="17">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.shipmentReferenceNumber">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
@@ -43,9 +44,11 @@
     <div class="row mb-4">
 
       <div class="col-md-3">
-        <label>Port of Unlading<i class="mand">*</i></label>
-        <ng-select [items]="portOfUnladingList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofUnlading"
-          id="portofUnlading" name="portofUnlading">
+        <label>Port of Unlading        
+        </label>
+        <ng-select [items]="portOfUnladingList" [required]="aes && aes.transportation && (aes.transportation.modeofTransport=='10' ||aes.transportation.modeofTransport=='11')"
+          bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="shipmentHeader.portofUnlading" id="portofUnlading"
+          name="portofUnlading">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
           </ng-template>
@@ -56,15 +59,16 @@
         <label>Departure Date
           <i class="mand">*</i>
         </label>
-        <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate" maxlength="8">
+        <input type="text" id="estimatedExportDate" name="estimatedExportDate" disabled [ngModel]="shipmentHeader.estimatedExportDate"
+          maxlength="8">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Origin State
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="states" required bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState"
-          id="originState" name="originState">         
+        <ng-select [items]="states" required bindLabel="displayName" bindValue="code" [(ngModel)]="shipmentHeader.originState" id="originState"
+          name="originState">
         </ng-select>
         <label class="error-label" *ngIf="shipmentHeaderForm.controls.originState?.errors?.required && (shipmentHeaderForm.controls.originState?.touched || submitted)">This field is required!!</label>
       </div>
@@ -95,11 +99,19 @@
         <label class="error-label" *ngIf="shipmentHeaderForm.controls.inbondCode?.errors?.required && (shipmentHeaderForm.controls.inbondCode?.touched || submitted)">This field is required!!</label>
       </div>
       <div class="col-md-3">
-        <label>Foreign Trade Zone <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
-        <input type="text" id="ftz" name="ftz"  [(ngModel)]="shipmentHeader.foreignTradeZone" maxlength="7" pattern="[\sa-zA-Z0-9]+">
+        <label>Foreign Trade Zone
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up">
+            <img src="../../assets/icons/info.svg">
+          </button>
+        </label>
+        <input type="text" id="ftz" name="ftz" [(ngModel)]="shipmentHeader.foreignTradeZone" maxlength="7" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
-        <label>Import Entity<button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
+        <label>Import Entity
+          <button data-balloon="Characters (Aa-Zz),Numerals (0-9) and whitespaces are allowed." data-balloon-pos="up">
+            <img src="../../assets/icons/info.svg">
+          </button>
+        </label>
         <input type="text" id="importEntity" name="importEntity" [(ngModel)]="shipmentHeader.entryNumber" maxlength="15" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
@@ -112,10 +124,10 @@
     <ul class="form-list">
       <li>
         <p [class.invalidradio]="shipmentHeaderForm.controls.trans?.errors?.required && submitted">
-          Is this a Routed Transaction?   
+          Is this a Routed Transaction?
           <i class="mand">*</i>
         </p>
-        <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport" >
+        <input type="radio" required id="tras-yes" name="trans" value="Y" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
         <label for="tras-yes">Yes</label>
         <input type="radio" required id="tras-no" name="trans" value="N" [(ngModel)]="shipmentHeader.fppiRoutedTransport">
         <label for="tras-no">No</label>
@@ -123,7 +135,7 @@
       <li>
         <p [class.invalidradio]="shipmentHeaderForm.controls.consi?.errors?.required && submitted">Are USPPI and Ultimate Consignee companies related?
           <i class="mand">*</i>
-        </p >
+        </p>
         <input type="radio" required id="consi-yes" name="consi" value="Y" [(ngModel)]="shipmentHeader.relatedParties">
         <label for="consi-yes">Yes</label>
         <input type="radio" required id="consi-no" name="consi" value="N" [(ngModel)]="shipmentHeader.relatedParties">
@@ -131,7 +143,7 @@
       </li>
       <li>
         <p [class.invalidradio]="shipmentHeaderForm.controls.haz?.errors?.required && submitted">Does shipment contain hazardous material?
-            <i class="mand">*</i>
+          <i class="mand">*</i>
         </p>
         <input type="radio" required id="haz-yes" name="haz" value="Y" [(ngModel)]="shipmentHeader.hazmatIndicator">
         <label for="haz-yes">Yes</label>
