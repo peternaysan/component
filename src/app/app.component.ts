@@ -94,13 +94,15 @@ export class AppComponent {
     this.hubConnection.on("customscallback", (data) => {
       if (data.submissionStatus == 'CUSTOMS APPROVED') {
         this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+        this.aes.submissionStatus = "CUSTOMS APPROVED";
       }
       else if (data.submissionStatus == 'CUSTOMS REJECTED') {
         this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+        this.aes.submissionStatus = "CUSTOMS REJECTED";
       }
 
-      this.aes.submissionStatusDescription = data.SubmissionStatusDescription;
-      this.aes.submissionResponse.customsResponseList=data.submissionResponse.customsResponseList;
+      this.aes.submissionStatusDescription = data.description;
+      this.aes.submissionResponse.customsResponseList=data.errorList;
     });
 
     // starting the connection
