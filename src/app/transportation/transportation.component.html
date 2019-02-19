@@ -37,13 +37,13 @@
         <th>Seal Number</th>
         <th>Transportation Reference Number</th>
       </tr>
-      <tr *ngFor="let item of transportation.transportationDetails; let i=index">
+      <tr *ngFor="let item of transportation?.transportationDetails; let i=index">
         <td>{{i+1}}</td>
         <td>{{item.equipmentNumber ? item.equipmentNumber : '-'}}</td>
         <td>{{item.sealNumber ? item.sealNumber : '-'}}</td>
         <td>{{item.transportationReferenceNumber}}</td>
       </tr>
-      <tr *ngIf="transportation.transportationDetails.length == 0">
+      <tr *ngIf="transportation.transportationDetails && transportation.transportationDetails.length == 0">
         <td colspan="12" class="text-center">
           <strong class="nodata-message">No data available in table</strong>
         </td>
