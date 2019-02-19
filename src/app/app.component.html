@@ -13,8 +13,9 @@
   </div>
   <div class="button-flex">
     <div class="aes-message float-left">
-      <p class="success ribbon" *ngIf="aes.submissionStatus !='GETS REJECTED' && aes.submissionStatus !='CUSTOMS REJECTED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+      <p class="success ribbon" *ngIf="aes.submissionStatus =='GETS APRROVED' && aes.submissionStatus =='CUSTOMS APPROVED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
       <p class="error ribbon" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
+      <p class="cancelled ribbon" *ngIf="aes.submissionStatus =='CANCELLED'">AES Status : {{aes.submissionStatus}} ; {{aes.submissionStatusDescription}} </p>
     </div>
     <div class="buttons-box float-right">
       <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED' || aes.submissionStatus == 'CUSTOMS APPROVED'"
