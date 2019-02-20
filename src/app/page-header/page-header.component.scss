@@ -76,9 +76,13 @@
           color: var(--white);
         }
 
-        &.canceled {
+        &.error {
           color: var(--white);
           background: var(--warning);
+        }
+        &.canceled {
+          color: var(--white);
+          background: var(--orange);
         }
       }
     }

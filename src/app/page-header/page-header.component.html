@@ -3,7 +3,7 @@
     <h3>History</h3>
     <ul>
       <li *ngFor="let item of transactions">
-        <a [class.approved]="item.status == 'CUSTOMS APPROVED'" [class.canceled]="item.status == 'CUSTOMS REJECTED'" (click)="openPrintView(modelcontent, item)">
+        <a [class.approved]="item.status == 'CUSTOMS APPROVED'" [class.error]="item.status == 'CUSTOMS REJECTED'" [class.canceled]="item.status == 'CANCELLED'" (click)="openPrintView(modelcontent, item)">
           <span><i class="icon-user"></i> {{item.aesDetailEntity.submittedUser?item.aesDetailEntity.submittedUser.FirstName:item.aesDetailEntity.pic.FirstName}}</span>
           <span><i class="icon-small-calendar"></i> {{item.createdOn |date :'medium'}}</span>
         </a>
