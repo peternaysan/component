@@ -1,7 +1,7 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
 
 <div class="page" *ngIf="aes">
-  <div class="header-flex">
+  <div class="header-flex">   
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" (setPrintView)="onSetPrintView($event,modelcontent)"
       [activeMenu]="activeMenu"></page-header>
   </div>
