@@ -163,6 +163,10 @@ export class AppComponent {
     if (!this.commodityComponent.isValid) {
       this.activeMenu = "Commodity";
       this.toastr.warning('Please fix validation errors in Commodity tab !', 'Validation');
+      this.aes.commodityDetails.forEach(commodity => {
+          commodity.isExpanded=!commodity.isExpanded;
+      });
+      
       return;
     }
     if (!this.transportComponent.isValid) {
