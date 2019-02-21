@@ -483,10 +483,7 @@
       </div>
       <div class="col-md-3">
         <label>State <i class="mand">*</i></label>
-        <ng-select [items]="states" required bindLabel="name" bindValue="code" id="usppioriginState" name="usppioriginState" [(ngModel)]="usppi.stateCode">
-          <ng-template ng-option-tmp ng-label-tmp let-item="item">
-            {{item.code}} - {{item.name}}
-          </ng-template>
+        <ng-select [items]="states" required bindLabel="displayName" bindValue="code" id="usppioriginState" name="usppioriginState" [(ngModel)]="usppi.stateCode">          
         </ng-select>
         <label class="error-label" *ngIf="partiesForm.controls.usppioriginState?.errors?.required && (partiesForm.controls.usppioriginState?.touched || submitted)">This field is required!!</label>
       </div>
