@@ -143,6 +143,7 @@ button:focus, button:active {
     position: absolute;
     left: 23px;
     top: 34px;
+    pointer-events: none;
 }
 .ng-select {
     font-size: 13px;
