@@ -96,11 +96,11 @@ export class AppComponent {
     this.hubConnection.on("customscallback", (data) => {
       
       console.log("Customs ACK", data);
-      if (data.submissionStatus == 'CUSTOMS APPROVED') {
+      if (data.status == 'CUSTOMS APPROVED') {
         this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
         this.aes.submissionStatus = "CUSTOMS APPROVED";
       }
-      else if (data.submissionStatus == 'CUSTOMS REJECTED') {
+      else if (data.status == 'CUSTOMS REJECTED') {
         this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
         this.aes.submissionStatus = "CUSTOMS REJECTED";
       }
