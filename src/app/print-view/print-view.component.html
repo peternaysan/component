@@ -43,7 +43,7 @@
           <span>{{aes.shipmentHeader.importEntity}}</span>
         </li>
         <li>Original ITN:
-          <span>{{aes.shipmentHeader.originalItn}}</span>
+          <span>{{aes.shipmentHeader.originalItn }}</span>
         </li>
       </ul>
     </div>
@@ -84,7 +84,9 @@
         <th>Value of Goods</th>
         <th>Shipping Weight</th>
         <th>Quantity 1</th>
+        <th>UOM</th>
         <th>Quantity 2</th>
+        <th>UOM2</th>
       </tr>
       <ng-container *ngFor="let commodity of aes.commodityDetails">
         <tr>
@@ -94,10 +96,12 @@
           <td>{{commodity.commodityLineDetails.valueofGoods}}</td>
           <td>{{commodity.commodityLineDetails.shippingWeight}}</td>
           <td>{{commodity.commodityLineDetails.quantity1}}</td>
+          <td>{{commodity.commodityLineDetails.quantity1Uom}}</td>          
           <td>{{commodity.commodityLineDetails.quantity2}}</td>
+          <td>{{commodity.commodityLineDetails.quantity2Uom}}</td>
         </tr>
         <tr>
-          <td colspan="7">
+          <td colspan="9">
             <!-- <h2>License Details</h2> -->
             <table class="table table-striped table-bordered">
               <tr>

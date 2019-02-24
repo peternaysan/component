@@ -3,11 +3,14 @@
     <h3>History</h3>
     <ul>
       <li *ngFor="let item of transactions">
-        <a [class.approved]="item.status == 'CUSTOMS APPROVED'" [class.error]="item.status == 'CUSTOMS REJECTED'" [class.canceled]="item.status == 'CANCELLED'" (click)="openPrintView(modelcontent, item)">
-          <span><i class="icon-user"></i> {{item.aesDetailEntity.submittedUser?item.aesDetailEntity.submittedUser.FirstName:item.aesDetailEntity.pic.FirstName}}</span>
-          <span><i class="icon-small-calendar"></i> {{item.createdOn |date :'medium'}}</span>
+        <a [class.approved]="item.status == 'CUSTOMS APPROVED'" [class.error]="item.status == 'CUSTOMS REJECTED'" [class.canceled]="item.status == 'CANCELLED'"
+          (click)="openPrintView(modelcontent, item)">
+          <span>
+            <i class="icon-user"></i> {{item.aesDetailEntity.submittedUser?item.aesDetailEntity.submittedUser.FirstName:item.aesDetailEntity.pic.FirstName}}</span>
+          <span>
+            <i class="icon-small-calendar"></i> {{item.createdOn |date :'medium'}}</span>
         </a>
-      </li>      
+      </li>
     </ul>
   </div>
   <h2>AES - {{aes.shipmentHeader.shipmentReferenceNumber}}</h2>
@@ -17,7 +20,8 @@
 
   <ul class="steps">
     <li *ngFor="let item of menulist">
-      <a [class.active]="item.name == activeMenu" (click)="changeActive(item)"><i class="icon-shape"></i> {{item.name}}</a>
+      <a [class.active]="item.name == activeMenu" (click)="changeActive(item)">
+        <i class="icon-shape"></i> {{item.name}}</a>
     </li>
     <!-- <li><a><i class="icon-shape"></i> Parties</a></li>
     <li><a><i class="icon-shape"></i> Commodity</a></li>
@@ -29,5 +33,3 @@
 <ng-template #modelcontent let-modal>
   <aes-print-view (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
-
-
