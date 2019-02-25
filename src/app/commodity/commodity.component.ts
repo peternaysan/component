@@ -55,6 +55,17 @@ export class CommodityComponent implements OnInit {
     this.uomList = MasterData.uomList;
     this.loadHtsCodes();
     this.loadLicExemptionCode();
+    //initial binding of uom1 and uom2  
+    this.commodityDetails.forEach(c => {
+      if (c.commodityLineDetails && c.commodityLineDetails.htsNumber) {
+        this.lookupService.htsCodes(c.commodityLineDetails.htsNumber).subscribe(items => {
+          var htsItems = items as any;
+          if (htsItems && htsItems.length > 0) {
+            this.onHtsChange(htsItems[0], c);
+          }
+        })
+      }
+    });
   }
 
   ondeleteclick($event, item) {
@@ -115,11 +126,12 @@ export class CommodityComponent implements OnInit {
   }
 
   onHtsChange(item, commodity) {
-    if (item){
+    if (item) {
       commodity.commodityLineDetails.commodityDescription = item.name.substring(0, 45);
-      commodity.commodityLineDetails.quantity1Uom = item.uom;
+      commodity.commodityLineDetails.quantity1Uom = item.uom1 ? item.uom1 : null;
+      commodity.commodityLineDetails.quantity2Uom = item.uom2 ? item.uom2 : null;
     }
-    else{
+    else {
       commodity.commodityLineDetails.commodityDescription = '';
     }
   }
