@@ -24,6 +24,8 @@ export class MasterData {
             { id: "11", name: "Vessel, Containerized" },
             { id: "34", name: "Road, Other" },
             { id: "40", name: "Air" },
+            { id: "30", name: "Truck" },
+            { id: "31", name: "Truck, Containerized" },
         ]
     }
 
