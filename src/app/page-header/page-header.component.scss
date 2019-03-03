@@ -95,78 +95,216 @@
 
 ul.steps {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  border-radius: 6px;
-  padding: 15px 20px;
-  list-style: none;
-  background: var(--white);
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  width: 97%;
-  bottom: 0;
-  position: absolute;
-  top: 131px;
-  height: 57px;
-  justify-content: space-between;
-  li {
-      color: var(--light-gray);
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      
-      &:before {
-          content: "\63";
-          font-family: "untitled-font-4";
-          position: absolute;
-          left: -231px;
-          top: 0px;
-          font-size: 20px;
-      }
-      i {
-          background: var(--light-gray);
-          color: #fff;
-          height: 14px;
-          float: left;
-          width: 14px;
-          line-height: 17px;
-          text-align: center;
-          margin: 4px 6px 0 0;
-          font-size: 8px;
-          border-radius: 100%;
-      }
-      a {
-          cursor: pointer;
-          color: var(--light-gray);
-          overflow: hidden;
-          &.active {
-              color: var(--primary);
-              i {
-                  background: var(--primary);
-              }
-          }
-      }
-      &.error {
-          a {
-              color: var(--warning);
-              i {
-                  background: var(--warning);
-              }
-          }
-          .numb-error {
-              background: var(--warning);
-              color: var(--white);
-              border-radius: 8px;
-              padding: 4px 10px;
-              font-size: 10px;
-              margin-left: 15px;
-              line-height: 10px;
-          }
-      }
-  }
+    border-radius: 6px;
+    padding: 1px 4px !important;
+    list-style: none;
+    background: var(--white) !important;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 96%;
+    bottom: 0;
+    position: absolute;
+    top: 131px;
+    height: 57px;
+    justify-content: space-between;
 }
 .wait-msg{
   color: yellow;
   font-weight: 400;
   font-size: 19px;
+}
+
+
+.cd-breadcrumb, .cd-multi-steps {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  background-color: #edeff0;
+  border-radius: .25em;
+}
+.cd-breadcrumb:after, .cd-multi-steps:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.cd-breadcrumb li, .cd-multi-steps li {
+  display: inline-block;
+  float: left;
+  cursor: pointer;
+  margin: 0.5em 0;
+  flex-grow: 1;
+}
+.cd-breadcrumb li::after, .cd-multi-steps li::after {
+  /* this is the separator between items */
+  display: inline-block;
+  content: '\00bb';
+  margin: 0 .6em;
+  color: #959fa5;
+}
+.cd-breadcrumb li:last-of-type::after, .cd-multi-steps li:last-of-type::after {
+  /* hide separator after the last item */
+  display: none;
+}
+.cd-breadcrumb li > *, .cd-multi-steps li > * {
+  /* single step */
+  display: inline-block;
+  font-size: 1rem;
+  color: #2c3f4c;
+}
+.cd-breadcrumb li.current > *, .cd-multi-steps li.current > * {
+  /* selected step */
+  color: #96c03d;
+}
+.no-touch .cd-breadcrumb a:hover, .no-touch .cd-multi-steps a:hover {
+  /* steps already visited */
+  color: #96c03d;
+}
+.cd-breadcrumb.custom-separator li::after, .cd-multi-steps.custom-separator li::after {
+  /* replace the default arrow separator with a custom icon */
+  content: '';
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .cd-breadcrumb, .cd-multi-steps {
+    padding: 0 1.2em;
+  }
+  .cd-breadcrumb li, .cd-multi-steps li {
+    margin: 1.2em 0;
+  }
+  .cd-breadcrumb li::after, .cd-multi-steps li::after {
+    margin: 0 1em;
+  }
+  .cd-breadcrumb li > *, .cd-multi-steps li > * {
+    font-size: 1rem;
+  }
+}
+
+/* -------------------------------- 
+
+Triangle breadcrumb
+
+-------------------------------- */
+@media only screen and (min-width: 768px) {
+  .cd-breadcrumb.triangle {
+    /* reset basic style */
+    background-color: transparent;
+    padding: 0;
+  }
+  .cd-breadcrumb.triangle li {
+    position: relative;
+    padding: 0;
+    margin: 4px 4px 4px 0;
+  }
+  .cd-breadcrumb.triangle li:last-of-type {
+    margin-right: 0;
+  }
+  .cd-breadcrumb.triangle li > * {
+    position: relative;
+    padding: 13px 0 11px 39px;
+    color: #2c3f4c;
+    width: 100%;
+    background-color: #edeff0;
+    /* the border color is used to style its ::after pseudo-element */
+    border-color: #edeff0;
+  }
+  .cd-breadcrumb.triangle li.current > * {
+    /* selected step */
+    color: #ffffff;
+    background-color: var(--primary);
+    border-color: var(--primary);
+  }
+  .cd-breadcrumb.triangle li:first-of-type > * {
+    padding-left: 1.6em;
+    border-radius: .25em 0 0 .25em;
+  }
+  .cd-breadcrumb.triangle li:last-of-type > * {
+    padding-right: 1.6em;
+    border-radius: 0 .25em .25em 0;
+  }
+  .no-touch .cd-breadcrumb.triangle a:hover {
+    /* steps already visited */
+    color: #ffffff;
+    background-color: #2c3f4c;
+    border-color: #2c3f4c;
+  }
+  .cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after {
+    /* 
+    	li > *::after is the colored triangle after each item
+    	li::after is the white separator between two items
+    */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    content: '';
+    height: 0;
+    width: 0;
+    /* 48px is the height of the <a> element */
+    border: 24px solid transparent;
+    border-right-width: 0;
+    border-left-width: 25.5px;
+  }
+  .cd-breadcrumb.triangle li::after {
+    /* this is the white separator between two items */
+    z-index: 1;
+    -webkit-transform: translateX(4px);
+    -moz-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    -o-transform: translateX(4px);
+    transform: translateX(4px);
+    border-left-color: #ffffff;
+    /* reset style */
+    margin: 0;
+  }
+  .cd-breadcrumb.triangle li > *::after {
+    /* this is the colored triangle after each element */
+    z-index: 2;
+    border-left-color: inherit;
+  }
+  .cd-breadcrumb.triangle li:last-of-type::after, .cd-breadcrumb.triangle li:last-of-type > *::after {
+    /* hide the triangle after the last step */
+    display: none;
+  }
+  .cd-breadcrumb.triangle.custom-separator li::after {
+    /* reset style */
+    background-image: none;
+  }
+  .cd-breadcrumb.triangle.custom-icons li::after, .cd-breadcrumb.triangle.custom-icons li > *::after {
+    /* 50px is the height of the <a> element */
+    border-top-width: 25px;
+    border-bottom-width: 25px;
+  }
+
+  @-moz-document url-prefix() {
+    .cd-breadcrumb.triangle li::after,
+    .cd-breadcrumb.triangle li > *::after {
+      /* fix a bug on Firefix - tooth edge on css triangle */
+      border-left-style: dashed;
+    }
+  }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: var(--white);
+  padding: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light-gray); 
+  border-radius: 10px;
 }
