@@ -18,16 +18,17 @@
   <div *ngIf="aes.submissionStatus =='SUBMITTED' || aes.submissionStatus =='GETS APPROVED'" class="wait-msg">Changes from booking screen will not be upated while waiting for response from GETS/Customs !</div>
   <!-- <h4 *ngIf="aes.draftDate">Draft last saved : {{aes.draftDate}}</h4> -->
 
-  <ul class="steps">
-    <li *ngFor="let item of menulist">
-      <a [class.active]="item.name == activeMenu" (click)="changeActive(item)">
+  
+		<ul class="steps cd-breadcrumb triangle">
+			<li *ngFor="let item of menulist" [class.current]="item.name == activeMenu" (click)="changeActive(item)"><span>{{item.name}}</span></li>
+    </ul>
+
+  <!-- <ul class="steps">
+    <li *ngFor="let item of menulist" [class.active]="item.name == activeMenu" (click)="changeActive(item)">
+      <a>
         <i class="icon-shape"></i> {{item.name}}</a>
     </li>
-    <!-- <li><a><i class="icon-shape"></i> Parties</a></li>
-    <li><a><i class="icon-shape"></i> Commodity</a></li>
-    <li><a><i class="icon-shape"></i> Transportation</a></li> -->
-    <!-- <span class="numb-error">4</span> -->
-  </ul>
+  </ul> -->
 </div>
 
 <ng-template #modelcontent let-modal>
