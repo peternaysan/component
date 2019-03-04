@@ -91,8 +91,7 @@
         <div class="col-md-3">
           <label>Shipping Weight (whole Kilograms)
             <i class="mand">*</i>
-            <button data-balloon="Only numerals (0-9) are allowed.May be repoted as zeros for Road.Maxlength is 10."
-              data-balloon-pos="up">
+            <button data-balloon="Only numerals (0-9) are allowed.May be repoted as zeros for Road.Maxlength is 10." data-balloon-pos="up">
               <img src="../../assets/icons/info.svg">
             </button>
           </label>
@@ -202,8 +201,7 @@
           <div class="col-md-2">
             <label>ECCN
               <i class="mand">*</i>
-              <button data-balloon="Characters (Aa-Zz), numerals (0-9) and whitespaces are allowed. Maxlength is 5."
-                data-balloon-pos="up">
+              <button data-balloon="Characters (Aa-Zz), numerals (0-9) and whitespaces are allowed. Maxlength is 5." data-balloon-pos="up">
                 <img src="../../assets/icons/info.svg">
               </button>
             </label>
@@ -214,8 +212,8 @@
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <ng-select [items]="exportInformationCode" required bindLabel="name" bindValue="code" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode" [searchFn]="searchByIdAndName"
-              id="{{index}}-exportInformationCode" name="{{index}}-exportInformationCode">
+            <ng-select [items]="exportInformationCode" required bindLabel="name" bindValue="code" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode"
+              [searchFn]="searchByIdAndName" id="{{index}}-exportInformationCode" name="{{index}}-exportInformationCode">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>

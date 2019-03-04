@@ -49,7 +49,7 @@ export class CommodityComponent implements OnInit {
       c.commodityLineDetails.commodityAction = "A";
     });
 
-    this.originGoodsList = MasterData.originGoodsList;    
+    this.originGoodsList = MasterData.originGoodsList;
     this.uomList = MasterData.uomList;
     //this.exportInformationCode = MasterData.exportInformationCode;
     this.loadExportInformationCode();
@@ -143,10 +143,10 @@ export class CommodityComponent implements OnInit {
       )
     );
   }
-  private loadExportInformationCode() {    
-  this.lookupService.exportInformationCodes().subscribe(obj=>{
-    var items :any=obj;
-    this.exportInformationCode=items;
+  private loadExportInformationCode() {
+    this.lookupService.exportInformationCodes().subscribe(obj => {
+      var items: any = obj;
+      this.exportInformationCode = items;
     })
   }
 }
