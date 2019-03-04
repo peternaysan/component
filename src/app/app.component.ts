@@ -73,8 +73,7 @@ export class AppComponent {
     this.hubConnection = builder.withUrl(`${environment.apiBase}aesHub`).build();
     // message coming from the server
     this.hubConnection.on("getscallback", (data) => {
-      console.log("GETS ACK", data);
-      
+
       if (data.ack.aes.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber) {
         if (data.ack.aes.status == "SUCCESS") {
           this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
@@ -94,19 +93,20 @@ export class AppComponent {
     });
 
     this.hubConnection.on("customscallback", (data) => {
-      
-      console.log("Customs ACK", data);
-      if (data.status == 'CUSTOMS APPROVED') {
-        this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
-        this.aes.submissionStatus = "CUSTOMS APPROVED";
-      }
-      else if (data.status == 'CUSTOMS REJECTED') {
-        this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
-        this.aes.submissionStatus = "CUSTOMS REJECTED";
-      }
+      if (data.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber) {
+        if (data.status == 'CUSTOMS APPROVED') {
+          this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+          this.aes.submissionStatus = "CUSTOMS APPROVED";
+        }
+        else if (data.status == 'CUSTOMS REJECTED') {
+          this.toastr.error("Customs rejected submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
+          this.aes.submissionStatus = "CUSTOMS REJECTED";
+        }
 
-      this.aes.submissionStatusDescription = data.description;
-      this.aes.submissionResponse.customsResponseList=data.errorList;
+        this.aes.submissionStatusDescription = data.description;
+        this.aes.submissionResponse.customsResponseList = data.errorList;
+        this.aes.shipmentHeader.originalItn=data.itn;
+      }
     });
 
     // starting the connection
@@ -164,9 +164,9 @@ export class AppComponent {
       this.activeMenu = "Commodity";
       this.toastr.warning('Please fix validation errors in Commodity tab !', 'Validation');
       this.aes.commodityDetails.forEach(commodity => {
-          commodity.isExpanded=!commodity.isExpanded;
+        commodity.isExpanded = !commodity.isExpanded;
       });
-      
+
       return;
     }
     if (!this.transportComponent.isValid) {
@@ -190,8 +190,8 @@ export class AppComponent {
       console.log(err);
       this.toastr.error(err.error, 'Error', {
         timeOut: 0,
-        closeButton:true,
-        positionClass :'toast-top-full-width'
+        closeButton: true,
+        positionClass: 'toast-top-full-width'
       });
       this.submitBtnText = "Submit";
     });

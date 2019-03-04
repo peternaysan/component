@@ -46,26 +46,24 @@
             <i class="label-blue">(Schedule B Search Engine)</i>
             <i class="mand">*</i>
           </label>
-          <ng-select [items]="hts | async" bindLabel="code" placeholder="Search items" bindValue="code" required
-            [(ngModel)]="commodity.commodityLineDetails.htsNumber" (change)="onHtsChange($event,commodity)" id="{{index}}-htsNumber"
-            name="{{index}}-htsNumber" [typeahead]="htsinput">
+          <ng-select [items]="hts | async" bindLabel="code" placeholder="Search items" bindValue="code" required [(ngModel)]="commodity.commodityLineDetails.htsNumber"
+            (change)="onHtsChange($event,commodity)" id="{{index}}-htsNumber" name="{{index}}-htsNumber" [typeahead]="htsinput">
             <ng-template ng-option-tmp let-item="item">
               {{item.code}} - {{item.name}}
             </ng-template>
           </ng-select>
-          <label class="error-label" *ngIf="commodityForm.controls[index + '-htsNumber']?.errors?.required && (commodityForm.controls[index + '-htsNumber']?.touched || submitted)">This
-            field is required!!</label>
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-htsNumber']?.errors?.required && (commodityForm.controls[index + '-htsNumber']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
           <label>Commodity Description
-            <i class="mand">*</i><button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 45."
-              data-balloon-pos="up">
-              <img src="../../assets/icons/info.svg"></button>
+            <i class="mand">*</i>
+            <button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 45." data-balloon-pos="up">
+              <img src="../../assets/icons/info.svg">
+            </button>
           </label>
           <input type="text" required [(ngModel)]="commodity.commodityLineDetails.commodityDescription" id="{{index}}-commodityDescription"
             name="{{index}}-commodityDescription" maxlength="45" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
-          <label class="error-label" *ngIf="commodityForm.controls[index + '-commodityDescription']?.errors?.required && (commodityForm.controls[index + '-commodityDescription']?.touched || submitted)">This
-            field is required!!</label>
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-commodityDescription']?.errors?.required && (commodityForm.controls[index + '-commodityDescription']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
           <label>Origin of Goods
@@ -78,40 +76,46 @@
           </ng-select>
         </div>
         <div class="col-md-3">
-          <label>Value of Goods (whole US Dollars)<i class="mand">*</i><button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
-              data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
+          <label>Value of Goods (whole US Dollars)
+            <i class="mand">*</i>
+            <button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10." data-balloon-pos="up">
+              <img src="../../assets/icons/info.svg">
+            </button>
           </label>
           <input type="number" id="{{index}}-valueofGoods" name="{{index}}-valueofGoods" required [(ngModel)]="commodity.commodityLineDetails.valueofGoods"
             maxlength="10" pattern="^\d+$">
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-valueofGoods']?.errors?.required && (commodityForm.controls[index + '-valueofGoods']?.touched || submitted)">This
-                field is required!!</label>
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-valueofGoods']?.errors?.required && (commodityForm.controls[index + '-valueofGoods']?.touched || submitted)">This field is required!!</label>
         </div>
       </div>
       <div class="row mb-4">
         <div class="col-md-3">
-          <label>Shipping Weight (whole Kilograms)<i class="mand">*</i><button data-balloon="Only numerals (0-9) are allowed.May be repoted as zeros for Road.Maxlength is 10."
-              data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
-          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" required id="{{index}}-shippingWeight"
-            name="{{index}}-shippingWeight" maxlength="10" pattern="^\d+$">
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-shippingWeight']?.errors?.required && (commodityForm.controls[index + '-shippingWeight']?.touched || submitted)">This
-                field is required!!</label>
+          <label>Shipping Weight (whole Kilograms)
+            <i class="mand">*</i>
+            <button data-balloon="Only numerals (0-9) are allowed.May be repoted as zeros for Road.Maxlength is 10."
+              data-balloon-pos="up">
+              <img src="../../assets/icons/info.svg">
+            </button>
+          </label>
+          <input type="number" [(ngModel)]="commodity.commodityLineDetails.shippingWeight" required id="{{index}}-shippingWeight" name="{{index}}-shippingWeight"
+            maxlength="10" pattern="^\d+$">
+          <label class="error-label" *ngIf="commodityForm.controls[index + '-shippingWeight']?.errors?.required && (commodityForm.controls[index + '-shippingWeight']?.touched || submitted)">This field is required!!</label>
         </div>
         <div class="col-md-3">
           <div class="row  mb-4">
             <div class="col-md-6">
               <label>1st Quantity
                 <i *ngIf="commodity.commodityLineDetails.quantity1Uom != 'X'" class="mand">*</i>
-                <button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10."
-                  data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
+                <button data-balloon="Only numerals (0-9) are allowed. May be reported as zeros. Maxlength is 10." data-balloon-pos="up">
+                  <img src="../../assets/icons/info.svg">
+                </button>
               </label>
-              <input type="number"  [(ngModel)]="commodity.commodityLineDetails.quantity1" 
-              [required]="commodity.commodityLineDetails.quantity1Uom != 'X'" id="{{index}}-quantity" name="{{index}}-quantity"
-                maxlength="10" pattern="^\d+$">
-                <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity']?.errors?.required && (commodityForm.controls[index + '-quantity']?.touched || submitted)">This
-                    field is required!!</label>
+              <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity1" [required]="commodity.commodityLineDetails.quantity1Uom != 'X'"
+                id="{{index}}-quantity" name="{{index}}-quantity" maxlength="10" pattern="^\d+$">
+              <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity']?.errors?.required && (commodityForm.controls[index + '-quantity']?.touched || submitted)">This field is required!!</label>
             </div>
             <div class="col-md-6">
-              <label>1st UOM<i class="mand">*</i>
+              <label>1st UOM
+                <i class="mand">*</i>
               </label>
               <ng-select [items]="uomList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom"
                 id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom">
@@ -119,16 +123,17 @@
                   {{item.code}} - {{item.name}}
                 </ng-template>
               </ng-select>
-              <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity1Uom']?.errors?.required && (commodityForm.controls[index + '-quantity1Uom']?.touched || submitted)">This
-                  field is required!!</label>
+              <label class="error-label" *ngIf="commodityForm.controls[index + '-quantity1Uom']?.errors?.required && (commodityForm.controls[index + '-quantity1Uom']?.touched || submitted)">This field is required!!</label>
             </div>
           </div>
         </div>
         <div class="col-md-3">
           <div class="row">
             <div class="col-md-6">
-              <label>2nd Quantity<button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
-                  data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
+              <label>2nd Quantity
+                <button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10." data-balloon-pos="up">
+                  <img src="../../assets/icons/info.svg">
+                </button>
               </label>
               <input type="number" [(ngModel)]="commodity.commodityLineDetails.quantity2" id="{{index}}-quantity2" name="{{index}}-quantity2"
                 maxlength="13" pattern="^\d+$">
@@ -167,52 +172,55 @@
               <i class="mand">*</i>
             </label>
             <ng-select [items]="licExemptionCode | async" bindLabel="code" bindValue="code" required id="{{index}}-licenseExemptionCode"
-              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode"
-              [typeahead]="licExemptionCodeinput" [(ngModel)]="selectedPersons">
+              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [typeahead]="licExemptionCodeinput">
               <ng-template ng-option-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
             </ng-select>
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-licenseExemptionCode']?.errors?.required && (commodityForm.controls[index + '-licenseExemptionCode']?.touched || submitted)">This
-              field is required!!</label>
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-licenseExemptionCode']?.errors?.required && (commodityForm.controls[index + '-licenseExemptionCode']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-3">
             <label>Export License No.
-              <i class="mand">*</i><button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 12."
-                data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button>
+              <i class="mand">*</i>
+              <button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 12." data-balloon-pos="up">
+                <img src="../../assets/icons/info.svg">
+              </button>
             </label>
             <input type="text" required id="exportLicenseNumber" name="{{index}}-exportLicenseNumber" [(ngModel)]="commodity.licenseDetails.exportLicenseNumber"
               maxlength="12" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportLicenseNumber']?.errors?.required && (commodityForm.controls[index + '-exportLicenseNumber']?.touched || submitted)">This
-              field is required!!</label>
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportLicenseNumber']?.errors?.required && (commodityForm.controls[index + '-exportLicenseNumber']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-2">
-            <label>License Value<button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10."
-                data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
-            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue"
-              maxlength="10" pattern="^\d+$">
+            <label>License Value
+              <button data-balloon="Only numerals (0-9) are allowed. Maxlength is 10." data-balloon-pos="up">
+                <img src="../../assets/icons/info.svg">
+              </button>
+            </label>
+            <input type="text" id="licenseValue" name="{{index}}-licenseValue" [(ngModel)]="commodity.licenseDetails.licenseValue" maxlength="10"
+              pattern="^\d+$">
           </div>
           <div class="col-md-2">
-            <label>ECCN<i class="mand">*</i><button data-balloon="Characters (Aa-Zz), numerals (0-9) and whitespaces are allowed. Maxlength is 5."
-                data-balloon-pos="up"><img src="../../assets/icons/info.svg"></button></label>
-            <input type="text" id="eccn" name="{{index}}-eccn" required [(ngModel)]="commodity.licenseDetails.eccn"
-              maxlength="5" pattern="[\sa-zA-Z0-9]+">
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-eccn']?.errors?.required && (commodityForm.controls[index + '-eccn']?.touched || submitted)">This
-              field is required!!</label>
+            <label>ECCN
+              <i class="mand">*</i>
+              <button data-balloon="Characters (Aa-Zz), numerals (0-9) and whitespaces are allowed. Maxlength is 5."
+                data-balloon-pos="up">
+                <img src="../../assets/icons/info.svg">
+              </button>
+            </label>
+            <input type="text" id="eccn" name="{{index}}-eccn" required [(ngModel)]="commodity.licenseDetails.eccn" maxlength="5" pattern="[\sa-zA-Z0-9]+">
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-eccn']?.errors?.required && (commodityForm.controls[index + '-eccn']?.touched || submitted)">This field is required!!</label>
           </div>
           <div class="col-md-2">
             <label>Export Information Code
               <i class="mand">*</i>
             </label>
-            <ng-select [items]="exportInformationCode" required  bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName"
-              [(ngModel)]="commodity.commodityLineDetails.exportInformationCode" id="{{index}}-exportInformationCode"
-              name="{{index}}-exportInformationCode">
+            <ng-select [items]="exportInformationCode" required bindLabel="name" bindValue="code" [(ngModel)]="commodity.commodityLineDetails.exportInformationCode" [searchFn]="searchByIdAndName"
+              id="{{index}}-exportInformationCode" name="{{index}}-exportInformationCode">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
             </ng-select>
-            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportInformationCode']?.errors?.required && (commodityForm.controls[index + '-exportInformationCode']?.touched || submitted)">This
-              field is required!!</label>
+            <label class="error-label" *ngIf="commodityForm.controls[index + '-exportInformationCode']?.errors?.required && (commodityForm.controls[index + '-exportInformationCode']?.touched || submitted)">This field is required!!</label>
           </div>
         </div>
       </div>
