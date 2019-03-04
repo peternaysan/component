@@ -105,7 +105,7 @@ export class AppComponent {
 
         this.aes.submissionStatusDescription = data.description;
         this.aes.submissionResponse.customsResponseList = data.errorList;
-        this.aes.shipmentHeader.originalItn=data.itn;
+        this.aes.shipmentHeader.originalItn = data.itn;
       }
     });
 
