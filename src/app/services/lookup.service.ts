@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { AppSettings } from '../shared/app-settings'
 
 
 @Injectable()
@@ -24,5 +23,8 @@ export class LookupService {
         return this.http
         .get(environment.apiUrl + 'lookup/getlicexemptioncode?='+term);
       }
-
+      exportInformationCodes(){
+        return this.http
+        .get(environment.apiUrl + 'lookup/getexportinformationcode');
+      }
 }

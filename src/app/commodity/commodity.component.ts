@@ -14,7 +14,6 @@ import { LookupService } from '../services/lookup.service';
 
 export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
-
   @Input() aes;
   @ViewChild("commodityForm") commodityForm: NgForm;
   originGoodsList: any = [];
@@ -51,8 +50,9 @@ export class CommodityComponent implements OnInit {
     });
 
     this.originGoodsList = MasterData.originGoodsList;
-    this.exportInformationCode = MasterData.exportInformationCode;
     this.uomList = MasterData.uomList;
+    //this.exportInformationCode = MasterData.exportInformationCode;
+    this.loadExportInformationCode();
     this.loadHtsCodes();
     this.loadLicExemptionCode();
     //initial binding of uom1 and uom2  
@@ -98,6 +98,7 @@ export class CommodityComponent implements OnInit {
     }
   }
 
+
   private loadHtsCodes() {
     var self = this;
     this.hts = concat(
@@ -113,15 +114,6 @@ export class CommodityComponent implements OnInit {
       )
     );
 
-    // setTimeout(() => {
-
-    //   if (self.commodityDetails[0].commodityLineDetails.htsNumber) {
-    //     self.htsinput.next(self.commodityDetails[0].commodityLineDetails.htsNumber);
-    //   }
-    //   if (self.commodityDetails[1].commodityLineDetails.htsNumber) {
-    //     self.htsinput.next(self.commodityDetails[1].commodityLineDetails.htsNumber);
-    //   }
-    // }, 2000);
 
   }
 
@@ -150,5 +142,11 @@ export class CommodityComponent implements OnInit {
         ))
       )
     );
+  }
+  private loadExportInformationCode() {
+    this.lookupService.exportInformationCodes().subscribe(obj => {
+      var items: any = obj;
+      this.exportInformationCode = items;
+    })
   }
 }
