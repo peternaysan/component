@@ -172,7 +172,7 @@
             </label>
             <ng-select [items]="licExemptionCode | async" bindLabel="code" bindValue="code" required id="{{index}}-licenseExemptionCode"
               name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [typeahead]="licExemptionCodeinput">
-              <ng-template ng-option-tmp let-item="item">
+              <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
             </ng-select>
