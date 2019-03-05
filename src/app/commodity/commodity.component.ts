@@ -127,7 +127,11 @@ export class CommodityComponent implements OnInit {
       commodity.commodityLineDetails.commodityDescription = '';
     }
   }
-
+  onlicExemptionCodeChange(item,commodity){
+    if (item && item.code=="C33") {
+      commodity.licenseDetails.exportLicenseNumber="NLR";
+    }
+  }
   private loadLicExemptionCode() {
     this.licExemptionCode = concat(
       of([]),
