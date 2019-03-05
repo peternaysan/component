@@ -171,7 +171,7 @@
               <i class="mand">*</i>
             </label>
             <ng-select [items]="licExemptionCode | async" bindLabel="code" bindValue="code" required id="{{index}}-licenseExemptionCode"
-              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [typeahead]="licExemptionCodeinput">
+              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [typeahead]="licExemptionCodeinput" (change)="onlicExemptionCodeChange($event,commodity)">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
