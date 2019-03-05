@@ -7,7 +7,7 @@
     <div class="commodity-line" [class.active]="commodity.isExpanded" (click)="commodity.isExpanded = !commodity.isExpanded">
       <h2>{{index+1}}</h2>
       <div class="summary">
-        <div class="item">
+        <div class="item-desc">
           <strong>Description</strong>
           {{commodity.commodityLineDetails.commodityDescription}}
         </div>
