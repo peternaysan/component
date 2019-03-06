@@ -36,5 +36,5 @@
 </ng-template>
 
 <ng-template #errModelContent let-modal>
-  <aes-error-detail [aes]="aes" (closeClick)="modal.close()"></aes-error-detail>
+  <aes-error-detail *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED' || aes.submissionStatus == 'CUSTOMS APPROVED'" [aes]="aes" (closeClick)="modal.close()"></aes-error-detail>
 </ng-template>
