@@ -126,10 +126,36 @@ export class CommodityComponent implements OnInit {
     else {
       commodity.commodityLineDetails.commodityDescription = '';
     }
+    this.populateQtyBasedOnUom(commodity, commodity.commodityLineDetails.quantity1Uom, commodity.commodityLineDetails.quantity2Uom);
   }
-  onlicExemptionCodeChange(item,commodity){
-    if (item && item.code=="C33") {
-      commodity.licenseDetails.exportLicenseNumber="NLR";
+  populateQtyBasedOnUom(commodity, uom1, uom2) {
+    if (uom1 == "KG") {
+      commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
+    }
+    if (uom2 == "KG") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
+    }
+    if (uom2 == "NO" || uom2 == "DOZ") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    }
+  }
+  onUom1Change(item, commodity) {
+    if (item.code == "KG") {
+      commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
+    }
+
+  }
+  onUom2Change(item, commodity) {
+    if (item.code == "KG") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
+    }
+    else if (item.code == "NO" || item.code == "DOZ") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    }
+  }
+  onlicExemptionCodeChange(item, commodity) {
+    if (item && item.code == "C33") {
+      commodity.licenseDetails.exportLicenseNumber = "NLR";
     }
   }
   private loadLicExemptionCode() {
