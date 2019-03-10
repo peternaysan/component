@@ -117,7 +117,7 @@
                 <i class="mand">*</i>
               </label>
               <ng-select [items]="uomList" required bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity1Uom"
-                id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom">
+                id="{{index}}-quantity1Uom" name="{{index}}-quantity1Uom" (change)="onUom1Change($event,commodity)">
                 <ng-template ng-option-tmp ng-label-tmp let-item="item">
                   {{item.code}} - {{item.name}}
                 </ng-template>
@@ -141,7 +141,7 @@
               <label>2nd UOM
               </label>
               <ng-select [items]="uomList" bindLabel="name" bindValue="code" [searchFn]="searchByIdAndName" [(ngModel)]="commodity.commodityLineDetails.quantity2Uom"
-                id="{{index}}-quantity2Uom" name="{{index}}-quantity2Uom">
+                id="{{index}}-quantity2Uom" name="{{index}}-quantity2Uom" (change)="onUom2Change($event,commodity)">
                 <ng-template ng-option-tmp ng-label-tmp let-item="item">
                   {{item.code}} - {{item.name}}
                 </ng-template>
