@@ -51,7 +51,6 @@ export class CommodityComponent implements OnInit {
 
     this.originGoodsList = MasterData.originGoodsList;
     this.uomList = MasterData.uomList;
-    //this.exportInformationCode = MasterData.exportInformationCode;
     this.loadExportInformationCode();
     this.loadHtsCodes();
     this.loadLicExemptionCode();
@@ -62,6 +61,7 @@ export class CommodityComponent implements OnInit {
           var htsItems = items as any;
           if (htsItems && htsItems.length > 0) {
             this.onHtsChange(htsItems[0], c);
+            this.populateQtyBasedOnUom(c, c.commodityLineDetails.quantity1Uom, c.commodityLineDetails.quantity2Uom);
           }
         })
       }
@@ -126,22 +126,30 @@ export class CommodityComponent implements OnInit {
     else {
       commodity.commodityLineDetails.commodityDescription = '';
     }
-    this.populateQtyBasedOnUom(commodity, commodity.commodityLineDetails.quantity1Uom, commodity.commodityLineDetails.quantity2Uom);
   }
   populateQtyBasedOnUom(commodity, uom1, uom2) {
     if (uom1 == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
     }
+    else if (uom1 == "X") {
+      commodity.commodityLineDetails.quantity1 = null;
+    }
     if (uom2 == "KG") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
     }
-    if (uom2 == "NO" || uom2 == "DOZ") {
+    else if (uom2 == "NO" || uom2 == "DOZ") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    }
+    else if(uom2 == "X") {
+      commodity.commodityLineDetails.quantity2 = null;
     }
   }
   onUom1Change(item, commodity) {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
+    }
+    else if (item.code  == "X") {
+      commodity.commodityLineDetails.quantity1 = null;
     }
 
   }
@@ -151,6 +159,9 @@ export class CommodityComponent implements OnInit {
     }
     else if (item.code == "NO" || item.code == "DOZ") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    }
+    else if (item.code  == "X") {
+      commodity.commodityLineDetails.quantity2 = null;
     }
   }
   onlicExemptionCodeChange(item, commodity) {
