@@ -61,7 +61,7 @@ export class CommodityComponent implements OnInit {
           var htsItems = items as any;
           if (htsItems && htsItems.length > 0) {
             this.onHtsChange(htsItems[0], c);
-            this.populateQtyBasedOnUom(c, c.commodityLineDetails.quantity1Uom, c.commodityLineDetails.quantity2Uom);
+            
           }
         })
       }
@@ -126,6 +126,7 @@ export class CommodityComponent implements OnInit {
     else {
       commodity.commodityLineDetails.commodityDescription = '';
     }
+    this.populateQtyBasedOnUom(commodity, commodity.commodityLineDetails.quantity1Uom, commodity.commodityLineDetails.quantity2Uom);
   }
   populateQtyBasedOnUom(commodity, uom1, uom2) {
     if (uom1 == "KG") {
