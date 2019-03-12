@@ -165,14 +165,13 @@
         <!-- <h5 class="secondar-heading">Department of Commerce License - NLR NO LICENSE REQUIRED, OR ONLY CONTROLLED FOR
         ANTI-TERRORISM (AT)</h5> -->
         <h5>License Details</h5>
-
         <div class="row mb-4">
           <div class="col-md-3">
             <label>Liscense Type Code/License Exemption Code
               <i class="mand">*</i>
             </label>
-            <ng-select [items]="licExemptionCode | async" bindLabel="code" bindValue="code" required id="{{index}}-licenseExemptionCode"
-              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [typeahead]="licExemptionCodeinput" (change)="onlicExemptionCodeChange($event,commodity)">
+            <ng-select [items]="licExemptionCode" bindLabel="name" bindValue="code" required id="{{index}}-licenseExemptionCode"
+              name="{{index}}-licenseExemptionCode" [(ngModel)]="commodity.licenseDetails.licenseExemptionCode" [searchFn]="searchByIdAndName" (change)="onlicExemptionCodeChange($event,commodity)">
               <ng-template ng-option-tmp ng-label-tmp let-item="item">
                 {{item.code}} - {{item.name}}
               </ng-template>
