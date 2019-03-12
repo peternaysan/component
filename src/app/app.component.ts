@@ -74,7 +74,7 @@ export class AppComponent {
     // message coming from the server
     this.hubConnection.on("getscallback", (data) => {
 
-      if (data.ack.aes.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber) {
+      if (data.ack.aes.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber && data.senderappcode == this.aes.header.senderappcode) {
         if (data.ack.aes.status == "SUCCESS") {
           this.toastr.success("GETS approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
           this.aes.submissionStatus = "GETS APPROVED";
@@ -93,7 +93,7 @@ export class AppComponent {
     });
 
     this.hubConnection.on("customscallback", (data) => {
-      if (data.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber) {
+      if (data.shipmentRefNo == this.aes.shipmentHeader.shipmentReferenceNumber && data.senderappcode == this.aes.header.senderappcode) {
         if (data.status == 'CUSTOMS APPROVED') {
           this.toastr.success("Customs approved submission : " + this.aes.shipmentHeader.shipmentReferenceNumber);
           this.aes.submissionStatus = "CUSTOMS APPROVED";
@@ -104,7 +104,7 @@ export class AppComponent {
         }
 
         this.aes.submissionStatusDescription = data.description;
-        if(!this.aes.submissionResponse){
+        if (!this.aes.submissionResponse) {
           this.aes.submissionResponse = {};
         }
         this.aes.submissionResponse.customsResponseList = data.errorList;
