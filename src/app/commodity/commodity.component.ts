@@ -61,9 +61,11 @@ export class CommodityComponent implements OnInit {
           var htsItems = items as any;
           if (htsItems && htsItems.length > 0) {
             this.onHtsChange(htsItems[0], c);
-            
           }
         })
+      }
+      if (c.licenseDetails && c.licenseDetails.licenseExemptionCode == "C33") {
+        c.licenseDetails.exportLicenseNumber = "NLR";
       }
     });
   }
@@ -113,10 +115,7 @@ export class CommodityComponent implements OnInit {
         ))
       )
     );
-
-
   }
-
   onHtsChange(item, commodity) {
     if (item) {
       commodity.commodityLineDetails.commodityDescription = item.name.substring(0, 45);
@@ -141,7 +140,7 @@ export class CommodityComponent implements OnInit {
     else if (uom2 == "NO" || uom2 == "DOZ") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
     }
-    else if(uom2 == "X") {
+    else if (uom2 == "X") {
       commodity.commodityLineDetails.quantity2 = null;
     }
   }
@@ -149,7 +148,7 @@ export class CommodityComponent implements OnInit {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (item.code  == "X") {
+    else if (item.code == "X") {
       commodity.commodityLineDetails.quantity1 = null;
     }
 
@@ -161,29 +160,22 @@ export class CommodityComponent implements OnInit {
     else if (item.code == "NO" || item.code == "DOZ") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
     }
-    else if (item.code  == "X") {
+    else if (item.code == "X") {
       commodity.commodityLineDetails.quantity2 = null;
     }
   }
   onlicExemptionCodeChange(item, commodity) {
     if (item && item.code == "C33") {
       commodity.licenseDetails.exportLicenseNumber = "NLR";
+    }else{
+      commodity.licenseDetails.exportLicenseNumber = null;
     }
   }
   private loadLicExemptionCode() {
-    this.licExemptionCode = concat(
-      of([]),
-      this.licExemptionCodeinput.pipe(
-        debounceTime(200),
-        distinctUntilChanged(),
-        tap(() => this.licExemptionCodeLoading = true),
-        switchMap(term => this.lookupService.licExemptionCodes(term).pipe(
-          catchError(() => of([])),
-          tap(() => this.licExemptionCodeLoading =
-            false)
-        ))
-      )
-    );
+    this.lookupService.licExemptionCodes().subscribe(obj => {
+      var items: any = obj;
+      this.licExemptionCode = items;
+    });  
   }
   private loadExportInformationCode() {
     this.lookupService.exportInformationCodes().subscribe(obj => {

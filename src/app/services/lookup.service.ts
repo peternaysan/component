@@ -19,9 +19,9 @@ export class LookupService {
         .get(environment.apiUrl + 'lookup/gethtscode?='+term);
       }
 
-      licExemptionCodes(term:string){
+      licExemptionCodes(){
         return this.http
-        .get(environment.apiUrl + 'lookup/getlicexemptioncode?='+term);
+        .get(environment.apiUrl + 'lookup/getlicexemptioncode');
       }
       exportInformationCodes(){
         return this.http
