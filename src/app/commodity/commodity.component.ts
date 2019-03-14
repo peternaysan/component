@@ -57,8 +57,10 @@ export class CommodityComponent implements OnInit {
     //initial binding of uom1 and uom2  
     this.commodityDetails.forEach(c => {
       if (c.commodityLineDetails && c.commodityLineDetails.htsNumber) {
+        c.commodityLineDetails.originalQuantity1 = c.commodityLineDetails.quantity1;
         this.lookupService.htsCodes(c.commodityLineDetails.htsNumber).subscribe(items => {
           var htsItems = items as any;
+
           if (htsItems && htsItems.length > 0) {
             this.onHtsChange(htsItems[0], c);
           }
@@ -130,25 +132,29 @@ export class CommodityComponent implements OnInit {
   populateQtyBasedOnUom(commodity, uom1, uom2) {
     if (uom1 == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
-    }
-    else if (uom1 == "X") {
-      commodity.commodityLineDetails.quantity1 = null;
+    } else if (uom1 == "NO") {
+      commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.originalQuantity1;
     }
     if (uom2 == "KG") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (uom2 == "NO" || uom2 == "DOZ") {
-      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    else if (uom2 == "NO") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.originalQuantity1;
     }
-    else if (uom2 == "X") {
+    else {
+      commodity.commodityLineDetails.quantity1 = null;
       commodity.commodityLineDetails.quantity2 = null;
+
     }
   }
   onUom1Change(item, commodity) {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (item.code == "X") {
+    else if (item.code == "NO") {
+      commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.originalQuantity1;
+    }
+    else {
       commodity.commodityLineDetails.quantity1 = null;
     }
 
@@ -157,17 +163,17 @@ export class CommodityComponent implements OnInit {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (item.code == "NO" || item.code == "DOZ") {
-      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
+    else if (item.code == "NO") {
+      commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.originalQuantity1;
     }
-    else if (item.code == "X") {
+    else {
       commodity.commodityLineDetails.quantity2 = null;
     }
   }
   onlicExemptionCodeChange(item, commodity) {
     if (item && item.code == "C33") {
       commodity.licenseDetails.exportLicenseNumber = "NLR";
-    }else{
+    } else {
       commodity.licenseDetails.exportLicenseNumber = null;
     }
   }
@@ -175,7 +181,7 @@ export class CommodityComponent implements OnInit {
     this.lookupService.licExemptionCodes().subscribe(obj => {
       var items: any = obj;
       this.licExemptionCode = items;
-    });  
+    });
   }
   private loadExportInformationCode() {
     this.lookupService.exportInformationCodes().subscribe(obj => {
