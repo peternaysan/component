@@ -39,10 +39,10 @@ export class MasterData {
         ]
     }
     public static get usppiPartyIdTypeList(): any[] {
-        return [          
+        return [
             { id: "S", name: "SSN" },
             { id: "E", name: "EIN" },
-          
+
 
         ]
     }
@@ -56,7 +56,7 @@ export class MasterData {
         ]
     }
 
-    public static get ultimateConsigneeType():any{
+    public static get ultimateConsigneeType(): any {
         return [
             { id: "D", name: "Direct Consumer" },
             { id: "G", name: "Government Entity" },
@@ -3740,12 +3740,12 @@ export class MasterData {
             {
                 "code": "09670",
                 "name": "OSHAWA",
-                "country":"CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "09671",
                 "name": "WHITBY",
-                "country":"CANADA"
+                "country": "CANADA"
             },
             {
                 "code": "10100",
@@ -12858,61 +12858,68 @@ export class MasterData {
                 "country": "UNITED STATES"
             }
         ]
-    }    
+    }
 
     public static get uomList(): any[] {
-        return [{ "code": "AGG", "name": "Silver Content Grams" },
-        { "code": "AUG", "name": "Gold Content Grams" },
-        { "code": "BBL", "name": "Barrels" },
-        { "code": "CAR", "name": "Carats" },
-        { "code": "CBM", "name": "Cubic Meters" },
-        { "code": "CGM", "name": "Content Gram" },
-        { "code": "CKG", "name": "Content Kilogram" },
-        { "code": "CTN", "name": "Content Tons" },
-        { "code": "CUR", "name": "Curie" },
-        { "code": "CYK", "name": "Clean Yield Kilogram" },
-        { "code": "DOZ", "name": "Dozen" },
-        { "code": "DPC", "name": "Dozen Pieces" },
-        { "code": "DPR", "name": "Dozen Pairs<" },
-        { "code": "FBM", "name": "Fiber Meters" },
-        { "code": "GBQ", "name": "Gigabecquerels" },
-        { "code": "GCN", "name": "Gross Containers" },
-        { "code": "GRL", "name": "Gross Lines" },
-        { "code": "GRS", "name": "Gross" },
-        { "code": "HUN", "name": "Hundred" },
-        { "code": "IRG", "name": "Iridium Content Grams" },
-        { "code": "JWL", "name": "Jewels" },
-        { "code": "KTS", "name": "Kilograms Total Sugar" },
-        { "code": "LTR", "name": "Liters" },
-        { "code": "MBQ", "name": "Megabecquerels" },
-        { "code": "MTR", "name": "Meters" },
-        { "code": "MWH", "name": "Kilowatt Hours" },
-        { "code": "ODE", "name": "Ozone Depletion Equivalent" },
-        { "code": "OSG", "name": "Osmium Content Grams" },
-        { "code": "PCS", "name": "Pieces" },
-        { "code": "PDG", "name": "Palladium Content Gram" },
-        { "code": "PFL", "name": "Proof Liters" },
-        { "code": "PKS", "name": "Packs" },
-        { "code": "PRS", "name": "Pairs" },
-        { "code": "PTG", "name": "Plutonium Content Grams" },
-        { "code": "RBA", "name": "Running Bales" },
-        { "code": "RHG", "name": "Rhodium Content Grams" },
-        { "code": "RUG", "name": "Ruthemium Content Grams" },
-        { "code": "SCM", "name": "Square Centimeters" },
-        { "code": "SQM", "name": "Square Meters" },
-        { "code": "TCM", "name": "Thousand Cubic Meters" },
-        { "code": "KM3", "name": "KM3" },
-        { "code": "THM", "name": "Thousand Meters" },
-        { "code": "THS", "name": "Thousand" },
-        { "code": "TNV", "name": "Ton Raw Value" },
-        { "code": "TON", "name": "Ton" },
-        { "code":  "X", "name": "No Unit Required" },
-        { "code": "DS", "name": "Dose" },
-        { "code": "SQ", "name": "Square" },
-        { "code": "NO", "name": "Number" },
-        { "code": "KG", "name": "Kilograms" },
-        { "code": "GM", "name": "Grams" },
-        { "code": "G", "name": "G" },
-        { "code": "MC", "name": "Millicuries" }]
+        return [
+            { "code": "X", "name": "No Unit Required" },
+            { "code": "L", "name": "Liter" },
+            { "code": "T", "name": "Tones" },
+            { "code": "G", "name": "Grams" },
+            { "code": "M", "name": "Meter" },
+            { "code": "M2", "name": "Square Meter" },
+            { "code": "M3", "name": "Cubic meter" },
+            { "code": "DS", "name": "Dose" },
+            { "code": "NO", "name": "Number" },
+            { "code": "PK", "name": "Packs" },
+            { "code": "SQ", "name": "Square" },
+            { "code": "KG", "name": "Kilograms" },
+            { "code": "GM", "name": "Grams" },
+            { "code": "MC", "name": "Millicuries" },
+            { "code": "AGG", "name": "Silver Content Grams" },
+            { "code": "AUG", "name": "Gold Content Grams" },
+            { "code": "BBL", "name": "Barrels" },
+            { "code": "CAR", "name": "Carats" },
+            { "code": "CBM", "name": "Cubic Meters" },
+            { "code": "CGM", "name": "Content Gram" },
+            { "code": "CKG", "name": "Content Kilogram" },
+            { "code": "CM2", "name": "Square Centimeter" },
+            { "code": "CTN", "name": "Content Tons" },
+            { "code": "CUR", "name": "Curie" },
+            { "code": "CYK", "name": "Clean Yield Kilogram" },
+            { "code": "DOZ", "name": "Dozen" },
+            { "code": "DPC", "name": "Dozen Pieces" },
+            { "code": "DPR", "name": "Dozen Pairs	" },
+            { "code": "FBM", "name": "Fiber Meters	" },
+            { "code": "GBQ", "name": "Gigabecquerels" },
+            { "code": "GCN", "name": "Gross Containers	" },
+            { "code": "GRL", "name": "Gross Lines" },
+            { "code": "GRS", "name": "Gross" },
+            { "code": "HUN", "name": "Hundred" },
+            { "code": "IRG", "name": "Iridium Content Grams" },
+            { "code": "JWL", "name": "Jewels	" },
+            { "code": "KM3", "name": "Cubic Kilometer" },
+            { "code": "KTS", "name": "Kilograms Total Sugar	" },
+            { "code": "LTR", "name": "Liters	" },
+            { "code": "MBQ", "name": "Megabecquerels	" },
+            { "code": "MTR", "name": "Meters" },
+            { "code": "MWH", "name": "Kilowatt Hours	" },
+            { "code": "ODE", "name": "Ozone Depletion Equivalent" },
+            { "code": "OSG", "name": "Osmium Content Grams" },
+            { "code": "PCS", "name": "Pieces" },
+            { "code": "PDG", "name": "Palladium Content Gram" },
+            { "code": "PFL", "name": "Proof Liters	" },
+            { "code": "PRS", "name": "Pairs" },
+            { "code": "PTG", "name": "Plutonium Content Grams" },
+            { "code": "RBA", "name": "Running Bales" },
+            { "code": "RHG", "name": "Rhodium Content Grams" },
+            { "code": "RUG", "name": "Ruthemium Content Grams" },
+            { "code": "SCM", "name": "Square Centimeters	" },
+            { "code": "SQM", "name": "Square Meters	" },
+            { "code": "TCM", "name": "Thousand Cubic Meters" },
+            { "code": "THM", "name": "Thousand Meters" },
+            { "code": "THS", "name": "Thousand" },
+            { "code": "TNV", "name": "Ton Raw Value" },
+            { "code": "TON", "name": "Ton" }]
     }
 }
