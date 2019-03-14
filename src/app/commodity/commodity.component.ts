@@ -130,25 +130,24 @@ export class CommodityComponent implements OnInit {
   populateQtyBasedOnUom(commodity, uom1, uom2) {
     if (uom1 == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
-    }
-    else if (uom1 == "X") {
-      commodity.commodityLineDetails.quantity1 = null;
-    }
+    }    
     if (uom2 == "KG") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (uom2 == "NO" || uom2 == "DOZ") {
+    else if (uom2 == "NO") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
     }
-    else if (uom2 == "X") {
+    else {
+      commodity.commodityLineDetails.quantity1 = null;
       commodity.commodityLineDetails.quantity2 = null;
+
     }
   }
   onUom1Change(item, commodity) {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (item.code == "X") {
+    else {
       commodity.commodityLineDetails.quantity1 = null;
     }
 
@@ -157,10 +156,10 @@ export class CommodityComponent implements OnInit {
     if (item.code == "KG") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.shippingWeight;
     }
-    else if (item.code == "NO" || item.code == "DOZ") {
+    else if (item.code == "NO") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.quantity1;
     }
-    else if (item.code == "X") {
+    else  {
       commodity.commodityLineDetails.quantity2 = null;
     }
   }
