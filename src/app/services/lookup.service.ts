@@ -11,7 +11,7 @@ export class LookupService {
 
     states(country:string) {
         return this.http
-        .get(environment.apiUrl + 'lookup?country='+country);
+        .get(environment.apiUrl + 'lookup/getallstates?country='+country);
       }
 
       htsCodes(term:string){
