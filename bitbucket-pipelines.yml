@@ -20,19 +20,18 @@ pipelines:
             - apt-get install ncftp
             - ncftpput -v -u $FTP_USERNAME -p $FTP_PASSWORD -R $FTP_HOST $FTP_PATH dist/aes-component/*
             - echo Finished uploading /dist files to $FTP_HOST
-     production:
-      - step:
-         name: Deploy to Production
-         deployment: production
-          caches:
-            - node
-          script: # Start production build.
-            - npm install
-            - npm install -g @angular/cli
-            - ng build --prod
-            - ls -al
-            - apt-get update # Now run the FTP bash script to deploy dist folder to DEV1 ds
-            - apt-get install ncftp
-            - ncftpput -v -u $FTP_PRODUSERNAME -p $FTP_PRODPASSWORD -R $FTP_PRODHOST $FTP_PATH dist/aes-component/*
-            - echo Finished uploading /dist files to $FTP_PRODHOST
+
+    production:
+       - step:
+                caches:
+                  - node
+                script: # Start production build.
+                - npm install
+                - npm install -g @angular/cli
+                - ng build --prod
+                - ls -al
+                - apt-get update # Now run the FTP bash script to deploy dist folder to DEV1 ds
+                - apt-get install ncftp
+                - ncftpput -v -u $FTP_PRODUSERNAME -p $FTP_PRODPASSWORD -R $FTP_PRODHOST $FTP_PATH dist/aes-component/*
+                - echo Finished uploading /dist files to $FTP_PRODHOST
 
