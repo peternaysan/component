@@ -22,6 +22,8 @@ pipelines:
             - echo Finished uploading /dist files to $FTP_HOST
      production:
       - step:
+         name: Deploy to Production
+         deployment: production
           caches:
             - node
           script: # Start production build.
