@@ -29,7 +29,6 @@ export class AesService {
             }
         });
     }
-
     
     public getdashboardsummary() {
         return this.http.get(`${environment.apiUrl}dashboard/getsummary`);

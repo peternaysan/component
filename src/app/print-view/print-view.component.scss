@@ -52,3 +52,24 @@
 .notapproved {
     background: #FFBFBF;
 }
+.nopadding {
+    padding: 0 !important;
+}
+.nested-table {
+    border: none;
+    background: #EDEDED;
+    -webkit-print-color-adjust: exact;
+    margin: 0;
+    color: #929292;
+    th {
+        background: #EDEDED;
+        -webkit-print-color-adjust: exact;
+        padding: 5px;
+        border-left: none;
+        border-right: none;
+    }
+    td {
+        border: none;
+        padding: 5px;
+    }
+}
