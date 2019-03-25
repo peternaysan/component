@@ -73,12 +73,14 @@ export class CommodityComponent implements OnInit {
   }
 
   ondeleteclick($event, item) {
-    $event.stopPropagation();
-    console.log(item);
+    $event.stopPropagation(); 
     var index = this.commodityDetails.indexOf(item);
-    if (index >= 0) {
+    if (index >= 0) {      //this.commodityForm.controls[""]
       this.commodityDetails.splice(index, 1);
     }
+  }
+   trackByIndex(index: number) {
+    return index;
   }
   submitted = false;
   get isValid() {

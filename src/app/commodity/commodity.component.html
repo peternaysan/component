@@ -3,7 +3,7 @@
   <button class="btn btn-primary" type="button" (click)="addnewline()">Add New Row</button>
 </div>
 <form #commodityForm="ngForm">
-  <div class="accordion-box" *ngFor="let commodity of commodityDetails; let index=index;">
+  <div class="accordion-box" *ngFor="let commodity of commodityDetails;trackBy: trackByIndex; let index=index;">
     <div class="commodity-line" [class.active]="commodity.isExpanded" (click)="commodity.isExpanded = !commodity.isExpanded">
       <h2>{{index+1}}</h2>
       <div class="summary">
