@@ -35,7 +35,7 @@ export class PartiesComponent implements OnInit {
         this.originalUltimateConsignee = JSON.parse(JSON.stringify(element));
         if (!element.consigneeFromGf) {
           this.ultimateConsignee = element;
-          this.onChangeConsigneeFromGf(false);
+          this.onChangeConsigneeFromGf();
           this.ultimateConsignee.consigneeFromGf = "N";
         } else if (element.consigneeFromGf == "Y") {
           this.ultimateConsigneeFlag = true;
