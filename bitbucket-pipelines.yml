@@ -16,6 +16,7 @@ pipelines:
             - npm install -g @angular/cli
             - ng build --prod
             - ls -al
+            - sed -i '/jessie-updates/d' /etc/apt/sources.list
             - apt-get update # Now run the FTP bash script to deploy dist folder to DEV1 ds
             - apt-get install ncftp
             - ncftpput -v -u $FTP_USERNAME -p $FTP_PASSWORD -R $FTP_HOST $FTP_PATH dist/aes-component/*
