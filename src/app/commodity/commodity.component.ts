@@ -132,6 +132,8 @@ export class CommodityComponent implements OnInit {
     this.populateQtyBasedOnUom(commodity, commodity.commodityLineDetails.quantity1Uom, commodity.commodityLineDetails.quantity2Uom);
   }
   populateQtyBasedOnUom(commodity, uom1, uom2) {
+    commodity.commodityLineDetails.quantity1 = null;
+    commodity.commodityLineDetails.quantity2 = null;
     if (uom1 == "KG") {
       commodity.commodityLineDetails.quantity1 = commodity.commodityLineDetails.shippingWeight;
     } else if (uom1 == "NO") {
@@ -142,12 +144,7 @@ export class CommodityComponent implements OnInit {
     }
     else if (uom2 == "NO") {
       commodity.commodityLineDetails.quantity2 = commodity.commodityLineDetails.originalQuantity1;
-    }
-    else {
-      commodity.commodityLineDetails.quantity1 = null;
-      commodity.commodityLineDetails.quantity2 = null;
-
-    }
+    }    
   }
   onUom1Change(item, commodity) {
     if (item.code == "KG") {
