@@ -60,7 +60,7 @@
     background: #EDEDED;
     -webkit-print-color-adjust: exact;
     margin: 0;
-    color: #929292; 
+    color: #655f5f; 
     font-size: 11px;
     th {
         background: #EDEDED;
@@ -74,6 +74,7 @@
         padding: 5px; 
     }
 }
+
 @media print {
     width:600px;
     margin: 0;
@@ -84,4 +85,5 @@
         display: none !important;
     }
     .page-break	{ page-break-before: always; }
+    
 }
