@@ -1,6 +1,6 @@
 <div class="modal-header" *ngIf="aes" [class.approved]="aes.submissionStatus?.status == 'SUCCESS'" [class.canceled]="aes.submissionStatus?.status == 'FAIL'">
-  <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>
-  <div class="status">
+  <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>  
+  <div class="status">   
     <span>
       <i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.firstName:aes.pic.firstName}}</span>
     <span>
@@ -11,7 +11,7 @@
   </button>
 </div>
 <div class="modal-body">
-  <div class="content-box">
+  <div class="content-box" id="printbox">
     <div class="featured-fields">
       <h2>Shipment</h2>
       <ul>
@@ -74,7 +74,6 @@
         <td>{{party.stateCode}}</td>
       </tr>
     </table>
-
     <h2>Commodities</h2>
     <table class="table table-striped table-bordered">
       <tr>
@@ -96,7 +95,7 @@
           <td>{{commodity.commodityLineDetails.valueofGoods}}</td>
           <td>{{commodity.commodityLineDetails.shippingWeight}}</td>
           <td>{{commodity.commodityLineDetails.quantity1}}</td>
-          <td>{{commodity.commodityLineDetails.quantity1Uom}}</td>          
+          <td>{{commodity.commodityLineDetails.quantity1Uom}}</td>
           <td>{{commodity.commodityLineDetails.quantity2}}</td>
           <td>{{commodity.commodityLineDetails.quantity2Uom}}</td>
         </tr>
