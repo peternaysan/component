@@ -27,14 +27,13 @@ export class AesPrintViewComponent implements OnInit {
             // Few necessary setting options                       
             const contentDataURL = canvas.toDataURL('image/png')
             var imgWidth = 210; 
-            var pageHeight = 295;  
+            var pageHeight = 293;  
             var imgHeight = canvas.height * imgWidth / canvas.width;
             var heightLeft = imgHeight;
   
-            var doc = new jspdf('p', 'mm');
+            var doc = new jspdf('p', 'mm','a4');
             var position = 0;
-  
-            doc.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+            doc.addImage(contentDataURL, 'JPEG', 0, position, imgWidth, imgHeight);
             heightLeft -= pageHeight;
   
             while (heightLeft >= 0) {
