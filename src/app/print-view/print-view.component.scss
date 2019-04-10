@@ -76,11 +76,6 @@
 }
 
 @media print {
-    width:600px;
-    margin: 0;
-    .content-box {
-        overflow: visible !important;
-    }
     button {
         display: none !important;
     }

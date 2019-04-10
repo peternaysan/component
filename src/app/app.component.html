@@ -1,6 +1,6 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
 
-<div class="page" *ngIf="aes">
+<!-- <div class="page" *ngIf="aes">
   <div class="header-flex">   
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" (setPrintView)="onSetPrintView($event,modelcontent)"
       [activeMenu]="activeMenu"></page-header>
@@ -27,14 +27,15 @@
       </button>
     </div>
   </div>
-</div>
+</div> -->
 
 <aes-loader *ngIf="loading"></aes-loader>
 
-<ng-template #modelcontent let-modal>
+<!-- <ng-template #modelcontent let-modal>
   <aes-print-view [aes]="aesPrintView" (closeClick)="modal.close()"></aes-print-view>
-</ng-template>
+</ng-template> -->
+<aes-print-view></aes-print-view>
 
-<ng-template #errModelContent let-modal>
+<!-- <ng-template #errModelContent let-modal>
   <aes-error-detail [aes]="aes" (closeClick)="modal.close()"></aes-error-detail>
-</ng-template>
+</ng-template> -->
