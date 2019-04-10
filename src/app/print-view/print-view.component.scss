@@ -78,7 +78,8 @@
 @media print {
     button {
         display: none !important;
+    }   
+    .status{
+        display: none !important;
     }
-    .page-break	{ page-break-before: always; }
-    
 }

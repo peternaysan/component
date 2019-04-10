@@ -10,12 +10,12 @@ import html2canvas from 'html2canvas';
 
 export class AesPrintViewComponent implements OnInit {
     @Input() aes;
-    @Output() closeClick = new EventEmitter();
+    @Output() closeClick = new EventEmitter(); 
+    @Output() showMainView = new EventEmitter();    
     constructor() { }
 
     ngOnInit() {
         var self = this;
-
     }
 
     print() {
@@ -45,7 +45,10 @@ export class AesPrintViewComponent implements OnInit {
         // });
     }
 
-    close() {
+    retunToMainView(){
+        this.showMainView.emit({});
+    }
+    close() {        
         this.closeClick.emit({});
     }
 }

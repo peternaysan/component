@@ -1,11 +1,12 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
+<aes-print-view *ngIf="isPrintView" (closeClick)="togglePrint()" [aes]="aesPrintView"></aes-print-view>
 
-<!-- <div class="page" *ngIf="aes">
+<div class="page" *ngIf="aes && !isPrintView">
   <div class="header-flex">   
     <page-header [aes]="aes" (activemenuchanged)="onactivemenuchange($event)" (setPrintView)="onSetPrintView($event,modelcontent)"
       [activeMenu]="activeMenu"></page-header>
   </div>
-  <div class="content">
+  <div class="content" *ngIf="!isPrintView">
     <shipment-form [hidden]="activeMenu != 'Shipment'" [aes]="aes" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header"></shipment-form>
     <parties-form [hidden]="activeMenu != 'Parties'" [shipmentParty]="aes.shipmentParty"></parties-form>
     <commodity-form [hidden]="activeMenu != 'Commodity'" [aes]="aes" [commodityDetails]="aes.commodityDetails"></commodity-form>
@@ -20,22 +21,24 @@
     <div class="buttons-box float-right">
       <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED' || aes.submissionStatus == 'CUSTOMS APPROVED'"
         (click)="openErrorModal(errModelContent)">Response Details</button>
-      <button class="btn btn-secondary" (click)="openPrintView(modelcontent)">Print View</button>
+      <button class="btn btn-secondary" (click)="togglePrint()">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED' || aes.submissionStatus == 'GETS APPROVED'">Save Draft</button>
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'|| aes.submissionStatus == 'GETS APPROVED'">
         <span>{{submitBtnText}}</span>
       </button>
     </div>
   </div>
-</div> -->
+</div>
 
 <aes-loader *ngIf="loading"></aes-loader>
 
-<!-- <ng-template #modelcontent let-modal>
-  <aes-print-view [aes]="aesPrintView" (closeClick)="modal.close()"></aes-print-view>
-</ng-template> -->
-<aes-print-view></aes-print-view>
 
-<!-- <ng-template #errModelContent let-modal>
+
+<ng-template #modelcontent let-modal>
+  <aes-print-view [aes]="aesPrintView" (closeClick)="modal.close()"></aes-print-view>
+</ng-template>
+
+
+<ng-template #errModelContent let-modal>
   <aes-error-detail [aes]="aes" (closeClick)="modal.close()"></aes-error-detail>
-</ng-template> -->
+</ng-template>

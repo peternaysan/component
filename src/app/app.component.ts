@@ -23,6 +23,8 @@ export class AppComponent {
   activeMenu = "Shipment";
   submitBtnText = "Submit";
 
+  isPrintView=false;
+
   aesPrintView;
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
@@ -131,6 +133,9 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
+  togglePrint(){
+    this.isPrintView=!this.isPrintView;
+  }  
   openErrorModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
