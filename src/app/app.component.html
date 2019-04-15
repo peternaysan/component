@@ -1,5 +1,5 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
-<aes-print-view *ngIf="isPrintView" (closeClick)="togglePrint()" [aes]="aesPrintView"></aes-print-view>
+<aes-print-view *ngIf="isPrintView" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
 
 <div class="page" *ngIf="aes && !isPrintView">
   <div class="header-flex">   
@@ -35,7 +35,7 @@
 
 
 <ng-template #modelcontent let-modal>
-  <aes-print-view [aes]="aesPrintView" (closeClick)="modal.close()"></aes-print-view>
+  <aes-print-view [aes]="aesPrintView" [printView]=false (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
 
 
