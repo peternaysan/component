@@ -1,8 +1,9 @@
-<div class="modal-header" *ngIf="aes" [class.approved]="aes.submissionStatus?.status == 'SUCCESS'" [class.canceled]="aes.submissionStatus?.status == 'FAIL'">
-  <h4 class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>  
-  <div class="status">   
+<div class="modal-header" *ngIf="aes" [class.approved]="aes.submissionStatus?.status == 'SUCCESS'"
+  [class.canceled]="aes.submissionStatus?.status == 'FAIL'">
+  <h4  class="modal-title" id="modal-basic-title">{{aes.shipmentHeader.shipmentReferenceNumber}}</h4>
+  <div class="status" *ngIf="!printView">
     <span>
-      <i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.firstName:aes.pic.firstName}}</span>
+      <i class="icon-user"></i>{{aes.submittedUser?aes.submittedUser.FirstName:aes.pic.FirstName}}</span>
     <span>
       <i class="icon-small-calendar"></i> {{aes.submittedOn |date :'medium'}}</span>
   </div>
@@ -49,19 +50,22 @@
     </div>
     <h2>Parties</h2>
     <table class="table table-striped table-bordered">
-      <tr>
-        <th>Consignee Type</th>
-        <th>ID Number</th>
-        <th>Company Name</th>
-        <th>First Name</th>
-        <th>Phone Number</th>
-        <th>Address Line 1</th>
-        <th>Country</th>
-        <th>Postal Code</th>
-        <th>City</th>
-        <th>State</th>
-      </tr>
-      <tr *ngFor="let party of aes.shipmentParty">
+      <thead>
+        <tr>
+          <th>Consignee Type</th>
+          <th>ID Number</th>
+          <th>Company Name</th>
+          <th>First Name</th>
+          <th>Phone Number</th>
+          <th>Address Line 1</th>
+          <th>Country</th>
+          <th>Postal Code</th>
+          <th>City</th>
+          <th>State</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let party of aes.shipmentParty">
         <td>{{party.partyType}}</td>
         <td>{{party.partyId}}</td>
         <td>{{party.partyName}}</td>
@@ -72,72 +76,79 @@
         <td>{{party.postalCode}}</td>
         <td>{{party.city}}</td>
         <td>{{party.stateCode}}</td>
-      </tr>
+      </tr>  
+      </tbody>
     </table>
     <h2>Commodities</h2>
     <table class="table table-striped table-bordered">
-      <tr>
-        <th>Description</th>
-        <th>HTS/Schedule B</th>
-        <th>Goods Origin</th>
-        <th>Value of Goods</th>
-        <th>Shipping Weight</th>
-        <th>Quantity 1</th>
-        <th>UOM</th>
-        <th>Quantity 2</th>
-        <th>UOM2</th>
-      </tr>
-      <ng-container *ngFor="let commodity of aes.commodityDetails">
+      <thead>
         <tr>
-          <td>{{commodity.commodityLineDetails.commodityDescription}}</td>
-          <td>{{commodity.commodityLineDetails.htsNumber}}</td>
-          <td>{{commodity.commodityLineDetails.originofGoods}}</td>
-          <td>{{commodity.commodityLineDetails.valueofGoods}}</td>
-          <td>{{commodity.commodityLineDetails.shippingWeight}}</td>
-          <td>{{commodity.commodityLineDetails.quantity1}}</td>
-          <td>{{commodity.commodityLineDetails.quantity1Uom}}</td>
-          <td>{{commodity.commodityLineDetails.quantity2}}</td>
-          <td>{{commodity.commodityLineDetails.quantity2Uom}}</td>
+          <th>Description</th>
+          <th>HTS/Schedule B</th>
+          <th>Goods Origin</th>
+          <th>Value of Goods</th>
+          <th>Shipping Weight</th>
+          <th>Quantity 1</th>
+          <th>UOM</th>
+          <th>Quantity 2</th>
+          <th>UOM2</th>
         </tr>
-        <tr>
-          <td colspan="9" class="nopadding">
-            <!-- <h2>License Details</h2> -->
-            <table class="table table-striped table-bordered nested-table">
-              <tr>
-                <th>License Exemption Code</th>
-                <th>Export License No.</th>
-                <th>License Value</th>
-                <th>ECCN</th>
-                <th>Export Information Code</th>
-              </tr>
-              <tr>
-                <td>{{commodity.licenseDetails.licenseExemptionCode}}</td>
-                <td>{{commodity.licenseDetails.exportLicenseNumber}}</td>
-                <td>{{commodity.licenseDetails.licenseValue}}</td>
-                <td>{{commodity.licenseDetails.eccn}}</td>
-                <td>{{commodity.commodityLineDetails.exportInformationCode}}</td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-      </ng-container>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let commodity of aes.commodityDetails">
+          <tr>
+            <td>{{commodity.commodityLineDetails.commodityDescription}}</td>
+            <td>{{commodity.commodityLineDetails.htsNumber}}</td>
+            <td>{{commodity.commodityLineDetails.originofGoods}}</td>
+            <td>{{commodity.commodityLineDetails.valueofGoods}}</td>
+            <td>{{commodity.commodityLineDetails.shippingWeight}}</td>
+            <td>{{commodity.commodityLineDetails.quantity1}}</td>
+            <td>{{commodity.commodityLineDetails.quantity1Uom}}</td>
+            <td>{{commodity.commodityLineDetails.quantity2}}</td>
+            <td>{{commodity.commodityLineDetails.quantity2Uom}}</td>
+          </tr>
+          <tr>
+            <td colspan="9" class="nopadding">
+              <!-- <h2>License Details</h2> -->
+              <table class="table table-striped table-bordered nested-table">
+                <tr>
+                  <th>License Exemption Code</th>
+                  <th>Export License No.</th>
+                  <th>License Value</th>
+                  <th>ECCN</th>
+                  <th>Export Information Code</th>
+                </tr>
+                <tr>
+                  <td>{{commodity.licenseDetails.licenseExemptionCode}}</td>
+                  <td>{{commodity.licenseDetails.exportLicenseNumber}}</td>
+                  <td>{{commodity.licenseDetails.licenseValue}}</td>
+                  <td>{{commodity.licenseDetails.eccn}}</td>
+                  <td>{{commodity.commodityLineDetails.exportInformationCode}}</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
 
     </table>
-    <div class="content-box">
-      <div class="featured-fields">
-        <h2>Transportation Details</h2>
-        <ul>
-          <li>Carrier SCAC/IATA:
-            <span>{{aes.transportation.carrierCode}}</span>
-          </li>
-          <li>Mode of Transport (MOT):
-            <span>{{aes.transportation.modeofTransport}}</span>
-          </li>
-          <li>Conveyance Name/Carrier Name
-            <span>{{aes.transportation.vesselName}}</span>
-          </li>
-        </ul>
-        <table class="table table-striped table-bordered">
+  </div>
+  <div class="content-box">
+    <div class="featured-fields">
+      <h2>Transportation Details</h2>
+      <ul>
+        <li>Carrier SCAC/IATA:
+          <span>{{aes.transportation.carrierCode}}</span>
+        </li>
+        <li>Mode of Transport (MOT):
+          <span>{{aes.transportation.modeofTransport}}</span>
+        </li>
+        <li>Conveyance Name/Carrier Name
+          <span>{{aes.transportation.vesselName}}</span>
+        </li>
+      </ul>
+      <table class="table table-striped table-bordered">
+        <tbody>
           <tr>
             <th>Line No.</th>
             <th>Equipment Number</th>
@@ -150,11 +161,11 @@
             <td>{{item.sealNumber ? item.sealNumber : '-'}}</td>
             <td>{{item.transportationReferenceNumber}}</td>
           </tr>
-        </table>
-      </div>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-primary" (click)="print()">Print</button>
+  <button type="button" class="btn btn-primary" *ngIf="printView" (click)="print()">Print</button>
 </div>
