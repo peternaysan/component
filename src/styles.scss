@@ -48,6 +48,11 @@ html, body {
     tr    { page-break-inside:avoid; page-break-after:auto }
     thead { display:table-header-group }
     tfoot { display:table-footer-group }
+    .modal-header {
+        h4 {
+            margin-top: 30px;
+        }
+    }
 }
 
 @page { size: auto;  margin: 0mm; } // to avoid chromr date and title
