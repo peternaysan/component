@@ -24,7 +24,7 @@
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="consigneeFromGf" [(ngModel)]="ultimateConsignee.partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="ultimateConsigneeFlag && !isUserAllowToEdit" [(ngModel)]="ultimateConsignee.partyIdType"
           id="ucPartyIdType" name="ucPartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -107,7 +107,7 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="consigneeFromGf" required bindLabel="name" bindValue="code"
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" [disabled]="ultimateConsigneeFlag && !isUserAllowToEdit" required bindLabel="name" bindValue="code"
           [(ngModel)]="ultimateConsignee.countryCode" id="uccountryCode" name="uccountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
@@ -121,14 +121,14 @@
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" [disabled]="consigneeFromGf" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode" maxlength="9"
+        <input type="text" [disabled]="ultimateConsigneeFlag && !isUserAllowToEdit" [(ngModel)]="ultimateConsignee.postalCode" id="ucpostalCode" name="ucpostalCode" maxlength="9"
           pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>City
           <i class="mand">*</i>
         </label>
-        <input type="text" [disabled]="consigneeFromGf" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25"
+        <input type="text" [disabled]="ultimateConsigneeFlag && !isUserAllowToEdit" required [(ngModel)]="ultimateConsignee.city" id="uccity" name="uccity" maxlength="25"
           pattern="[\sa-zA-Z]+">
         <label class="error-label" *ngIf="partiesForm.controls.uccity?.errors?.required && (partiesForm.controls.uccity?.touched || submitted)">This field is required!!</label>
       </div>
@@ -149,7 +149,7 @@
       <div class="col-md-3">
         <label>ID Number Type
         </label>
-        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="true" [(ngModel)]="intermediateConsignee.partyIdType"
+        <ng-select [items]="partyIdType" bindLabel="name" bindValue="id" [disabled]="!isUserAllowToEdit" [(ngModel)]="intermediateConsignee.partyIdType"
           id="icpartyIdType" name="icpartyIdType">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.id}} - {{item.name}}
@@ -221,7 +221,7 @@
         <label>Country
           <i class="mand">*</i>
         </label>
-        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" required [disabled]="true" bindLabel="name" bindValue="code"
+        <ng-select [items]="countryList" [searchFn]="searchByIdAndName" required [disabled]="!isUserAllowToEdit" bindLabel="name" bindValue="code"
           [(ngModel)]="intermediateConsignee.countryCode" id="iccountryCode" name="iccountryCode">
           <ng-template ng-option-tmp ng-label-tmp let-item="item">
             {{item.code}} - {{item.name}}
@@ -235,14 +235,14 @@
             <img src="../../assets/icons/info.svg">
           </button>
         </label>
-        <input type="text" [disabled]="true" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode"
+        <input type="text" [disabled]="!isUserAllowToEdit" [(ngModel)]="intermediateConsignee.postalCode" id="icpostalCode" name="icpostalCode"
           maxlength="9" pattern="[\sa-zA-Z0-9]+">
       </div>
       <div class="col-md-3">
         <label>City
           <i class="mand">*</i>
         </label>
-        <input type="text" required [disabled]="true" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25"
+        <input type="text" required [disabled]="!isUserAllowToEdit" [(ngModel)]="intermediateConsignee.city" id="iccity" name="iccity" maxlength="25"
           pattern="[\sa-zA-Z]+">
         <label class="error-label" *ngIf="partiesForm.controls.iccity?.errors?.required && (partiesForm.controls.iccitys?.touched || submitted)">This field is required!!</label>
       </div>

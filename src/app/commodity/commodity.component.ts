@@ -15,6 +15,7 @@ import { LookupService } from '../services/lookup.service';
 export class CommodityComponent implements OnInit {
   @Input() commodityDetails: any = [];
   @Input() aes;
+  @Input() isUserAllowToEdit;
   @ViewChild("commodityForm") commodityForm: NgForm;
   originGoodsList: any = [];
   exportInformationCode: any = [];

@@ -22,8 +22,9 @@ export class AppComponent {
   aes;
   activeMenu = "Shipment";
   submitBtnText = "Submit";
-
   isPrintView=false;
+
+  isUserAllowToEdit=false;
 
   aesPrintView;
   private shipmentComponent: ShipmentComponent;
@@ -59,6 +60,7 @@ export class AppComponent {
       this.aesService.getAesById(aesId).then(res => {
         this.aes = res;
         this.aesPrintView = this.aes;
+        this.isUserAllowToEdit=this.aes.IsUserAllowToEdit?true:false;
         this.loading = false;
       },
         err => {

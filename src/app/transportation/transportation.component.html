@@ -3,7 +3,7 @@
     <div class="row mb-4">
       <div class="col-md-3">
         <label>Carrier SCAC/IATA<i class="mand" *ngIf="transportation.modeofTransport!=34">*</i> <button data-balloon="Characters (Aa-Zz), numerals (0-9) and symbols are allowed. Maxlength is 4" data-balloon-pos="right"><img src="../../assets/icons/info.svg"></button></label>
-        <input type="text" name="carrierCode" [required]="transportation.modeofTransport!=34" [disabled]="true" [(ngModel)]="transportation.carrierCode" maxlength="4" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
+        <input type="text" name="carrierCode" [required]="transportation.modeofTransport!=34" [disabled]="!isUserAllowToEdit" [(ngModel)]="transportation.carrierCode" maxlength="4" pattern="([\sa-zA-Z0-9\-.' !@#$%^*()_+={}|/:;,>?'~&amp;&lt;])+">
         <label class="error-label" *ngIf="transportForm.controls.carrierCode?.errors?.required && (transportForm.controls.carrierCode?.touched || submitted)">This
             field is required!!</label>
       </div>

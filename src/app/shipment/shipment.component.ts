@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
 export class ShipmentComponent implements OnInit {
     @Input() shipmentHeader: any = {};
     @Input() aes;
+    @Input() isUserAllowToEdit;
     public inboundList: any = [];
     public filingTypeList: any = [];
     public portOfExportList: any = [];

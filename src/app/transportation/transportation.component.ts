@@ -14,6 +14,7 @@ export class TransportationComponent implements OnInit {
 
   @ViewChild("transportForm") transportForm: NgForm;
   @Input() transportation;
+  @Input() isUserAllowToEdit;
   public modeOfTransport: any = [];
 
   constructor(private aesService: AesService) {

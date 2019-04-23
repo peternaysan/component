@@ -7,10 +7,10 @@
       [activeMenu]="activeMenu"></page-header>
   </div>
   <div class="content" *ngIf="!isPrintView">
-    <shipment-form [hidden]="activeMenu != 'Shipment'" [aes]="aes" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header"></shipment-form>
-    <parties-form [hidden]="activeMenu != 'Parties'" [shipmentParty]="aes.shipmentParty"></parties-form>
-    <commodity-form [hidden]="activeMenu != 'Commodity'" [aes]="aes" [commodityDetails]="aes.commodityDetails"></commodity-form>
-    <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation"></transportation-form>
+    <shipment-form [hidden]="activeMenu != 'Shipment'" [aes]="aes" [shipmentHeader]="aes.shipmentHeader" [header]="aes.header" [isUserAllowToEdit]="isUserAllowToEdit"></shipment-form>
+    <parties-form [hidden]="activeMenu != 'Parties'" [shipmentParty]="aes.shipmentParty" [isUserAllowToEdit]="isUserAllowToEdit"></parties-form>
+    <commodity-form [hidden]="activeMenu != 'Commodity'" [aes]="aes" [commodityDetails]="aes.commodityDetails" [isUserAllowToEdit]="isUserAllowToEdit"></commodity-form>
+    <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation" [isUserAllowToEdit]="isUserAllowToEdit"></transportation-form>
   </div>
   <div class="button-flex">
     <div class="aes-message float-left">
