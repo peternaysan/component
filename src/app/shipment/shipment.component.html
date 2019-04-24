@@ -60,7 +60,7 @@
           <i class="mand">*</i>
         </label>
         <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="!isUserAllowToEdit" [(ngModel)]="shipmentHeader.estimatedExportDate"
-          maxlength="8">
+          maxlength="10">
         <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
