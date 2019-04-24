@@ -60,7 +60,7 @@ export class AppComponent {
       this.aesService.getAesById(aesId).then(res => {
         this.aes = res;
         this.aesPrintView = this.aes;
-        this.isUserAllowToEdit=this.aes.IsUserAllowToEdit?true:false;
+        this.isUserAllowToEdit=this.aes.IsUserAllowToEdit=="1"?true:false;
         this.loading = false;
       },
         err => {

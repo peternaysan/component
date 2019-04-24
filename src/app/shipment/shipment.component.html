@@ -6,15 +6,15 @@
           <i class="mand">*</i>
         </label>
         <input type="text" required id="senderEmail" name="senderEmail" [disabled]="!isUserAllowToEdit" [(ngModel)]="header.senderEmail" maxlength="100">
-        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.senderEmail">Please fill this in booking screen!!</label>
+        <label class="error-label" *ngIf="!header.senderEmail">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Shipment Reference Number
           <i class="mand">*</i>
         </label>
-        <input type="text" id="shipmentReferenceNumber" pattern="[\sa-zA-Z0-9]+" name="shipmentReferenceNumber" [disabled]="!isUserAllowToEdit"
+        <input type="text" id="shipmentReferenceNumber" required pattern="[\sa-zA-Z0-9]+" name="shipmentReferenceNumber" [disabled]="!isUserAllowToEdit"
         [(ngModel)]="shipmentHeader.shipmentReferenceNumber" maxlength="17">
-        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.shipmentReferenceNumber">Please fill this in booking screen!!</label>
+        <label class="error-label" *ngIf="!shipmentHeader.shipmentReferenceNumber">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Filing Option
@@ -57,11 +57,13 @@
       </div>
       <div class="col-md-3">
         <label>Departure Date
-          <i class="mand">*</i>
+          <i class="mand">*</i><button data-balloon="Valid date format is dd/mm/yyyy." data-balloon-pos="up">
+            <img src="../../assets/icons/info.svg">
+          </button>
         </label>
-        <input type="text" id="estimatedExportDate" name="estimatedExportDate" [disabled]="!isUserAllowToEdit" [(ngModel)]="shipmentHeader.estimatedExportDate"
-          maxlength="10">
-        <label class="error-label" *ngIf="!shipmentHeaderForm.controls.estimatedExportDate">Please fill this in booking screen!!</label>
+        <input type="text" id="estimatedExportDate" required name="estimatedExportDate" [disabled]="!isUserAllowToEdit" [(ngModel)]="shipmentHeader.estimatedExportDate"
+          maxlength="10" pattern="^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$">
+        <label class="error-label" *ngIf="!shipmentHeader.estimatedExportDate">Please fill this in booking screen!!</label>
       </div>
       <div class="col-md-3">
         <label>Origin State
