@@ -25,6 +25,8 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AesService } from '../app/services/aes.service';
 import { LookupService } from '../app/services/lookup.service';
+import { PrintViewEeiComponent } from './print-view/print-view-eei.component';
+import { ReplacePipe } from './shared/replace.pipe';
 
 
 @NgModule({
@@ -37,9 +39,11 @@ import { LookupService } from '../app/services/lookup.service';
     TransportationComponent,
     CommodityComponent,
     AesPrintViewComponent,
+    PrintViewEeiComponent,
     ErrorDetailComponent,
     AesLoaderComponent,
-    DashboardComponent
+    DashboardComponent,
+    ReplacePipe
   ],
   imports: [
     BrowserModule,
@@ -49,9 +53,8 @@ import { LookupService } from '../app/services/lookup.service';
     HttpClientModule,
     NgSelectModule,
     ToastrModule.forRoot() // ToastrModule added
-
   ],
-  providers: [AesService,LookupService],
+  providers: [AesService, LookupService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import { ShipmentComponent } from '../app/shipment/shipment.component';
 import { TransportationComponent } from '../app/transportation/transportation.component';
 import { ToastrService } from 'ngx-toastr';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { PrintViewEeiComponent } from './print-view/print-view-eei.component';
 
 @Component({
   selector: 'app-root',
@@ -22,9 +23,11 @@ export class AppComponent {
   aes;
   activeMenu = "Shipment";
   submitBtnText = "Submit";
-  isPrintView=false;
+  isPrintView = false;
+  buttonDisabled: boolean;
 
-  isUserAllowToEdit=false;
+  isUserAllowToEdit = false;
+  selectedOption = '';
 
   aesPrintView;
   private shipmentComponent: ShipmentComponent;
@@ -49,6 +52,7 @@ export class AppComponent {
     private aesService: AesService,
     private toastr: ToastrService) {
   }
+  @ViewChild(PrintViewEeiComponent) printviewEei: PrintViewEeiComponent;
 
   private hubConnection: HubConnection;
   loading = true;
@@ -135,9 +139,15 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
-  togglePrint(){
-    this.isPrintView=!this.isPrintView;
-  }  
+  togglePrint() {
+    this.isPrintView = !this.isPrintView;
+    console.log(`Selected Print option is ${this.selectedOption}`);
+  }
+
+  onChange(event) {
+  this.buttonDisabled = true;
+}
+
   openErrorModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

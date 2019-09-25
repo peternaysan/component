@@ -1,5 +1,7 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
-<aes-print-view *ngIf="isPrintView" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
+<aes-print-view *ngIf="isPrintView && selectedOption=='PrintView' && selectedOption!='S'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
+
+<aes-print-view-eei *ngIf="isPrintView && selectedOption=='EEI'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view-eei>
 
 <div class="page" *ngIf="aes && !isPrintView">
   <div class="header-flex">   
@@ -12,31 +14,44 @@
     <commodity-form [hidden]="activeMenu != 'Commodity'" [aes]="aes" [commodityDetails]="aes.commodityDetails" [isUserAllowToEdit]="isUserAllowToEdit"></commodity-form>
     <transportation-form [hidden]="activeMenu != 'Transportation'" [transportation]="aes.transportation" [isUserAllowToEdit]="isUserAllowToEdit"></transportation-form>
   </div>
+  
   <div class="button-flex">
     <div class="aes-message float-left">
       <p class="success ribbon" *ngIf="aes.submissionStatus !='GETS REJECTED' && aes.submissionStatus !='CUSTOMS REJECTED' && aes.submissionStatus !='CANCELLED'">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
       <p class="error ribbon" *ngIf="aes.submissionStatus =='GETS REJECTED' || aes.submissionStatus=='CUSTOMS REJECTED' ">AES Status : {{aes.submissionStatus}} {{aes.submissionStatusDescription}} </p>
       <p class="cancelled ribbon" *ngIf="aes.submissionStatus =='CANCELLED'">AES Status : {{aes.submissionStatus}} ; {{aes.submissionStatusDescription}} </p>
     </div>
+  
     <div class="buttons-box float-right">
+        
       <button class="btn btn-error" *ngIf="aes.submissionStatus == 'GETS REJECTED' || aes.submissionStatus == 'CUSTOMS REJECTED' || aes.submissionStatus == 'CUSTOMS APPROVED'"
         (click)="openErrorModal(errModelContent)">Response Details</button>
-      <button class="btn btn-secondary" (click)="togglePrint()">Print View</button>
       <button class="btn btn-secondary" (click)="onSaveDraft()" [disabled]="aes.submissionStatus == 'SUBMITTED' || aes.submissionStatus == 'GETS APPROVED'">Save Draft</button>
       <button class="btn btn-primary" (click)="onSubmitClick()" [disabled]="aes.submissionStatus == 'SUBMITTED' || submitBtnText == 'Submitting'|| aes.submissionStatus == 'GETS APPROVED'">
         <span>{{submitBtnText}}</span>
       </button>
+    </div>
+
+    <div class="float-right">
+        <select style="width: 200px; padding-right: 30px;" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
+            <option value="" disabled selected>Select Print Option</option>
+            <option value="PrintView">Print View</option>
+            <option value="EEI">Electronic Export Information</option>
+        </select>
+        <button class="btn btn-secondary" (click)="togglePrint()" [disabled]="!buttonDisabled">Print View</button>
     </div>
   </div>
 </div>
 
 <aes-loader *ngIf="loading"></aes-loader>
 
-
-
 <ng-template #modelcontent let-modal>
   <aes-print-view [aes]="aesPrintView" [printView]=false (closeClick)="modal.close()"></aes-print-view>
 </ng-template>
+
+<ng-template #eeimodelcontent let-modal>
+    <aes-print-view-eei [aes]="aesPrintView" [printView]=false (closeClick)="modal.close()"></aes-print-view-eei>
+  </ng-template>
 
 
 <ng-template #errModelContent let-modal>

@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
    apiUrl: "https://localhost:44396/api/",
-   apiBase: "https://localhost:44396/", 
+   apiBase: "https://localhost:44396/",
   // apiUrl : "https://aesapi.azurewebsites.net/api/",
   // apiBase :"https://aesapi.azurewebsites.net/"
-  
+
 };
 
 /*
