@@ -37,7 +37,7 @@
             <option value="PrintView" selected>Print View</option>
             <option value="EEI">Electronic Export Information</option>
         </select>
-        <button class="btn btn-secondary" (click)="togglePrint()">Print View</button>
+        <button class="btn btn-secondary" (click)="togglePrint()" [disabled]="!buttonDisabled">Print View</button>
     </div>
   </div>
 </div>
