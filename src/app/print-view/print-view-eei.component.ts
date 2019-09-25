@@ -29,6 +29,7 @@ export class PrintViewEeiComponent implements OnInit {
     rowId: number;
     submittedOn: Date;
     filerNameAddress: string;
+    intermediatePartyNameAddress: string;
     dateofExportation: Date;
     currentDate: Date;
 
@@ -48,6 +49,9 @@ export class PrintViewEeiComponent implements OnInit {
         this.IntermediateParty = this.aes.shipmentParty.filter(party =>
                 party.partyType.toLocaleLowerCase().indexOf('i') !== -1)[0];
 
+        // tslint:disable-next-line: max-line-length
+        this.intermediatePartyNameAddress = this.IntermediateParty ? this.IntermediateParty.partyName + '\n' + this.IntermediateParty.addressLine1 + ',' +
+        this.IntermediateParty.city + ',' + this.IntermediateParty.stateCode + ',' + this.IntermediateParty.postalCode : '';
         this.country = MasterData.countryList;
         this.countryName = MasterData.countryList.filter(country =>
             country.code.indexOf(this.aes.shipmentHeader.ultimateDestinationCountry) !== -1)[0].name;
@@ -59,7 +63,7 @@ export class PrintViewEeiComponent implements OnInit {
             );
         this.stateOfOrigin = this.states.filter(states =>
             states.Code.indexOf(this.aes.shipmentHeader.originState) !== -1);
-        // modeofTransport
+
         this.modeOfTransport = MasterData.ModeOfTransportList.filter(mot =>
             mot.id.indexOf(this.aes.transportation.modeofTransport) !== -1)[0].name;
 
@@ -71,28 +75,22 @@ export class PrintViewEeiComponent implements OnInit {
         this.filerNameAddress = this.ForwardingAgentParty.partyName + '\n' + this.ForwardingAgentParty.addressLine1 + ',' +
         this.ForwardingAgentParty.city + ',' + this.ForwardingAgentParty.stateCode + ',' + this.ForwardingAgentParty.postalCode;
 
-
         this.submittedOn = new Date(this.aes.submittedOn);
-        var dateString = "23/10/2015"; // Oct 23
-
-var dateParts = this.aes.shipmentHeader.estimatedExportDate.split("/");
+        const dateParts = this.aes.shipmentHeader.estimatedExportDate.split("/");
         this.currentDate = new Date();
 
-// month is 0-based, that's why we need dataParts[1] - 1
-var dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
-this.dateofExportation = dateObject;
-        console.log(dateObject.toString());
-        }
+        const dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
+        this.dateofExportation = dateObject;
+    }
 
     close() {
         this.closeClick.emit({});
     }
-    trackByFn(index, item) {
-        this.rowId = index + 1;
-        return index + 1;
+
+    trackByFn(index: number, item: any) {
+        return index;
      }
      print() {
         window.print();
-        var data = document.getElementById('printbox'); 
      }
 }

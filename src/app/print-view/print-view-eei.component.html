@@ -186,7 +186,7 @@
                                                 {{UltimateParty.city}}, 
                                                 {{UltimateParty.stateCode}} {{UltimateParty.postalCode}}, 
                                                 {{UltimateParty.countryCode}} <br>
-                                                ULTIMATE CONSIGNEE TYPE : {{UltimateParty.ultimateConsigneeType}} - {{UltimateParty.ultimateConsigneeType | replace:  'D': 'DIRECT CONSUMER'}}</td>
+                                                ULTIMATE CONSIGNEE TYPE : {{UltimateParty.ultimateConsigneeType}} - {{UltimateParty.ultimateConsigneeType == 'D' ? 'D - DIRECT CONSUMER' : ''}}</td>
                             <td class="col1"> </td>
                             <td class="col4 data"> 
                                 {{ForwardingAgentParty.partyName}}<br>
@@ -204,11 +204,7 @@
                         </tr>
                         <tr>
                             <td class="col1"> </td>
-                            <td class="col2 data">{{IntermediateParty.partyName}}<br>
-                                                {{IntermediateParty.addressLine1}}, 
-                                                {{IntermediateParty.city}}, 
-                                                {{IntermediateParty.stateCode}} {{IntermediateParty.postalCode}}, 
-                                                {{IntermediateParty.countryCode}}
+                            <td class="col2 data">{{intermediatePartyAddress}}
                             </td>
                             <td class="col1"> </td>
                             <td class="col2 data"> 
@@ -376,11 +372,11 @@
             
             <table class="detailplanetable">
                 <thead>
-                        <tr>
-                                <th colspan="7" class="block leftborder">
-                                        20. SCH B/HTS DESCRIPTION of COMMODITIES 
-                                </th>
-                        </tr>
+                    <tr>
+                        <th colspan="7" class="block leftborder">
+                            20. SCH B/HTS DESCRIPTION of COMMODITIES 
+                        </th>
+                    </tr>
                     <th class="block leftborder">a. LINE SEQ NBR</th>
                     <th class="block">b. D/F</th>
                     <th class="block">c. SCHEDULE B/HTS NUMBER</th>
@@ -390,9 +386,8 @@
                     <th class="block rightnoborder">g. VALUE (U.S. Dollars, omit cents) Selling price or cost if not sold</th>
                 </thead>
                 <tbody>
-                    <!-- <ng-container *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn"> -->
-                        <tr style="vertical-align: top" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn">
-                            <td style="width: 2%; padding:5px;" class="block">{{rowId}}</td>
+                        <tr style="vertical-align: top" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
+                            <td style="width: 2%; padding:5px;" class="block">{{index+1}}</td>
                             <td class="block data"  style="width: 3%; padding:5px;">{{commodity.commodityLineDetails.originofGoods}}</td>
                             <td class="block data" style="width: 40%; padding:5px;">
                                 <div>
@@ -417,7 +412,6 @@
                             <td class="block data"></td>
                             <td class="block data" style="width: 20%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.valueofGoods}}</td>
                         </tr>
-                    <!-- </ng-container> -->
                 </tbody>
             </table>
         </table>

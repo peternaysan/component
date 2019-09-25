@@ -1,5 +1,5 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
-<aes-print-view *ngIf="isPrintView && selectedOption=='PrintView' && selectedOption!='S'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
+<aes-print-view *ngIf="isPrintView && selectedOption=='PrintView'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
 
 <aes-print-view-eei *ngIf="isPrintView && selectedOption=='EEI'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view-eei>
 
@@ -34,11 +34,10 @@
 
     <div class="float-right">
         <select style="width: 200px; padding-right: 30px;" [(ngModel)]="selectedOption" (ngModelChange)="onChange($event)">
-            <option value="" disabled selected>Select Print Option</option>
-            <option value="PrintView">Print View</option>
+            <option value="PrintView" selected>Print View</option>
             <option value="EEI">Electronic Export Information</option>
         </select>
-        <button class="btn btn-secondary" (click)="togglePrint()" [disabled]="!buttonDisabled">Print View</button>
+        <button class="btn btn-secondary" (click)="togglePrint()">Print View</button>
     </div>
   </div>
 </div>

@@ -27,7 +27,7 @@ export class AppComponent {
   buttonDisabled: boolean;
 
   isUserAllowToEdit = false;
-  selectedOption = '';
+  selectedOption = 'PrintView';
 
   aesPrintView;
   private shipmentComponent: ShipmentComponent;
@@ -141,7 +141,6 @@ export class AppComponent {
   }
   togglePrint() {
     this.isPrintView = !this.isPrintView;
-    console.log(`Selected Print option is ${this.selectedOption}`);
   }
 
   onChange(event) {
