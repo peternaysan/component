@@ -9,6 +9,9 @@ import { ShipmentComponent } from '../app/shipment/shipment.component';
 import { TransportationComponent } from '../app/transportation/transportation.component';
 import { ToastrService } from 'ngx-toastr';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
+import { PrintViewEeiComponent } from './print-view/print-view-eei.component';
+import { LookupService } from './services/lookup.service';
+import { PrintView, States } from './shared/interface/print-view.interface';
 
 @Component({
   selector: 'app-root',
@@ -20,13 +23,19 @@ export class AppComponent {
   title = 'aes-component';
   aesId;
   aes;
+  printViewData: PrintView;
+  states: States;
+  originStates: any = [];
   activeMenu = "Shipment";
   submitBtnText = "Submit";
-  isPrintView=false;
+  isPrintView = false;
+  buttonDisabled: boolean;
 
-  isUserAllowToEdit=false;
+  isUserAllowToEdit = false;
+  selectedOption = 'PrintView';
 
   aesPrintView;
+
   private shipmentComponent: ShipmentComponent;
   @ViewChild(ShipmentComponent) set shipmentcontent(content: ShipmentComponent) {
     this.shipmentComponent = content;
@@ -47,8 +56,10 @@ export class AppComponent {
   constructor(
     private modalService: NgbModal,
     private aesService: AesService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private lookupService: LookupService) {
   }
+  @ViewChild(PrintViewEeiComponent) printviewEei: PrintViewEeiComponent;
 
   private hubConnection: HubConnection;
   loading = true;
@@ -61,6 +72,7 @@ export class AppComponent {
         this.aes = res;
         this.aesPrintView = this.aes;
         this.isUserAllowToEdit=this.aes.IsUserAllowToEdit=="1"?true:false;
+        this.getOriginState();
         this.loading = false;
       },
         err => {
@@ -120,6 +132,18 @@ export class AppComponent {
     this.hubConnection.start();
   }
 
+  getOriginState(): void {
+    this.lookupService.states("United States")
+    .subscribe((data) => { this.originStates = data;
+      this.states = this.originStates.filter(state => state.code.toLocaleLowerCase().indexOf
+                                                        (this.aes.shipmentHeader.originState.toLocaleLowerCase()) !== -1)[0];
+                                                        this.printViewData = {states: this.states};
+                          },
+
+        (err) => { console.log(err); }
+    );
+  }
+
   onactivemenuchange(item) {
     this.activeMenu = item.name;
   }
@@ -135,9 +159,14 @@ export class AppComponent {
       this.closeResult = `Dismissed`;
     });
   }
-  togglePrint(){
-    this.isPrintView=!this.isPrintView;
-  }  
+  togglePrint() {
+    this.isPrintView = !this.isPrintView;
+  }
+
+  onChange(event) {
+  this.buttonDisabled = true;
+}
+
   openErrorModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
@@ -149,6 +178,7 @@ export class AppComponent {
   onSaveDraft() {
     this.aesService.savedraft(this.aes).subscribe(data => {
       // show toastr
+      this.getOriginState();
       this.toastr.success('Draft saved successfully !', 'Save Draft');
     },
       err => {
@@ -192,6 +222,7 @@ export class AppComponent {
     this.submitBtnText = "Submitting";
     this.aesService.submitAes(this.aes).subscribe(data => {
       var currentAes: any = data;
+      this.getOriginState();
       this.toastr.success('AES submitted successfully !', 'AES Submission');
       this.aes.submissionStatus = currentAes.submissionStatus;
       this.aes.submissionStatusDescription = currentAes.submissionStatusDescription;

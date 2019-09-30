@@ -1,0 +1,443 @@
+<div class="modal-header">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div id="header">
+    <table>
+        <tr>
+            <td style="text-align: left;">
+                {{currentDate | date : 'yyyy-MM-dd'}}
+            </td>
+        </tr>
+                <tr>
+                    <td style="text-align: center; font-size: 10pt">
+                        Sensitive Information
+                    </td>
+                </tr>
+    </table>
+</div>
+<div>
+    <div id="printbox">
+        <table>
+            <tr>
+                <td class="block">
+                    <table class="headerplanetable">
+                        <tr>
+                            <td colspan="2" class="header bold">Electronic Export Information</td>
+                        </tr>
+                        <tr>
+                            <td class="header">ITN : {{aes.shipmentHeader.originalItn}}</td>
+                        </tr>
+                        <tr>
+                            <td class="header">XTN: 272143944-{{aes.shipmentHeader.shipmentReferenceNumber}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td class="header"> Status : {{aes.submissionStatus}}</td>
+                        </tr>
+                        <tr>
+                            <td class="header">Filing Option : 2 - PREDEPARTURE</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="header left block">NOTIFICATION : {{shipmentStatus}}</td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">1a.</td>
+                            <td class="col2">U.S. PRINCIPAL PARTY (USPPI)</td>
+                            <td class="col1">b.</td>
+                            <td class="col4">
+                                USPPI EIN(IRS) or ID Number
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data">
+                                {{UsppiParty.partyName}} <br>
+                                {{UsppiParty.addressLine1}}, 
+                                {{UsppiParty.city}}, 
+                                {{UsppiParty.stateCode}} {{UsppiParty.postalCode}}, 
+                                {{UsppiParty.countryCode}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data">
+                                {{UsppiParty.partyId}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">
+                                c.
+                            </td>
+                            <td class="col2">
+                                RELATED PARTIES TO TRANSACTION
+                            </td>
+                            <td class="col1">
+                                2a.
+                            </td>
+                            <td class="col4">
+                                DATE OF EXPORTATION
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"> </td>
+                            <td class="col2 data">
+                                {{aes.shipmentHeader.relatedParties == 'N' ? 'Non-Related' : 'Related' }}
+                            </td>
+                            <td class="col1"> </td>
+                            <td class="col4 data">
+                                {{dateofExportation | date :'yyyy-MM-dd'}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">
+                                b.
+                            </td>
+                            <td class="col2">
+                                ITN CREATED
+                            </td>
+                            <td class="col1">
+                                c.
+                            </td>
+                            <td class="col4">
+                                ITN LAST UPDATED
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"> </td>
+                            <td class="col2 data">
+                                <li style="display: inline-block;">
+                                    {{ (aes.submittedOn !== null) ? (submittedOn | date : 'yyyy-MM-dd') : ''}}
+                                </li>
+                            </td>
+                            <td class="col1"> </td>
+                            <td class="col4 data">
+                                <li style="display: inline-block;">
+                                    {{ (aes.submittedOn !== null) ? (submittedOn | date : 'yyyy-MM-dd') : ''}}
+                                </li>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">3.</td>
+                            <td class="col2">TRANSPORTATION REFERENCE NO.</td>
+                            <td colspan="2">
+                                <table class="bodyplanetable">
+                                    <tr>
+                                        <td> EQUIPMENT NUMBER(S)</td>
+                                        <td>SEAL NUMBER(S)</td>
+                                    </tr>
+                                    <tr>
+                                        <td> </td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"> </td>
+                            <td class="col2 data">{{aes.transportation.transportationDetails[0].transportationReferenceNumber}}  </td>
+                            <td class="col1"> </td>
+                            <td class="col4"> </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">4a.</td>
+                            <td class="col2">ULTIMATE CONSIGNEE NAME, ADDRESS AND TYPE</td>
+                            <td class="col1">5a.</td>
+                            <td class="col4">FORWARDING AGENT NAME AND ADDRESS</td>
+                        </tr>
+                        <tr>
+                            <td class="col1"> </td>
+                            <td class="col2 data">{{UltimateParty.partyName}}<br>
+                                                {{UltimateParty.addressLine1}}, 
+                                                {{UltimateParty.city}}, 
+                                                {{UltimateParty.stateCode}} {{UltimateParty.postalCode}}, 
+                                                {{UltimateParty.countryCode}} <br>
+                                                ULTIMATE CONSIGNEE TYPE : {{UltimateParty.ultimateConsigneeType }} - {{consigneeType}}</td>
+                            <td class="col1"> </td>
+                            <td class="col4 data"> 
+                                {{ForwardingAgentParty.partyName}}<br>
+                                {{ForwardingAgentParty.addressLine1}},
+                                {{ForwardingAgentParty.city}},
+                                {{ForwardingAgentParty.stateCode}} {{ForwardingAgentParty.postalCode}}
+                                {{ ', ' + UltimateParty.countryCode}} 
+                            </td>
+                        </tr> 
+                        <tr style="height: 5px"></tr>
+                        <tr>
+                            <td class="col1">b.</td>
+                            <td class="col2">INTERMEDIATE CONSIGNEE NAME AND ADDRESS</td>
+                            <td class="col1">b.</td>
+                            <td class="col4"> FILER NAME AND ADDRESS </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"> </td>
+                            <td class="col2 data" style="white-space: pre-wrap;">{{intermediatePartyNameAddress}}
+                            </td>
+                            <td class="col1"> </td>
+                            <td class="col2 data"> 
+                            <textarea type="text" class="form-control" [(ngModel)]="filerNameAddress"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">6.</td>
+                            <td class="col2">STATE OF ORIGIN/FTZ NO.</td>
+                            <td class="col1">7.</td>
+                            <td class="col4">COUNTRY OF ULTIMATE DESTINATION</td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                    {{PrintViewData.states.displayName}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                                {{aes.shipmentHeader.ultimateDestinationCountry}} - {{countryName}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">8.</td>
+                            <td class="col2">METHOD OF TRANSPORTATION</td>
+                            <td class="col1">9.</td>
+                            <td class="col4">EXPORTING CARRIER/CONVEYANCE NAME</td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                {{aes.transportation.modeofTransport}} - {{modeOfTransport}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                                {{aes.transportation.vesselName}}
+                            </td>
+                        </tr> 
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                   <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">10.</td>
+                            <td class="col2">PORT OF EXPORT</td>
+                            <td class="col1">11. </td>
+                            <td class="col4">
+                                <table class="bodyplanetable">
+                                    <tr>
+                                        <td>
+                                           PORT OF UNLADING
+                                        </td>
+                                        <td>
+                                            12. CONTAINERIZED (Vessel Only)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data">{{aes.shipmentHeader.portofExportation}} - {{portOfExport}} </td>
+                            <td class="col1"></td>
+                            <td class="col4">
+                                <table class="bodyplanetable">
+                                    <tr>
+                                        <td class="data">
+                                            {{aes.shipmentHeader.portofUnlading}} - {{portOfUnlading}}
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">13.</td>
+                            <td class="col2"> CARRIER IDENTIFICATION CODE </td>
+                            <td class="col1">14.</td>
+                            <td class="col4">SHIPMENT REFERENCE NO.</td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                {{aes.transportation.carrierCode}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                                {{aes.shipmentHeader.shipmentReferenceNumber}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">15.</td>
+                            <td class="col2"> ENTRY NUMBER </td>
+                            <td class="col1">16.</td>
+                            <td class="col4">HAZARDOUS MATERIALS</td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                                {{aes.shipmentHeader.hazmatIndicator == 'Y' ? 'YES' : 'NO'}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">17.</td>
+                            <td class="col2"> IN BOND CODE  </td>
+                            <td class="col1">18.</td>
+                            <td class="col4"> ORIGINAL ITN </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                {{aes.shipmentHeader.inbondCode}} - {{inboundCode}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                                {{aes.shipmentHeader.originalItn}}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td class="block">
+                    <table class="bodyplanetable">
+                        <tr>
+                            <td class="col1">19.</td>
+                            <td class="col2"> ROUTED EXPORT TRANSACTION   </td>
+                            <td class="col1"></td>
+                            <td class="col4"> </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data"> 
+                                {{aes.shipmentHeader.fppiRoutedTransport == 'Y' ? 'YES' : 'NO'}}
+                            </td>
+                            <td class="col1"></td>
+                            <td class="col4 data"> 
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            
+            <table class="topmargin">
+                <thead>
+                        <th class="leftborder rightborder">20. SCH B/HTS DESCRIPTION of COMMODITIES</th>
+                </thead>
+            </table>
+
+            <table class="detailplanetable">
+                <thead>
+                    <th class="block leftborder">a. LINE SEQ NBR</th>
+                    <th class="block">b. D/F</th>
+                    <th class="block">c. SCHEDULE B/HTS NUMBER</th>
+                    <th class="block">d. QUANTITY-UNIT(S)</th>
+                    <th class="block">e. SHIPPING WEIGHT(KG)</th>
+                    <th class="block">f. VIN/PRODUCT NUMBER/VEHICLE TITLE NUMBER</th>
+                    <th class="block rightnoborder">g. VALUE (U.S. Dollars, omit cents) Selling price or cost if not sold</th>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">Sensitive Information</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">Do not submit printout to Customs</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr class="trverticaltop" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
+                        <td class="block detailCol1">{{index+1}}</td>
+                        <td class="block data detailCol2">{{commodity.commodityLineDetails.originofGoods}}</td>
+                        <td class="block data detailCol3">
+                            <div>
+                                <div>{{commodity.commodityLineDetails.commodityDescription}}</div>
+
+                                <br>
+                                
+                                <div>EXPORT INFO CODE : {{commodity.commodityLineDetails.exportInformationCode}}</div>
+                                <div>HTS : {{commodity.commodityLineDetails.htsNumber}}</div>
+                                
+                                <br>
+
+                                <div>LICENSE NUMBER : {{commodity.licenseDetails.exportLicenseNumber}}</div>
+                                <div>LICENSE CODE : {{commodity.licenseDetails.licenseExemptionCode}} </div>
+                            </div>
+                        </td>
+                        <td class="block data detailCol4">
+                            {{commodity.commodityLineDetails.quantity1}}
+                            {{commodity.commodityLineDetails.quantity1Uom == 'X' ? '' : commodity.commodityLineDetails.quantity1Uom}}
+                        </td>
+                        <td class="block data detailCol5">{{commodity.commodityLineDetails.shippingWeight}}</td>
+                        <td class="block data"></td>
+                        <td class="block data detailCol6">{{commodity.commodityLineDetails.valueofGoods}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </table>
+</div>
+</div> 
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" *ngIf="printView" (click)="print()">Print</button>
+</div>

@@ -27,7 +27,7 @@ export class ShipmentComponent implements OnInit {
     ngOnInit() {
         var country = "United States";
         this.lookupService.states(country)
-            .subscribe((data) => { this.states = data },
+            .subscribe((data) => { this.states = data ; },
                 (err) => { console.log(err); }
             );
         this.inboundList = MasterData.InbondCodeList;
