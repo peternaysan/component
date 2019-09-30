@@ -223,7 +223,7 @@
                         <tr>
                             <td class="col1"></td>
                             <td class="col2 data"> 
-                                    {{PrintView.states.displayName}}
+                                    {{PrintViewData.states.displayName}}
                             </td>
                             <td class="col1"></td>
                             <td class="col4 data"> 
@@ -407,10 +407,10 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <tr style="vertical-align: top" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
-                        <td style="width: 2%; padding:5px;" class="block">{{index+1}}</td>
-                        <td class="block data"  style="width: 3%; padding:5px;">{{commodity.commodityLineDetails.originofGoods}}</td>
-                        <td class="block data" style="width: 40%; padding:5px;">
+                    <tr class="trverticaltop" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
+                        <td class="block detailCol1">{{index+1}}</td>
+                        <td class="block data detailCol2">{{commodity.commodityLineDetails.originofGoods}}</td>
+                        <td class="block data detailCol3">
                             <div>
                                 <div>{{commodity.commodityLineDetails.commodityDescription}}</div>
 
@@ -425,13 +425,13 @@
                                 <div>LICENSE CODE : {{commodity.licenseDetails.licenseExemptionCode}} </div>
                             </div>
                         </td>
-                        <td class="block data" style="width: 5%; text-align: right; padding:5px;">
+                        <td class="block data detailCol4">
                             {{commodity.commodityLineDetails.quantity1}}
                             {{commodity.commodityLineDetails.quantity1Uom == 'X' ? '' : commodity.commodityLineDetails.quantity1Uom}}
                         </td>
-                        <td class="block data" style="width: 10%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.shippingWeight}}</td>
+                        <td class="block data detailCol5">{{commodity.commodityLineDetails.shippingWeight}}</td>
                         <td class="block data"></td>
-                        <td class="block data" style="width: 20%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.valueofGoods}}</td>
+                        <td class="block data detailCol6">{{commodity.commodityLineDetails.valueofGoods}}</td>
                     </tr>
                 </tbody>
             </table>

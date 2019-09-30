@@ -10,7 +10,7 @@ import { PrintView } from '../shared/interface/print-view.interface';
 
 export class PrintViewEeiComponent implements OnInit {
     @Input() aes;
-    @Input() PrintView: PrintView;
+    @Input() PrintViewData: PrintView;
     UsppiParty: any;
     UltimateParty: any;
     ForwardingAgentParty: any;

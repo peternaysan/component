@@ -30,6 +30,7 @@
     margin-right: 0px;
     width: 100%;
     page-break-inside: auto;
+    
     thead th{
         background-color: whitesmoke;
         vertical-align: top;
@@ -44,6 +45,36 @@
         font-size: 10pt;
         display:table-footer-group;
     }
+}
+.trverticaltop{
+    vertical-align: top;
+}
+.detailCol1{
+    width: 2%; 
+    padding:5px;
+}
+.detailCol2{
+    width: 3%; 
+    padding:5px;
+}
+.detailCol3{
+    width: 40%; 
+    padding:5px;
+}
+.detailCol4{
+    width: 5%; 
+    padding:5px;
+    text-align: right;
+}
+.detailCol5{
+    width: 10%; 
+    padding:5px;
+    text-align: right;
+}
+.detailCol6{
+    width: 20%; 
+    padding:5px;
+    text-align: right;
 }
 .topmargin{
      margin-top: 5px;

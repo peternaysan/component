@@ -23,7 +23,7 @@ export class AppComponent {
   title = 'aes-component';
   aesId;
   aes;
-  printView: PrintView;
+  printViewData: PrintView;
   states: States;
   originStates: any = [];
   activeMenu = "Shipment";
@@ -137,7 +137,7 @@ export class AppComponent {
     .subscribe((data) => { this.originStates = data;
       this.states = this.originStates.filter(state => state.code.toLocaleLowerCase().indexOf
                                                         (this.aes.shipmentHeader.originState.toLocaleLowerCase()) !== -1)[0];
-                                                        this.printView = {states: this.states};
+                                                        this.printViewData = {states: this.states};
                           },
 
         (err) => { console.log(err); }

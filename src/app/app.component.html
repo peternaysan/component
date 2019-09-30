@@ -1,7 +1,7 @@
 <dashboard *ngIf="!loading && !aes"></dashboard>
 <aes-print-view *ngIf="isPrintView && selectedOption=='PrintView'" (closeClick)="togglePrint()" [aes]="aesPrintView" [printView]=true></aes-print-view>
 
-<aes-print-view-eei *ngIf="isPrintView && selectedOption=='EEI'" (closeClick)="togglePrint()" [aes]="aesPrintView" [PrintView]="printView" [printView]=true></aes-print-view-eei>
+<aes-print-view-eei *ngIf="isPrintView && selectedOption=='EEI'" (closeClick)="togglePrint()" [aes]="aesPrintView" [PrintViewData]="printViewData" [printView]=true></aes-print-view-eei>
 
 <div class="page" *ngIf="aes && !isPrintView">
   <div class="header-flex">   
