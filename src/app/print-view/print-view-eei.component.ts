@@ -1,6 +1,6 @@
 import { Input, Output, EventEmitter, Component, OnInit } from '@angular/core';
 import { MasterData } from './../shared/master-data';
-import { PrintView } from '../shared/print-view.interface';
+import { PrintView } from '../shared/interface/print-view.interface';
 
 @Component({
     selector: 'aes-print-view-eei',

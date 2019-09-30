@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 import { PrintViewEeiComponent } from './print-view/print-view-eei.component';
 import { LookupService } from './services/lookup.service';
-import { PrintView, States } from './shared/print-view.interface';
+import { PrintView, States } from './shared/interface/print-view.interface';
 
 @Component({
   selector: 'app-root',
