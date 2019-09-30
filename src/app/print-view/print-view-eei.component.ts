@@ -1,6 +1,6 @@
 import { Input, Output, EventEmitter, Component, OnInit } from '@angular/core';
 import { MasterData } from './../shared/master-data';
-import { LookupService } from '../services/lookup.service';
+import { PrintView } from '../shared/print-view.interface';
 
 @Component({
     selector: 'aes-print-view-eei',
@@ -10,6 +10,7 @@ import { LookupService } from '../services/lookup.service';
 
 export class PrintViewEeiComponent implements OnInit {
     @Input() aes;
+    @Input() PrintView: PrintView;
     UsppiParty: any;
     UltimateParty: any;
     ForwardingAgentParty: any;
@@ -21,6 +22,7 @@ export class PrintViewEeiComponent implements OnInit {
     country: any = [];
     states: any = [];
     portOfUnlading: string;
+    portOfExport: string;
     modeOfTransport: string;
     aesUsppiParty: any;
     countryName: string;
@@ -32,8 +34,10 @@ export class PrintViewEeiComponent implements OnInit {
     intermediatePartyNameAddress: string;
     dateofExportation: Date;
     currentDate: Date;
+    shipmentStatus: string;
+    consigneeType: string;
 
-    constructor(private lookupService: LookupService) {
+    constructor() {
     }
 
     ngOnInit(): void {
@@ -50,19 +54,14 @@ export class PrintViewEeiComponent implements OnInit {
                 party.partyType.toLocaleLowerCase().indexOf('i') !== -1)[0];
 
         // tslint:disable-next-line: max-line-length
-        this.intermediatePartyNameAddress = this.IntermediateParty ? this.IntermediateParty.partyName + '\n' + this.IntermediateParty.addressLine1 + ',' +
-        this.IntermediateParty.city + ',' + this.IntermediateParty.stateCode + ',' + this.IntermediateParty.postalCode : '';
+        this.intermediatePartyNameAddress = this.IntermediateParty ? (this.IntermediateParty.partyName + '\n' + this.IntermediateParty.addressLine1 + ',' +
+        this.IntermediateParty.city + (this.IntermediateParty.stateCode ? ', ' + this.IntermediateParty.stateCode : '')
+         +
+        (this.IntermediateParty.postalCode ? ' ' + this.IntermediateParty.postalCode : ''))
+        + ', ' + this.IntermediateParty.countryCode : '';
         this.country = MasterData.countryList;
         this.countryName = MasterData.countryList.filter(country =>
             country.code.indexOf(this.aes.shipmentHeader.ultimateDestinationCountry) !== -1)[0].name;
-
-        const country = 'United States';
-        this.lookupService.states(country)
-            .subscribe((data) => { this.states = data; },
-                (err) => { console.log(err); }
-            );
-        this.stateOfOrigin = this.states.filter(states =>
-            states.Code.indexOf(this.aes.shipmentHeader.originState) !== -1);
 
         this.modeOfTransport = MasterData.ModeOfTransportList.filter(mot =>
             mot.id.indexOf(this.aes.transportation.modeofTransport) !== -1)[0].name;
@@ -70,10 +69,14 @@ export class PrintViewEeiComponent implements OnInit {
         this.portOfUnlading = this.aes.shipmentHeader.portofUnlading ? MasterData.portOfUnlading.filter(unlad =>
             unlad.code.indexOf(this.aes.shipmentHeader.portofUnlading) !== -1)[0].name : '';
 
+        this.portOfExport = this.aes.shipmentHeader.portofExportation ? MasterData.portOfExport.filter(unlad =>
+                              unlad.code.indexOf(this.aes.shipmentHeader.portofExportation) !== -1)[0].name : '';
+
         this.inboundCode = MasterData.InbondCodeList.filter(inb =>
             inb.id.indexOf(this.aes.shipmentHeader.inbondCode) !== -1)[0].name;
         this.filerNameAddress = this.ForwardingAgentParty.partyName + '\n' + this.ForwardingAgentParty.addressLine1 + ',' +
-        this.ForwardingAgentParty.city + ',' + this.ForwardingAgentParty.stateCode + ',' + this.ForwardingAgentParty.postalCode;
+        this.ForwardingAgentParty.city + ',' + this.ForwardingAgentParty.stateCode + ' ' + this.ForwardingAgentParty.postalCode
+        + ', ' + this.ForwardingAgentParty.countryCode;
 
         this.submittedOn = new Date(this.aes.submittedOn);
         const dateParts = this.aes.shipmentHeader.estimatedExportDate.split("/");
@@ -81,6 +84,16 @@ export class PrintViewEeiComponent implements OnInit {
 
         const dateObject = new Date(+dateParts[2], dateParts[1] - 1, +dateParts[0]);
         this.dateofExportation = dateObject;
+
+        this.shipmentStatus = this.aes.submissionResponse.customsResponseList ?
+                                this.aes.submissionResponse.customsResponseList.filter(status =>
+                                status.narrativeText.toLocaleLowerCase().indexOf(
+                                this.aes.submissionStatusDescription.toLocaleLowerCase()) !== -1)[0]
+                                .responseCode + ':' + this.aes.submissionStatusDescription
+                                : '';
+
+        this.consigneeType = MasterData.ultimateConsigneeType.filter(type =>
+            type.id.indexOf(this.UltimateParty.ultimateConsigneeType) !== -1)[0].name;
     }
 
     close() {

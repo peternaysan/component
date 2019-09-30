@@ -6,25 +6,17 @@
 
 <div id="header">
     <table>
-<tr>
-    <td style="text-align: left;">
-        {{currentDate | date : 'yyyy-MM-dd'}}
-    </td>
-</tr>
         <tr>
-            <td style="text-align: center; font-size: 10pt">
-                Sensitive Information
+            <td style="text-align: left;">
+                {{currentDate | date : 'yyyy-MM-dd'}}
             </td>
         </tr>
+                <tr>
+                    <td style="text-align: center; font-size: 10pt">
+                        Sensitive Information
+                    </td>
+                </tr>
     </table>
-    <!-- <ul>
-        <li style="text-align: left;">
-              current date
-        </li>
-        <li>
-            Sensitive Information
-        </li>
-    </ul> -->
 </div>
 <div>
     <div id="printbox">
@@ -39,7 +31,7 @@
                             <td class="header">ITN : {{aes.shipmentHeader.originalItn}}</td>
                         </tr>
                         <tr>
-                            <td class="header">XTN:-{{aes.shipmentHeader.shipmentReferenceNumber}}</td>
+                            <td class="header">XTN: 272143944-{{aes.shipmentHeader.shipmentReferenceNumber}}</td>
                             
                         </tr>
                         <tr>
@@ -52,7 +44,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="header left block">NOTIFICATION : {{aes.submissionResponse.ResponseCode}}{{aes.submissionStatusDescription}}</td>
+                <td class="header left block">NOTIFICATION : {{shipmentStatus}}</td>
             </tr>
             <tr>
                 <td class="block">
@@ -132,11 +124,15 @@
                         <tr>
                             <td class="col1"> </td>
                             <td class="col2 data">
-                                {{ submittedOn | date : 'yyyy-MM-dd'}}
+                                <li style="display: inline-block;">
+                                    {{ (aes.submittedOn !== null) ? (submittedOn | date : 'yyyy-MM-dd') : ''}}
+                                </li>
                             </td>
                             <td class="col1"> </td>
                             <td class="col4 data">
-                                {{ submittedOn | date : 'yyyy-MM-dd'}}
+                                <li style="display: inline-block;">
+                                    {{ (aes.submittedOn !== null) ? (submittedOn | date : 'yyyy-MM-dd') : ''}}
+                                </li>
                             </td>
                         </tr>
                     </table>
@@ -163,7 +159,7 @@
                         </tr>
                         <tr>
                             <td class="col1"> </td>
-                            <td class="col2 data">{{aes.shipmentHeader.shipmentReferenceNumber}}  </td>
+                            <td class="col2 data">{{aes.transportation.transportationDetails[0].transportationReferenceNumber}}  </td>
                             <td class="col1"> </td>
                             <td class="col4"> </td>
                         </tr>
@@ -186,13 +182,14 @@
                                                 {{UltimateParty.city}}, 
                                                 {{UltimateParty.stateCode}} {{UltimateParty.postalCode}}, 
                                                 {{UltimateParty.countryCode}} <br>
-                                                ULTIMATE CONSIGNEE TYPE : {{UltimateParty.ultimateConsigneeType}} - {{UltimateParty.ultimateConsigneeType == 'D' ? 'D - DIRECT CONSUMER' : ''}}</td>
+                                                ULTIMATE CONSIGNEE TYPE : {{UltimateParty.ultimateConsigneeType }} - {{consigneeType}}</td>
                             <td class="col1"> </td>
                             <td class="col4 data"> 
                                 {{ForwardingAgentParty.partyName}}<br>
                                 {{ForwardingAgentParty.addressLine1}},
                                 {{ForwardingAgentParty.city}},
                                 {{ForwardingAgentParty.stateCode}} {{ForwardingAgentParty.postalCode}}
+                                {{ ', ' + UltimateParty.countryCode}} 
                             </td>
                         </tr> 
                         <tr style="height: 5px"></tr>
@@ -204,7 +201,7 @@
                         </tr>
                         <tr>
                             <td class="col1"> </td>
-                            <td class="col2 data">{{intermediatePartyAddress}}
+                            <td class="col2 data" style="white-space: pre-wrap;">{{intermediatePartyNameAddress}}
                             </td>
                             <td class="col1"> </td>
                             <td class="col2 data"> 
@@ -226,7 +223,7 @@
                         <tr>
                             <td class="col1"></td>
                             <td class="col2 data"> 
-                                    TX-TEXAS
+                                    {{PrintView.states.displayName}}
                             </td>
                             <td class="col1"></td>
                             <td class="col4 data"> 
@@ -243,7 +240,7 @@
                             <td class="col1">8.</td>
                             <td class="col2">METHOD OF TRANSPORTATION</td>
                             <td class="col1">9.</td>
-                            <td class="col4">EXPORTATION CARRIER/CONVEYANCE NAME</td>
+                            <td class="col4">EXPORTING CARRIER/CONVEYANCE NAME</td>
                         </tr>
                         <tr>
                             <td class="col1"></td>
@@ -260,23 +257,37 @@
             </tr>
             <tr>
                 <td class="block">
-                    <table class="bodyplanetable">
+                   <table class="bodyplanetable">
                         <tr>
                             <td class="col1">10.</td>
                             <td class="col2">PORT OF EXPORT</td>
-                            <td class="col1">11.</td>
-                            <td class="col4" colspan="2">
+                            <td class="col1">11. </td>
+                            <td class="col4">
                                 <table class="bodyplanetable">
                                     <tr>
-                                        <td style="text-align: left">PORT OF UNLADING</td>
-                                        <td>12. CONTAINERIZED (Vessel Only)</td>
+                                        <td>
+                                           PORT OF UNLADING
+                                        </td>
+                                        <td>
+                                            12. CONTAINERIZED (Vessel Only)
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col1"></td>
+                            <td class="col2 data">{{aes.shipmentHeader.portofExportation}} - {{portOfExport}} </td>
+                            <td class="col1"></td>
+                            <td class="col4">
+                                <table class="bodyplanetable">
                                     <tr>
                                         <td class="data">
                                             {{aes.shipmentHeader.portofUnlading}} - {{portOfUnlading}}
                                         </td>
-                                        <td></td>
+                                        <td>
+                                        </td>
                                     </tr>
-                                    </tbody>
                                 </table>
                             </td>
                         </tr>
@@ -312,11 +323,12 @@
                             <td class="col1">15.</td>
                             <td class="col2"> ENTRY NUMBER </td>
                             <td class="col1">16.</td>
-                            <td class="col4">HARZARDOUS MATERIALS</td>
+                            <td class="col4">HAZARDOUS MATERIALS</td>
                         </tr>
                         <tr>
                             <td class="col1"></td>
                             <td class="col2 data"> 
+                                
                             </td>
                             <td class="col1"></td>
                             <td class="col4 data"> 
@@ -342,7 +354,7 @@
                             </td>
                             <td class="col1"></td>
                             <td class="col4 data"> 
-                                {{aes.shipmentHeader.hazmatIndicator == 'Y' ? 'YES' : 'NO'}}
+                                {{aes.shipmentHeader.originalItn}}
                             </td>
                         </tr>
                     </table>
@@ -370,13 +382,14 @@
                 </td>
             </tr>
             
+            <table class="topmargin">
+                <thead>
+                        <th class="leftborder rightborder">20. SCH B/HTS DESCRIPTION of COMMODITIES</th>
+                </thead>
+            </table>
+
             <table class="detailplanetable">
                 <thead>
-                    <tr>
-                        <th colspan="7" class="block leftborder">
-                            20. SCH B/HTS DESCRIPTION of COMMODITIES 
-                        </th>
-                    </tr>
                     <th class="block leftborder">a. LINE SEQ NBR</th>
                     <th class="block">b. D/F</th>
                     <th class="block">c. SCHEDULE B/HTS NUMBER</th>
@@ -385,48 +398,46 @@
                     <th class="block">f. VIN/PRODUCT NUMBER/VEHICLE TITLE NUMBER</th>
                     <th class="block rightnoborder">g. VALUE (U.S. Dollars, omit cents) Selling price or cost if not sold</th>
                 </thead>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">Sensitive Information</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">Do not submit printout to Customs</td>
+                    </tr>
+                </tfoot>
                 <tbody>
-                        <tr style="vertical-align: top" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
-                            <td style="width: 2%; padding:5px;" class="block">{{index+1}}</td>
-                            <td class="block data"  style="width: 3%; padding:5px;">{{commodity.commodityLineDetails.originofGoods}}</td>
-                            <td class="block data" style="width: 40%; padding:5px;">
-                                <div>
-                                    <div>{{commodity.commodityLineDetails.commodityDescription}}</div>
+                    <tr style="vertical-align: top" *ngFor="let commodity of aes.commodityDetails; trackBy: trackByFn; let index=index;">
+                        <td style="width: 2%; padding:5px;" class="block">{{index+1}}</td>
+                        <td class="block data"  style="width: 3%; padding:5px;">{{commodity.commodityLineDetails.originofGoods}}</td>
+                        <td class="block data" style="width: 40%; padding:5px;">
+                            <div>
+                                <div>{{commodity.commodityLineDetails.commodityDescription}}</div>
 
-                                    <br>
-                                    
-                                    <div>EXPORT INFO CODE : {{commodity.commodityLineDetails.exportInformationCode}}</div>
-                                    <div>HTS : {{commodity.commodityLineDetails.htsNumber}}</div>
-                                    
-                                    <br>
+                                <br>
+                                
+                                <div>EXPORT INFO CODE : {{commodity.commodityLineDetails.exportInformationCode}}</div>
+                                <div>HTS : {{commodity.commodityLineDetails.htsNumber}}</div>
+                                
+                                <br>
 
-                                    <div>LICENSE NUMBER : {{commodity.licenseDetails.exportLicenseNumber}}</div>
-                                    <div>LICENSE CODE : {{commodity.licenseDetails.licenseExemptionCode}} </div>
-                                </div>
-                            </td>
-                            <td class="block data" style="width: 5%; text-align: right; padding:5px;">
-                                {{commodity.commodityLineDetails.quantity1}}
-                                {{commodity.commodityLineDetails.quantity1Uom == 'X' ? '' : commodity.commodityLineDetails.quantity1Uom}}
-                            </td>
-                            <td class="block data" style="width: 10%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.shippingWeight}}</td>
-                            <td class="block data"></td>
-                            <td class="block data" style="width: 20%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.valueofGoods}}</td>
-                        </tr>
+                                <div>LICENSE NUMBER : {{commodity.licenseDetails.exportLicenseNumber}}</div>
+                                <div>LICENSE CODE : {{commodity.licenseDetails.licenseExemptionCode}} </div>
+                            </div>
+                        </td>
+                        <td class="block data" style="width: 5%; text-align: right; padding:5px;">
+                            {{commodity.commodityLineDetails.quantity1}}
+                            {{commodity.commodityLineDetails.quantity1Uom == 'X' ? '' : commodity.commodityLineDetails.quantity1Uom}}
+                        </td>
+                        <td class="block data" style="width: 10%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.shippingWeight}}</td>
+                        <td class="block data"></td>
+                        <td class="block data" style="width: 20%; text-align: right; padding:5px;">{{commodity.commodityLineDetails.valueofGoods}}</td>
+                    </tr>
                 </tbody>
             </table>
         </table>
 </div>
 </div> 
-<div id="header">
-    <ul>
-        <li>
-            Sensitive Information
-        </li>
-        <li>
-            Do not submit printout to Customs
-        </li>
-    </ul>
-</div>
-<div align="right" style="margin-right:5%;">
+<div class="modal-footer">
     <button type="button" class="btn btn-primary" *ngIf="printView" (click)="print()">Print</button>
 </div>

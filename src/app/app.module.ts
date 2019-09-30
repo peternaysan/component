@@ -26,7 +26,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AesService } from '../app/services/aes.service';
 import { LookupService } from '../app/services/lookup.service';
 import { PrintViewEeiComponent } from './print-view/print-view-eei.component';
-import { ReplacePipe } from './shared/replace.pipe';
 
 
 @NgModule({
@@ -42,8 +41,7 @@ import { ReplacePipe } from './shared/replace.pipe';
     PrintViewEeiComponent,
     ErrorDetailComponent,
     AesLoaderComponent,
-    DashboardComponent,
-    ReplacePipe
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
