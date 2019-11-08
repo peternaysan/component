@@ -280,12 +280,12 @@ export class MasterData {
                 "code": "CY"
             },
             {
-                "name": "Czech Republic",
-                "code": " The"
+                "name": "Czech Republic, The",
+                "code": "CZ"
             },
             {
-                "name": "Germany",
-                "code": " Federal Republic of"
+                "name": "Germany, Federal Republic of",
+                "code": "DE"
             },
             {
                 "name": "Djibouti",
@@ -348,8 +348,8 @@ export class MasterData {
                 "code": "FK"
             },
             {
-                "name": "Micronesia",
-                "code": " Federal States of"
+                "name": "Micronesia, Federal States of",
+                "code": "FM"
             },
             {
                 "name": "Faroe Islands",
@@ -392,8 +392,8 @@ export class MasterData {
                 "code": "GL"
             },
             {
-                "name": "Gambia",
-                "code": " The"
+                "name": "Gambia, The",
+                "code": "GM"
             },
             {
                 "name": "Guinea",
@@ -956,8 +956,8 @@ export class MasterData {
                 "code": "TW"
             },
             {
-                "name": "Tanzania",
-                "code": " United Republic of"
+                "name": "Tanzania, United Republic of",
+                "code": "TZ"
             },
             {
                 "name": "Ukraine",
@@ -1024,8 +1024,8 @@ export class MasterData {
                 "code": "WS"
             },
             {
-                "name": "Yemen",
-                "code": " Republic of"
+                "name": "Yemen,Republic of",
+                "code": "YE"
             },
             {
                 "name": "Mayotte",
