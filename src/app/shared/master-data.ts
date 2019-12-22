@@ -12864,7 +12864,7 @@ export class MasterData {
         return [
             { "code": "X", "name": "No Unit Required" },
             { "code": "L", "name": "Liter" },
-            { "code": "T", "name": "Tones" },
+            { "code": "T", "name": "Tons" },
             { "code": "G", "name": "Grams" },
             { "code": "M", "name": "Meter" },
             { "code": "M2", "name": "Square Meter" },
